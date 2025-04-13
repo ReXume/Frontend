@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-
 function BannerCard() {
   const router = useRouter();
 
@@ -37,7 +36,9 @@ function BannerCard() {
 
       <div className="bg-indigo-500 rounded-2xl p-8 text-white flex flex-col md:flex-row items-center">
         <div className="flex-1">
-          <h2 className="text-2xl font-bold mb-2">이력서 피드백이 필요할 때?</h2>
+          <h2 className="text-2xl font-bold mb-2">
+            이력서 피드백이 필요할 때?
+          </h2>
           <p className="text-sm text-indigo-100 mb-6">
             이력서를 등록하고 피드백을 받을 수 있습니다.
           </p>

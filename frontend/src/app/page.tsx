@@ -3,25 +3,27 @@ import Category from "@/components/common/Category";
 import BannerCard from "@/components/main/BannerCard";
 import CareerModal from "@/components/modal/CareerModal";
 import PositionModal from "@/components/modal/PositionModal";
+import useResumeStore from "@/store/ResumeStore";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function Home() {
   // const router = useRouter();
-  // const { setResumeId } = useResumeStore();
+  const { setResumeId } = useResumeStore();
 
-  // const moveToResume = async (resumeId: number) => {
-  //   try {
-  //     // const response = await viewResume(resumeId);
-  //     // setResumeId(response.resume_id);
-  //     router.push(`/feedback/${response.resume_id}`);
-  //     return response;
-  //   } catch (error) {
-  //     console.error("이력서 조회 오류:", error);
-  //     throw error;
-  //   }
-  // };
+  const moveToResume = async (resumeId: number) => {
+    try {
+      // const response = await viewResume(resumeId);
+      // setResumeId(response.resume_id);
+      // router.push(`/feedback/${response.resume_id}`);
+      // router.push(`/feedback/1`);
+      // return response;
+    } catch (error) {
+      console.error("이력서 조회 오류:", error);
+      throw error;
+    }
+  };
 
   // 정렬 옵션 상태: "최신순"(최신 데이터) / "조회순"(인기 데이터)
   const [sortOption, setSortOption] = useState("최신순");
