@@ -1,15 +1,14 @@
-"use client";
 import { useState, useEffect } from "react";
 import { Search, User } from "lucide-react";
 import { useRouter } from "next/navigation";
-import useAuthStore from "@/store/authStore";
-import useSearchStore from "@/store/SearchStore";
+import useSearchStore from "../../store/SearchStore";
+import authStore from "../../store/authStore";
 
-export default function Navbar() {
+function Navbar() {
   const router = useRouter();
   const [searchText, setSearchText] = useState<string>("");
   const { setSearchName } = useSearchStore();
-  const { checkAuth, userData, isAuthenticated } = useAuthStore();
+  const { checkAuth, userData, isAuthenticated } = authStore();
 
   useEffect(() => {
     checkAuth();
@@ -37,8 +36,8 @@ export default function Navbar() {
       setSearchName(searchText);
       router.push(`/search?user_name=${searchText}`);
     } catch (error) {
-      alert("검색 실패");
-      console.error(error);
+      alert("검색 실패 ");
+      console.log(error);
     }
   };
 
@@ -108,3 +107,5 @@ export default function Navbar() {
     </header>
   );
 }
+
+export default Navbar;
