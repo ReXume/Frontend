@@ -3,9 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { GoogleLogin, GithubLogin } from "@/api/auth";
-import GoogleImg from "../assets/GoogleLogin.webp";
-import GithubImg from "../assets/GithubLogin.webp";
-import loginText from "../assets/loginText.webp";
+import GoogleImg from "@/assets/GoogleLogin.webp";
+import GithubImg from "@/assets/GithubLogin.webp";
+import loginText from "@/assets/loginText.webp";
 
 const LoginPage: React.FC = () => {
   return (
