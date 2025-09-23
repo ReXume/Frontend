@@ -6,6 +6,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Bookmark, BookmarkMinus } from "lucide-react";
 import ResumeOverview from "@/components/feedback/ResumeOverview";
+import { useBookmarkStore } from "@/store/BookmarkStore";
+import { deleteBookmarkById, getBookmarkById, postBookmark } from "@/api/bookMarkApi";
+import CommentSection from "@/components/comment_old/CommentSection";
+import MainContainer from "@/components/resumeoverview_old/MainContainer";
+import Swal from "sweetalert2";
+import { getResumeApi } from "@/api/feedbackApi";
+
 
 export default function FeedbackPage() {
   const router = useRouter();
@@ -17,74 +24,74 @@ export default function FeedbackPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { setResumeUrl } = useResumeStore();
-  // const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
+  const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
 
-  // useEffect(() => {
-  //   if (!router.isReady) return; // 라우터 준비 전에는 실행하지 않음
-  //   const fetchData = async () => {
-  //     if (!resumeId) {
-  //       setError("Resume ID is missing.");
-  //       return;
-  //     }
-  //     try {
-  //       setLoading(true);
-  //       setError(null);
-  //       const data = await getResumeApi(resumeId);
-  //       setResumeData(data);
-  //       setFeedbackPoints(data.feedbackResponses || []);
-  //       setResumeUrl(data.fileUrl);
+  useEffect(() => {
+    if (!router.isReady) return; // 라우터 준비 전에는 실행하지 않음
+    const fetchData = async () => {
+      if (!resumeId) {
+        setError("Resume ID is missing.");
+        return;
+      }
+      try {
+        setLoading(true);
+        setError(null);
+        const data = await getResumeApi(resumeId);
+        setResumeData(data);
+        setFeedbackPoints(data.feedbackResponses || []);
+        setResumeUrl(data.fileUrl);
 
-  //       const userId = 1; // 예시 사용자 ID
-  //       const bookmarksData = await getBookmarkById(userId);
-  //       setBookmarks(bookmarksData.result || []);
-  //     } catch (error) {
-  //       console.error(error);
-  //       setError("Error fetching resume data.");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [router.isReady, resumeId, setResumeUrl, setBookmarks]);
+        const userId = 1; // 예시 사용자 ID
+        const bookmarksData = await getBookmarkById(userId);
+        setBookmarks(bookmarksData.result || []);
+      } catch (error) {
+        console.error(error);
+        setError("Error fetching resume data.");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [router.isReady, resumeId, setResumeUrl, setBookmarks]);
 
-  // const toggleBookmark = async () => {
-  //   if (!resumeId) {
-  //     setError("Resume ID is missing.");
-  //     return;
-  //   }
-  //   try {
-  //     const existingBookmark = bookmarks.find(
-  //       (bk) => bk.resume_id === resumeId
-  //     );
-  //     if (existingBookmark) {
-  //       await deleteBookmarkById(existingBookmark.bookmark_id);
-  //       setBookmarks(
-  //         bookmarks.filter(
-  //           (bk) => bk.bookmark_id !== existingBookmark.bookmark_id
-  //         )
-  //       );
-  //       Swal.fire({
-  //         icon: "success",
-  //         title: "북마크가 해제되었습니다.",
-  //         confirmButtonText: "확인",
-  //       });
-  //     } else {
-  //       const newBookmark = await postBookmark(resumeId);
-  //       setBookmarks([...bookmarks, newBookmark]);
-  //       Swal.fire({
-  //         icon: "success",
-  //         title: "북마크가 추가되었습니다.",
-  //         confirmButtonText: "확인",
-  //       });
-  //     }
-  //   } catch {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "북마크 상태를 변경할 수 없습니다. 다시 시도해주세요.",
-  //       confirmButtonText: "확인",
-  //     });
-  //   }
-  // };
+  const toggleBookmark = async () => {
+    if (!resumeId) {
+      setError("Resume ID is missing.");
+      return;
+    }
+    try {
+      const existingBookmark = bookmarks.find(
+        (bk) => bk.resume_id === resumeId
+      );
+      if (existingBookmark) {
+        await deleteBookmarkById(existingBookmark.bookmark_id);
+        setBookmarks(
+          bookmarks.filter(
+            (bk) => bk.bookmark_id !== existingBookmark.bookmark_id
+          )
+        );
+        Swal.fire({
+          icon: "success",
+          title: "북마크가 해제되었습니다.",
+          confirmButtonText: "확인",
+        });
+      } else {
+        const newBookmark = await postBookmark(resumeId);
+        setBookmarks([...bookmarks, newBookmark]);
+        Swal.fire({
+          icon: "success",
+          title: "북마크가 추가되었습니다.",
+          confirmButtonText: "확인",
+        });
+      }
+    } catch {
+      Swal.fire({
+        icon: "error",
+        title: "북마크 상태를 변경할 수 없습니다. 다시 시도해주세요.",
+        confirmButtonText: "확인",
+      });
+    }
+  };
 
   // const handleAiFeedback = async () => {
   //   setLoading(true);
@@ -142,7 +149,7 @@ export default function FeedbackPage() {
   // if (error) return <ErrorMessage message={error} />;
   // if (!resumeData) return <div>No resume data available.</div>;
 
-  // const bookmarked = isBookmarked(resumeId);
+  const bookmarked = isBookmarked(resumeId);
 
   return (
     <div className="flex flex-col flex-grow bg-[#F9FAFB]">
