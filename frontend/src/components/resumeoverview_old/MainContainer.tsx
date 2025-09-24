@@ -1,6 +1,7 @@
 import ResumePageGroup from "./ResumePageGroup";
-import Footer from "./Footer.tsx";
-import { AddFeedbackPoint, FeedbackPoint } from "../../types.ts";
+import Footer from "./Footer";
+import { FeedbackPoint } from "@/types/FeedbackPointType";
+import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
 type MainContainerProps = {
   feedbackPoints: FeedbackPoint[];
@@ -16,9 +17,9 @@ type MainContainerProps = {
 
 function MainContainer({
   feedbackPoints,
-  addFeedbackPoint,
-  deleteFeedbackPoint,
-  editFeedbackPoint,
+  // addFeedbackPoint,
+  // deleteFeedbackPoint,
+  // editFeedbackPoint,
   hoveredCommentId,
   setHoveredCommentId,
   laterResumeId,
@@ -35,9 +36,9 @@ function MainContainer({
         <ResumePageGroup
           // pages={1} // Adjust 'pages' to the number of resume pages
           feedbackPoints={feedbackPoints}
-          addFeedbackPoint={addFeedbackPoint}
-          deleteFeedbackPoint={deleteFeedbackPoint}
-          editFeedbackPoint={editFeedbackPoint}
+          // addFeedbackPoint={addFeedbackPoint}
+          // deleteFeedbackPoint={deleteFeedbackPoint}
+          // editFeedbackPoint={editFeedbackPoint}
           hoveredCommentId={hoveredCommentId}
           setHoveredCommentId={setHoveredCommentId}
           setClickedCommentId={setClickedCommentId}

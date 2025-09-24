@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
-import { AddFeedbackPoint, FeedbackPoint } from "../../types.ts";
-import useResumeStore from "../../store/ResumeStore.ts";
-import PDF from "./PDF.tsx";
-import PDFViewer from "./PDFViewer.tsx";
+import useResumeStore from "@/store/ResumeStore";
+import PDFViewer from "./PDFViewer";
+import { FeedbackPoint } from "@/types/FeedbackPointType.js";
+import { AddFeedbackPoint } from "@/types/AddFeedbackPointType.js";
 
 type ResumePageProps = {
   pageNumber: number;
   feedbackPoints: FeedbackPoint[];
-  addFeedbackPoint: (point: Omit<AddFeedbackPoint, "id">) => void;
-  deleteFeedbackPoint: (id: number) => void;
-  editFeedbackPoint: (item: AddFeedbackPoint) => void;
+  // addFeedbackPoint: (point: Omit<AddFeedbackPoint, "id">) => void;
+  // deleteFeedbackPoint: (id: number) => void;
+  // editFeedbackPoint: (item: AddFeedbackPoint) => void;
   hoveredCommentId: number | null;
   setHoveredCommentId: (id: number | null) => void;
   setClickedCommentId: (id: number | null) => void;
@@ -18,8 +18,8 @@ type ResumePageProps = {
 function ResumePage({
   pageNumber,
   feedbackPoints,
-  addFeedbackPoint,
-  editFeedbackPoint,
+  // addFeedbackPoint,
+  // editFeedbackPoint,
   hoveredCommentId,
   setHoveredCommentId,
   setClickedCommentId,
@@ -50,12 +50,12 @@ function ResumePage({
 
   const handleAddSubmit = (comment: string) => {
     if (addingFeedback) {
-      addFeedbackPoint({
-        pageNumber: addingFeedback.pageNumber,
-        xCoordinate: addingFeedback.x,
-        yCoordinate: addingFeedback.y,
-        content: comment,
-      });
+      // addFeedbackPoint({
+      //   pageNumber: addingFeedback.pageNumber,
+      //   xCoordinate: addingFeedback.x,
+      //   yCoordinate: addingFeedback.y,
+      //   content: comment,
+      // });
       setAddingFeedback(null);
     }
   };
@@ -63,7 +63,7 @@ function ResumePage({
   const handleEditSubmit = () => {
     if (editingFeedback) {
       const updatedPoint: AddFeedbackPoint = { ...editingFeedback };
-      editFeedbackPoint(updatedPoint);
+      // editFeedbackPoint(updatedPoint);
       setEditingFeedback(null);
     }
   };
@@ -85,8 +85,8 @@ function ResumePage({
         <PDFViewer
           pdfSrc={ResumeUrl}
           pageNumber={pageNumber}
-          addFeedbackPoint={addFeedbackPoint}
-          editFeedbackPoint={editFeedbackPoint}
+          // addFeedbackPoint={addFeedbackPoint}
+          // editFeedbackPoint={editFeedbackPoint}
           feedbackPoints={feedbackPoints}
           hoveredCommentId={hoveredCommentId}
           setHoveredCommentId={setHoveredCommentId}

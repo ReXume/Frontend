@@ -21,7 +21,7 @@ const PDFViewer = ({
     const loadPdf = async () => {
       const loadingTask = pdfjsLib.getDocument(pdfSrc);
       const loadedPdf = await loadingTask.promise;
-      setPdf(loadedPdf);
+      // setPdf(loadedPdf);
       setNumPages(loadedPdf.numPages);
     };
     loadPdf();
