@@ -11,11 +11,11 @@ export default async function FeedbackPage({
     return null;
   }
   const [resumeRes, bookmarksRes] = await Promise.all([
-    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/resumes/${resumeId}`, {
+    fetch(`http://localhost:3000/api/resumes/${resumeId}`, {
       cache: "no-store",
       headers: { cookie: (await cookies()).toString() },
     }),
-    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/bookmarks/users/1`, {
+    fetch(`http://localhost:3000/api/bookmarks/users/1`, {
       cache: "no-store",
       headers: { cookie: (await cookies()).toString() },
     }),

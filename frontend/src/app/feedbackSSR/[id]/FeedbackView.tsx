@@ -11,6 +11,7 @@ import CommentSection from "@/components/comment_old/CommentSection";
 import MainContainer from "@/components/resumeoverview_old/MainContainer";
 import Swal from "sweetalert2";
 import Navbar from "@/components/layout/Navbar";
+import useResumeStore from "@/store/ResumeStore";
 
 type Props = {
   resumeId: number;
@@ -34,11 +35,14 @@ export default function FeedbackView({
   const [hoveredCommentId, setHoveredCommentId] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const { setResumeUrl } = useResumeStore();
+
 
   const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
 
   useEffect(() => {
     setBookmarks(initialBookmarks ?? []);
+    setResumeUrl(initialResumeData.fileUrl);
   }, [initialBookmarks, setBookmarks]);
 
   const toggleBookmark = async () => {
@@ -81,6 +85,9 @@ export default function FeedbackView({
   };
 
   const bookmarked = isBookmarked(resumeId);
+  useEffect(() => {
+    console.log({ resumeId });
+  }, [resumeId]);
 
   return (
     <div className="flex flex-col flex-grow bg-[#F9FAFB]">
