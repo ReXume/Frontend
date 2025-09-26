@@ -8,7 +8,7 @@ import type {
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/toolbar/lib/styles/index.css";
 
-const workerUrl = `https://unpkg.com/pdfjs-dist@5.0.375/build/files/pdf.worker.min.js`;
+const workerUrl = "/api/pdfjs/worker";
 
 const PDFPage = ({ pdfUrl }: { pdfUrl: string }) => {
   const toolbarPluginInstance = toolbarPlugin();

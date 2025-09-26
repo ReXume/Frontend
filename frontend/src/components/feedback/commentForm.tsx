@@ -1,6 +1,5 @@
 "use client";
 
-import useAuthStore from "@/store/authStore";
 import { Send } from "lucide-react";
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 
@@ -31,7 +30,7 @@ function CommentForm({
   resumeId,
 }: CommentFormProps) {
   const [comment, setComment] = useState<string>(initialComment);
-  const { userData } = useAuthStore();
+  const userData: { username?: string } | null = null;
   // textarea에 대한 참조 생성
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 

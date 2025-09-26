@@ -1,50 +1,32 @@
-import MainPageClient from "@/components/MainPageClient";
-import { getResumeList } from "@/api/resumeApi";
+import Link from "next/link";
 
-export default async function Page() {
-  let initialResumes: any[] = [];
-  try {
-    initialResumes = await getResumeList(0, 8);
-  } catch (error) {
-    console.error("Failed to fetch resumes on server. Using fallback data.", error);
-    initialResumes = [
-      {
-        resume_id: 1,
-        user_name: "홍길동",
-        position: "Frontend",
-        career: 2,
-        view_count: 123,
-        tech_stack_names: ["React", "TypeScript", "Next.js"],
-      },
-      {
-        resume_id: 2,
-        user_name: "김영희",
-        position: "Backend",
-        career: 4,
-        view_count: 256,
-        tech_stack_names: ["Java", "Spring", "MySQL"],
-      },
-      {
-        resume_id: 3,
-        user_name: "이철수",
-        position: "Data Engineer",
-        career: 3,
-        view_count: 98,
-        tech_stack_names: ["Python", "Airflow", "Snowflake"],
-      },
-      {
-        resume_id: 4,
-        user_name: "박민수",
-        position: "Fullstack",
-        career: 5,
-        view_count: 310,
-        tech_stack_names: ["Node.js", "React", "PostgreSQL"],
-      },
-    ];
-  }
+export default function Page() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <MainPageClient initialResumes={initialResumes} />
+    <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="w-full max-w-md mx-auto p-6">
+        <h1 className="text-2xl font-semibold text-gray-900 mb-6">데모 페이지 선택</h1>
+        <div className="space-y-3">
+          <Link
+            href="/feedbackCRA/1"
+            className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            CSR (Client Side Rendering)
+          </Link>
+          <Link
+            href="/feedbackSSR/1"
+            className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            SSR (Server Side Rendering)
+          </Link>
+          <Link
+            href="/feedback/1"
+            className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            Streaming SSR
+          </Link>
+        </div>
+        <p className="text-xs text-gray-500 mt-4">예시로 id 1로 연결됩니다.</p>
+      </div>
     </div>
   );
 }

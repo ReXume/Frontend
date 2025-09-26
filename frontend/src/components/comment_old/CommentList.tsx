@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
-import { FeedbackPoint } from "../../types";
+import { FeedbackPoint } from "@/types/FeedbackPointType";
 
 type CommentListProps = {
   feedbackPoints: FeedbackPoint[];
-  deleteFeedbackPoint: (id: number) => void;
-  editFeedbackPoint: (item: FeedbackPoint) => void;
+  // deleteFeedbackPoint: (id: number) => void;
+  // editFeedbackPoint: (item: FeedbackPoint) => void;
   hoveredCommentId: number | null;
   setHoveredCommentId: (id: number | null) => void;
-  onClickedCommentId: number | null;
+  onClickedCommentId?: number | null;
 };
 
 function CommentList({
   feedbackPoints,
-  deleteFeedbackPoint,
-  editFeedbackPoint,
+  // deleteFeedbackPoint,
+  // editFeedbackPoint,
   hoveredCommentId,
   setHoveredCommentId,
   onClickedCommentId,
@@ -48,11 +48,10 @@ function CommentList({
 
         return (
           <li
-            id={`comment-${item.feedbackId}`}
-            key={item.feedbackId}
+            key={item.id}
             className={`mb-4 ${isHovered ? "bg-blue-100" : ""}`}
-            onMouseEnter={() => handleHover(item.feedbackId)}
-            onMouseLeave={() => handleHover(null)}
+            // onMouseEnter={() => handleHover(item.feedbackId)}
+            // onMouseLeave={() => handleHover(null)}
           >
             <div className="flex items-start p-2 rounded">
               {/* 아바타 */}
@@ -62,7 +61,7 @@ function CommentList({
                 </span>
               </div>
               {/* 피드백 내용 카드 */}
-              <div className="bg-slate-50 rounded-lg p-4 flex-grow">
+              {/* <div className="bg-slate-50 rounded-lg p-4 flex-grow">
                 <div className="flex justify-between items-center mb-2">
                   <span className="font-medium text-gray-800">
                     {isAiFeedback ? "AI피드백" : username}
@@ -88,7 +87,7 @@ function CommentList({
                     삭제
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </li>
         );

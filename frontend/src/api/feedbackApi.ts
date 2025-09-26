@@ -1,5 +1,21 @@
-import { axiosInstance } from "./axios.config.ts";
-import { AddFeedbackPoint, FeedbackPoint, ResumeData } from "../types.ts";
+import { AddFeedbackPoint } from "../types/AddFeedbackPointType";
+import { FeedbackPoint } from "../types/FeedbackPointType";
+import { ResumeData } from "../types/ResumeDataType";
+
+const BASE_URL = "/api";
+
+async function fetchJson<T>(input: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(`${BASE_URL}${input}`, {
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(text || `Request failed: ${res.status}`);
+  }
+  return (await res.json()) as T;
+}
 
 /**
  * 피드백 등록 API
@@ -12,11 +28,10 @@ export const addFeedbackApi = async (
   feedbackData: AddFeedbackPoint
 ): Promise<FeedbackPoint> => {
   console.log(feedbackData);
-  const response = await axiosInstance.post(
-    `/resumes/${resumeId}/feedbacks`,
-    feedbackData
-  );
-  return response.data;
+  return await fetchJson(`/resumes/${resumeId}/feedbacks`, {
+    method: "POST",
+    body: JSON.stringify(feedbackData),
+  });
 };
 
 /**
@@ -29,10 +44,9 @@ export const deleteFeedbackApi = async (
   resumeId: number,
   feedbackId: number
 ) => {
-  const response = await axiosInstance.delete(
-    `/resumes/${resumeId}/feedbacks/${feedbackId}`
-  );
-  return response.data;
+  return await fetchJson(`/resumes/${resumeId}/feedbacks/${feedbackId}`, {
+    method: "DELETE",
+  });
 };
 
 /**
@@ -51,11 +65,10 @@ export const editFeedbackApi = async (
     yCoordinate: number;
   }
 ): Promise<FeedbackPoint> => {
-  const response = await axiosInstance.put(
-    `/resumes/${resumeId}/feedbacks/${feedbackId}`,
-    feedbackData
-  );
-  return response.data;
+  return await fetchJson(`/resumes/${resumeId}/feedbacks/${feedbackId}`, {
+    method: "PUT",
+    body: JSON.stringify(feedbackData),
+  });
 };
 
 /**
@@ -64,8 +77,8 @@ export const editFeedbackApi = async (
  * @returns Resume 데이터
  */
 export const getResumeApi = async (resumeId: number): Promise<ResumeData> => {
-  const response = await axiosInstance.get(`/resumes/${resumeId}`);
-  return response.data.result;
+  const data = await fetchJson<{ result: ResumeData }>(`/resumes/${resumeId}`);
+  return data.result;
 };
 
 /**
@@ -74,6 +87,5 @@ export const getResumeApi = async (resumeId: number): Promise<ResumeData> => {
  * @returns AI 피드백 데이터
  */
 export const postAiFeedback = async (resumeId: number) => {
-  const response = await axiosInstance.post(`/aifeedbacks/${resumeId}`, {});
-  return response.data;
+  return await fetchJson(`/aifeedbacks/${resumeId}`, { method: "POST", body: JSON.stringify({}) });
 };

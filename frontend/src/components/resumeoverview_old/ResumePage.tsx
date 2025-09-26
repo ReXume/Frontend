@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useResumeStore from "@/store/ResumeStore";
 import PDFViewer from "./PDFViewer";
 import { FeedbackPoint } from "@/types/FeedbackPointType.js";
@@ -21,8 +21,8 @@ function ResumePage({
   // addFeedbackPoint,
   // editFeedbackPoint,
   hoveredCommentId,
-  setHoveredCommentId,
-  setClickedCommentId,
+  // setHoveredCommentId,
+  // setClickedCommentId,
 }: ResumePageProps) {
   const pageRef = useRef<HTMLDivElement>(null);
   const [addingFeedback, setAddingFeedback] = useState<{
@@ -75,6 +75,10 @@ function ResumePage({
 
   const { ResumeUrl } = useResumeStore();
 
+  useEffect(() => {
+    console.log({ ResumeUrl });
+  }, [ResumeUrl]);
+
   return (
     <div className="relative mb-8">
       <div
@@ -89,8 +93,8 @@ function ResumePage({
           // editFeedbackPoint={editFeedbackPoint}
           feedbackPoints={feedbackPoints}
           hoveredCommentId={hoveredCommentId}
-          setHoveredCommentId={setHoveredCommentId}
-          setClickedCommentId={setClickedCommentId}
+          // setHoveredCommentId={setHoveredCommentId}
+          // setClickedCommentId={setClickedCommentId}
         />
       </div>
     </div>

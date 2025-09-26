@@ -3,7 +3,7 @@
 import React from "react";
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   sidebar: React.ReactNode;
 }
 

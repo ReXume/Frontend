@@ -1,4 +1,30 @@
-import { formAxios, jsonAxios, jsonFormAxios } from "./axios.config";
+const BASE_URL = "/api";
+
+async function fetchJson<T>(input: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(`${BASE_URL}${input}`, {
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(text || `Request failed: ${res.status}`);
+  }
+  return (await res.json()) as T;
+}
+
+async function fetchForm<T>(input: string, body: FormData): Promise<T> {
+  const res = await fetch(`${BASE_URL}${input}`, {
+    method: "POST",
+    credentials: "include",
+    body,
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(text || `Request failed: ${res.status}`);
+  }
+  return (await res.json()) as T;
+}
 
 export const postResume = async (
   resume_file: File,
@@ -26,9 +52,7 @@ export const postResume = async (
     console.log("폼데이터 확인:", [...formData.entries()]);
 
     // API 요청 보내기
-    const response = await formAxios.post(`/resumes`, formData);
-
-    return response.data;
+    return await fetchForm(`/resumes`, formData);
   } catch (error) {
     console.error("이력서 업로드 오류:", error);
     const customError = new Error("이력서 업로드 오류");
@@ -39,11 +63,9 @@ export const postResume = async (
 // 이력서 검색
 export const searchResume = async (searchName: string) => {
   try {
-    const response = await jsonAxios.get(
-      `/resumes/search?user_name=${searchName}`
-    );
-    console.log("api: ", response);
-    return response.data;
+    const data = await fetchJson(`/resumes/search?user_name=${searchName}`);
+    console.log("api: ", data);
+    return data;
   } catch (error) {
     console.log("이력서 검색 오류", error);
     const customError = new Error("이력서 검색 오류");
@@ -58,11 +80,8 @@ export const getResumeList = async (page: number, size: number) => {
     const formData = new FormData();
     formData.append("page", page.toString());
     formData.append("size", size.toString());
-
-    const response = await jsonFormAxios.get(
-      `/resumes?page=${page}&size=${size}`
-    );
-    return response.data.result;
+    const data = await fetchJson(`/resumes?page=${page}&size=${size}`);
+    return (data as any).result;
   } catch (error) {
     console.log("이력서 목록 조회 오류", error);
     const customError = new Error("이력서 목록 조회 오류");
@@ -102,15 +121,18 @@ export const postFilter = async (filterParams: FilterParams) => {
     }).toString();
 
     // API 요청
-    const response = await jsonAxios.post(`/resumes/search?${queryParams}`, {
-      positions: filterParams.dto.positions,
-      min_career: filterParams.dto.min_career,
-      max_career: filterParams.dto.max_career,
-      tech_stack_names: filterParams.dto.tech_stack_names,
-      company_names: filterParams.dto.company_names, // 추가
+    const data = await fetchJson(`/resumes/search?${queryParams}`, {
+      method: "POST",
+      body: JSON.stringify({
+        positions: filterParams.dto.positions,
+        min_career: filterParams.dto.min_career,
+        max_career: filterParams.dto.max_career,
+        tech_stack_names: filterParams.dto.tech_stack_names,
+        company_names: filterParams.dto.company_names,
+      }),
     });
 
-    return response.data;
+    return data;
   } catch (error) {
     if (error instanceof Error) {
       console.error("필터링 api 오류:", error.message);
@@ -124,8 +146,8 @@ export const postFilter = async (filterParams: FilterParams) => {
 // 개별 이력서 조회
 export const viewResume = async (resumeId: number) => {
   try {
-    const response = await jsonAxios.get(`/resumes/${resumeId}`);
-    return response.data.result;
+    const data = await fetchJson(`/resumes/${resumeId}`);
+    return (data as any).result;
   } catch (error) {
     console.log("이력서 조회 오류", error);
     const customError = new Error("개별 이력서 조회 오류");
@@ -136,8 +158,8 @@ export const viewResume = async (resumeId: number) => {
 
 export const deleteResume = async (resumeId: number) => {
   try {
-    const response = await jsonAxios.delete(`/resumes/${resumeId}`);
-    return response.data;
+    const data = await fetchJson(`/resumes/${resumeId}`, { method: "DELETE" });
+    return data as any;
   } catch (error) {
     console.log("이력서 삭제 오류", error);
     const customError = new Error("이력서 삭제 오류");

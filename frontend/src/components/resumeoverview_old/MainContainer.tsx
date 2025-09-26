@@ -5,14 +5,14 @@ import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
 type MainContainerProps = {
   feedbackPoints: FeedbackPoint[];
-  addFeedbackPoint: (point: Omit<AddFeedbackPoint, "id">) => void;
-  deleteFeedbackPoint: (id: number) => void;
-  editFeedbackPoint: (item: AddFeedbackPoint) => void;
+  // addFeedbackPoint: (point: Omit<AddFeedbackPoint, "id">) => void;
+  // deleteFeedbackPoint: (id: number) => void;
+  // editFeedbackPoint: (item: AddFeedbackPoint) => void;
   hoveredCommentId: number | null;
-  setHoveredCommentId: (id: number | null) => void;
-  laterResumeId: number | null;
-  previousResumeId: number | null;
-  setClickedCommentId: (id: number | null) => void;
+  // setHoveredCommentId: (id: number | null) => void;
+  // laterResumeId: number | null;
+  // previousResumeId: number | null;
+  // setClickedCommentId: (id: number | null) => void;
 };
 
 function MainContainer({
@@ -21,12 +21,12 @@ function MainContainer({
   // deleteFeedbackPoint,
   // editFeedbackPoint,
   hoveredCommentId,
-  setHoveredCommentId,
-  laterResumeId,
-  previousResumeId,
-  setClickedCommentId,
+  // setHoveredCommentId,
+  // laterResumeId,
+  // previousResumeId,
+  // setClickedCommentId,
 }: MainContainerProps) {
-  console.log({ setClickedCommentId });
+  // console.log({ setClickedCommentId });
 
   return (
     <div className=" flex flex-col bg-[#F9FAFB] h-[90vh] ">
@@ -40,13 +40,13 @@ function MainContainer({
           // deleteFeedbackPoint={deleteFeedbackPoint}
           // editFeedbackPoint={editFeedbackPoint}
           hoveredCommentId={hoveredCommentId}
-          setHoveredCommentId={setHoveredCommentId}
-          setClickedCommentId={setClickedCommentId}
+          // setHoveredCommentId={setHoveredCommentId}
+          // setClickedCommentId={setClickedCommentId}
         />
       </div>
       <Footer
-        laterResumeId={laterResumeId}
-        previousResumeId={previousResumeId}
+        // laterResumeId={laterResumeId}
+        // previousResumeId={previousResumeId}
       />
     </div>
   );

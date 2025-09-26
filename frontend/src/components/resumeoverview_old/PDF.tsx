@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import "pdfjs-dist/web/pdf_viewer.css";
-import CommentForm from "../comment/CommentForm";
-import { FeedbackPoint } from "../../types";
+import CommentForm from "../comment_old/CommentForm";
+import { FeedbackPoint } from "@/types/FeedbackPointType";
 
 // PDF.js Worker 설정
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
 
 interface PDFProps {
   pdf: any;
@@ -22,8 +22,8 @@ interface PDFProps {
   feedbackPoints: FeedbackPoint[];
   editFeedbackPoint: (item: FeedbackPoint) => void;
   hoveredCommentId: number | null;
-  setHoveredCommentId: (id: number | null) => void;
-  setClickedCommentId: (id: number | null) => void;
+  // setHoveredCommentId: (id: number | null) => void;
+  // setClickedCommentId: (id: number | null) => void;
 }
 
 const PDF: React.FC<PDFProps> = ({
@@ -34,8 +34,8 @@ const PDF: React.FC<PDFProps> = ({
   feedbackPoints,
   editFeedbackPoint,
   hoveredCommentId,
-  setHoveredCommentId,
-  setClickedCommentId,
+  // setHoveredCommentId,
+  // setClickedCommentId,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const renderTaskRef = useRef<any>(null);
@@ -102,9 +102,9 @@ const PDF: React.FC<PDFProps> = ({
   }, [pdf, pageNumber]);
 
   // hover 핸들러 캡슐화: 콘솔 로그로 확인
-  const handleHover = (id: number | null) => {
-    setHoveredCommentId(id);
-  };
+  // const handleHover = (id: number | null) => {
+  //   setHoveredCommentId(id);
+  // };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
@@ -188,14 +188,16 @@ const PDF: React.FC<PDFProps> = ({
       {feedbackPoints
         .filter((item) => item.pageNumber === pageNumber)
         .map((item) => {
-          const left = item.x1;
-          const top = item.y1;
-          const width = item.x2 - item.x1;
-          const height = item.y2 - item.y1;
-          const isHovered = item.feedbackId === hoveredCommentId;
+          const fp: any = item as any;
+          const left = fp.x1 ?? fp.xCoordinate ?? 0;
+          const top = fp.y1 ?? fp.yCoordinate ?? 0;
+          const width = (fp.x2 ?? left) - left || 10;
+          const height = (fp.y2 ?? top) - top || 10;
+          const key = fp.feedbackId ?? fp.id;
+          const isHovered = (fp.feedbackId ?? fp.id) === hoveredCommentId;
           return (
             <div
-              key={item.feedbackId}
+              key={key}
               style={{
                 position: "absolute",
                 left: `${left}%`,
@@ -208,12 +210,6 @@ const PDF: React.FC<PDFProps> = ({
                   : "rgba(255,0,0,0.3)",
                 cursor: "pointer",
               }}
-              onClick={() => {
-                console.log("Clicked comment ID:", item.feedbackId);
-                setClickedCommentId(item.feedbackId);
-              }}
-              onMouseEnter={() => handleHover(item.feedbackId)}
-              onMouseLeave={() => handleHover(null)}
             />
           );
         })}

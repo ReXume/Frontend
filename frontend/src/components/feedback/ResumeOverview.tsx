@@ -3,11 +3,11 @@
 import { Star, Download } from "lucide-react";
 
 interface ResumeOverviewProps {
-  userName: string;
-  position: string;
-  career: number;
-  techStackNames: string[];
-  fileUrl: string;
+  userName: string|undefined;
+  position: string|undefined;
+  career: number|undefined;
+  techStackNames: string[]|undefined;
+  fileUrl: string|undefined ;
   isLoading: boolean;
 }
 

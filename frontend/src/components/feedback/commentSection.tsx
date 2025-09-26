@@ -1,6 +1,5 @@
 "use client";
 
-import useAuthStore from "@/store/authStore";
 import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import { useEffect, useState } from "react";
@@ -32,11 +31,6 @@ function CommentSection({
   error = "",
 }: CommentSectionProps): React.ReactElement {
   const [isLogin, setIsLogin] = useState(false);
-  const { isAuthenticated } = useAuthStore();
-
-  useEffect(() => {
-    setIsLogin(isAuthenticated);
-  }, [isAuthenticated]);
 
   const handleAddComment = async (text: string) => {
     try {

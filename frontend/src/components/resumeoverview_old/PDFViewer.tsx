@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import PDF from "./PDF";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
 
 const PDFViewer = ({
   pdfSrc,
@@ -11,18 +11,26 @@ const PDFViewer = ({
   editFeedbackPoint,
   feedbackPoints,
   hoveredCommentId,
-  setHoveredCommentId,
-  setClickedCommentId,
+  // setHoveredCommentId,
+  // setClickedCommentId,
 }: any) => {
   const [pdf, setPdf] = useState(null);
   const [numPages, setNumPages] = useState(0);
 
   useEffect(() => {
     const loadPdf = async () => {
-      const loadingTask = pdfjsLib.getDocument(pdfSrc);
-      const loadedPdf = await loadingTask.promise;
-      // setPdf(loadedPdf);
-      setNumPages(loadedPdf.numPages);
+      if (!pdfSrc || typeof pdfSrc !== "string" || pdfSrc.trim().length === 0) {
+        console.warn("PDFViewer: pdfSrc is empty. Skipping load.");
+        return;
+      }
+      try {
+        const loadingTask = pdfjsLib.getDocument({ url: pdfSrc });
+        const loadedPdf = await loadingTask.promise;
+        setPdf(loadedPdf as any);
+        setNumPages(loadedPdf.numPages);
+      } catch (err) {
+        console.error("Failed to load PDF:", err);
+      }
     };
     loadPdf();
   }, [pdfSrc]);
@@ -48,8 +56,8 @@ const PDFViewer = ({
           editFeedbackPoint={editFeedbackPoint}
           feedbackPoints={feedbackPoints}
           hoveredCommentId={hoveredCommentId}
-          setHoveredCommentId={setHoveredCommentId}
-          setClickedCommentId={setClickedCommentId}
+          // setHoveredCommentId={setHoveredCommentId}
+          // setClickedCommentId={setClickedCommentId}
         />
       ))}
     </div>

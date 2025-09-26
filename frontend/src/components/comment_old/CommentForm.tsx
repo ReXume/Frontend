@@ -5,9 +5,7 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { postAiFeedback } from "../../api/feedbackApi";
 import { Send } from "lucide-react";
-import useAuthStore from "../../store/authStore";
 
 interface Position {
   x1: number; // 백분율
@@ -36,7 +34,7 @@ function CommentForm({
   resumeId,
 }: CommentFormProps) {
   const [comment, setComment] = useState<string>(initialComment);
-  const { userData } = useAuthStore();
+  const userData: { username?: string } | null = null;
   // textarea에 대한 참조 생성
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -63,14 +61,8 @@ function CommentForm({
 
   const handleAiFeedback = async () => {
     try {
-      const response = await postAiFeedback(resumeId!);
-      const aiFeedbackContent =
-        response?.someProperty ?? "AI 피드백이 없습니다.";
-
-      // "AI피드백: ~" 형식으로 추가
-      if (onAdd) {
-        onAdd(`AI피드백: ${aiFeedbackContent}`);
-      }
+      const aiFeedbackContent = "AI 피드백이 없습니다.";
+      if (onAdd) onAdd(`AI피드백: ${aiFeedbackContent}`);
     } catch (error) {
       console.error(error);
     }
@@ -112,9 +104,7 @@ function CommentForm({
         <div className="flex items-start">
           {
             <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
-              <span className="text-sm font-medium text-blue-600">
-                {userData?.username.slice(0, 2)}
-              </span>
+              <span className="text-sm font-medium text-blue-600">GU</span>
             </div>
           }
           <div className="flex-grow">

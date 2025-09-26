@@ -1,8 +1,9 @@
+"use client";
 import ResumeLayout from "@/components/layout/ResumeLayout";
 import useResumeStore from "@/store/ResumeStore";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import { ResumeData } from "@/types/ResumeDataType";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Bookmark, BookmarkMinus } from "lucide-react";
 import ResumeOverview from "@/components/feedback/ResumeOverview";
@@ -12,11 +13,12 @@ import CommentSection from "@/components/comment_old/CommentSection";
 import MainContainer from "@/components/resumeoverview_old/MainContainer";
 import Swal from "sweetalert2";
 import { getResumeApi } from "@/api/feedbackApi";
+import Navbar from "@/components/common_old/Navbar";
 
 
 export default function FeedbackPage() {
-  const router = useRouter();
-  const { id } = router.query;
+  const params = useParams();
+  const id = (params as { id?: string })?.id;
   const resumeId = Number(id);
   const [resumeData, setResumeData] = useState<ResumeData | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
@@ -27,7 +29,6 @@ export default function FeedbackPage() {
   const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
 
   useEffect(() => {
-    if (!router.isReady) return; // 라우터 준비 전에는 실행하지 않음
     const fetchData = async () => {
       if (!resumeId) {
         setError("Resume ID is missing.");
@@ -52,7 +53,7 @@ export default function FeedbackPage() {
       }
     };
     fetchData();
-  }, [router.isReady, resumeId, setResumeUrl, setBookmarks]);
+  }, [resumeId, setResumeUrl, setBookmarks]);
 
   const toggleBookmark = async () => {
     if (!resumeId) {
@@ -153,6 +154,7 @@ export default function FeedbackPage() {
 
   return (
     <div className="flex flex-col flex-grow bg-[#F9FAFB]">
+      <Navbar />
       <ResumeLayout
         sidebar={
           <div className="flex flex-col justify-between bg-[#F9FAFB] p-2 mt-10">
@@ -179,7 +181,7 @@ export default function FeedbackPage() {
             <ResumeOverview
               userName={resumeData?.userName}
               position={resumeData?.position}
-              career={resumeData.career}
+              career={resumeData?.career}
               techStackNames={resumeData?.techStackNames}
               fileUrl={resumeData?.fileUrl}
               isLoading={loading}
@@ -190,9 +192,9 @@ export default function FeedbackPage() {
                 // addFeedbackPoint={addFeedbackPoint}
                 // deleteFeedbackPoint={deleteFeedbackPoint}
                 // editFeedbackPoint={editFeedbackPoint}
-                // hoveredCommentId={hoveredCommentId}
+                hoveredCommentId={hoveredCommentId}
                 // handleAiFeedback={handleAiFeedback}
-                // setHoveredCommentId={setHoveredCommentId}
+                setHoveredCommentId={setHoveredCommentId}
               />
             </div>
           </div>
@@ -204,9 +206,9 @@ export default function FeedbackPage() {
           // deleteFeedbackPoint={deleteFeedbackPoint}
           // editFeedbackPoint={editFeedbackPoint}
           hoveredCommentId={hoveredCommentId}
-          setHoveredCommentId={setHoveredCommentId}
-          laterResumeId={resumeData.laterResumeId}
-          previousResumeId={resumeData.previousResumeId}
+          // setHoveredCommentId={setHoveredCommentId}
+          // laterResumeId={resumeData.laterResumeId}
+          // previousResumeId={resumeData.previousResumeId}
         />
       </ResumeLayout>
     </div>

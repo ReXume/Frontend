@@ -2,17 +2,16 @@ import { useState, useEffect } from "react";
 import { Search, User } from "lucide-react";
 import { useRouter } from "next/navigation";
 import useSearchStore from "../../store/SearchStore";
-import authStore from "../../store/authStore";
+// auth 제거
 
 function Navbar() {
   const router = useRouter();
   const [searchText, setSearchText] = useState<string>("");
   const { setSearchName } = useSearchStore();
-  const { checkAuth, userData, isAuthenticated } = authStore();
+  const isAuthenticated = false;
+  const userData: { username?: string } | null = null;
 
-  useEffect(() => {
-    checkAuth();
-  }, [checkAuth]);
+  useEffect(() => {}, []);
 
   const moveMainPage = () => {
     router.push("/");

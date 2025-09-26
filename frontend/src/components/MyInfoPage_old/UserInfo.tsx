@@ -1,8 +1,7 @@
 import { User } from "lucide-react";
-import useAuthStore from "../../store/authStore";
 
 function UserInfo() {
-  const { userData } = useAuthStore();
+  const userData: { username?: string; role?: string } | null = null;
 
   return (
     <div>
