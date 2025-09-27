@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 // POST /api/aifeedbacks/[id]
 export async function POST(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const resumeId = Number(params.id);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
   if (!resumeId || Number.isNaN(resumeId)) {
     return NextResponse.json({ message: "Invalid resume id" }, { status: 400 });
   }
