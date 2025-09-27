@@ -1,4 +1,4 @@
-import { FeedbackPoint } from "../../types.ts";
+import { FeedbackPoint } from "@/types/FeedbackPointType";
 
 type FeedbackPopupProps = {
   point: FeedbackPoint;

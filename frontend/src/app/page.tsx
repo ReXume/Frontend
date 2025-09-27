@@ -19,7 +19,7 @@ export default function Page() {
             SSR (Server Side Rendering)
           </Link>
           <Link
-            href="/feedback/1"
+            href="/feedbackStreamingSSR/1"
             className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
           >
             Streaming SSR

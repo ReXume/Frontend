@@ -22,7 +22,7 @@ export async function GET() {
         },
       });
     } catch (e: unknown) {
-      // try next candidate
+      console.error(e);
     }
   }
 

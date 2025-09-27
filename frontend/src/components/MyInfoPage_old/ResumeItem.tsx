@@ -3,7 +3,7 @@
 import { FileText, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import { ResumeType } from "../../dataType";
+import { ResumeType } from "@/types/ResumeType";
 import { deleteResume } from "../../api/resumeApi";
 
 type ResumeItemProps = {

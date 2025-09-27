@@ -1,8 +1,10 @@
 export type FeedbackPoint = {
   id: number;
   content: string;
-  xCoordinate: number;
-  yCoordinate: number;
+  x1: number;
+  x2: number;
+  y1: number;
+  y2: number;
   pageNumber: number | 1;
   createdAt: string;
   updatedAt: string;

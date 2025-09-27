@@ -25,7 +25,7 @@ function BannerCard() {
         </div>
         <div className="mt-6 md:mt-0">
           <img
-            src={man1}
+            src={man1.src as string}
             alt="셔츠입은 사람"
             className="flex hidden lg:block w-40 h-40 object-cover rounded-full"
           />
@@ -49,7 +49,7 @@ function BannerCard() {
         </div>
         <div className="flex hidden lg:block mt-6 md:mt-0">
           <img
-            src={man2}
+            src={man2.src as string}
             alt="컴퓨터하는 사람"
             className="w-40 h-40 object-cover rounded-full"
           />

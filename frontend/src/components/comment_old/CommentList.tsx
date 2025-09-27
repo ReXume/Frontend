@@ -15,14 +15,14 @@ function CommentList({
   // deleteFeedbackPoint,
   // editFeedbackPoint,
   hoveredCommentId,
-  setHoveredCommentId,
+  // setHoveredCommentId,
   onClickedCommentId,
 }: CommentListProps) {
   // hover 핸들러 캡슐화: 콘솔 로그로 확인
-  const handleHover = (id: number | null) => {
-    console.log("Hovered list comment ID:", id);
-    setHoveredCommentId(id);
-  };
+  // const handleHover = (id: number | null) => {
+  //   console.log("Hovered list comment ID:", id);
+  //   setHoveredCommentId(id);
+  // };
 
   useEffect(() => {
     if (onClickedCommentId !== null) {
@@ -36,15 +36,15 @@ function CommentList({
   return (
     <ul>
       {feedbackPoints.map((item) => {
-        const isAiFeedback = item.content.startsWith("AI피드백:");
-        const contentWithoutPrefix = isAiFeedback
-          ? item.content.slice("AI피드백:".length)
-          : item.content;
+        // const isAiFeedback = item.content.startsWith("AI피드백:");
+        // const contentWithoutPrefix = isAiFeedback
+        //   ? item.content.slice("AI피드백:".length)
+        //   : item.content;
 
         const username = "익명";
-        const timestamp = "";
+        // const timestamp = "";
         const initials = username.substring(0, 2);
-        const isHovered = item.feedbackId === hoveredCommentId;
+        const isHovered = item.id === hoveredCommentId;
 
         return (
           <li

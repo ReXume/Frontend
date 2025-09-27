@@ -1,8 +1,9 @@
 export type BookmarkType = {
-  id: number;
   resume_id: number;
   bookmark_id: number;
-  user_name: string;
-  title: string;
-  date: string;
+  user_id: number;
+  created_at: string;
+  updated_at: string;
+  resume_title: string;
+  resume_author: string;
 };

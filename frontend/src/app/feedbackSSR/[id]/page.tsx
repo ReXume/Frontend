@@ -4,13 +4,14 @@ import { cookies } from "next/headers";
 export default async function FeedbackPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const resumeId = Number(params.id);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
   if (!resumeId || Number.isNaN(resumeId)) {
     return null;
   }
-  const [resumeRes, bookmarksRes] = await Promise.all([
+  const [resumeRes] = await Promise.all([
     fetch(`http://localhost:3000/api/resumes/${resumeId}`, {
       cache: "no-store",
       headers: { cookie: (await cookies()).toString() },
@@ -22,18 +23,17 @@ export default async function FeedbackPage({
   ]);
 
   const resumeJson = await resumeRes.json();
-  const bookmarksJson = await bookmarksRes.json();
+  // const bookmarksJson = await bookmarksRes.json();
 
   const initialResumeData = resumeJson.result;
   const initialFeedbackPoints = resumeJson.result?.feedbackResponses ?? [];
-  const initialBookmarks = bookmarksJson.result ?? [];
+  // const initialBookmarks = bookmarksJson.result ?? [];
 
   return (
     <FeedbackView
       resumeId={resumeId}
       initialResumeData={initialResumeData}
       initialFeedbackPoints={initialFeedbackPoints}
-      initialBookmarks={initialBookmarks}
     />
   );
 }

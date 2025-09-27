@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Search, User } from "lucide-react";
 import { useRouter } from "next/navigation";
 // auth 제거

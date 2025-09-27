@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 // GET /api/resumes/[id]/feedbacks/[feedbackId]
 export async function GET(
   _req: Request,
-  { params }: { params: { id: string; feedbackId: string } }
+  { params }: { params: Promise<{ id: string; feedbackId: string }> }
 ) {
-  const resumeId = Number(params.id);
-  const feedbackId = Number(params.feedbackId);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
+  const feedbackId = Number(resolvedParams.feedbackId);
   if (!resumeId || Number.isNaN(resumeId) || !feedbackId || Number.isNaN(feedbackId)) {
     return NextResponse.json({ message: "Invalid ids" }, { status: 400 });
   }
@@ -28,10 +29,11 @@ export async function GET(
 // PUT /api/resumes/[id]/feedbacks/[feedbackId]
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string; feedbackId: string } }
+  { params }: { params: Promise<{ id: string; feedbackId: string }> }
 ) {
-  const resumeId = Number(params.id);
-  const feedbackId = Number(params.feedbackId);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
+  const feedbackId = Number(resolvedParams.feedbackId);
   if (!resumeId || Number.isNaN(resumeId) || !feedbackId || Number.isNaN(feedbackId)) {
     return NextResponse.json({ message: "Invalid ids" }, { status: 400 });
   }
@@ -63,10 +65,11 @@ export async function PUT(
 // DELETE /api/resumes/[id]/feedbacks/[feedbackId]
 export async function DELETE(
   _req: Request,
-  { params }: { params: { id: string; feedbackId: string } }
+  { params }: { params: Promise<{ id: string; feedbackId: string }> }
 ) {
-  const resumeId = Number(params.id);
-  const feedbackId = Number(params.feedbackId);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
+  const feedbackId = Number(resolvedParams.feedbackId);
   if (!resumeId || Number.isNaN(resumeId) || !feedbackId || Number.isNaN(feedbackId)) {
     return NextResponse.json({ message: "Invalid ids" }, { status: 400 });
   }

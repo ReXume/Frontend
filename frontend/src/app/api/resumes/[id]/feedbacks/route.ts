@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 // GET /api/resumes/[id]/feedbacks
 export async function GET(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const resumeId = Number(params.id);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
   if (!resumeId || Number.isNaN(resumeId)) {
     return NextResponse.json({ message: "Invalid resume id" }, { status: 400 });
   }
@@ -47,9 +48,10 @@ export async function GET(
 // POST /api/resumes/[id]/feedbacks
 export async function POST(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const resumeId = Number(params.id);
+  const resolvedParams = await params;
+  const resumeId = Number(resolvedParams.id);
   if (!resumeId || Number.isNaN(resumeId)) {
     return NextResponse.json({ message: "Invalid resume id" }, { status: 400 });
   }

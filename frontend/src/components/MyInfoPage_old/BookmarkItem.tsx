@@ -4,11 +4,11 @@ import { useRouter } from "next/navigation";
 import { Bookmark, Trash } from "lucide-react";
 import Swal from "sweetalert2";
 import { deleteBookmarkById } from "../../api/bookMarkApi.js";
-import { BookmarkResponse } from "../../dataType";
-import { formatDate } from "../../utils/DateFormatter.ts";
+import { formatDate } from "../../utils/DateFormatter";
+import { BookmarkType } from "@/types/BookmarkType.js";
 
 type BookmarkItemProps = {
-  bookmark: BookmarkResponse;
+  bookmark: BookmarkType;
   onUpdate: () => void; // 북마크 변경 시 호출되는 콜백
 };
 

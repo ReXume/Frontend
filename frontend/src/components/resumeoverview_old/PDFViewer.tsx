@@ -1,19 +1,32 @@
 import { useEffect, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import PDF from "./PDF";
+import { FeedbackPoint } from "@/types/FeedbackPointType";
+import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
 
+interface PDFViewerProps {
+  pdfSrc: string;
+  pageNumber: number;
+  addFeedbackPoint: (point: Omit<AddFeedbackPoint, "id">) => void;
+  editFeedbackPoint: (point: FeedbackPoint) => void;
+  feedbackPoints: FeedbackPoint[];
+  hoveredCommentId: number | null;
+  setHoveredCommentId: (id: number | null) => void;
+  setClickedCommentId: (id: number | null) => void;
+}
+
 const PDFViewer = ({
   pdfSrc,
-  feedbackData,
+  // pageNumber,
   addFeedbackPoint,
-  editFeedbackPoint,
+  // editFeedbackPoint,
   feedbackPoints,
   hoveredCommentId,
-  // setHoveredCommentId,
-  // setClickedCommentId,
-}: any) => {
+  setHoveredCommentId,
+  setClickedCommentId,
+}: PDFViewerProps) => {
   const [pdf, setPdf] = useState(null);
   const [numPages, setNumPages] = useState(0);
 
@@ -26,7 +39,7 @@ const PDFViewer = ({
       try {
         const loadingTask = pdfjsLib.getDocument({ url: pdfSrc });
         const loadedPdf = await loadingTask.promise;
-        setPdf(loadedPdf as any);
+        setPdf(loadedPdf as pdfjsLib.PDFDocumentProxy);
         setNumPages(loadedPdf.numPages);
       } catch (err) {
         console.error("Failed to load PDF:", err);
@@ -48,16 +61,15 @@ const PDFViewer = ({
     >
       {Array.from({ length: numPages }).map((_, idx) => (
         <PDF
-          key={`page-${idx + 1}`} // ← key 로 pageNumber 포함
+          key={`page-${idx + 1}`}
           pdf={pdf}
           pageNumber={idx + 1}
-          feedback={feedbackData && feedbackData[idx + 1]}
+          feedback={[]}
           addFeedbackPoint={addFeedbackPoint}
-          editFeedbackPoint={editFeedbackPoint}
           feedbackPoints={feedbackPoints}
           hoveredCommentId={hoveredCommentId}
-          // setHoveredCommentId={setHoveredCommentId}
-          // setClickedCommentId={setClickedCommentId}
+          setHoveredCommentId={setHoveredCommentId}
+          setClickedCommentId={setClickedCommentId}
         />
       ))}
     </div>

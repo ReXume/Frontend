@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import ResumeItem from "../../components/MyInfoPage/ResumeItem.tsx";
-import { ResumeType } from "../../dataType.ts";
+import ResumeItem from "@/components/MyInfoPage_old/ResumeItem";
+import { ResumeType } from "@/types/ResumeType";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 function MyInfoPage() {
   const [userResumes, setUserResumes] = useState<ResumeType[]>([]);

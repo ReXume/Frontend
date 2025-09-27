@@ -27,7 +27,6 @@ function CommentForm({
   position,
   initialComment = "",
   disabled = false,
-  resumeId,
 }: CommentFormProps) {
   const [comment, setComment] = useState<string>(initialComment);
   const userData: { username?: string } | null = null;

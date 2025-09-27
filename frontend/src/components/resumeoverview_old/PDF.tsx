@@ -8,9 +8,9 @@ import { FeedbackPoint } from "@/types/FeedbackPointType";
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
 
 interface PDFProps {
-  pdf: any;
+  pdf: pdfjsLib.PDFDocumentProxy;
   pageNumber: number;
-  feedback: any;
+  feedback: FeedbackPoint[];
   addFeedbackPoint: (point: {
     pageNumber: number;
     x1: number;
@@ -20,25 +20,25 @@ interface PDFProps {
     content: string;
   }) => void;
   feedbackPoints: FeedbackPoint[];
-  editFeedbackPoint: (item: FeedbackPoint) => void;
+  // editFeedbackPoint: (item: FeedbackPoint) => void;
   hoveredCommentId: number | null;
-  // setHoveredCommentId: (id: number | null) => void;
-  // setClickedCommentId: (id: number | null) => void;
+  setHoveredCommentId: (id: number | null) => void;
+  setClickedCommentId: (id: number | null) => void;
 }
 
 const PDF: React.FC<PDFProps> = ({
   pdf,
   pageNumber,
-  feedback,
+  // feedback,
   addFeedbackPoint,
   feedbackPoints,
-  editFeedbackPoint,
+  // editFeedbackPoint,
   hoveredCommentId,
   // setHoveredCommentId,
   // setClickedCommentId,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const renderTaskRef = useRef<any>(null);
+  const renderTaskRef = useRef<pdfjsLib.RenderTask>(null);
 
   const [selectedArea, setSelectedArea] = useState<{
     x: number;
@@ -55,7 +55,7 @@ const PDF: React.FC<PDFProps> = ({
     y2: number;
     pageNumber: number;
   } | null>(null);
-  const [editingFeedback, setEditingFeedback] = useState<FeedbackPoint | null>(
+  const [editingFeedback] = useState<FeedbackPoint | null>(
     null
   );
 
@@ -83,8 +83,8 @@ const PDF: React.FC<PDFProps> = ({
       try {
         await renderTaskRef.current.promise;
         if (cancelled) return;
-      } catch (err: any) {
-        if (err?.name !== "RenderingCancelledException") {
+      } catch (err: unknown) {
+        if (err instanceof Error && err.name !== "RenderingCancelledException") {
           console.error("PDF 렌더링 에러:", err);
         }
       }
@@ -188,13 +188,13 @@ const PDF: React.FC<PDFProps> = ({
       {feedbackPoints
         .filter((item) => item.pageNumber === pageNumber)
         .map((item) => {
-          const fp: any = item as any;
-          const left = fp.x1 ?? fp.xCoordinate ?? 0;
-          const top = fp.y1 ?? fp.yCoordinate ?? 0;
+          const fp: FeedbackPoint = item as FeedbackPoint;
+          const left = fp.x1 ?? fp.x1 ?? 0;
+          const top = fp.y1 ?? fp.y1 ?? 0;
           const width = (fp.x2 ?? left) - left || 10;
           const height = (fp.y2 ?? top) - top || 10;
-          const key = fp.feedbackId ?? fp.id;
-          const isHovered = (fp.feedbackId ?? fp.id) === hoveredCommentId;
+          const key = fp.id ?? fp.id;
+          const isHovered = (fp.id ?? fp.id) === hoveredCommentId;
           return (
             <div
               key={key}
@@ -223,8 +223,8 @@ const PDF: React.FC<PDFProps> = ({
       {editingFeedback && (
         <CommentForm
           position={{
-            x1: editingFeedback.xCoordinate,
-            y1: editingFeedback.yCoordinate,
+            x1: editingFeedback.x1,
+            y1: editingFeedback.y1,
           }}
           initialComment={editingFeedback.content}
         />

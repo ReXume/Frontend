@@ -1,4 +1,4 @@
-import ResumeOverviewSection from "./ResumeOverviewSection.tsx";
+import ResumeOverviewSection from "./ResumeOverviewSection";
 
 interface ResumeOverviewProps {
   userName: string;

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 // import Slider from "./Slider";
 // import useFilterStore from "../../store/useFilterStore";
 
@@ -9,7 +9,7 @@ interface CareerModalProps {
   onApply?: (minCareer: number, maxCareer: number) => void; // onApply 콜백 추가
 }
 
-const CareerModal = ({ isOpen, onClose, onApply }: CareerModalProps) => {
+const CareerModal = ({ isOpen, onClose }: CareerModalProps) => {
   // const { min_career, max_career, setCareerRange } = useFilterStore(); // 상태에서 min_career, max_career 가져오기
   // const [localMinCareer, setLocalMinCareer] = useState(min_career);
   // const [localMaxCareer, setLocalMaxCareer] = useState(max_career);
@@ -30,10 +30,10 @@ const CareerModal = ({ isOpen, onClose, onApply }: CareerModalProps) => {
     };
   }, [onClose]);
 
-  const handleSliderChange = (newMin: number, newMax: number) => {
-    // setLocalMinCareer(newMin);
-    // setLocalMaxCareer(newMax);
-  };
+  // const handleSliderChange = (newMin: number, newMax: number) => {
+  //   // setLocalMinCareer(newMin);
+  //   // setLocalMaxCareer(newMax);
+  // };
 
   const applyFilter = () => {
     // setCareerRange(localMinCareer, localMaxCareer);

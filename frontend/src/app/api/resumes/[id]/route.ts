@@ -3,9 +3,10 @@ import { NextResponse } from "next/server";
 // Mock Resume detail
 export async function GET(
   _req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const id = Number(params.id);
+  const resolvedParams = await params;
+  const id = Number(resolvedParams.id);
   if (!id || Number.isNaN(id)) {
     return NextResponse.json({ message: "Invalid resume id" }, { status: 400 });
   }

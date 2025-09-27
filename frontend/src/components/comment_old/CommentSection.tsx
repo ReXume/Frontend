@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
 import ErrorMessage from "../UI_old/ErrorMessage";
 import LoadingSpinner from "../UI_old/LoadingSpinner";
-import { AddFeedbackPoint} from "@/types/AddFeedbackPointType";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 // auth 제거
 
@@ -32,7 +31,7 @@ function CommentSection({
   error = "",
   // onClickedCommentId,
 }: CommentSectionProps): React.ReactElement {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin] = useState(false);
 
   // const handleAddComment = async (text: string) => {
   //   try {

@@ -1,7 +1,6 @@
 import ResumePageGroup from "./ResumePageGroup";
 import Footer from "./Footer";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
-import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
 type MainContainerProps = {
   feedbackPoints: FeedbackPoint[];
@@ -9,10 +8,10 @@ type MainContainerProps = {
   // deleteFeedbackPoint: (id: number) => void;
   // editFeedbackPoint: (item: AddFeedbackPoint) => void;
   hoveredCommentId: number | null;
-  // setHoveredCommentId: (id: number | null) => void;
+  setHoveredCommentId: (id: number | null) => void;
+  setClickedCommentId: (id: number | null) => void;
   // laterResumeId: number | null;
   // previousResumeId: number | null;
-  // setClickedCommentId: (id: number | null) => void;
 };
 
 function MainContainer({
@@ -21,10 +20,10 @@ function MainContainer({
   // deleteFeedbackPoint,
   // editFeedbackPoint,
   hoveredCommentId,
-  // setHoveredCommentId,
+  setHoveredCommentId,
+  setClickedCommentId,
   // laterResumeId,
   // previousResumeId,
-  // setClickedCommentId,
 }: MainContainerProps) {
   // console.log({ setClickedCommentId });
 
@@ -40,8 +39,8 @@ function MainContainer({
           // deleteFeedbackPoint={deleteFeedbackPoint}
           // editFeedbackPoint={editFeedbackPoint}
           hoveredCommentId={hoveredCommentId}
-          // setHoveredCommentId={setHoveredCommentId}
-          // setClickedCommentId={setClickedCommentId}
+          setHoveredCommentId={setHoveredCommentId}
+          setClickedCommentId={setClickedCommentId}
         />
       </div>
       <Footer

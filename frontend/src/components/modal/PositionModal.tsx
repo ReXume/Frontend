@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 // import useFilterStore from "../../store/useFilterStore";
 
 interface PositionModalProps {
@@ -8,7 +8,7 @@ interface PositionModalProps {
   onApply?: (position: string | null) => void; // onApply 콜백 추가
 }
 
-const PositionModal = ({ isOpen, onClose, onApply }: PositionModalProps) => {
+const PositionModal = ({ isOpen, onClose }: PositionModalProps) => {
   // const { positions, setPositions } = useFilterStore();
   // const [localSelectedPosition, setLocalSelectedPosition] = useState<string | null>(
   //   positions[0] || null

@@ -2,9 +2,9 @@
 
 import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
-import { useEffect, useState } from "react";
-import CommentList from "./commentList";
+import { useState } from "react";
 import CommentForm from "./commentForm";
+import CommentList from "./commentList";
 
 
 interface CommentSectionProps {
@@ -15,8 +15,8 @@ interface CommentSectionProps {
   hoveredCommentId: number | null;
   setHoveredCommentId: (id: number | null) => void;
   handleAiFeedback: () => void;
-  loading?: boolean;
-  error?: string;
+  // loading?: boolean;
+  // error?: string;
 }
 
 function CommentSection({
@@ -27,17 +27,19 @@ function CommentSection({
   hoveredCommentId,
   setHoveredCommentId,
   handleAiFeedback,
-  loading = false,
-  error = "",
+  // loading = false,
+  // error = "",
 }: CommentSectionProps): React.ReactElement {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin] = useState(false);
 
   const handleAddComment = async (text: string) => {
     try {
       addFeedbackPoint({
         content: text,
-        xCoordinate: 0,
-        yCoordinate: 0,
+        x1: 0,
+        x2: 0,
+        y1: 0,
+        y2: 0,
         pageNumber: 1,
       });
     } catch (error) {
@@ -49,12 +51,9 @@ function CommentSection({
     <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">댓글</h3>
 
-      {error && <ErrorMessage message={error} />}
+      {/* {error && <ErrorMessage message={error} />} */}
 
       <div className="mt-4 overflow-y-auto h-[33vh]">
-        {loading ? (
-          <LoadingSpinner />
-        ) : (
           <CommentList
             feedbackPoints={feedbackPoints ?? []}
             deleteFeedbackPoint={deleteFeedbackPoint}
@@ -62,7 +61,6 @@ function CommentSection({
             hoveredCommentId={hoveredCommentId}
             setHoveredCommentId={setHoveredCommentId}
           />
-        )}
       </div>
 
       <div className="mt-6">

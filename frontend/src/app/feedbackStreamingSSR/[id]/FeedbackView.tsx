@@ -5,10 +5,8 @@ import { ResumeData } from "@/types/ResumeDataType";
 import { useEffect, useState } from "react";
 import { Bookmark, BookmarkMinus } from "lucide-react";
 import ResumeOverview from "@/components/feedback/ResumeOverview";
-import { useBookmarkStore } from "@/store/BookmarkStore";
 import CommentSection from "@/components/comment_old/CommentSection";
 import MainContainer from "@/components/resumeoverview_old/MainContainer";
-import Swal from "sweetalert2";
 import Navbar from "@/components/layout/Navbar";
 import useResumeStore from "@/store/ResumeStore";
 
@@ -16,74 +14,76 @@ type Props = {
   resumeId: number;
   initialResumeData: ResumeData;
   initialFeedbackPoints: FeedbackPoint[];
-  initialBookmarks: any[];
 };
 
 export default function FeedbackView({
   resumeId,
   initialResumeData,
   initialFeedbackPoints,
-  initialBookmarks,
 }: Props) {
-  const [resumeData, setResumeData] = useState<ResumeData | null>(
+  const [resumeData] = useState<ResumeData | null>(
     initialResumeData
   );
-  const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>(
+  const [feedbackPoints] = useState<FeedbackPoint[]>(
     initialFeedbackPoints ?? []
   );
   const [hoveredCommentId, setHoveredCommentId] = useState<number | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [loading] = useState<boolean>(false);
+  // const [, setError] = useState<string | null>(null);
+  const [, setClickedCommentId] = useState<number | null>(null);
   const { setResumeUrl } = useResumeStore();
+  const [ bookmarked ] = useState<boolean>(true);
 
 
-  const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
+  // const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
 
   useEffect(() => {
-    setBookmarks(initialBookmarks ?? []);
     setResumeUrl(initialResumeData.fileUrl);
-  }, [initialBookmarks, setBookmarks]);
+  }, [initialResumeData.fileUrl, setResumeUrl]);
 
-  const toggleBookmark = async () => {
-    if (!resumeId) {
-      setError("Resume ID is missing.");
-      return;
-    }
-    try {
-      const existingBookmark = bookmarks.find(
-        (bk) => bk.resume_id === resumeId
-      );
-      if (existingBookmark) {
-        await deleteBookmarkById(existingBookmark.bookmark_id);
-        setBookmarks(
-          bookmarks.filter(
-            (bk) => bk.bookmark_id !== existingBookmark.bookmark_id
-          )
-        );
-        Swal.fire({
-          icon: "success",
-          title: "북마크가 해제되었습니다.",
-          confirmButtonText: "확인",
-        });
-      } else {
-        const newBookmark = await postBookmark(resumeId);
-        setBookmarks([...bookmarks, newBookmark]);
-        Swal.fire({
-          icon: "success",
-          title: "북마크가 추가되었습니다.",
-          confirmButtonText: "확인",
-        });
-      }
-    } catch {
-      Swal.fire({
-        icon: "error",
-        title: "북마크 상태를 변경할 수 없습니다. 다시 시도해주세요.",
-        confirmButtonText: "확인",
-      });
-    }
-  };
+  // const toggleBookmark = async () => {
+  //   if (!resumeId) {
+  //     setError("Resume ID is missing.");
+  //     return;
+  //   }
+  //   try {
+  //     const existingBookmark = bookmarks.find(
+  //       (bk) => bk.bookmarks.some((b) => b.resume_id === resumeId)
+  //     );
+  //     if (existingBookmark) {
+  //       await deleteBookmarkById(existingBookmark.bookmarks[0].bookmark_id);
+  //       setBookmarks(
+  //         bookmarks.filter(
+  //           (bk) => bk.bookmarks[0].bookmark_id !== existingBookmark.bookmarks[0].bookmark_id
+  //         )
+  //       );
+  //       Swal.fire({
+  //         icon: "success",
+  //         title: "북마크가 해제되었습니다.",
+  //         confirmButtonText: "확인",
+  //       });
+  //     } else {
+  //       const newBookmark = await postBookmark(resumeId);
+  //       setBookmarks([
+  //         ...bookmarks,
+  //         ...(Array.isArray(newBookmark) ? newBookmark : [newBookmark]),
+  //       ]);                
+  //       Swal.fire({
+  //         icon: "success",
+  //         title: "북마크가 추가되었습니다.",
+  //         confirmButtonText: "확인",
+  //       });
+  //     }
+  //   } catch {
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "북마크 상태를 변경할 수 없습니다. 다시 시도해주세요.",
+  //       confirmButtonText: "확인",
+  //     });
+  //   }
+  // };
 
-  const bookmarked = isBookmarked(resumeId);
+  // const bookmarked = isBookmarked(resumeId);
   useEffect(() => {
     console.log({ resumeId });
   }, [resumeId]);
@@ -95,7 +95,7 @@ export default function FeedbackView({
         sidebar={
           <div className="flex flex-col justify-between bg-[#F9FAFB] p-2 mt-10">
             <button
-              onClick={toggleBookmark}
+              // onClick={toggleBookmark}
               className={`flex items-center px-6 py-3 rounded-lg ${
                 bookmarked
                   ? "bg-yellow-100 text-yellow-900"
@@ -135,6 +135,8 @@ export default function FeedbackView({
         <MainContainer
           feedbackPoints={feedbackPoints}
           hoveredCommentId={hoveredCommentId}
+          setHoveredCommentId={setHoveredCommentId}
+          setClickedCommentId={setClickedCommentId}
         />
       </ResumeLayout>
     </div>

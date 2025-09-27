@@ -10,4 +10,5 @@ export type ResumeData = {
   feedbackResponses: FeedbackPoint[];
   previousResumeId: number | null;
   laterResumeId: number | null;
+  resume_title: string;
 };

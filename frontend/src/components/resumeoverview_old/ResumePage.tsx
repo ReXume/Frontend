@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import useResumeStore from "@/store/ResumeStore";
 import PDFViewer from "./PDFViewer";
 import { FeedbackPoint } from "@/types/FeedbackPointType.js";
-import { AddFeedbackPoint } from "@/types/AddFeedbackPointType.js";
 
 type ResumePageProps = {
   pageNumber: number;
@@ -25,14 +24,14 @@ function ResumePage({
   // setClickedCommentId,
 }: ResumePageProps) {
   const pageRef = useRef<HTMLDivElement>(null);
-  const [addingFeedback, setAddingFeedback] = useState<{
+  const [, setAddingFeedback] = useState<{
     x: number;
     y: number;
     pageNumber: number;
   } | null>(null);
-  const [editingFeedback, setEditingFeedback] = useState<FeedbackPoint | null>(
-    null
-  );
+  // const [editingFeedback, setEditingFeedback] = useState<FeedbackPoint | null>(
+  //   null
+  // );
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!pageRef.current) return;
@@ -44,34 +43,34 @@ function ResumePage({
     setAddingFeedback({ x, y, pageNumber });
   };
 
-  const handleMarkerClick = (point: FeedbackPoint) => {
-    setEditingFeedback(point);
-  };
+  // const handleMarkerClick = (point: FeedbackPoint) => {
+  //   setEditingFeedback(point);
+  // };
 
-  const handleAddSubmit = (comment: string) => {
-    if (addingFeedback) {
-      // addFeedbackPoint({
-      //   pageNumber: addingFeedback.pageNumber,
-      //   xCoordinate: addingFeedback.x,
-      //   yCoordinate: addingFeedback.y,
-      //   content: comment,
-      // });
-      setAddingFeedback(null);
-    }
-  };
+  // const handleAddSubmit = (comment: string) => {
+  //   if (addingFeedback) {
+  //     // addFeedbackPoint({
+  //     //   pageNumber: addingFeedback.pageNumber,
+  //     //   xCoordinate: addingFeedback.x,
+  //     //   yCoordinate: addingFeedback.y,
+  //     //   content: comment,
+  //     // });
+  //     setAddingFeedback(null);
+  //   }
+  // };
 
-  const handleEditSubmit = () => {
-    if (editingFeedback) {
-      const updatedPoint: AddFeedbackPoint = { ...editingFeedback };
-      // editFeedbackPoint(updatedPoint);
-      setEditingFeedback(null);
-    }
-  };
+  // const handleEditSubmit = () => {
+  //   if (editingFeedback) {
+  //     const updatedPoint: AddFeedbackPoint = { ...editingFeedback };
+  //     // editFeedbackPoint(updatedPoint);
+  //     setEditingFeedback(null);
+  //   }
+  // };
 
-  const handleCancel = () => {
-    setAddingFeedback(null);
-    setEditingFeedback(null);
-  };
+  // const handleCancel = () => {
+  //   setAddingFeedback(null);
+  //   setEditingFeedback(null);
+  // };
 
   const { ResumeUrl } = useResumeStore();
 
@@ -89,12 +88,12 @@ function ResumePage({
         <PDFViewer
           pdfSrc={ResumeUrl}
           pageNumber={pageNumber}
-          // addFeedbackPoint={addFeedbackPoint}
-          // editFeedbackPoint={editFeedbackPoint}
+          addFeedbackPoint={() => {}} // 임시 함수
+          editFeedbackPoint={() => {}} // 임시 함수
           feedbackPoints={feedbackPoints}
           hoveredCommentId={hoveredCommentId}
-          // setHoveredCommentId={setHoveredCommentId}
-          // setClickedCommentId={setClickedCommentId}
+          setHoveredCommentId={() => {}} // 임시 함수
+          setClickedCommentId={() => {}} // 임시 함수
         />
       </div>
     </div>

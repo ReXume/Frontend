@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale";
-import { CommentType } from "../../mockApi.ts";
+import { CommentType } from "@/types/CommentType";
 
 interface CommentProps extends CommentType {
   onDelete: (id: number) => void;

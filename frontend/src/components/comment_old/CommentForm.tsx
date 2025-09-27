@@ -31,10 +31,9 @@ function CommentForm({
   position,
   initialComment = "",
   disabled = false,
-  resumeId,
 }: CommentFormProps) {
   const [comment, setComment] = useState<string>(initialComment);
-  const userData: { username?: string } | null = null;
+  // const userData: { username?: string } | null = null;
   // textarea에 대한 참조 생성
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 

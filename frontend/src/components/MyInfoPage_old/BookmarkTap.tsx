@@ -1,7 +1,8 @@
 import { useCallback, useEffect } from "react";
-import { getBookmarkById } from "../../api/bookMarkApi.ts";
-import { useBookmarkStore } from "../../store/BookmarkStore.ts";
-import BookmarkItem from "../../components/MyInfoPage/BookmarkItem.tsx";
+import { getBookmarkById } from "@/api/bookMarkApi";
+import { useBookmarkStore } from "@/store/BookmarkStore";
+import BookmarkItem from "@/components/MyInfoPage_old/BookmarkItem";
+import { BookmarkType } from "@/types/BookmarkType";
 
 function BookmarkTap() {
   const { bookmarks, setBookmarks } = useBookmarkStore();
@@ -32,7 +33,7 @@ function BookmarkTap() {
           </div>
           <div className="space-y-4">
             {bookmarks.length > 0 ? (
-              bookmarks.map((bookmark) => (
+              bookmarks.map((bookmark: BookmarkType) => (
                 <BookmarkItem
                   key={bookmark.bookmark_id}
                   bookmark={bookmark}

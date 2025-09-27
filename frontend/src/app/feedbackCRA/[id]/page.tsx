@@ -10,10 +10,9 @@ import ResumeOverview from "@/components/feedback/ResumeOverview";
 import { useBookmarkStore } from "@/store/BookmarkStore";
 import CommentSection from "@/components/comment_old/CommentSection";
 import MainContainer from "@/components/resumeoverview_old/MainContainer";
-import Swal from "sweetalert2";
 import { getResumeApi } from "@/api/feedbackApi";
 import Navbar from "@/components/layout/Navbar";
-
+import ErrorMessage from "@/components/UI_old/ErrorMessage";
 
 export default function FeedbackPage() {
   const params = useParams();
@@ -22,11 +21,12 @@ export default function FeedbackPage() {
   const [resumeData, setResumeData] = useState<ResumeData | null>(null);
   const [feedbackPoints, setFeedbackPoints] = useState<FeedbackPoint[]>([]);
   const [hoveredCommentId, setHoveredCommentId] = useState<number | null>(null);
+  const [, setClickedCommentId] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { setResumeUrl } = useResumeStore();
-  const { bookmarks, setBookmarks, isBookmarked } = useBookmarkStore();
-
+  const { setBookmarks, isBookmarked } = useBookmarkStore();
+  
   useEffect(() => {
     const fetchData = async () => {
       if (!resumeId) {
@@ -41,9 +41,9 @@ export default function FeedbackPage() {
         setFeedbackPoints(data.feedbackResponses || []);
         setResumeUrl(data.fileUrl);
 
-        const userId = 1; // 예시 사용자 ID
-        const bookmarksData = await getBookmarkById(userId);
-        setBookmarks(bookmarksData.result || []);
+        // const userId = 1; // 예시 사용자 ID
+        // const bookmarksData = await getBookmarkById(userId);
+        // setBookmarks(bookmarksData.result);
       } catch (e: unknown) {
         console.error(e);
         setError("Error fetching resume data.");
@@ -54,44 +54,60 @@ export default function FeedbackPage() {
     fetchData();
   }, [resumeId, setResumeUrl, setBookmarks]);
 
-  const toggleBookmark = async () => {
-    if (!resumeId) {
-      setError("Resume ID is missing.");
-      return;
-    }
-    try {
-      const existingBookmark = bookmarks.find(
-        (bk) => bk.resume_id === resumeId
-      );
-      if (existingBookmark) {
-        await deleteBookmarkById(existingBookmark.bookmark_id);
-        setBookmarks(
-          bookmarks.filter(
-            (bk) => bk.bookmark_id !== existingBookmark.bookmark_id
-          )
-        );
-        Swal.fire({
-          icon: "success",
-          title: "북마크가 해제되었습니다.",
-          confirmButtonText: "확인",
-        });
-      } else {
-        const newBookmark = await postBookmark(resumeId);
-        setBookmarks([...bookmarks, newBookmark]);
-        Swal.fire({
-          icon: "success",
-          title: "북마크가 추가되었습니다.",
-          confirmButtonText: "확인",
-        });
-      }
-    } catch {
-      Swal.fire({
-        icon: "error",
-        title: "북마크 상태를 변경할 수 없습니다. 다시 시도해주세요.",
-        confirmButtonText: "확인",
-      });
-    }
-  };
+  // const toggleBookmark = async () => {
+  //   if (!resumeId) {
+  //     setError("Resume ID is missing.");
+  //     return;
+  //   }
+  //   try {
+  //     // 현재 북마크 상태 확인
+  //     const existingBookmark = bookmarks.find((bk) => bk.resume_id === resumeId);
+      
+  //     if (existingBookmark) {
+  //       // 북마크 삭제
+  //       await deleteBookmarkById(existingBookmark.bookmark_id);
+  //       setBookmarks(
+  //         bookmarks.filter((bk) => bk.bookmark_id !== existingBookmark.bookmark_id)
+  //       );
+  //       Swal.fire({
+  //         icon: "success",
+  //         title: "북마크가 해제되었습니다.",
+  //         confirmButtonText: "확인",
+  //       });
+  //     } else {
+  //       // 북마크 추가
+  //       const newBookmarkResponse = await postBookmark(resumeId);
+        
+  //       // API 응답을 BookmarkType 형태로 변환 (임시 데이터와 함께)
+  //       const newBookmark: BookmarkType = {
+  //         id: newBookmarkResponse.bookmark_id,
+  //         bookmark_id: newBookmarkResponse.bookmark_id,
+  //         resume_id: newBookmarkResponse.resume_id,
+  //         user_name: "현재 사용자", // 임시값 - 실제로는 사용자 정보에서 가져와야 함
+  //         title: resumeData?.resume_title || "이력서", // 실제 이력서 제목 사용
+  //         date: new Date().toISOString(),
+  //         resume_title: resumeData?.resume_title || "이력서",
+  //         resume_author: resumeData?.userName || "작성자",
+  //         created_at: new Date().toISOString(),
+  //         updated_at: new Date().toISOString(),
+  //       };
+        
+  //       setBookmarks([...bookmarks, newBookmark]);
+  //       Swal.fire({
+  //         icon: "success",
+  //         title: "북마크가 추가되었습니다.",
+  //         confirmButtonText: "확인",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error("북마크 토글 오류:", error);
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "북마크 상태를 변경할 수 없습니다. 다시 시도해주세요.",
+  //       confirmButtonText: "확인",
+  //     });
+  //   }
+  // };
 
   // const handleAiFeedback = async () => {
   //   setLoading(true);
@@ -146,7 +162,7 @@ export default function FeedbackPage() {
   // };
 
   // if (loading) return <LoadingSpinner />;
-  // if (error) return <ErrorMessage message={error} />;
+  if (error) return <ErrorMessage message={error} />;
   // if (!resumeData) return <div>No resume data available.</div>;
 
   const bookmarked = isBookmarked(resumeId);
@@ -158,7 +174,7 @@ export default function FeedbackPage() {
         sidebar={
           <div className="flex flex-col justify-between bg-[#F9FAFB] p-2 mt-10">
             <button
-              onClick={toggleBookmark}
+              // onClick={toggleBookmark}
               className={`flex items-center px-6 py-3 rounded-lg ${
                 bookmarked
                   ? "bg-yellow-100 text-yellow-900"
@@ -205,9 +221,10 @@ export default function FeedbackPage() {
           // deleteFeedbackPoint={deleteFeedbackPoint}
           // editFeedbackPoint={editFeedbackPoint}
           hoveredCommentId={hoveredCommentId}
-          // setHoveredCommentId={setHoveredCommentId}
+          setHoveredCommentId={setHoveredCommentId}
           // laterResumeId={resumeData.laterResumeId}
           // previousResumeId={resumeData.previousResumeId}
+          setClickedCommentId={setClickedCommentId}
         />
       </ResumeLayout>
     </div>

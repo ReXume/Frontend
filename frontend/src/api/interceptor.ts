@@ -1,7 +1,7 @@
 // src/api/interceptors.ts
 import { AxiosError } from "axios";
-import { HTTPError } from "./HTTPError.ts";
-import { HTTP_STATUS_CODE } from "../constants/api.ts";
+import { HTTPError } from "./HTTPError";
+import { HTTP_STATUS_CODE } from "../constants/api";
 
 export interface ErrorResponseData {
   statusCode?: number;

@@ -1,4 +1,4 @@
-function LoadingSpinner(): JSX.Element {
+function LoadingSpinner(): React.ReactElement {
   return (
     <div className="flex justify-center items-center">
       <svg

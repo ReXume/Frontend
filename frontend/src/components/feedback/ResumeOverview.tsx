@@ -33,7 +33,7 @@ export default function ResumeOverview({
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center">
             <h2 className="text-xl font-bold text-gray-800">
-              {userName}'s Resume
+              {userName}&apos;s Resume
             </h2>
           </div>
           <button className="flex items-center text-yellow-500 hover:text-yellow-600">
