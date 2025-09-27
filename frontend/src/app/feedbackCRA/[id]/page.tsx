@@ -45,8 +45,8 @@ export default function FeedbackPage() {
         const userId = 1; // 예시 사용자 ID
         const bookmarksData = await getBookmarkById(userId);
         setBookmarks(bookmarksData.result || []);
-      } catch (error) {
-        console.error(error);
+      } catch (e: unknown) {
+        console.error(e);
         setError("Error fetching resume data.");
       } finally {
         setLoading(false);

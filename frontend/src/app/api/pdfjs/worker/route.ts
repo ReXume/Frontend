@@ -21,7 +21,7 @@ export async function GET() {
           "Cache-Control": "public, max-age=3600",
         },
       });
-    } catch (e) {
+    } catch (e: unknown) {
       // try next candidate
     }
   }
