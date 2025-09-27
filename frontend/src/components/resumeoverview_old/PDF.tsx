@@ -76,6 +76,7 @@ const PDF: React.FC<PDFProps> = ({
       }
 
       renderTaskRef.current = page.render({
+        canvas,
         canvasContext: context,
         viewport,
       });
