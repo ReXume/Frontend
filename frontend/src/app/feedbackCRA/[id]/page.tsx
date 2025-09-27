@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { Bookmark, BookmarkMinus } from "lucide-react";
 import ResumeOverview from "@/components/feedback/ResumeOverview";
 import { useBookmarkStore } from "@/store/BookmarkStore";
-import { deleteBookmarkById, getBookmarkById, postBookmark } from "@/api/bookMarkApi";
 import CommentSection from "@/components/comment_old/CommentSection";
 import MainContainer from "@/components/resumeoverview_old/MainContainer";
 import Swal from "sweetalert2";
