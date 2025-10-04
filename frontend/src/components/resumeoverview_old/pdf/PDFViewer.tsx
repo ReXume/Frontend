@@ -5,7 +5,7 @@ import {
   GlobalWorkerOptions,
   getDocument,
   type PDFDocumentProxy,
-} from "pdfjs-dist/build/pdf";
+} from "pdfjs-dist/build/pdf"; 
 
 import PDF from "./PDF";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
@@ -43,9 +43,11 @@ const PDFViewer = ({
   const [pdf, setPdf] = useState<PDFDocumentProxy | null>(null);
   const [numPages, setNumPages] = useState(0);
   const [err, setErr] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
+    setLoading(true);
 
     (async () => {
       if (!pdfSrc || typeof pdfSrc !== "string" || !pdfSrc.trim()) {
@@ -67,6 +69,8 @@ const PDFViewer = ({
 
     return () => {
       cancelled = true;
+      setLoading(false);
+
     };
   }, [pdfSrc]);
 
@@ -97,7 +101,7 @@ const PDFViewer = ({
           setClickedCommentId={setClickedCommentId}
         />
       ))}
-    </div>
+    </div>  
   );
 };
 

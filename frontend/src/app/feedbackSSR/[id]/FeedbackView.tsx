@@ -82,6 +82,7 @@ export default function FeedbackView({
 //   };
 
 //   const bookmarked = isBookmarked(resumeId);
+
   useEffect(() => {
     console.log({ resumeId });
   }, [resumeId]);
@@ -124,7 +125,7 @@ export default function FeedbackView({
               <CommentSection
                 feedbackPoints={feedbackPoints}
                 hoveredCommentId={hoveredCommentId}
-                setHoveredCommentId={setHoveredCommentId}
+                // setHoveredCommentId={setHoveredCommentId}
               />
             </div>
           </div>

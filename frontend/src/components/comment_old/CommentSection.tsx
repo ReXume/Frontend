@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from "react";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
@@ -12,7 +14,7 @@ interface CommentSectionProps {
   // deleteFeedbackPoint: (id: number) => void;
   // editFeedbackPoint: (item: FeedbackPoint) => void;
   hoveredCommentId: number | null;
-  setHoveredCommentId: (id: number | null) => void;
+  // setHoveredCommentId: (id: number | null) => void;
   // handleAiFeedback: () => void;
   loading?: boolean;
   error?: string;
@@ -25,7 +27,7 @@ function CommentSection({
   // deleteFeedbackPoint,
   // editFeedbackPoint,
   hoveredCommentId,
-  setHoveredCommentId,
+  // setHoveredCommentId,
   // handleAiFeedback,
   loading = false,
   error = "",
@@ -63,7 +65,7 @@ function CommentSection({
           <CommentList
             feedbackPoints={feedbackPoints ?? []}
             hoveredCommentId={hoveredCommentId}
-            setHoveredCommentId={setHoveredCommentId}
+            // setHoveredCommentId={setHoveredCommentId}
           />
         )}
       </div>

@@ -6,7 +6,7 @@ type CommentListProps = {
   // deleteFeedbackPoint: (id: number) => void;
   // editFeedbackPoint: (item: FeedbackPoint) => void;
   hoveredCommentId: number | null;
-  setHoveredCommentId: (id: number | null) => void;
+  // setHoveredCommentId: (id: number | null) => void;
   onClickedCommentId?: number | null;
 };
 

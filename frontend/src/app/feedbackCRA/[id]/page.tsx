@@ -210,7 +210,7 @@ export default function FeedbackPage() {
                 // editFeedbackPoint={editFeedbackPoint}
                 hoveredCommentId={hoveredCommentId}
                 // handleAiFeedback={handleAiFeedback}
-                setHoveredCommentId={setHoveredCommentId}
+                // setHoveredCommentId={setHoveredCommentId}
               />
             </div>
           </div>

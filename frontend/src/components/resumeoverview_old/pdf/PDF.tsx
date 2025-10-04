@@ -4,8 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import CommentForm from "../../comment_old/CommentForm";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 
-// // PDF.js Worker 설정
-// pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
 import { GlobalWorkerOptions, getDocument, type PDFPageProxy, type PDFDocumentProxy, RenderTask } from "pdfjs-dist";
 
 
@@ -64,6 +62,7 @@ const PDF: React.FC<PDFProps> = ({
 
   useEffect(() => {
     let cancelled = false;
+    const startTime = Date.now(); // 타이머 시작
 
     const loadPage = async () => {
       const page = await pdf.getPage(pageNumber);
@@ -86,6 +85,11 @@ const PDF: React.FC<PDFProps> = ({
       try {
         await renderTaskRef.current.promise;
         if (cancelled) return;
+        
+        // 렌더링 완료 시 타이머 출력
+        const endTime = Date.now();
+        const elapsedTime = (endTime - startTime) / 1000; // 초 단위로 변환
+        console.log(`PDF 렌더링 완료 (페이지 ${pageNumber}): ${elapsedTime.toFixed(2)}초`);
       } catch (err: unknown) {
         if (err instanceof Error && err.name !== "RenderingCancelledException") {
           console.error("PDF 렌더링 에러:", err);
@@ -94,7 +98,7 @@ const PDF: React.FC<PDFProps> = ({
     };
 
     loadPage();
-    console.log("PDF 렌더링 시작:", pageNumber);
+    console.log(`PDF 렌더링 시작 (페이지 ${pageNumber}): 0.00초`);
 
     return () => {
       cancelled = true;
