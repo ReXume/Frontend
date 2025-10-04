@@ -1,3 +1,5 @@
+"use client";
+
 import ResumePageGroup from "./ResumePageGroup";
 import Footer from "./Footer";
 import { FeedbackPoint } from "@/types/FeedbackPointType";

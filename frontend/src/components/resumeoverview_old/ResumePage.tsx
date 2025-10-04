@@ -1,7 +1,15 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import useResumeStore from "@/store/ResumeStore";
-import PDFViewer from "./PDFViewer";
 import { FeedbackPoint } from "@/types/FeedbackPointType.js";
+
+// PDFViewer를 동적으로 로드 (클라이언트 사이드에서만)
+const PDFViewer = dynamic(() => import("./pdf/PDFViewer"), {
+  ssr: false,
+  loading: () => <div>PDF 로딩 중...</div>,
+});
 
 type ResumePageProps = {
   pageNumber: number;

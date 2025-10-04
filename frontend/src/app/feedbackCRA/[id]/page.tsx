@@ -1,4 +1,5 @@
 "use client";
+
 import ResumeLayout from "@/components/layout/ResumeLayout";
 import useResumeStore from "@/store/ResumeStore";
 import { FeedbackPoint } from "@/types/FeedbackPointType";

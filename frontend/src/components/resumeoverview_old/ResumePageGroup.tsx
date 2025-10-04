@@ -1,3 +1,5 @@
+"use client";
+
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import ResumePage from "./ResumePage";
 

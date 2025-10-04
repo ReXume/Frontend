@@ -20,7 +20,7 @@
     "decamelize-keys": "^2.0.1",
     "lucide-react": "^0.487.0",
     "next": "^15.5.2",
-    "pdfjs-dist": "^5.4.149",
+    "pdfjs-dist": "3.11.174",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-pdf": "^10.1.0",

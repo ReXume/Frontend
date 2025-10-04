@@ -1,14 +1,17 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from "react";
-import * as pdfjsLib from "pdfjs-dist";
-import "pdfjs-dist/web/pdf_viewer.css";
-import CommentForm from "../comment_old/CommentForm";
+import CommentForm from "../../comment_old/CommentForm";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 
-// PDF.js Worker 설정
-pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
+// // PDF.js Worker 설정
+// pdfjsLib.GlobalWorkerOptions.workerSrc = "/api/pdfjs/worker";
+import { GlobalWorkerOptions, getDocument, type PDFPageProxy, type PDFDocumentProxy, RenderTask } from "pdfjs-dist";
+
+
 
 interface PDFProps {
-  pdf: pdfjsLib.PDFDocumentProxy;
+  pdf: PDFDocumentProxy;
   pageNumber: number;
   feedback: FeedbackPoint[];
   addFeedbackPoint: (point: {
@@ -38,7 +41,7 @@ const PDF: React.FC<PDFProps> = ({
   // setClickedCommentId,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const renderTaskRef = useRef<pdfjsLib.RenderTask>(null);
+  const renderTaskRef = useRef<RenderTask | null>(null);
 
   const [selectedArea, setSelectedArea] = useState<{
     x: number;
@@ -76,7 +79,6 @@ const PDF: React.FC<PDFProps> = ({
       }
 
       renderTaskRef.current = page.render({
-        canvas,
         canvasContext: context,
         viewport,
       });
@@ -170,8 +172,12 @@ const PDF: React.FC<PDFProps> = ({
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
+      {/* 캔버스 표시 */}
       <canvas ref={canvasRef} style={{ display: "block" }} />
+      {/* 캔버스 표시 */}
 
+
+      {/* 선택 영역 표시 */}
       {selectedArea && (
         <div
           style={{
