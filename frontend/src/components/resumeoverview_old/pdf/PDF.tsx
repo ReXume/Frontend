@@ -62,43 +62,71 @@ const PDF: React.FC<PDFProps> = ({
 
   useEffect(() => {
     let cancelled = false;
-    const startTime = Date.now(); // 타이머 시작
+    let retryCount = 0;
+    const maxRetries = 3;
+    const startTime = Date.now();
 
     const loadPage = async () => {
-      const page = await pdf.getPage(pageNumber);
-      const viewport = page.getViewport({ scale: 2, rotation: 0 });
-      const canvas = canvasRef.current!;
-      const context = canvas.getContext("2d")!;
-
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
-
-      if (renderTaskRef.current) {
-        renderTaskRef.current.cancel();
-      }
-
-      renderTaskRef.current = page.render({
-        canvasContext: context,
-        viewport,
-      });
-
       try {
+        console.log(`PDF 렌더링 시작 (페이지 ${pageNumber}): 0.00초`);
+        
+        const page = await pdf.getPage(pageNumber);
+        const viewport = page.getViewport({ scale: 2, rotation: 0 });
+        const canvas = canvasRef.current!;
+        const context = canvas.getContext("2d")!;
+
+        if (!canvas || !context) {
+          throw new Error('Canvas 또는 Context를 가져올 수 없습니다');
+        }
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        if (renderTaskRef.current) {
+          renderTaskRef.current.cancel();
+        }
+
+        renderTaskRef.current = page.render({
+          canvasContext: context,
+          viewport,
+        });
+
         await renderTaskRef.current.promise;
+        
         if (cancelled) return;
         
         // 렌더링 완료 시 타이머 출력
         const endTime = Date.now();
-        const elapsedTime = (endTime - startTime) / 1000; // 초 단위로 변환
+        const elapsedTime = (endTime - startTime) / 1000;
         console.log(`PDF 렌더링 완료 (페이지 ${pageNumber}): ${elapsedTime.toFixed(2)}초`);
+        
       } catch (err: unknown) {
-        if (err instanceof Error && err.name !== "RenderingCancelledException") {
-          console.error("PDF 렌더링 에러:", err);
+        if (cancelled) return;
+        
+        if (err instanceof Error && err.name === "RenderingCancelledException") {
+          return; // 취소된 렌더링은 무시
+        }
+        
+        console.error(`PDF 렌더링 에러 (페이지 ${pageNumber}):`, err);
+        
+        // 재시도 로직
+        if (retryCount < maxRetries) {
+          retryCount++;
+          console.log(`PDF 렌더링 재시도 ${retryCount}/${maxRetries} (페이지 ${pageNumber})`);
+          
+          // 재시도 전 짧은 대기
+          await new Promise(resolve => setTimeout(resolve, 500 * retryCount));
+          
+          if (!cancelled) {
+            loadPage();
+          }
+        } else {
+          console.error(`PDF 렌더링 최종 실패 (페이지 ${pageNumber}): 최대 재시도 횟수 초과`);
         }
       }
     };
 
     loadPage();
-    console.log(`PDF 렌더링 시작 (페이지 ${pageNumber}): 0.00초`);
 
     return () => {
       cancelled = true;

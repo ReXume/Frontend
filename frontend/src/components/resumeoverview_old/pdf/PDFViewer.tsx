@@ -11,10 +11,37 @@ import PDF from "./PDF";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
-// 워커 파일 경로를 CDN으로 설정 (안정적인 방법)
-if (typeof window !== 'undefined') {
-  GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-}
+// 워커 초기화 상태 관리
+let workerInitialized = false;
+let workerInitPromise: Promise<void> | null = null;
+
+// 워커 초기화 함수
+const initializeWorker = async (): Promise<void> => {
+  if (workerInitialized) return;
+  if (workerInitPromise) return workerInitPromise;
+  
+  workerInitPromise = new Promise(async (resolve, reject) => {
+    try {
+      console.log('PDF 워커 초기화 시작');
+      
+      // CDN 워커 설정 (우선순위 1)
+      GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      
+      // 워커 로드를 위한 짧은 대기
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      console.log('PDF 워커 초기화 완료');
+      workerInitialized = true;
+      resolve();
+      
+    } catch (error) {
+      console.error('PDF 워커 초기화 실패:', error);
+      reject(error);
+    }
+  });
+  
+  return workerInitPromise;
+};
 
 interface PDFViewerProps {
   pdfSrc: string;
@@ -45,32 +72,43 @@ const PDFViewer = ({
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
+    setErr(null);
 
     (async () => {
       if (!pdfSrc || typeof pdfSrc !== "string" || !pdfSrc.trim()) {
         setErr("PDF URL이 비어있습니다.");
+        setLoading(false);
         return;
       }
       
       try {
-        // 워커 상태 확인 및 재설정
+        console.log(`PDF 로딩 시작: ${pdfSrc}`);
+        
+        // 1단계: 워커 초기화 (필수)
         if (typeof window !== 'undefined') {
-          GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+          await initializeWorker();
+          if (cancelled) return;
         }
         
+        console.log('워커 초기화 완료, PDF 문서 로딩 시작');
+        
+        // 2단계: PDF 문서 로딩
         const task = getDocument({ 
           url: pdfSrc,
-          // 워커 관련 설정 추가
-          worker: undefined, // 기본 워커 사용
+          // 워커가 이미 초기화되었으므로 기본 설정 사용
         });
+        
         const loaded = await task.promise;
         if (cancelled) return;
+        
+        console.log(`PDF 문서 로딩 완료: ${loaded.numPages}페이지`);
         setPdf(loaded);
         setNumPages(loaded.numPages);
         setLoading(false);
+        
       } catch (e: any) {
         if (cancelled) return;
-        console.error("Failed to load PDF:", e);
+        console.error("PDF 로딩 실패:", e);
         setErr(`PDF 로딩에 실패했습니다: ${e.message || '알 수 없는 오류'}`);
         setLoading(false);
       }
