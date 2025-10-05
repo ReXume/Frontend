@@ -10,10 +10,28 @@ export default function Page() {
             href="/feedback/1"
             className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
           >
-            CSR (Client Side Rendering)
+            Sample 1 PDF 보기
+          </Link>
+          <Link
+            href="/feedback/2"
+            className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            Sample 2 PDF 보기
+          </Link>
+          <Link
+            href="/feedback/3"
+            className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            Sample 3 PDF 보기
+          </Link>
+          <Link
+            href="/feedback/4"
+            className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            Sample 4 PDF 보기
           </Link>
         </div>
-        <p className="text-xs text-gray-500 mt-4">예시로 id 1로 연결됩니다.</p>
+        <p className="text-xs text-gray-500 mt-4">각 링크는 해당하는 sample PDF를 표시합니다.</p>
       </div>
     </div>
   );
