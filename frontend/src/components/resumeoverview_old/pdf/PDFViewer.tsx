@@ -11,9 +11,10 @@ import PDF from "./PDF";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
-// 워커 파일 경로를 동적으로 설정
-GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.min.js`;
-
+// 워커 파일 경로를 동적으로 설정 (API 라우트 사용)
+if (typeof window !== 'undefined') {
+  GlobalWorkerOptions.workerSrc = `${window.location.origin}/api/pdfjs/worker`;
+}
 
 interface PDFViewerProps {
   pdfSrc: string;
@@ -50,23 +51,33 @@ const PDFViewer = ({
         setErr("PDF URL이 비어있습니다.");
         return;
       }
+      
       try {
-        const task = getDocument({ url: pdfSrc });
+        // 워커 상태 확인 및 재설정
+        if (typeof window !== 'undefined') {
+          GlobalWorkerOptions.workerSrc = `${window.location.origin}/api/pdfjs/worker`;
+        }
+        
+        const task = getDocument({ 
+          url: pdfSrc,
+          // 워커 관련 설정 추가
+          worker: undefined, // 기본 워커 사용
+        });
         const loaded = await task.promise;
         if (cancelled) return;
         setPdf(loaded);
         setNumPages(loaded.numPages);
+        setLoading(false);
       } catch (e: any) {
         if (cancelled) return;
         console.error("Failed to load PDF:", e);
-        setErr("PDF 로딩에 실패했습니다.");
+        setErr(`PDF 로딩에 실패했습니다: ${e.message || '알 수 없는 오류'}`);
+        setLoading(false);
       }
     })();
 
     return () => {
       cancelled = true;
-      setLoading(false);
-
     };
   }, [pdfSrc]);
 
