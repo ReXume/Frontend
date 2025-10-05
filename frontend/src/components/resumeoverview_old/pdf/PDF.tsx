@@ -67,65 +67,78 @@ const PDF: React.FC<PDFProps> = ({
     const startTime = Date.now();
 
     const loadPage = async () => {
-      try {
-        console.log(`PDF 렌더링 시작 (페이지 ${pageNumber}): 0.00초`);
-        
-        const page = await pdf.getPage(pageNumber);
-        const viewport = page.getViewport({ scale: 2, rotation: 0 });
-        const canvas = canvasRef.current!;
-        const context = canvas.getContext("2d")!;
-
-        if (!canvas || !context) {
-          throw new Error('Canvas 또는 Context를 가져올 수 없습니다');
-        }
-
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
-
-        if (renderTaskRef.current) {
-          renderTaskRef.current.cancel();
-        }
-
-        renderTaskRef.current = page.render({
-          canvasContext: context,
-          viewport,
-        });
-
-        await renderTaskRef.current.promise;
-        
-        if (cancelled) return;
-        
-        // 렌더링 완료 시 타이머 출력
-        const endTime = Date.now();
-        const elapsedTime = (endTime - startTime) / 1000;
-        console.log(`PDF 렌더링 완료 (페이지 ${pageNumber}): ${elapsedTime.toFixed(2)}초`);
-        
-      } catch (err: unknown) {
-        if (cancelled) return;
-        
-        if (err instanceof Error && err.name === "RenderingCancelledException") {
-          return; // 취소된 렌더링은 무시
-        }
-        
-        console.error(`PDF 렌더링 에러 (페이지 ${pageNumber}):`, err);
-        
-        // 재시도 로직
-        if (retryCount < maxRetries) {
-          retryCount++;
-          console.log(`PDF 렌더링 재시도 ${retryCount}/${maxRetries} (페이지 ${pageNumber})`);
-          
-          // 재시도 전 짧은 대기
-          await new Promise(resolve => setTimeout(resolve, 500 * retryCount));
-          
-          if (!cancelled) {
-            loadPage();
+      let retries = 0;
+    
+      const attempt = async () => {
+        try {
+          const pageLabel = `p${pageNumber}`;
+          const t0 = performance.now();
+          console.log(`PDF 렌더 시작 (${pageLabel})`);
+    
+          // 1) 페이지 얻기
+          const page = await pdf.getPage(pageNumber);
+          const t1 = performance.now();
+    
+          // 2) 뷰포트/캔버스 준비
+          const viewport = page.getViewport({ scale: 2, rotation: 0 });
+          const canvas = canvasRef.current!;
+          const ctx = canvas.getContext("2d")!;
+          if (!canvas || !ctx) throw new Error("Canvas/Context 생성 실패");
+    
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+    
+          // 3) 기존 렌더 취소
+          if (renderTaskRef.current) {
+            renderTaskRef.current.cancel();
           }
-        } else {
-          console.error(`PDF 렌더링 최종 실패 (페이지 ${pageNumber}): 최대 재시도 횟수 초과`);
+    
+          // 4) 렌더
+          const renderTask = page.render({ canvasContext: ctx, viewport });
+          renderTaskRef.current = renderTask;
+          await renderTask.promise;
+          const t2 = performance.now();
+    
+          // 5) 실제 페인트 커밋까지 대기(체감 포함)
+          await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+          const t3 = performance.now();
+    
+          if (cancelled) return;
+    
+          console.log(
+            `PDF 렌더 완료 (${pageLabel}) ` +
+            `getPage: ${(t1 - t0).toFixed(1)}ms, ` +
+            `render: ${(t2 - t1).toFixed(1)}ms, ` +
+            `paint: ${(t3 - t2).toFixed(1)}ms, ` +
+            `total: ${(t3 - t0).toFixed(1)}ms`
+          );
+    
+          // 메모리 회수 도움이 필요하면(큰 문서) 페이지 사용 후:
+          // page.cleanup(); // 필요 시 사용
+    
+        } catch (err: any) {
+          if (cancelled) return;
+          if (err?.name === "RenderingCancelledException") return;
+    
+          console.error(`PDF 렌더 에러 (페이지 ${pageNumber}):`, err);
+    
+          if (retries < maxRetries) {
+            retries += 1;
+            const backoff = 500 * retries;
+            console.log(`재시도 ${retries}/${maxRetries} (대기 ${backoff}ms)`);
+            await new Promise((r) => setTimeout(r, backoff));
+            if (!cancelled) {
+              return attempt(); // 재귀 호출하되 await로 체인 유지
+            }
+          } else {
+            console.error(`최종 실패 (페이지 ${pageNumber}): 최대 재시도 초과`);
+          }
         }
-      }
+      };
+    
+      return attempt();
     };
-
+    
     loadPage();
 
     return () => {

@@ -28,7 +28,7 @@ export default function ResumeOverview({
     rawFileName.length > 5 ? rawFileName.slice(0, 14) + "..." : rawFileName;
 
   return (
-    <div className="w-[534px] h-auto bg-white p-4 z-1">
+    <div className="w-full h-auto bg-white p-4 z-1">
       <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center">
@@ -45,18 +45,18 @@ export default function ResumeOverview({
 
         <div className="grid grid-cols-3 gap-4 mb-4">
           <div className="bg-slate-50 p-3 rounded-lg">
-            <p className="text-sm text-gray-500 mb-1">Position</p>
-            <p className="font-medium">{position}</p>
+            <p className="text-sm text-gray-700 mb-1">Position</p>
+            <p className="font-medium text-gray-500">{position}</p>
           </div>
           <div className="bg-slate-50 p-3 rounded-lg">
-            <p className="text-sm text-gray-500 mb-1">Career</p>
-            <p className="font-medium">
+            <p className="text-sm text-gray-700 mb-1">Career</p>
+            <p className="font-medium text-gray-500">
               {career === 0 ? "신입" : `${career} years`}
             </p>
           </div>
           <div className="bg-slate-50 p-3 rounded-lg relative">
-            <p className="text-sm text-gray-500 mb-1">Tech Stack</p>
-            <div className="group">
+            <p className="text-sm text-gray-700 mb-1">Tech Stack</p>
+            <div className="group text-gray-500">
               <p className="font-medium truncate w-32">
                 {techStackNames.join(", ")}
               </p>

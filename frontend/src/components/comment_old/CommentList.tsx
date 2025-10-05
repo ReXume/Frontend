@@ -61,33 +61,33 @@ function CommentList({
                 </span>
               </div>
               {/* 피드백 내용 카드 */}
-              {/* <div className="bg-slate-50 rounded-lg p-4 flex-grow">
+              <div className="bg-slate-50 rounded-lg p-4 flex-grow">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-medium text-gray-800">
+                  {/* <span className="font-medium text-gray-800">
                     {isAiFeedback ? "AI피드백" : username}
                   </span>
                   {timestamp && (
                     <span className="text-xs text-gray-500">{timestamp}</span>
-                  )}
+                  )} */}
                 </div>
                 <p className="text-gray-700">
-                  {contentWithoutPrefix || "No feedback available"}
+                  {item.content}
                 </p>
                 <div className="flex items-center mt-2 space-x-2">
                   <button
                     className="px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 text-sm"
-                    onClick={() => editFeedbackPoint(item)}
+                    // onClick={() => editFeedbackPoint(item)}
                   >
                     수정
                   </button>
                   <button
                     className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-sm"
-                    onClick={() => deleteFeedbackPoint(item.feedbackId)}
+                    // onClick={() => deleteFeedbackPoint(item.feedbackId)}
                   >
                     삭제
                   </button>
                 </div>
-              </div> */}
+              </div>
             </div>
           </li>
         );
