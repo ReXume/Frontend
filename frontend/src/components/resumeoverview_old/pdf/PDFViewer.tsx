@@ -12,11 +12,7 @@ import { FeedbackPoint } from "@/types/FeedbackPointType";
 import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
 // 워커 파일 경로를 동적으로 설정
-if (typeof window !== 'undefined') {
-  GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.min.js`;
-} else {
-  GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
-}
+GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.min.js`;
 
 
 interface PDFViewerProps {
