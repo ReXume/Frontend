@@ -11,9 +11,9 @@ import PDF from "./PDF";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import { AddFeedbackPoint } from "@/types/AddFeedbackPointType";
 
-// 워커 파일 경로를 동적으로 설정 (API 라우트 사용)
+// 워커 파일 경로를 CDN으로 설정 (안정적인 방법)
 if (typeof window !== 'undefined') {
-  GlobalWorkerOptions.workerSrc = `${window.location.origin}/api/pdfjs/worker`;
+  GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 }
 
 interface PDFViewerProps {
@@ -55,7 +55,7 @@ const PDFViewer = ({
       try {
         // 워커 상태 확인 및 재설정
         if (typeof window !== 'undefined') {
-          GlobalWorkerOptions.workerSrc = `${window.location.origin}/api/pdfjs/worker`;
+          GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         }
         
         const task = getDocument({ 
