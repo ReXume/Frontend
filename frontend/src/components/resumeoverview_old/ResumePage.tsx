@@ -4,11 +4,18 @@ import React, { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import useResumeStore from "@/store/ResumeStore";
 import { FeedbackPoint } from "@/types/FeedbackPointType.js";
+import { useSearchParams } from "next/navigation";
 
-// PDFViewer를 동적으로 로드 (클라이언트 사이드에서만)
-const PDFViewer = dynamic(() => import("./pdf/PDFViewer"), {
+// 일반 PDF 버전 (IntersectionObserver)
+const PDFViewerStandard = dynamic(() => import("./pdf/PDFViewer"), {
   ssr: false,
-  loading: () => <div>PDF 로딩 중...</div>,
+  loading: () => <div>PDF 로딩 중... (일반 버전)</div>,
+});
+
+// PDF Queue 버전 (RenderScheduler)
+const PDFViewerQueue = dynamic(() => import("./pdfQueue/PDFViewer"), {
+  ssr: false,
+  loading: () => <div>PDF 로딩 중... (Queue 버전)</div>,
 });
 
 type ResumePageProps = {
@@ -31,6 +38,8 @@ function ResumePage({
   // setHoveredCommentId,
   // setClickedCommentId,
 }: ResumePageProps) {
+  const searchParams = useSearchParams();
+  const version = searchParams.get('version') || 'pdf'; // 기본값: 'pdf'
   const pageRef = useRef<HTMLDivElement>(null);
   const [, setAddingFeedback] = useState<{
     x: number;
@@ -83,11 +92,18 @@ function ResumePage({
   const { ResumeUrl } = useResumeStore();
 
   useEffect(() => {
-    console.log({ ResumeUrl });
-  }, [ResumeUrl]);
+    console.log({ ResumeUrl, version });
+  }, [ResumeUrl, version]);
+
+  // 버전에 따라 사용할 PDFViewer 선택
+  const PDFViewer = version === 'queue' ? PDFViewerQueue : PDFViewerStandard;
 
   return (
     <div className="relative mb-8">
+      {/* 현재 사용 중인 버전 표시 */}
+      <div className="mb-2 px-4 py-2 bg-blue-100 rounded-md text-sm text-gray-700 font-medium">
+        현재 버전: {version === 'queue' ? '⚡ PDF Queue (RenderScheduler)' : '📄 일반 PDF (IntersectionObserver)'}
+      </div>
       <div
         ref={pageRef}
         className="w-full h-[903px] items-center relative cursor-pointer -mt-1"

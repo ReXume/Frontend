@@ -39,7 +39,9 @@ const PDF: React.FC<PDFProps> = ({
   // setClickedCommentId,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const renderTaskRef = useRef<RenderTask | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const [selectedArea, setSelectedArea] = useState<{
     x: number;
@@ -60,11 +62,37 @@ const PDF: React.FC<PDFProps> = ({
     null
   );
 
+  // IntersectionObserver로 뷰포트 감지
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      },
+      {
+        root: null, // viewport 기준
+        rootMargin: '200px', // 뷰포트 200px 전에 미리 로드
+        threshold: 0.01, // 1%만 보여도 감지
+      }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // 뷰포트에 보일 때만 렌더링
+  useEffect(() => {
+    if (!isVisible) return;
+
     let cancelled = false;
-    let retryCount = 0;
     const maxRetries = 3;
-    const startTime = Date.now();
 
     const loadPage = async () => {
       let retries = 0;
@@ -81,9 +109,11 @@ const PDF: React.FC<PDFProps> = ({
     
           // 2) 뷰포트/캔버스 준비
           const viewport = page.getViewport({ scale: 2, rotation: 0 });
-          const canvas = canvasRef.current!;
-          const ctx = canvas.getContext("2d")!;
-          if (!canvas || !ctx) throw new Error("Canvas/Context 생성 실패");
+          const canvas = canvasRef.current;
+          if (!canvas) return;
+          
+          const ctx = canvas.getContext("2d");
+          if (!ctx) throw new Error("Canvas Context 생성 실패");
     
           canvas.width = viewport.width;
           canvas.height = viewport.height;
@@ -99,7 +129,7 @@ const PDF: React.FC<PDFProps> = ({
           await renderTask.promise;
           const t2 = performance.now();
     
-          // 5) 실제 페인트 커밋까지 대기(체감 포함)
+          // 5) 실제 페인트 커밋까지 대기
           await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
           const t3 = performance.now();
     
@@ -113,9 +143,6 @@ const PDF: React.FC<PDFProps> = ({
             `total: ${(t3 - t0).toFixed(1)}ms`
           );
     
-          // 메모리 회수 도움이 필요하면(큰 문서) 페이지 사용 후:
-          // page.cleanup(); // 필요 시 사용
-    
         } catch (err: any) {
           if (cancelled) return;
           if (err?.name === "RenderingCancelledException") return;
@@ -128,7 +155,7 @@ const PDF: React.FC<PDFProps> = ({
             console.log(`재시도 ${retries}/${maxRetries} (대기 ${backoff}ms)`);
             await new Promise((r) => setTimeout(r, backoff));
             if (!cancelled) {
-              return attempt(); // 재귀 호출하되 await로 체인 유지
+              return attempt();
             }
           } else {
             console.error(`최종 실패 (페이지 ${pageNumber}): 최대 재시도 초과`);
@@ -145,9 +172,10 @@ const PDF: React.FC<PDFProps> = ({
       cancelled = true;
       if (renderTaskRef.current) {
         renderTaskRef.current.cancel();
+        renderTaskRef.current = null;
       }
     };
-  }, [pdf, pageNumber]);
+  }, [pdf, pageNumber, isVisible]);
 
   // hover 핸들러 캡슐화: 콘솔 로그로 확인
   // const handleHover = (id: number | null) => {
@@ -212,7 +240,8 @@ const PDF: React.FC<PDFProps> = ({
 
   return (
     <div
-      style={{ position: "relative", marginBottom: 20 }}
+      ref={containerRef}
+      style={{ position: "relative", marginBottom: 20, minHeight: 800 }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}

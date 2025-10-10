@@ -6,9 +6,9 @@ import { promises as fs } from "fs";
 export async function GET() {
   const cwd = process.cwd();
   const candidates = [
-    path.join(cwd, "node_modules/pdfjs-dist/build/pdf.worker.min.mjs"),
     path.join(cwd, "node_modules/pdfjs-dist/build/pdf.worker.min.js"),
     path.join(cwd, "node_modules/pdfjs-dist/build/pdf.worker.js"),
+    path.join(cwd, "public/pdf.worker.min.js"),
   ];
 
   for (const filePath of candidates) {
@@ -22,7 +22,7 @@ export async function GET() {
         },
       });
     } catch (e: unknown) {
-      console.error(e);
+      console.error(`Failed to read ${filePath}:`, e);
     }
   }
 
