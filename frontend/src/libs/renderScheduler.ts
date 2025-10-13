@@ -6,7 +6,7 @@ export type RenderJob = {
   };
   
   class RenderScheduler {
-    private K = 2;                    // 동시 렌더 상한 (필요 시 3으로)
+    private K = 10;                    // 동시 렌더 상한 (필요 시 3으로)
     private inFlight = 0;
     private queue: RenderJob[] = [];
     private running = new Map<string, RenderJob>();
