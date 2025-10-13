@@ -94,7 +94,12 @@ const PDF: React.FC<PDFProps> = ({
 
               console.log(`Starting render for page ${pageNumber}`);
               
+              // 성능 측정 시작
+              const t0 = performance.now();
+              
               const page = await pdf.getPage(pageNumber);
+              const t1 = performance.now();
+              
               const viewport = page.getViewport({ scale: 2, rotation: 0 });
               const canvas = canvasRef.current;
               if (!canvas) {
@@ -123,14 +128,33 @@ const PDF: React.FC<PDFProps> = ({
 
               try {
                 await task.promise;
+                const t2 = performance.now();
+                
                 await new Promise<void>((r) =>
                   requestAnimationFrame(() =>
                     requestAnimationFrame(() => r())
                   )
                 );
+                const t3 = performance.now();
+                
                 renderedRef.current = true;
                 setRendered(true);
-                console.log(`Page ${pageNumber} rendered successfully`);
+                
+                // 메트릭 수집
+                const metrics = {
+                  page: pageNumber,
+                  getPageMs: parseFloat((t1 - t0).toFixed(1)),
+                  renderMs: parseFloat((t2 - t1).toFixed(1)),
+                  paintMs: parseFloat((t3 - t2).toFixed(1)),
+                  totalMs: parseFloat((t3 - t0).toFixed(1)),
+                };
+                
+                console.log(`Page ${pageNumber} rendered successfully - getPage: ${metrics.getPageMs}ms, render: ${metrics.renderMs}ms, paint: ${metrics.paintMs}ms, total: ${metrics.totalMs}ms`);
+                
+                // 벤치마크 메트릭 수집기에 전달
+                if (typeof window !== 'undefined' && (window as any).pdfRenderMetricsCollector) {
+                  (window as any).pdfRenderMetricsCollector.add(metrics);
+                }
               } catch (e: any) {
                 if (e?.name === "RenderingCancelledException") {
                   console.log(`Page ${pageNumber} rendering cancelled`);

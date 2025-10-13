@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-10-13T19:27:18.101Z",
+  "config": {
+    "runs": 1,
+    "waitTime": 3000,
+    "enableScroll": false,
+    "headless": true
+  },
+  "results": {
+    "Test": [
+      {
+        "url": "http://localhost:3000/feedback/4?version=pdf",
+        "runNumber": 1,
+        "totalTime": 5166,
+        "timestamp": "2025-10-13T19:27:18.099Z",
+        "webVitals": {
+          "FCP": 144,
+          "LCP": 508,
+          "CLS": 0.05352023114490901,
+          "TTFB": 59.59999996423721
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 59.59999996423721,
+            "firstByteToFCP": 84.40000003576279,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 59.59999996423721,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 448.4000000357628
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 490.39999997615814,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.8999999761581421,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 58.69999998807907
+          }
+        },
+        "timing": {
+          "ttfb": 57.5,
+          "domInteractive": 92.90000003576279,
+          "domContentLoaded": 92.90000003576279,
+          "loadComplete": 412.69999998807907,
+          "firstPaint": 144,
+          "firstContentfulPaint": 144,
+          "tti": 410.19999998807907,
+          "tbt": 106,
+          "longTaskCount": 1
+        },
+        "longTasks": [
+          {
+            "startTime": 254.19999998807907,
+            "duration": 156
+          }
+        ],
+        "scrollMetrics": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "timestamp": "2025-10-13T20:06:24.418Z",
+  "config": {
+    "preset": "intensive",
+    "runs": 1,
+    "waitTime": 10000,
+    "enableScroll": true,
+    "scrollIntensive": true,
+    "headless": true,
+    "cpuThrottle": 4
+  },
+  "results": {
+    "Basic": [
+      {
+        "url": "http://localhost:3000/feedback-basic/4",
+        "runNumber": 1,
+        "totalTime": 14223,
+        "timestamp": "2025-10-13T20:06:09.868Z",
+        "webVitals": {
+          "FCP": 184,
+          "LCP": 1616,
+          "CLS": 0.4350387545613104,
+          "TTFB": 54.69999998807907
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 54.69999998807907,
+            "firstByteToFCP": 129.30000001192093,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 54.69999998807907,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1561.300000011921
+          },
+          "CLS": {
+            "largestShiftValue": 0.2556619526427469,
+            "largestShiftTime": 2296.699999988079,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.7999999523162842,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 53.90000003576279
+          }
+        },
+        "timing": {
+          "ttfb": 52.60000002384186,
+          "domInteractive": 141.30000001192093,
+          "domContentLoaded": 141.80000001192093,
+          "loadComplete": 1309.800000011921,
+          "firstPaint": 184,
+          "firstContentfulPaint": 184,
+          "tti": 9061.399999976158,
+          "tbt": 1619,
+          "longTaskCount": 7
+        },
+        "longTasks": [
+          {
+            "startTime": 82.29999995231628,
+            "duration": 57
+          },
+          {
+            "startTime": 317.0999999642372,
+            "duration": 978
+          },
+          {
+            "startTime": 1519.5999999642372,
+            "duration": 52
+          },
+          {
+            "startTime": 1889.8999999761581,
+            "duration": 71
+          },
+          {
+            "startTime": 1968,
+            "duration": 319
+          },
+          {
+            "startTime": 8561.899999976158,
+            "duration": 253
+          },
+          {
+            "startTime": 8815.399999976158,
+            "duration": 246
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            434.78260644216846
+          ],
+          "frameDrops": 0,
+          "startTime": 3561.599999964237,
+          "endTime": 4165.199999988079,
+          "duration": 603.6000000238419,
+          "avgFps": 434.78260644216846,
+          "minFps": 434.78260644216846
+        }
+      }
+    ],
+    "Queue": [
+      {
+        "url": "http://localhost:3000/feedback/4?version=queue",
+        "runNumber": 1,
+        "totalTime": 13839,
+        "timestamp": "2025-10-13T20:06:24.417Z",
+        "webVitals": {
+          "FCP": 212,
+          "LCP": 1228,
+          "CLS": 0.03524585325139049,
+          "TTFB": 66.5
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 66.5,
+            "firstByteToFCP": 145.5,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 66.5,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1161.5
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 1276.6000000238419,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.7000000476837158,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 65.79999995231628
+          }
+        },
+        "timing": {
+          "ttfb": 64.29999995231628,
+          "domInteractive": 175.19999998807907,
+          "domContentLoaded": 175.29999995231628,
+          "loadComplete": 1012,
+          "firstPaint": 212,
+          "firstContentfulPaint": 212,
+          "tti": 2008.9000000357628,
+          "tbt": 863,
+          "longTaskCount": 5
+        },
+        "longTasks": [
+          {
+            "startTime": 100.5,
+            "duration": 69
+          },
+          {
+            "startTime": 289.5,
+            "duration": 711
+          },
+          {
+            "startTime": 1281.6000000238419,
+            "duration": 187
+          },
+          {
+            "startTime": 1801.1000000238419,
+            "duration": 100
+          },
+          {
+            "startTime": 1943.9000000357628,
+            "duration": 65
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            769.2307974459867
+          ],
+          "frameDrops": 0,
+          "startTime": 3279.7000000476837,
+          "endTime": 3782.2000000476837,
+          "duration": 502.5,
+          "avgFps": 769.2307974459867,
+          "minFps": 769.2307974459867
+        }
+      }
+    ]
+  },
+  "statistics": {
+    "Basic": {
+      "runs": 1,
+      "fcp": {
+        "avg": 184,
+        "min": 184,
+        "max": 184
+      },
+      "lcp": {
+        "avg": 1616,
+        "min": 1616,
+        "max": 1616
+      },
+      "cls": {
+        "avg": 0.4350387545613104,
+        "min": 0.4350387545613104,
+        "max": 0.4350387545613104
+      },
+      "inp": {
+        "avg": null,
+        "min": null,
+        "max": null
+      },
+      "ttfb": {
+        "avg": 54.69999998807907,
+        "min": 54.69999998807907,
+        "max": 54.69999998807907
+      },
+      "tti": {
+        "avg": 9061.399999976158,
+        "min": 9061.399999976158,
+        "max": 9061.399999976158
+      },
+      "tbt": {
+        "avg": 1619,
+        "min": 1619,
+        "max": 1619
+      }
+    },
+    "Queue": {
+      "runs": 1,
+      "fcp": {
+        "avg": 212,
+        "min": 212,
+        "max": 212
+      },
+      "lcp": {
+        "avg": 1228,
+        "min": 1228,
+        "max": 1228
+      },
+      "cls": {
+        "avg": 0.03524585325139049,
+        "min": 0.03524585325139049,
+        "max": 0.03524585325139049
+      },
+      "inp": {
+        "avg": null,
+        "min": null,
+        "max": null
+      },
+      "ttfb": {
+        "avg": 66.5,
+        "min": 66.5,
+        "max": 66.5
+      },
+      "tti": {
+        "avg": 2008.9000000357628,
+        "min": 2008.9000000357628,
+        "max": 2008.9000000357628
+      },
+      "tbt": {
+        "avg": 863,
+        "min": 863,
+        "max": 863
+      }
+    }
+  }
+}

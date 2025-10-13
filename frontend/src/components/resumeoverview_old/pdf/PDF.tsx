@@ -135,13 +135,27 @@ const PDF: React.FC<PDFProps> = ({
     
           if (cancelled) return;
     
+          // 메트릭 수집
+          const metrics = {
+            page: pageNumber,
+            getPageMs: parseFloat((t1 - t0).toFixed(1)),
+            renderMs: parseFloat((t2 - t1).toFixed(1)),
+            paintMs: parseFloat((t3 - t2).toFixed(1)),
+            totalMs: parseFloat((t3 - t0).toFixed(1)),
+          };
+          
           console.log(
             `PDF 렌더 완료 (${pageLabel}) ` +
-            `getPage: ${(t1 - t0).toFixed(1)}ms, ` +
-            `render: ${(t2 - t1).toFixed(1)}ms, ` +
-            `paint: ${(t3 - t2).toFixed(1)}ms, ` +
-            `total: ${(t3 - t0).toFixed(1)}ms`
+            `getPage: ${metrics.getPageMs}ms, ` +
+            `render: ${metrics.renderMs}ms, ` +
+            `paint: ${metrics.paintMs}ms, ` +
+            `total: ${metrics.totalMs}ms`
           );
+          
+          // 벤치마크 메트릭 수집기에 전달
+          if (typeof window !== 'undefined' && (window as any).pdfRenderMetricsCollector) {
+            (window as any).pdfRenderMetricsCollector.add(metrics);
+          }
     
         } catch (err: any) {
           if (cancelled) return;

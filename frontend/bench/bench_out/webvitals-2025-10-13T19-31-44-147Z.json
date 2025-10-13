@@ -1,0 +1,82 @@
+{
+  "timestamp": "2025-10-13T19:31:44.147Z",
+  "config": {
+    "runs": 1,
+    "waitTime": 3000,
+    "enableScroll": false,
+    "headless": true
+  },
+  "results": {
+    "Test": [
+      {
+        "url": "http://localhost:3000/feedback/4?version=pdf",
+        "runNumber": 1,
+        "totalTime": 5117,
+        "timestamp": "2025-10-13T19:31:44.145Z",
+        "webVitals": {
+          "FCP": 144,
+          "LCP": 472,
+          "CLS": 0.05352023114490901,
+          "TTFB": 65.10000002384186
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 65.10000002384186,
+            "firstByteToFCP": 78.89999997615814,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 65.10000002384186,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 406.89999997615814
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 481,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.800000011920929,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 64.30000001192093
+          }
+        },
+        "timing": {
+          "ttfb": 62.80000001192093,
+          "domInteractive": 103,
+          "domContentLoaded": 103.10000002384186,
+          "loadComplete": 418.30000001192093,
+          "firstPaint": 144,
+          "firstContentfulPaint": 144,
+          "tti": 415.30000001192093,
+          "tbt": 105,
+          "longTaskCount": 1
+        },
+        "longTasks": [
+          {
+            "startTime": 260.30000001192093,
+            "duration": 155
+          }
+        ],
+        "scrollMetrics": null,
+        "performanceAPI": {
+          "FCP": 144,
+          "TTFB": 62.80000001192093,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      }
+    ]
+  }
+}

@@ -8,6 +8,13 @@ export default function Page() {
         <div className="space-y-3">
 
           <Link
+            href="/feedback-basic/4"
+            className="block w-full px-4 py-3 rounded-lg bg-blue-100 border-2 border-blue-300 shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            📄 기본 PDF 버전 (개선 전)
+          </Link>
+
+          <Link
             href="/feedback/4?version=pdf"
             className="block w-full px-4 py-3 rounded-lg bg-white shadow hover:shadow-md transition text-center text-gray-900"
           >
@@ -23,6 +30,7 @@ export default function Page() {
         <div className="mt-6 p-4 bg-blue-50 rounded-lg">
           <h2 className="text-sm font-semibold text-gray-900 mb-2">버전 차이점:</h2>
           <ul className="text-xs text-gray-600 space-y-1">
+            <li>• <strong>기본 버전:</strong> 개선 전 기본 PDF 뷰어 (성능 최적화 없음)</li>
             <li>• <strong>일반 버전:</strong> 뷰포트에 보이면 즉시 렌더링, 재시도 로직 포함</li>
             <li>• <strong>Queue 버전:</strong> 렌더링 큐 관리, 우선순위 기반, Backpressure 기법</li>
           </ul>

@@ -7,7 +7,13 @@
     "build": "next build",
     "postbuild": "cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/pdf.worker.min.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "bench:webvitals": "node bench/bench-webvitals.js",
+    "bench:lighthouse": "node bench/bench-lighthouse.js",
+    "bench:full": "node bench/bench.js",
+    "bench:compare": "node bench/bench-webvitals.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback-basic/4' --name2 'Basic Version' --url3 'http://localhost:3000/feedback/4?version=queue' --name3 'Queue Version' --runs 3 --scroll true",
+    "bench:compare:realistic": "node bench/bench-webvitals.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback-basic/4' --name2 'Basic Version' --url3 'http://localhost:3000/feedback/4?version=queue' --name3 'Queue Version' --preset realistic --runs 3",
+    "bench:compare:fast": "node bench/bench-webvitals.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback-basic/4' --name2 'Basic Version' --url3 'http://localhost:3000/feedback/4?version=queue' --name3 'Queue Version' --preset fast --runs 1"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -22,7 +28,7 @@
     "lucide-react": "^0.487.0",
     "next": "^15.5.2",
     "pdfjs-dist": "3.11.174",
-    "puppeteer": "^24.23.0",
+    "puppeteer": "^24.24.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-pdf": "^10.1.0",
@@ -40,8 +46,10 @@
     "eslint-config-next": "15.2.4",
     "fs-extra": "^11.3.2",
     "globby": "^15.0.0",
+    "lighthouse": "^13.0.0",
     "prettier": "^3.5.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "web-vitals": "^4.2.4"
   }
 }

@@ -1,0 +1,988 @@
+{
+  "timestamp": "2025-10-13T19:43:12.884Z",
+  "config": {
+    "runs": 3,
+    "waitTime": 3000,
+    "enableScroll": true,
+    "headless": true,
+    "cpuThrottle": 4
+  },
+  "results": {
+    "PDF Version": [
+      {
+        "url": "http://localhost:3000/feedback/4?version=pdf",
+        "runNumber": 1,
+        "totalTime": 6545,
+        "timestamp": "2025-10-13T19:41:57.169Z",
+        "webVitals": {
+          "FCP": 180,
+          "LCP": 1156,
+          "CLS": 0.05352023114490901,
+          "TTFB": 50.69999998807907
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 50.69999998807907,
+            "firstByteToFCP": 129.30000001192093,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 50.69999998807907,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1105.300000011921
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 1194.5999999642372,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.8999999761581421,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 49.80000001192093
+          }
+        },
+        "timing": {
+          "ttfb": 48.5,
+          "domInteractive": 144.39999997615814,
+          "domContentLoaded": 144.5,
+          "loadComplete": 981.8999999761581,
+          "firstPaint": 180,
+          "firstContentfulPaint": 180,
+          "tti": 1717.2999999523163,
+          "tbt": 697,
+          "longTaskCount": 4
+        },
+        "longTasks": [
+          {
+            "startTime": 78.09999996423721,
+            "duration": 57
+          },
+          {
+            "startTime": 358.7999999523163,
+            "duration": 613
+          },
+          {
+            "startTime": 1198.5,
+            "duration": 171
+          },
+          {
+            "startTime": 1654.2999999523163,
+            "duration": 63
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            909.0908893868947
+          ],
+          "frameDrops": 0,
+          "startTime": 2987.2999999523163,
+          "endTime": 3489,
+          "duration": 501.7000000476837,
+          "avgFps": 909.0908893868947,
+          "minFps": 909.0908893868947
+        },
+        "performanceAPI": {
+          "FCP": 180,
+          "TTFB": 48.5,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      },
+      {
+        "url": "http://localhost:3000/feedback/4?version=pdf",
+        "runNumber": 2,
+        "totalTime": 6783,
+        "timestamp": "2025-10-13T19:42:06.601Z",
+        "webVitals": {
+          "FCP": 172,
+          "LCP": 1084,
+          "CLS": 0.05352023114490901,
+          "TTFB": 48
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 48,
+            "firstByteToFCP": 124,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 48,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1036
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 1126.300000011921,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.800000011920929,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 47.19999998807907
+          }
+        },
+        "timing": {
+          "ttfb": 46,
+          "domInteractive": 131.89999997615814,
+          "domContentLoaded": 132,
+          "loadComplete": 891.5999999642372,
+          "firstPaint": 172,
+          "firstContentfulPaint": 172,
+          "tti": 1982.699999988079,
+          "tbt": 714,
+          "longTaskCount": 4
+        },
+        "longTasks": [
+          {
+            "startTime": 79.60000002384186,
+            "duration": 50
+          },
+          {
+            "startTime": 240.10000002384186,
+            "duration": 641
+          },
+          {
+            "startTime": 1130.8999999761581,
+            "duration": 157
+          },
+          {
+            "startTime": 1916.699999988079,
+            "duration": 66
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            588.235298242536
+          ],
+          "frameDrops": 0,
+          "startTime": 3223,
+          "endTime": 3725.600000023842,
+          "duration": 502.60000002384186,
+          "avgFps": 588.235298242536,
+          "minFps": 588.235298242536
+        },
+        "performanceAPI": {
+          "FCP": 172,
+          "TTFB": 46,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      },
+      {
+        "url": "http://localhost:3000/feedback/4?version=pdf",
+        "runNumber": 3,
+        "totalTime": 6463,
+        "timestamp": "2025-10-13T19:42:15.802Z",
+        "webVitals": {
+          "FCP": 180,
+          "LCP": 1080,
+          "CLS": 0.05352023114490901,
+          "TTFB": 50.40000003576279
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 50.40000003576279,
+            "firstByteToFCP": 129.5999999642372,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 50.40000003576279,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1029.5999999642372
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 1120,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.9000000357627869,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 49.5
+          }
+        },
+        "timing": {
+          "ttfb": 48.19999998807907,
+          "domInteractive": 136.5,
+          "domContentLoaded": 136.5999999642372,
+          "loadComplete": 904.3999999761581,
+          "firstPaint": 180,
+          "firstContentfulPaint": 180,
+          "tti": 1661.2000000476837,
+          "tbt": 730,
+          "longTaskCount": 4
+        },
+        "longTasks": [
+          {
+            "startTime": 79,
+            "duration": 56
+          },
+          {
+            "startTime": 253.30000001192093,
+            "duration": 641
+          },
+          {
+            "startTime": 1123.800000011921,
+            "duration": 173
+          },
+          {
+            "startTime": 1595.2000000476837,
+            "duration": 66
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            1111.1111405455044
+          ],
+          "frameDrops": 0,
+          "startTime": 2898.400000035763,
+          "endTime": 3400.7000000476837,
+          "duration": 502.30000001192093,
+          "avgFps": 1111.1111405455044,
+          "minFps": 1111.1111405455044
+        },
+        "performanceAPI": {
+          "FCP": 180,
+          "TTFB": 48.19999998807907,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      }
+    ],
+    "Basic Version": [
+      {
+        "url": "http://localhost:3000/feedback-basic/4",
+        "runNumber": 1,
+        "totalTime": 6982,
+        "timestamp": "2025-10-13T19:42:23.581Z",
+        "webVitals": {
+          "FCP": 184,
+          "LCP": 1300,
+          "CLS": 0.4350387545613104,
+          "TTFB": 53.60000002384186
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 53.60000002384186,
+            "firstByteToFCP": 130.39999997615814,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 53.60000002384186,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1246.3999999761581
+          },
+          "CLS": {
+            "largestShiftValue": 0.2556619526427469,
+            "largestShiftTime": 2057.199999988079,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.800000011920929,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 52.80000001192093
+          }
+        },
+        "timing": {
+          "ttfb": 51.30000001192093,
+          "domInteractive": 150.39999997615814,
+          "domContentLoaded": 150.39999997615814,
+          "loadComplete": 1078.800000011921,
+          "firstPaint": 184,
+          "firstContentfulPaint": 184,
+          "tti": 2049.800000011921,
+          "tbt": 1064,
+          "longTaskCount": 4
+        },
+        "longTasks": [
+          {
+            "startTime": 81.90000003576279,
+            "duration": 67
+          },
+          {
+            "startTime": 271.69999998807907,
+            "duration": 797
+          },
+          {
+            "startTime": 1624.800000011921,
+            "duration": 68
+          },
+          {
+            "startTime": 1700.800000011921,
+            "duration": 349
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            833.3333416117563
+          ],
+          "frameDrops": 0,
+          "startTime": 3303,
+          "endTime": 3905,
+          "duration": 602,
+          "avgFps": 833.3333416117563,
+          "minFps": 833.3333416117563
+        },
+        "performanceAPI": {
+          "FCP": 184,
+          "TTFB": 51.30000001192093,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      },
+      {
+        "url": "http://localhost:3000/feedback-basic/4",
+        "runNumber": 2,
+        "totalTime": 7217,
+        "timestamp": "2025-10-13T19:42:33.701Z",
+        "webVitals": {
+          "FCP": 236,
+          "LCP": 1552,
+          "CLS": 0.4350387545613104,
+          "TTFB": 96.60000002384186
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 96.60000002384186,
+            "firstByteToFCP": 139.39999997615814,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 96.60000002384186,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1455.3999999761581
+          },
+          "CLS": {
+            "largestShiftValue": 0.2556619526427469,
+            "largestShiftTime": 2266.399999976158,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.8999999761581421,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 95.70000004768372
+          }
+        },
+        "timing": {
+          "ttfb": 94,
+          "domInteractive": 193.4000000357628,
+          "domContentLoaded": 193.5,
+          "loadComplete": 1276,
+          "firstPaint": 236,
+          "firstContentfulPaint": 236,
+          "tti": 2258.600000023842,
+          "tbt": 1168,
+          "longTaskCount": 4
+        },
+        "longTasks": [
+          {
+            "startTime": 128.10000002384186,
+            "duration": 64
+          },
+          {
+            "startTime": 368.39999997615814,
+            "duration": 895
+          },
+          {
+            "startTime": 1828,
+            "duration": 68
+          },
+          {
+            "startTime": 1903.6000000238419,
+            "duration": 355
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            119.04761938551385
+          ],
+          "frameDrops": 0,
+          "startTime": 3539,
+          "endTime": 4143.199999988079,
+          "duration": 604.1999999880791,
+          "avgFps": 119.04761938551385,
+          "minFps": 119.04761938551385
+        },
+        "performanceAPI": {
+          "FCP": 236,
+          "TTFB": 94,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      },
+      {
+        "url": "http://localhost:3000/feedback-basic/4",
+        "runNumber": 3,
+        "totalTime": 7385,
+        "timestamp": "2025-10-13T19:42:43.861Z",
+        "webVitals": {
+          "FCP": 236,
+          "LCP": 1628,
+          "CLS": 0.4350387545613104,
+          "TTFB": 64.5
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 64.5,
+            "firstByteToFCP": 171.5,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 64.5,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1563.5
+          },
+          "CLS": {
+            "largestShiftValue": 0.2556619526427469,
+            "largestShiftTime": 2424.599999964237,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.800000011920929,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 63.69999998807907
+          }
+        },
+        "timing": {
+          "ttfb": 62.19999998807907,
+          "domInteractive": 97.89999997615814,
+          "domContentLoaded": 98.29999995231628,
+          "loadComplete": 1377.3999999761581,
+          "firstPaint": 236,
+          "firstContentfulPaint": 236,
+          "tti": 2414.199999988079,
+          "tbt": 1226,
+          "longTaskCount": 4
+        },
+        "longTasks": [
+          {
+            "startTime": 96.89999997615814,
+            "duration": 73
+          },
+          {
+            "startTime": 423,
+            "duration": 941
+          },
+          {
+            "startTime": 1971.699999988079,
+            "duration": 68
+          },
+          {
+            "startTime": 2047.199999988079,
+            "duration": 367
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            1249.9999813735487
+          ],
+          "frameDrops": 0,
+          "startTime": 3722.099999964237,
+          "endTime": 4324.599999964237,
+          "duration": 602.5,
+          "avgFps": 1249.9999813735487,
+          "minFps": 1249.9999813735487
+        },
+        "performanceAPI": {
+          "FCP": 236,
+          "TTFB": 62.19999998807907,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      }
+    ],
+    "Queue Version": [
+      {
+        "url": "http://localhost:3000/feedback/4?version=queue",
+        "runNumber": 1,
+        "totalTime": 7264,
+        "timestamp": "2025-10-13T19:42:51.936Z",
+        "webVitals": {
+          "FCP": 516,
+          "LCP": 2984,
+          "CLS": 0.030839281121399175,
+          "TTFB": 368.30000001192093
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 368.30000001192093,
+            "firstByteToFCP": 147.69999998807907,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 368.30000001192093,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 2615.699999988079
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 2959.2000000476837,
+            "loadState": "dom-content-loaded"
+          },
+          "TTFB": {
+            "waitingDuration": 0.6000000238418579,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 367.69999998807907
+          }
+        },
+        "timing": {
+          "ttfb": 365.80000001192093,
+          "domInteractive": 477.30000001192093,
+          "domContentLoaded": 477.39999997615814,
+          "loadComplete": 3208.800000011921,
+          "firstPaint": 516,
+          "firstContentfulPaint": 516,
+          "tti": 4094.600000023842,
+          "tbt": 1024,
+          "longTaskCount": 5
+        },
+        "longTasks": [
+          {
+            "startTime": 400.30000001192093,
+            "duration": 68
+          },
+          {
+            "startTime": 1761.7000000476837,
+            "duration": 805
+          },
+          {
+            "startTime": 2973.7000000476837,
+            "duration": 224
+          },
+          {
+            "startTime": 3859.800000011921,
+            "duration": 121
+          },
+          {
+            "startTime": 4020.600000023842,
+            "duration": 74
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            833.3333416117563
+          ],
+          "frameDrops": 0,
+          "startTime": 3468.800000011921,
+          "endTime": 4131.200000047684,
+          "duration": 662.4000000357628,
+          "avgFps": 833.3333416117563,
+          "minFps": 833.3333416117563
+        },
+        "performanceAPI": {
+          "FCP": 516,
+          "TTFB": 365.80000001192093,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      },
+      {
+        "url": "http://localhost:3000/feedback/4?version=queue",
+        "runNumber": 2,
+        "totalTime": 7247,
+        "timestamp": "2025-10-13T19:43:01.993Z",
+        "webVitals": {
+          "FCP": 192,
+          "LCP": 1452,
+          "CLS": 0.03524585325139049,
+          "TTFB": 57.700000047683716
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 57.700000047683716,
+            "firstByteToFCP": 134.29999995231628,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 57.700000047683716,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1394.2999999523163
+          },
+          "CLS": {
+            "largestShiftValue": 0.030839281121399175,
+            "largestShiftTime": 1520.5,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 0.800000011920929,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 56.90000003576279
+          }
+        },
+        "timing": {
+          "ttfb": 55.40000003576279,
+          "domInteractive": 161.19999998807907,
+          "domContentLoaded": 161.4000000357628,
+          "loadComplete": 1189.300000011921,
+          "firstPaint": 192,
+          "firstContentfulPaint": 192,
+          "tti": 2403.2000000476837,
+          "tbt": 1029,
+          "longTaskCount": 6
+        },
+        "longTasks": [
+          {
+            "startTime": 89.70000004768372,
+            "duration": 62
+          },
+          {
+            "startTime": 368.5,
+            "duration": 807
+          },
+          {
+            "startTime": 1440.9000000357628,
+            "duration": 56
+          },
+          {
+            "startTime": 1537.5,
+            "duration": 216
+          },
+          {
+            "startTime": 2160.300000011921,
+            "duration": 130
+          },
+          {
+            "startTime": 2333.2000000476837,
+            "duration": 70
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            1249.9999813735487
+          ],
+          "frameDrops": 0,
+          "startTime": 3669.100000023842,
+          "endTime": 4172,
+          "duration": 502.89999997615814,
+          "avgFps": 1249.9999813735487,
+          "minFps": 1249.9999813735487
+        },
+        "performanceAPI": {
+          "FCP": 192,
+          "TTFB": 55.40000003576279,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      },
+      {
+        "url": "http://localhost:3000/feedback/4?version=queue",
+        "runNumber": 3,
+        "totalTime": 8092,
+        "timestamp": "2025-10-13T19:43:12.883Z",
+        "webVitals": {
+          "FCP": 268,
+          "LCP": 1392,
+          "CLS": 0.00440657212999132,
+          "TTFB": 110.5
+        },
+        "attribution": {
+          "FCP": {
+            "timeToFirstByte": 110.5,
+            "firstByteToFCP": 157.5,
+            "loadState": "dom-content-loaded"
+          },
+          "LCP": {
+            "element": null,
+            "url": null,
+            "timeToFirstByte": 110.5,
+            "resourceLoadDelay": 0,
+            "resourceLoadDuration": 0,
+            "elementRenderDelay": 1281.5
+          },
+          "CLS": {
+            "largestShiftValue": 0.00440657212999132,
+            "largestShiftTime": 3060.5,
+            "loadState": "complete"
+          },
+          "TTFB": {
+            "waitingDuration": 1,
+            "cacheDuration": 0,
+            "dnsDuration": 0,
+            "connectionDuration": 0,
+            "requestDuration": 109.5
+          }
+        },
+        "timing": {
+          "ttfb": 105.20000004768372,
+          "domInteractive": 225.69999998807907,
+          "domContentLoaded": 225.69999998807907,
+          "loadComplete": 1163.8999999761581,
+          "firstPaint": 268,
+          "firstContentfulPaint": 268,
+          "tti": 3154.899999976158,
+          "tbt": 916,
+          "longTaskCount": 6
+        },
+        "longTasks": [
+          {
+            "startTime": 149.0999999642372,
+            "duration": 70
+          },
+          {
+            "startTime": 400.19999998807907,
+            "duration": 750
+          },
+          {
+            "startTime": 1373.7999999523163,
+            "duration": 52
+          },
+          {
+            "startTime": 1461.199999988079,
+            "duration": 204
+          },
+          {
+            "startTime": 2960.399999976158,
+            "duration": 94
+          },
+          {
+            "startTime": 3088.899999976158,
+            "duration": 66
+          }
+        ],
+        "scrollMetrics": {
+          "fps": [
+            588.235298242536
+          ],
+          "frameDrops": 0,
+          "startTime": 4480.599999964237,
+          "endTime": 4983.599999964237,
+          "duration": 503,
+          "avgFps": 588.235298242536,
+          "minFps": 588.235298242536
+        },
+        "performanceAPI": {
+          "FCP": 268,
+          "TTFB": 105.20000004768372,
+          "CLS": 0
+        },
+        "sources": {
+          "FCP": "web-vitals",
+          "LCP": "web-vitals",
+          "CLS": "web-vitals",
+          "INP": null,
+          "TTFB": "web-vitals"
+        }
+      }
+    ]
+  },
+  "statistics": {
+    "PDF Version": {
+      "runs": 3,
+      "fcp": {
+        "avg": 177.33333333333334,
+        "min": 172,
+        "max": 180,
+        "source": "web-vitals"
+      },
+      "lcp": {
+        "avg": 1106.6666666666667,
+        "min": 1080,
+        "max": 1156,
+        "source": "web-vitals"
+      },
+      "cls": {
+        "avg": 0.05352023114490901,
+        "min": 0.05352023114490901,
+        "max": 0.05352023114490901,
+        "source": "web-vitals"
+      },
+      "inp": {
+        "avg": null,
+        "min": null,
+        "max": null,
+        "source": null
+      },
+      "ttfb": {
+        "avg": 49.70000000794729,
+        "min": 48,
+        "max": 50.69999998807907,
+        "source": "web-vitals"
+      },
+      "tti": {
+        "avg": 1787.066666662693,
+        "min": 1661.2000000476837,
+        "max": 1982.699999988079
+      },
+      "tbt": {
+        "avg": 713.6666666666666,
+        "min": 697,
+        "max": 730
+      }
+    },
+    "Basic Version": {
+      "runs": 3,
+      "fcp": {
+        "avg": 218.66666666666666,
+        "min": 184,
+        "max": 236,
+        "source": "web-vitals"
+      },
+      "lcp": {
+        "avg": 1493.3333333333333,
+        "min": 1300,
+        "max": 1628,
+        "source": "web-vitals"
+      },
+      "cls": {
+        "avg": 0.4350387545613104,
+        "min": 0.4350387545613104,
+        "max": 0.4350387545613104,
+        "source": "web-vitals"
+      },
+      "inp": {
+        "avg": null,
+        "min": null,
+        "max": null,
+        "source": null
+      },
+      "ttfb": {
+        "avg": 71.56666668256123,
+        "min": 53.60000002384186,
+        "max": 96.60000002384186,
+        "source": "web-vitals"
+      },
+      "tti": {
+        "avg": 2240.866666674614,
+        "min": 2049.800000011921,
+        "max": 2414.199999988079
+      },
+      "tbt": {
+        "avg": 1152.6666666666667,
+        "min": 1064,
+        "max": 1226
+      }
+    },
+    "Queue Version": {
+      "runs": 3,
+      "fcp": {
+        "avg": 325.3333333333333,
+        "min": 192,
+        "max": 516,
+        "source": "web-vitals"
+      },
+      "lcp": {
+        "avg": 1942.6666666666667,
+        "min": 1392,
+        "max": 2984,
+        "source": "web-vitals"
+      },
+      "cls": {
+        "avg": 0.023497235500926996,
+        "min": 0.00440657212999132,
+        "max": 0.03524585325139049,
+        "source": "web-vitals"
+      },
+      "inp": {
+        "avg": null,
+        "min": null,
+        "max": null,
+        "source": null
+      },
+      "ttfb": {
+        "avg": 178.83333335320154,
+        "min": 57.700000047683716,
+        "max": 368.30000001192093,
+        "source": "web-vitals"
+      },
+      "tti": {
+        "avg": 3217.5666666825614,
+        "min": 2403.2000000476837,
+        "max": 4094.600000023842
+      },
+      "tbt": {
+        "avg": 989.6666666666666,
+        "min": 916,
+        "max": 1029
+      }
+    }
+  }
+}
