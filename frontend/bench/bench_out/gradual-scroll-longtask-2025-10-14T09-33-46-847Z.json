@@ -1,0 +1,170 @@
+{
+  "timestamp": "2025-10-14T09:33:46.848Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/feedback/4",
+    "versions": [
+      {
+        "name": "PDF (일반)",
+        "query": "version=pdf",
+        "key": "pdf"
+      },
+      {
+        "name": "Queue (우선순위 큐)",
+        "query": "version=queue",
+        "key": "queue"
+      }
+    ],
+    "runs": 10,
+    "cpuThrottle": 4,
+    "headless": true
+  },
+  "results": {
+    "gradualScroll": {
+      "pdf": [
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 1312508
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 1323572
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19193536
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19180124
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19155804
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19183220
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19187344
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19182808
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19151164
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19210332
+        }
+      ],
+      "queue": [
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19268684
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19158136
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19177908
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19173620
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19190644
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19190524
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19190212
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19214924
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19179060
+        },
+        {
+          "scenario": "gradual-scroll",
+          "success": false,
+          "error": "No scroll container",
+          "jsHeapUsedSize": 19197248
+        }
+      ]
+    }
+  },
+  "improvements": [
+    {
+      "name": "페이지 수",
+      "value": null,
+      "better": false
+    },
+    {
+      "name": "Long Tasks",
+      "value": null,
+      "better": false
+    },
+    {
+      "name": "TBT",
+      "value": null,
+      "better": false
+    }
+  ],
+  "summary": {
+    "totalImprovements": 0,
+    "avgImprovement": null
+  }
+}

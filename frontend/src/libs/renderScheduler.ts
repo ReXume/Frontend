@@ -5,13 +5,13 @@ export type RenderJob = {
     cancel?: () => void;              // 진행 중인 렌더 취소(가능하면)
   };
   
-  class RenderScheduler {
-    private K = 10;                    // 동시 렌더 상한 (필요 시 3으로)
-    private inFlight = 0;
-    private queue: RenderJob[] = [];
-    private running = new Map<string, RenderJob>();
-    private enqueued = new Set<string>();
-    private completed = new Set<string>();
+class RenderScheduler {
+  private K = 5;                     // 동시 렌더 상한 (메인스레드 부하 감소)
+  private inFlight = 0;
+  private queue: RenderJob[] = [];
+  private running = new Map<string, RenderJob>();
+  private enqueued = new Set<string>();
+  private completed = new Set<string>();
   
     setConcurrency(k: number) {
       this.K = Math.max(1, k);

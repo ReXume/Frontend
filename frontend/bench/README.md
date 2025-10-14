@@ -2,13 +2,14 @@
 
 ## 📋 개요
 
-이 벤치마크 시스템은 **Lighthouse**, **Web Vitals**, **커스텀 메트릭**을 통합하여 웹 페이지와 PDF 렌더링 성능을 종합적으로 측정합니다.
+이 벤치마크 시스템은 **Lighthouse**, **Web Vitals**, **PDF 렌더링 성능**, **커스텀 메트릭**을 통합하여 웹 페이지와 PDF 렌더링 성능을 종합적으로 측정합니다.
 
 ### ✨ 주요 기능
 
 - 🏆 **Lighthouse 공식 지표**: TBT, TTI, Speed Index, Performance Score (100% 정확)
 - 📊 **Core Web Vitals**: LCP, INP, CLS (Google 검색 랭킹 영향)
 - 🔬 **Attribution 분석**: 각 지표의 상세 원인 분석
+- 🔄 **PDF 렌더링 분석**: 중복 렌더, 동시성, Long Task 측정 (NEW!)
 - 📄 **PDF 렌더링 성능**: PDF.js 페이지별 렌더링 시간
 - 📜 **스크롤 성능**: FPS, 프레임 드롭, 스크롤 중 렌더링
 - 🔍 **진단 정보**: 메인 스레드 작업, 리소스 로딩, 메모리 사용량
@@ -26,13 +27,42 @@ npm install
 
 ### 벤치마크 도구 선택
 
-이 시스템은 3가지 벤치마크 도구를 제공합니다:
+이 시스템은 4가지 벤치마크 도구를 제공합니다:
 
 | 도구 | 특징 | 용도 | 속도 |
 |------|------|------|------|
+| **bench-queue-comparison.js** | PDF vs Queue 전용 비교 | 우선순위 큐 성능 검증 | ⚡⚡⚡ |
 | **bench-webvitals.js** | Puppeteer + Web Vitals | 빠른 측정, 여러 버전 비교 | ⚡⚡⚡ |
+| **bench-render.js** | PDF.js 렌더링 분석 | 렌더링 중복/동시성 측정 | ⚡⚡⚡ |
 | **bench-lighthouse.js** | Lighthouse 전용 | 정확한 점수, 상세 진단 | ⚡⚡ |
 | **bench.js** | 통합 (Web Vitals + Lighthouse) | 종합 분석, PDF 렌더링 | ⚡ |
+
+### 🏆 우선순위 큐 성능 비교 (NEW! 추천)
+
+PDF 버전과 우선순위 큐 버전을 직접 비교하여 개선율을 수치로 확인:
+
+```bash
+# npm scripts 사용 (권장)
+npm run bench:queue                     # 기본 1회 실행
+npm run bench:queue:fast               # 빠른 측정
+npm run bench:queue:realistic          # 신뢰성 있는 측정 (5회) ⭐
+npm run bench:queue:intensive          # 강도 높은 측정 (3회)
+
+# Shell 스크립트 사용
+./bench/bench-queue.sh                 # 기본 1회 실행
+./bench/bench-queue.sh 5 realistic     # 5회, realistic 프리셋 ⭐
+
+# 직접 실행
+node bench/bench-queue-comparison.js --runs 5 --preset realistic
+```
+
+**측정 항목:**
+- ✅ PDF 렌더링 성능 (렌더링 시간, 페이지 수)
+- ✅ 스크롤 성능 (FPS, Frame Drops)
+- ✅ 메모리 사용량 (JS Heap, DOM 노드)
+- ✅ 인터랙션 반응 시간
+
+📚 **[우선순위 큐 비교 가이드](./QUEUE_COMPARISON_README.md)** - 상세 사용법 및 해석
 
 ### 🎯 ReXume 3가지 버전 비교
 
@@ -71,6 +101,33 @@ node bench/bench-webvitals.js --url "http://localhost:3000/feedback/4"
 ```
 
 📚 [Web Vitals 벤치마크 상세 가이드](./WEBVITALS_BENCH_README.md)
+
+#### 🔄 PDF 렌더링 성능 분석 (NEW!)
+
+```bash
+# npm scripts 사용 (권장)
+npm run bench:render -- --url "http://localhost:3000/feedback/4?version=queue"
+
+# 2가지 버전 비교
+npm run bench:render:compare
+
+# 직접 실행 - 단일 URL
+node bench/bench-render.js --url "http://localhost:3000/feedback/4?version=queue"
+
+# 직접 실행 - 2가지 버전 비교
+node bench/bench-render.js \
+  --url1 "http://localhost:3000/feedback/4?version=pdf" --name1 "PDF Version" \
+  --url2 "http://localhost:3000/feedback/4?version=queue" --name2 "Queue Version" \
+  --runs 3
+```
+
+**측정 지표:**
+- 🔄 최대 동시 렌더링 (동시에 렌더링되는 페이지 수)
+- 📝 총 렌더 호출 (render() 메서드 호출 횟수)
+- ⚠️ 중복 렌더 (동일 페이지 재렌더링 횟수)
+- 🚫 취소된 렌더 (취소된 렌더링 작업 수)
+- ⏱️ Long Task (50ms 이상 메인 스레드 블로킹)
+- 🌐 중복 fetch (동일한 리소스 중복 요청)
 
 #### 🏆 Lighthouse 공식 점수
 
@@ -294,7 +351,9 @@ pdfRenderMetrics[].totalMs > 500  # 500ms 이상 페이지
 - [METRICS_QUICK_REFERENCE.md](./METRICS_QUICK_REFERENCE.md) - 빠른 참조 가이드
 
 ### 벤치마크 가이드
+- **[QUEUE_COMPARISON_README.md](./QUEUE_COMPARISON_README.md)** - 🏆 PDF vs Queue 비교 가이드 (NEW!)
 - **[WEBVITALS_BENCH_README.md](./WEBVITALS_BENCH_README.md)** - Web Vitals 벤치마크 가이드
+- **[RENDER_BENCH_README.md](./RENDER_BENCH_README.md)** - PDF 렌더링 성능 벤치마크 가이드
 - **[COMPARE_GUIDE.md](./COMPARE_GUIDE.md)** - 3가지 버전 비교 가이드
 - [LIGHTHOUSE_BENCH_README.md](./LIGHTHOUSE_BENCH_README.md) - Lighthouse 벤치마크 가이드
 

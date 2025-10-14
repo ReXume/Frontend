@@ -1,0 +1,5027 @@
+{
+  "timestamp": "2025-10-14T16:07:35.575Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/feedback/4",
+    "versions": [
+      {
+        "name": "PDF (일반)",
+        "query": "version=pdf",
+        "key": "pdf"
+      },
+      {
+        "name": "Queue (우선순위 큐)",
+        "query": "version=queue",
+        "key": "queue"
+      }
+    ],
+    "runs": 10,
+    "cpuThrottle": 4,
+    "headless": true
+  },
+  "results": {
+    "gradual": {
+      "pdf": [
+        {
+          "success": true,
+          "totalTime": 22011.5,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 120.96333333333337,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "79.00",
+              "startTime": "127.30"
+            },
+            {
+              "duration": "843.00",
+              "startTime": "430.50"
+            },
+            {
+              "duration": "260.00",
+              "startTime": "1614.70"
+            },
+            {
+              "duration": "127.00",
+              "startTime": "2349.10"
+            },
+            {
+              "duration": "76.00",
+              "startTime": "2516.80"
+            }
+          ],
+          "totalBlockingTime": 1135,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.375,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2001.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2001.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2001.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2002.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2001,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17374044,
+          "efficiency": 1.3629239261295232
+        },
+        {
+          "success": true,
+          "totalTime": 22017.69999998808,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 126.25333333333333,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "132.00",
+              "startTime": "309.70"
+            },
+            {
+              "duration": "1174.00",
+              "startTime": "565.30"
+            },
+            {
+              "duration": "64.00",
+              "startTime": "2203.00"
+            },
+            {
+              "duration": "262.00",
+              "startTime": "2316.90"
+            },
+            {
+              "duration": "158.00",
+              "startTime": "3159.00"
+            },
+            {
+              "duration": "114.00",
+              "startTime": "3363.70"
+            }
+          ],
+          "totalBlockingTime": 1604,
+          "frameDrops": 16,
+          "avgInteractionTime": 1.5750000029802322,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2006.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2005.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17188672,
+          "efficiency": 1.3625401381623077
+        },
+        {
+          "success": true,
+          "totalTime": 22006.69999998808,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 129.52666666666667,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "70.00",
+              "startTime": "150.50"
+            },
+            {
+              "duration": "973.00",
+              "startTime": "475.80"
+            },
+            {
+              "duration": "56.00",
+              "startTime": "1721.20"
+            },
+            {
+              "duration": "276.00",
+              "startTime": "1800.30"
+            },
+            {
+              "duration": "107.00",
+              "startTime": "2842.70"
+            },
+            {
+              "duration": "96.00",
+              "startTime": "3012.70"
+            }
+          ],
+          "totalBlockingTime": 1278,
+          "frameDrops": 12,
+          "avgInteractionTime": 0.5,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2001,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17382740,
+          "efficiency": 1.3632212008168536
+        },
+        {
+          "success": true,
+          "totalTime": 22015.599999964237,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 134.03333333333333,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "74.00",
+              "startTime": "361.20"
+            },
+            {
+              "duration": "773.00",
+              "startTime": "688.90"
+            },
+            {
+              "duration": "204.00",
+              "startTime": "1788.00"
+            },
+            {
+              "duration": "122.00",
+              "startTime": "2535.10"
+            },
+            {
+              "duration": "69.00",
+              "startTime": "2697.70"
+            }
+          ],
+          "totalBlockingTime": 992,
+          "frameDrops": 11,
+          "avgInteractionTime": 0.5999999940395355,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2004.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2001.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17344152,
+          "efficiency": 1.3626701066538605
+        },
+        {
+          "success": true,
+          "totalTime": 22012.19999998808,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            15,
+            16,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 163.63666666666668,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "98.00",
+              "startTime": "209.80"
+            },
+            {
+              "duration": "1074.00",
+              "startTime": "509.00"
+            },
+            {
+              "duration": "85.00",
+              "startTime": "1907.80"
+            },
+            {
+              "duration": "265.00",
+              "startTime": "2033.30"
+            },
+            {
+              "duration": "173.00",
+              "startTime": "2876.30"
+            },
+            {
+              "duration": "134.00",
+              "startTime": "3093.70"
+            }
+          ],
+          "totalBlockingTime": 1529,
+          "frameDrops": 14,
+          "avgInteractionTime": 0.4749999940395355,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2001.2999999523163,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2002.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2002,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2001.0999999642372,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17391584,
+          "efficiency": 1.3628805844039327
+        },
+        {
+          "success": true,
+          "totalTime": 22018.599999964237,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 125.91333333333336,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "108.00",
+              "startTime": "152.90"
+            },
+            {
+              "duration": "800.00",
+              "startTime": "518.10"
+            },
+            {
+              "duration": "210.00",
+              "startTime": "1666.60"
+            },
+            {
+              "duration": "105.00",
+              "startTime": "2377.90"
+            },
+            {
+              "duration": "62.00",
+              "startTime": "2514.30"
+            }
+          ],
+          "totalBlockingTime": 1035,
+          "frameDrops": 11,
+          "avgInteractionTime": 0.5750000029802322,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2002.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2001.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2001.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2001.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2002.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2002.699999988079,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17450724,
+          "efficiency": 1.3624844449714661
+        },
+        {
+          "success": true,
+          "totalTime": 22014,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 132.82666666666665,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "119.00",
+              "startTime": "252.50"
+            },
+            {
+              "duration": "1188.00",
+              "startTime": "712.40"
+            },
+            {
+              "duration": "84.00",
+              "startTime": "2250.50"
+            },
+            {
+              "duration": "336.00",
+              "startTime": "2422.60"
+            },
+            {
+              "duration": "144.00",
+              "startTime": "3326.00"
+            },
+            {
+              "duration": "89.00",
+              "startTime": "3526.70"
+            }
+          ],
+          "totalBlockingTime": 1660,
+          "frameDrops": 17,
+          "avgInteractionTime": 0.4000000059604645,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2003,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2001.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2001.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2002.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.7000000476837,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17542824,
+          "efficiency": 1.3627691469065142
+        },
+        {
+          "success": true,
+          "totalTime": 22016.799999952316,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 141.20666666666662,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "146.00",
+              "startTime": "167.20"
+            },
+            {
+              "duration": "1019.00",
+              "startTime": "528.80"
+            },
+            {
+              "duration": "64.00",
+              "startTime": "1962.90"
+            },
+            {
+              "duration": "200.00",
+              "startTime": "2081.00"
+            },
+            {
+              "duration": "102.00",
+              "startTime": "2777.20"
+            },
+            {
+              "duration": "73.00",
+              "startTime": "2920.90"
+            }
+          ],
+          "totalBlockingTime": 1304,
+          "frameDrops": 11,
+          "avgInteractionTime": 0.3499999940395355,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2001.7999999523163,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2002.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2002.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2001.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2003.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2001.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.7999999523163,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17383156,
+          "efficiency": 1.3625958359100767
+        },
+        {
+          "success": true,
+          "totalTime": 22010.600000023842,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 128.34,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "85.00",
+              "startTime": "230.30"
+            },
+            {
+              "duration": "785.00",
+              "startTime": "548.60"
+            },
+            {
+              "duration": "55.00",
+              "startTime": "1570.60"
+            },
+            {
+              "duration": "198.00",
+              "startTime": "1650.30"
+            },
+            {
+              "duration": "114.00",
+              "startTime": "2300.00"
+            },
+            {
+              "duration": "85.00",
+              "startTime": "2453.50"
+            }
+          ],
+          "totalBlockingTime": 1022,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.4750000089406967,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2002.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2001.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.2999999523163,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.7000000476837,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17194852,
+          "efficiency": 1.3629796552555362
+        },
+        {
+          "success": true,
+          "totalTime": 22009.80000001192,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            15,
+            16,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 125.38666666666668,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "123.00",
+              "startTime": "260.30"
+            },
+            {
+              "duration": "1138.00",
+              "startTime": "1044.00"
+            },
+            {
+              "duration": "86.00",
+              "startTime": "2614.10"
+            },
+            {
+              "duration": "308.00",
+              "startTime": "2757.30"
+            },
+            {
+              "duration": "170.00",
+              "startTime": "3608.00"
+            },
+            {
+              "duration": "122.00",
+              "startTime": "3832.70"
+            }
+          ],
+          "totalBlockingTime": 1647,
+          "frameDrops": 12,
+          "avgInteractionTime": 0.3499999940395355,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2001.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.2999999523163,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2001.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2001,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2002.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17191604,
+          "efficiency": 1.363029196084642
+        }
+      ],
+      "queue": [
+        {
+          "success": true,
+          "totalTime": 22012.69999998808,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            81,
+            80,
+            82,
+            97,
+            96,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            145,
+            144,
+            146,
+            147
+          ],
+          "avgTimePerPage": 143.48,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "100.00",
+              "startTime": "157.80"
+            },
+            {
+              "duration": "901.00",
+              "startTime": "451.60"
+            },
+            {
+              "duration": "52.00",
+              "startTime": "1599.40"
+            },
+            {
+              "duration": "238.00",
+              "startTime": "1676.90"
+            },
+            {
+              "duration": "149.00",
+              "startTime": "3448.10"
+            },
+            {
+              "duration": "51.00",
+              "startTime": "3659.50"
+            }
+          ],
+          "totalBlockingTime": 1191,
+          "frameDrops": 13,
+          "avgInteractionTime": 0.45000000298023224,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2003.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2002,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17598916,
+          "efficiency": 1.362849627715648
+        },
+        {
+          "success": true,
+          "totalTime": 22029.19999998808,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            48,
+            47,
+            49,
+            64,
+            63,
+            65,
+            66,
+            80,
+            81,
+            82,
+            97,
+            96,
+            98,
+            112,
+            113,
+            114,
+            129,
+            128,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 182.26000000000002,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "94.00",
+              "startTime": "370.10"
+            },
+            {
+              "duration": "694.00",
+              "startTime": "1035.30"
+            },
+            {
+              "duration": "201.00",
+              "startTime": "2146.70"
+            },
+            {
+              "duration": "103.00",
+              "startTime": "2909.50"
+            },
+            {
+              "duration": "75.00",
+              "startTime": "3077.00"
+            }
+          ],
+          "totalBlockingTime": 917,
+          "frameDrops": 16,
+          "avgInteractionTime": 0.45000000298023224,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2006.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2002.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2001.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2002.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2013.0999999642372,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17542980,
+          "efficiency": 1.361828845351453
+        },
+        {
+          "success": true,
+          "totalTime": 22011.099999964237,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            81,
+            80,
+            82,
+            97,
+            96,
+            98,
+            112,
+            113,
+            114,
+            129,
+            128,
+            130,
+            145,
+            144,
+            146,
+            147
+          ],
+          "avgTimePerPage": 162.8033333333333,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "119.00",
+              "startTime": "193.60"
+            },
+            {
+              "duration": "1232.00",
+              "startTime": "606.80"
+            },
+            {
+              "duration": "299.00",
+              "startTime": "2331.70"
+            },
+            {
+              "duration": "374.00",
+              "startTime": "3235.40"
+            },
+            {
+              "duration": "63.00",
+              "startTime": "3662.30"
+            },
+            {
+              "duration": "82.00",
+              "startTime": "3727.20"
+            }
+          ],
+          "totalBlockingTime": 1869,
+          "frameDrops": 20,
+          "avgInteractionTime": 0.22499999403953552,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2001.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2002.9000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2002,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17243224,
+          "efficiency": 1.3629486940702074
+        },
+        {
+          "success": true,
+          "totalTime": 22018.399999976158,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            113,
+            112,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 123.89666666666668,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "70.00",
+              "startTime": "230.30"
+            },
+            {
+              "duration": "820.00",
+              "startTime": "611.90"
+            },
+            {
+              "duration": "193.00",
+              "startTime": "1784.00"
+            },
+            {
+              "duration": "100.00",
+              "startTime": "2549.70"
+            },
+            {
+              "duration": "75.00",
+              "startTime": "2713.70"
+            }
+          ],
+          "totalBlockingTime": 1008,
+          "frameDrops": 11,
+          "avgInteractionTime": 0.5,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2001.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2003.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2002.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2002.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2001.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17231248,
+          "efficiency": 1.3624968208422268
+        },
+        {
+          "success": true,
+          "totalTime": 22010.399999976158,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            64,
+            63,
+            65,
+            66,
+            81,
+            80,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            129,
+            128,
+            130,
+            145,
+            144,
+            146,
+            147
+          ],
+          "avgTimePerPage": 149.61999999999998,
+          "longTasks": 7,
+          "longTasksDetail": [
+            {
+              "duration": "112.00",
+              "startTime": "166.40"
+            },
+            {
+              "duration": "934.00",
+              "startTime": "445.40"
+            },
+            {
+              "duration": "85.00",
+              "startTime": "1781.90"
+            },
+            {
+              "duration": "313.00",
+              "startTime": "1923.80"
+            },
+            {
+              "duration": "172.00",
+              "startTime": "2672.90"
+            },
+            {
+              "duration": "55.00",
+              "startTime": "2890.40"
+            },
+            {
+              "duration": "108.00",
+              "startTime": "2955.20"
+            }
+          ],
+          "totalBlockingTime": 1429,
+          "frameDrops": 14,
+          "avgInteractionTime": 0.44999998807907104,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2003.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.7000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2001.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.7000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.2999999523163,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17236252,
+          "efficiency": 1.362992040127962
+        },
+        {
+          "success": true,
+          "totalTime": 22014.899999976158,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            113,
+            112,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 129.97333333333333,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "72.00",
+              "startTime": "185.60"
+            },
+            {
+              "duration": "861.00",
+              "startTime": "637.50"
+            },
+            {
+              "duration": "245.00",
+              "startTime": "1871.80"
+            },
+            {
+              "duration": "105.00",
+              "startTime": "2766.10"
+            },
+            {
+              "duration": "75.00",
+              "startTime": "2933.00"
+            }
+          ],
+          "totalBlockingTime": 1108,
+          "frameDrops": 13,
+          "avgInteractionTime": 0.10000000894069672,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2004.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2001,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2001.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2003.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.5999999642372,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17237364,
+          "efficiency": 1.3627134349932313
+        },
+        {
+          "success": true,
+          "totalTime": 22015.900000035763,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            64,
+            63,
+            65,
+            66,
+            81,
+            80,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            129,
+            128,
+            130,
+            145,
+            144,
+            146,
+            147
+          ],
+          "avgTimePerPage": 206.9466666666666,
+          "longTasks": 4,
+          "longTasksDetail": [
+            {
+              "duration": "83.00",
+              "startTime": "128.40"
+            },
+            {
+              "duration": "805.00",
+              "startTime": "464.50"
+            },
+            {
+              "duration": "204.00",
+              "startTime": "1585.40"
+            },
+            {
+              "duration": "101.00",
+              "startTime": "2303.40"
+            }
+          ],
+          "totalBlockingTime": 993,
+          "frameDrops": 10,
+          "avgInteractionTime": 0.7249999940395355,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2005.7000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2001.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2001.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2001.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2001,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17303544,
+          "efficiency": 1.3626515382042645
+        },
+        {
+          "success": true,
+          "totalTime": 22037.599999964237,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            113,
+            112,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 199.54666666666665,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "111.00",
+              "startTime": "584.50"
+            },
+            {
+              "duration": "1235.00",
+              "startTime": "1476.20"
+            },
+            {
+              "duration": "95.00",
+              "startTime": "3106.10"
+            },
+            {
+              "duration": "359.00",
+              "startTime": "3282.50"
+            },
+            {
+              "duration": "72.00",
+              "startTime": "4255.90"
+            },
+            {
+              "duration": "113.00",
+              "startTime": "4397.40"
+            }
+          ],
+          "totalBlockingTime": 1685,
+          "frameDrops": 18,
+          "avgInteractionTime": 0.5499999970197678,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.9000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2001.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2003.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2012.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2003.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2003.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2006.2999999523163,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2001.5,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17240564,
+          "efficiency": 1.361309761500739
+        },
+        {
+          "success": true,
+          "totalTime": 22016.799999952316,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            48,
+            47,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            97,
+            96,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            145,
+            144,
+            146,
+            147
+          ],
+          "avgTimePerPage": 168.59666666666666,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "72.00",
+              "startTime": "233.60"
+            },
+            {
+              "duration": "877.00",
+              "startTime": "675.50"
+            },
+            {
+              "duration": "51.00",
+              "startTime": "1803.30"
+            },
+            {
+              "duration": "239.00",
+              "startTime": "1890.00"
+            },
+            {
+              "duration": "66.00",
+              "startTime": "2973.20"
+            },
+            {
+              "duration": "88.00",
+              "startTime": "3108.60"
+            }
+          ],
+          "totalBlockingTime": 1093,
+          "frameDrops": 12,
+          "avgInteractionTime": 0.9000000059604645,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2003.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2001.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.199999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2004.0999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.7000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.300000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.5,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2001.3999999761581,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17221476,
+          "efficiency": 1.3625958359100767
+        },
+        {
+          "success": true,
+          "totalTime": 22013.900000035763,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            47,
+            48,
+            49,
+            64,
+            63,
+            65,
+            66,
+            80,
+            81,
+            82,
+            97,
+            96,
+            98,
+            113,
+            112,
+            114,
+            128,
+            129,
+            130,
+            145,
+            144,
+            146,
+            147
+          ],
+          "avgTimePerPage": 137.97666666666666,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "80.00",
+              "startTime": "875.30"
+            },
+            {
+              "duration": "578.00",
+              "startTime": "1794.30"
+            },
+            {
+              "duration": "53.00",
+              "startTime": "2682.70"
+            },
+            {
+              "duration": "224.00",
+              "startTime": "2875.60"
+            },
+            {
+              "duration": "116.00",
+              "startTime": "4014.40"
+            }
+          ],
+          "totalBlockingTime": 801,
+          "frameDrops": 13,
+          "avgInteractionTime": 0.25,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1,
+              "stepTime": 2002.699999988079,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 1,
+              "renderedPages": 4,
+              "stepTime": 2002.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 2,
+              "renderedPages": 7,
+              "stepTime": 2002.4000000357628,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 3,
+              "renderedPages": 10,
+              "stepTime": 2001.5999999642372,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 4,
+              "renderedPages": 14,
+              "stepTime": 2000.800000011921,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 5,
+              "renderedPages": 17,
+              "stepTime": 2000.1000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 6,
+              "renderedPages": 20,
+              "stepTime": 2000.6000000238419,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 7,
+              "renderedPages": 23,
+              "stepTime": 2000.3999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 8,
+              "renderedPages": 26,
+              "stepTime": 2000.2000000476837,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 9,
+              "renderedPages": 30,
+              "stepTime": 2000.8999999761581,
+              "longTasksInStep": 0
+            },
+            {
+              "step": 10,
+              "renderedPages": 30,
+              "stepTime": 2001.1000000238419,
+              "longTasksInStep": 0
+            }
+          ],
+          "jsHeapUsedSize": 17225860,
+          "efficiency": 1.3627753373982467
+        }
+      ]
+    },
+    "jump": {
+      "pdf": [
+        {
+          "success": true,
+          "totalTime": 24012.5,
+          "renderedPages": 1,
+          "renderSequence": [
+            1
+          ],
+          "avgTimePerPage": 209,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "91.00",
+              "startTime": "115.40"
+            },
+            {
+              "duration": "784.00",
+              "startTime": "536.50"
+            },
+            {
+              "duration": "165.00",
+              "startTime": "1639.60"
+            },
+            {
+              "duration": "119.00",
+              "startTime": "3811.30"
+            },
+            {
+              "duration": "98.00",
+              "startTime": "3969.50"
+            }
+          ],
+          "totalBlockingTime": 1007,
+          "frameDrops": 7,
+          "avgInteractionTime": 0.04999999701976776,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3001.5,
+              "longTasksInJump": 2
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 0,
+              "timeToRender": 3005.099999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.599999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 0.125,
+          "jsHeapUsedSize": 18310888,
+          "efficiency": 0.041644976574700676
+        },
+        {
+          "success": true,
+          "totalTime": 24007,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 140.68666666666664,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "143.00",
+              "startTime": "488.90"
+            },
+            {
+              "duration": "1330.00",
+              "startTime": "1094.40"
+            },
+            {
+              "duration": "83.00",
+              "startTime": "2827.30"
+            },
+            {
+              "duration": "352.00",
+              "startTime": "2991.00"
+            },
+            {
+              "duration": "116.00",
+              "startTime": "4358.50"
+            },
+            {
+              "duration": "276.00",
+              "startTime": "4589.50"
+            }
+          ],
+          "totalBlockingTime": 2000,
+          "frameDrops": 13,
+          "avgInteractionTime": 0.22500000149011612,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.599999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16394924,
+          "efficiency": 0.6248177614862331
+        },
+        {
+          "success": true,
+          "totalTime": 24009.600000023842,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 182.59999999999997,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "111.00",
+              "startTime": "179.90"
+            },
+            {
+              "duration": "1301.00",
+              "startTime": "660.80"
+            },
+            {
+              "duration": "508.00",
+              "startTime": "2682.40"
+            },
+            {
+              "duration": "111.00",
+              "startTime": "3920.50"
+            },
+            {
+              "duration": "96.00",
+              "startTime": "4081.40"
+            },
+            {
+              "duration": "51.00",
+              "startTime": "8044.00"
+            }
+          ],
+          "totalBlockingTime": 1878,
+          "frameDrops": 15,
+          "avgInteractionTime": 0.04999999701976776,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3003.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.899999976158,
+              "longTasksInJump": 1
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3002.2000000476837,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16419388,
+          "efficiency": 0.6247500999593957
+        },
+        {
+          "success": true,
+          "totalTime": 24007.30000001192,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 147.58666666666667,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "72.00",
+              "startTime": "132.70"
+            },
+            {
+              "duration": "740.00",
+              "startTime": "415.40"
+            },
+            {
+              "duration": "51.00",
+              "startTime": "1385.70"
+            },
+            {
+              "duration": "192.00",
+              "startTime": "1459.50"
+            },
+            {
+              "duration": "113.00",
+              "startTime": "2388.60"
+            }
+          ],
+          "totalBlockingTime": 918,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.30000000447034836,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3003.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.599999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16466988,
+          "efficiency": 0.6248099536387912
+        },
+        {
+          "success": true,
+          "totalTime": 24012.100000023842,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 108.53333333333332,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "75.00",
+              "startTime": "136.60"
+            },
+            {
+              "duration": "795.00",
+              "startTime": "551.60"
+            },
+            {
+              "duration": "71.00",
+              "startTime": "1748.60"
+            },
+            {
+              "duration": "111.00",
+              "startTime": "2626.40"
+            },
+            {
+              "duration": "94.00",
+              "startTime": "2782.70"
+            }
+          ],
+          "totalBlockingTime": 896,
+          "frameDrops": 6,
+          "avgInteractionTime": 0.2875000014901161,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3003.100000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3001.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3003.100000023842,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16369668,
+          "efficiency": 0.6246850546176763
+        },
+        {
+          "success": true,
+          "totalTime": 24009.80000001192,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 131.96666666666667,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "95.00",
+              "startTime": "2322.10"
+            },
+            {
+              "duration": "944.00",
+              "startTime": "2723.40"
+            },
+            {
+              "duration": "207.00",
+              "startTime": "4005.20"
+            },
+            {
+              "duration": "115.00",
+              "startTime": "4780.50"
+            },
+            {
+              "duration": "73.00",
+              "startTime": "4941.20"
+            }
+          ],
+          "totalBlockingTime": 1184,
+          "frameDrops": 10,
+          "avgInteractionTime": 0.16250000149011612,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3001.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3004.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3001.099999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.2000000476837,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.099999964237,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16397664,
+          "efficiency": 0.6247448958338908
+        },
+        {
+          "success": true,
+          "totalTime": 24009.899999976158,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 118.55333333333334,
+          "longTasks": 7,
+          "longTasksDetail": [
+            {
+              "duration": "133.00",
+              "startTime": "190.60"
+            },
+            {
+              "duration": "1057.00",
+              "startTime": "639.50"
+            },
+            {
+              "duration": "63.00",
+              "startTime": "2078.60"
+            },
+            {
+              "duration": "249.00",
+              "startTime": "2190.30"
+            },
+            {
+              "duration": "53.00",
+              "startTime": "2478.10"
+            },
+            {
+              "duration": "167.00",
+              "startTime": "3014.90"
+            },
+            {
+              "duration": "99.00",
+              "startTime": "3248.40"
+            }
+          ],
+          "totalBlockingTime": 1471,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.16250000149011612,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3002.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3001.7999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.100000023842,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16448800,
+          "efficiency": 0.6247422938044263
+        },
+        {
+          "success": true,
+          "totalTime": 24008.399999976158,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 122.98,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "67.00",
+              "startTime": "136.70"
+            },
+            {
+              "duration": "913.00",
+              "startTime": "513.50"
+            },
+            {
+              "duration": "191.00",
+              "startTime": "1860.00"
+            },
+            {
+              "duration": "101.00",
+              "startTime": "2605.20"
+            },
+            {
+              "duration": "56.00",
+              "startTime": "2743.60"
+            }
+          ],
+          "totalBlockingTime": 1078,
+          "frameDrops": 7,
+          "avgInteractionTime": 0.22500000149011612,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3001.899999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.899999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.2000000476837,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 17423940,
+          "efficiency": 0.6247813265363329
+        },
+        {
+          "success": true,
+          "totalTime": 24018.5,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 160.41333333333336,
+          "longTasks": 8,
+          "longTasksDetail": [
+            {
+              "duration": "124.00",
+              "startTime": "201.40"
+            },
+            {
+              "duration": "1086.00",
+              "startTime": "495.50"
+            },
+            {
+              "duration": "56.00",
+              "startTime": "1711.00"
+            },
+            {
+              "duration": "73.00",
+              "startTime": "2033.80"
+            },
+            {
+              "duration": "263.00",
+              "startTime": "2176.40"
+            },
+            {
+              "duration": "52.00",
+              "startTime": "2469.30"
+            },
+            {
+              "duration": "181.00",
+              "startTime": "3010.20"
+            },
+            {
+              "duration": "101.00",
+              "startTime": "3250.10"
+            }
+          ],
+          "totalBlockingTime": 1536,
+          "frameDrops": 13,
+          "avgInteractionTime": 0.38750000298023224,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3004.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3002.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.2999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.900000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3006.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3002.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16523796,
+          "efficiency": 0.624518600245644
+        },
+        {
+          "success": true,
+          "totalTime": 24007,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 120.61333333333336,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "77.00",
+              "startTime": "146.10"
+            },
+            {
+              "duration": "1017.00",
+              "startTime": "840.10"
+            },
+            {
+              "duration": "66.00",
+              "startTime": "2150.40"
+            },
+            {
+              "duration": "237.00",
+              "startTime": "2263.90"
+            },
+            {
+              "duration": "123.00",
+              "startTime": "3008.90"
+            },
+            {
+              "duration": "77.00",
+              "startTime": "3167.10"
+            }
+          ],
+          "totalBlockingTime": 1297,
+          "frameDrops": 7,
+          "avgInteractionTime": 0.3124999925494194,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3003.2999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.100000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.2999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.899999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16447576,
+          "efficiency": 0.6248177614862331
+        }
+      ],
+      "queue": [
+        {
+          "success": true,
+          "totalTime": 24010,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108
+          ],
+          "avgTimePerPage": 141.95714285714286,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "72.00",
+              "startTime": "205.70"
+            },
+            {
+              "duration": "732.00",
+              "startTime": "481.70"
+            },
+            {
+              "duration": "202.00",
+              "startTime": "1522.60"
+            },
+            {
+              "duration": "107.00",
+              "startTime": "2353.80"
+            },
+            {
+              "duration": "67.00",
+              "startTime": "2520.50"
+            }
+          ],
+          "totalBlockingTime": 930,
+          "frameDrops": 8,
+          "avgInteractionTime": 0.17500000447034836,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3001.900000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.599999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3001.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3002,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.7999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16576184,
+          "efficiency": 0.5830903790087463
+        },
+        {
+          "success": true,
+          "totalTime": 24012.399999976158,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            108,
+            107
+          ],
+          "avgTimePerPage": 115.51428571428572,
+          "longTasks": 7,
+          "longTasksDetail": [
+            {
+              "duration": "87.00",
+              "startTime": "291.10"
+            },
+            {
+              "duration": "1025.00",
+              "startTime": "490.90"
+            },
+            {
+              "duration": "68.00",
+              "startTime": "1868.80"
+            },
+            {
+              "duration": "328.00",
+              "startTime": "2001.30"
+            },
+            {
+              "duration": "176.00",
+              "startTime": "2810.00"
+            },
+            {
+              "duration": "59.00",
+              "startTime": "3035.00"
+            },
+            {
+              "duration": "108.00",
+              "startTime": "3101.00"
+            }
+          ],
+          "totalBlockingTime": 1501,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.21249999850988388,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.599999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3004.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3001.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16793696,
+          "efficiency": 0.5830321000822034
+        },
+        {
+          "success": true,
+          "totalTime": 24010.599999964237,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            108,
+            107
+          ],
+          "avgTimePerPage": 147.70714285714286,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "69.00",
+              "startTime": "131.00"
+            },
+            {
+              "duration": "936.00",
+              "startTime": "372.50"
+            },
+            {
+              "duration": "256.00",
+              "startTime": "1665.60"
+            },
+            {
+              "duration": "117.00",
+              "startTime": "2462.40"
+            },
+            {
+              "duration": "113.00",
+              "startTime": "2655.30"
+            }
+          ],
+          "totalBlockingTime": 1241,
+          "frameDrops": 8,
+          "avgInteractionTime": 0.7999999970197678,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3006.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3001.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.2999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16559620,
+          "efficiency": 0.5830758081855868
+        },
+        {
+          "success": true,
+          "totalTime": 24009.19999998808,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            107,
+            108
+          ],
+          "avgTimePerPage": 116.15714285714286,
+          "longTasks": 7,
+          "longTasksDetail": [
+            {
+              "duration": "116.00",
+              "startTime": "167.10"
+            },
+            {
+              "duration": "1109.00",
+              "startTime": "409.90"
+            },
+            {
+              "duration": "73.00",
+              "startTime": "1944.60"
+            },
+            {
+              "duration": "302.00",
+              "startTime": "2098.00"
+            },
+            {
+              "duration": "157.00",
+              "startTime": "2918.70"
+            },
+            {
+              "duration": "51.00",
+              "startTime": "3132.50"
+            },
+            {
+              "duration": "130.00",
+              "startTime": "3185.30"
+            }
+          ],
+          "totalBlockingTime": 1588,
+          "frameDrops": 11,
+          "avgInteractionTime": 0.48749999701976776,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3003.899999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.100000023842,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16806992,
+          "efficiency": 0.5831098079072585
+        },
+        {
+          "success": true,
+          "totalTime": 24009.5,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            107,
+            108
+          ],
+          "avgTimePerPage": 125.99285714285713,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "66.00",
+              "startTime": "151.50"
+            },
+            {
+              "duration": "1011.00",
+              "startTime": "391.70"
+            },
+            {
+              "duration": "257.00",
+              "startTime": "1742.60"
+            },
+            {
+              "duration": "114.00",
+              "startTime": "2612.90"
+            },
+            {
+              "duration": "105.00",
+              "startTime": "2821.80"
+            }
+          ],
+          "totalBlockingTime": 1303,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.29999999701976776,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.7999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3002.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3001.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.100000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.7000000476837,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16697908,
+          "efficiency": 0.5831025219184073
+        },
+        {
+          "success": true,
+          "totalTime": 24008.799999952316,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            107,
+            108
+          ],
+          "avgTimePerPage": 114.92857142857143,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "80.00",
+              "startTime": "447.10"
+            },
+            {
+              "duration": "801.00",
+              "startTime": "916.50"
+            },
+            {
+              "duration": "200.00",
+              "startTime": "2028.80"
+            },
+            {
+              "duration": "105.00",
+              "startTime": "2677.30"
+            },
+            {
+              "duration": "76.00",
+              "startTime": "2842.00"
+            }
+          ],
+          "totalBlockingTime": 1012,
+          "frameDrops": 8,
+          "avgInteractionTime": 0.22500000149011612,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3002.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.899999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.2999999523163,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16712908,
+          "efficiency": 0.5831195228427829
+        },
+        {
+          "success": true,
+          "totalTime": 24009.100000023842,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            107,
+            108
+          ],
+          "avgTimePerPage": 116.34285714285714,
+          "longTasks": 6,
+          "longTasksDetail": [
+            {
+              "duration": "90.00",
+              "startTime": "157.70"
+            },
+            {
+              "duration": "953.00",
+              "startTime": "448.70"
+            },
+            {
+              "duration": "67.00",
+              "startTime": "1838.30"
+            },
+            {
+              "duration": "220.00",
+              "startTime": "1970.20"
+            },
+            {
+              "duration": "144.00",
+              "startTime": "2643.60"
+            },
+            {
+              "duration": "96.00",
+              "startTime": "2866.40"
+            }
+          ],
+          "totalBlockingTime": 1270,
+          "frameDrops": 14,
+          "avgInteractionTime": 0.26250000298023224,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3004.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.7999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.099999964237,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16791004,
+          "efficiency": 0.5831122366097062
+        },
+        {
+          "success": true,
+          "totalTime": 24010.100000023842,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            108,
+            107
+          ],
+          "avgTimePerPage": 120.80714285714286,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "77.00",
+              "startTime": "136.50"
+            },
+            {
+              "duration": "754.00",
+              "startTime": "409.60"
+            },
+            {
+              "duration": "205.00",
+              "startTime": "1536.30"
+            },
+            {
+              "duration": "96.00",
+              "startTime": "2212.90"
+            },
+            {
+              "duration": "76.00",
+              "startTime": "2365.80"
+            }
+          ],
+          "totalBlockingTime": 958,
+          "frameDrops": 6,
+          "avgInteractionTime": 0.30000000447034836,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.699999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.899999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.2000000476837,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3002.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3001.800000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.300000011921,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16701332,
+          "efficiency": 0.5830879504869241
+        },
+        {
+          "success": true,
+          "totalTime": 24008.30000001192,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            108,
+            107
+          ],
+          "avgTimePerPage": 126.73571428571427,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "91.00",
+              "startTime": "141.40"
+            },
+            {
+              "duration": "962.00",
+              "startTime": "408.90"
+            },
+            {
+              "duration": "269.00",
+              "startTime": "1732.80"
+            },
+            {
+              "duration": "143.00",
+              "startTime": "2489.80"
+            },
+            {
+              "duration": "69.00",
+              "startTime": "2701.30"
+            }
+          ],
+          "totalBlockingTime": 1284,
+          "frameDrops": 8,
+          "avgInteractionTime": 0.11249999701976776,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3001.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.600000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.399999976158,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3001.100000023842,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.900000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16712276,
+          "efficiency": 0.5831316669648849
+        },
+        {
+          "success": true,
+          "totalTime": 24010.399999976158,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            46,
+            45,
+            47,
+            48,
+            107,
+            108
+          ],
+          "avgTimePerPage": 113.24999999999999,
+          "longTasks": 5,
+          "longTasksDetail": [
+            {
+              "duration": "86.00",
+              "startTime": "427.00"
+            },
+            {
+              "duration": "800.00",
+              "startTime": "730.00"
+            },
+            {
+              "duration": "198.00",
+              "startTime": "1843.50"
+            },
+            {
+              "duration": "103.00",
+              "startTime": "2530.60"
+            },
+            {
+              "duration": "62.00",
+              "startTime": "2696.90"
+            }
+          ],
+          "totalBlockingTime": 999,
+          "frameDrops": 8,
+          "avgInteractionTime": 0.23749999701976776,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.300000011921,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.400000035763,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.2999999523163,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3001,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3004,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5,
+              "longTasksInJump": 0
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.899999976158,
+              "longTasksInJump": 0
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16591296,
+          "efficiency": 0.5830806650457261
+        }
+      ]
+    }
+  },
+  "improvements": [
+    {
+      "name": "점진적 스크롤 - 효율성",
+      "value": -0.02151657546559934,
+      "better": false
+    },
+    {
+      "name": "점진적 스크롤 - 페이지 수",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점진적 스크롤 - 프레임 드롭 감소",
+      "value": -14.754098360655746,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 효율성",
+      "value": 2.941750270204689,
+      "better": true
+    },
+    {
+      "name": "점프 스크롤 - 페이지 수",
+      "value": 2.941176470588238,
+      "better": true
+    },
+    {
+      "name": "점프 스크롤 - 점프당 새 페이지",
+      "value": 2.362204724409455,
+      "better": true
+    }
+  ],
+  "summary": {
+    "totalImprovements": 3,
+    "avgImprovement": -1.088413911819827
+  }
+}

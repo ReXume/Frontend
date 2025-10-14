@@ -1,0 +1,139 @@
+{
+  "timestamp": "2025-10-13T23:30:56.305Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/feedback/4",
+    "versions": [
+      {
+        "name": "PDF (일반)",
+        "query": "version=pdf",
+        "key": "pdf"
+      },
+      {
+        "name": "Queue (우선순위 큐)",
+        "query": "version=queue",
+        "key": "queue"
+      }
+    ],
+    "runs": 3,
+    "waitAfterLoad": 8000,
+    "enableScroll": true,
+    "cpuThrottle": 4,
+    "headless": true
+  },
+  "stats": {
+    "pdf": {
+      "renderTime": {
+        "min": 2.100000023841858,
+        "max": 2.600000023841858,
+        "avg": 2.4333333571751914,
+        "median": 2.600000023841858
+      },
+      "longTaskCount": {
+        "min": 3,
+        "max": 4,
+        "avg": 3.3333333333333335,
+        "median": 3
+      },
+      "totalBlockingTime": {
+        "min": 688,
+        "max": 725,
+        "avg": 701.6666666666666,
+        "median": 692
+      },
+      "memoryUsed": {
+        "min": 65302681,
+        "max": 65386571,
+        "avg": 65336761.666666664,
+        "median": 65321033
+      },
+      "pdfPages": 147,
+      "layoutCount": {
+        "min": 11,
+        "max": 12,
+        "avg": 11.333333333333334,
+        "median": 11
+      },
+      "fps": {
+        "avg": {
+          "min": 125.30088286565324,
+          "max": 139.95020861853124,
+          "avg": 131.70491392823928,
+          "median": 129.86365030053338
+        },
+        "min": {
+          "min": 74.07407407407408,
+          "max": 102.04081682302912,
+          "avg": 92.71856903316973,
+          "median": 102.04081620240599
+        },
+        "dropped": null
+      }
+    },
+    "queue": {
+      "renderTime": null,
+      "longTaskCount": {
+        "min": 5,
+        "max": 5,
+        "avg": 5,
+        "median": 5
+      },
+      "totalBlockingTime": {
+        "min": 711,
+        "max": 754,
+        "avg": 725.6666666666666,
+        "median": 712
+      },
+      "memoryUsed": {
+        "min": 66436187,
+        "max": 66534738,
+        "avg": 66498797.666666664,
+        "median": 66525468
+      },
+      "pdfPages": 147,
+      "layoutCount": {
+        "min": 12,
+        "max": 12,
+        "avg": 12,
+        "median": 12
+      },
+      "fps": {
+        "avg": {
+          "min": 129.7467278479106,
+          "max": 138.03377547782836,
+          "avg": 133.32272239658866,
+          "median": 132.18766386402703
+        },
+        "min": {
+          "min": 74.07407407407408,
+          "max": 103.09278363185173,
+          "avg": 92.72565278371253,
+          "median": 101.01010064521185
+        },
+        "dropped": null
+      }
+    }
+  },
+  "improvements": [
+    {
+      "name": "렌더링 시간",
+      "improvement": 100
+    },
+    {
+      "name": "Long Tasks 감소",
+      "improvement": -49.99999999999999
+    },
+    {
+      "name": "Total Blocking Time 감소",
+      "improvement": -3.420427553444181
+    },
+    {
+      "name": "메모리 사용량 감소",
+      "improvement": -1.778533202989833
+    }
+  ],
+  "summary": {
+    "totalImprovements": 1,
+    "avgImprovement": 11.200259810891499,
+    "totalMetrics": 4
+  }
+}

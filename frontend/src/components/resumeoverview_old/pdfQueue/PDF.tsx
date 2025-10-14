@@ -180,7 +180,7 @@ const PDF: React.FC<PDFProps> = ({
       {
         root: null,
         threshold: 0,
-        rootMargin: "600px 0px", // 근처 ±600px 사전 프리페치
+        rootMargin: "1200px 0px", // 근처 ±600px 사전 프리페치
       }
     );
 

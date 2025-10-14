@@ -1,0 +1,67 @@
+{
+  "timestamp": "2025-10-14T15:25:45.192Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/feedback/4",
+    "versions": [
+      {
+        "name": "PDF (일반)",
+        "query": "version=pdf",
+        "key": "pdf"
+      },
+      {
+        "name": "Queue (우선순위 큐)",
+        "query": "version=queue",
+        "key": "queue"
+      }
+    ],
+    "runs": 3,
+    "cpuThrottle": 4,
+    "headless": true
+  },
+  "results": {
+    "gradual": {
+      "pdf": [],
+      "queue": []
+    },
+    "jump": {
+      "pdf": [],
+      "queue": []
+    }
+  },
+  "improvements": [
+    {
+      "name": "점진적 스크롤 - 효율성",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점진적 스크롤 - 페이지 수",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점진적 스크롤 - 프레임 드롭 감소",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 효율성",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 페이지 수",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 점프당 새 페이지",
+      "value": 0,
+      "better": false
+    }
+  ],
+  "summary": {
+    "totalImprovements": 0,
+    "avgImprovement": 0
+  }
+}

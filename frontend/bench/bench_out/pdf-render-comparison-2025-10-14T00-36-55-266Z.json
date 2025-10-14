@@ -1,0 +1,192 @@
+{
+  "timestamp": "2025-10-14T00:36:55.267Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/feedback/4",
+    "versions": [
+      {
+        "name": "PDF (일반)",
+        "query": "version=pdf",
+        "key": "pdf"
+      },
+      {
+        "name": "Queue (우선순위 큐)",
+        "query": "version=queue",
+        "key": "queue"
+      }
+    ],
+    "runs": 3,
+    "waitAfterLoad": 2000,
+    "measureInitialRender": true,
+    "targetPageMilestones": [
+      1,
+      5,
+      10,
+      20
+    ],
+    "maxWaitTime": 20000,
+    "enableScroll": false,
+    "cpuThrottle": 4,
+    "headless": true
+  },
+  "stats": {
+    "pdf": {
+      "renderTime": {
+        "min": 97.42380952380952,
+        "max": 106.07142857142857,
+        "avg": 102.23341269841269,
+        "median": 103.205
+      },
+      "longTaskCount": {
+        "min": 5,
+        "max": 6,
+        "avg": 5.666666666666667,
+        "median": 6
+      },
+      "totalBlockingTime": {
+        "min": 735,
+        "max": 757,
+        "avg": 745,
+        "median": 743
+      },
+      "memoryUsed": {
+        "min": 66672776,
+        "max": 66743312,
+        "avg": 66713606,
+        "median": 66724730
+      },
+      "pdfPages": 147,
+      "layoutCount": {
+        "min": 26,
+        "max": 33,
+        "avg": 29,
+        "median": 28
+      },
+      "timeToPage": {
+        "1": {
+          "min": 2003,
+          "max": 2005,
+          "avg": 2004,
+          "median": 2004
+        },
+        "5": {
+          "min": 3019,
+          "max": 3070,
+          "avg": 3044.6666666666665,
+          "median": 3045
+        },
+        "10": {
+          "min": 3522,
+          "max": 3572,
+          "avg": 3546.3333333333335,
+          "median": 3545
+        },
+        "20": {
+          "min": 4526,
+          "max": 4617,
+          "avg": 4573.333333333333,
+          "median": 4577
+        }
+      },
+      "fps": null
+    },
+    "queue": {
+      "renderTime": {
+        "min": 86.45652173913042,
+        "max": 90.77391304347825,
+        "avg": 88.69903381642511,
+        "median": 88.86666666666666
+      },
+      "longTaskCount": {
+        "min": 5,
+        "max": 5,
+        "avg": 5,
+        "median": 5
+      },
+      "totalBlockingTime": {
+        "min": 815,
+        "max": 847,
+        "avg": 828.6666666666666,
+        "median": 824
+      },
+      "memoryUsed": {
+        "min": 65944533,
+        "max": 66250984,
+        "avg": 66137853.333333336,
+        "median": 66218043
+      },
+      "pdfPages": 147,
+      "layoutCount": {
+        "min": 34,
+        "max": 36,
+        "avg": 35,
+        "median": 35
+      },
+      "timeToPage": {
+        "1": {
+          "min": 2004,
+          "max": 2006,
+          "avg": 2005,
+          "median": 2005
+        },
+        "5": {
+          "min": 2507,
+          "max": 2510,
+          "avg": 2508,
+          "median": 2507
+        },
+        "10": {
+          "min": 3011,
+          "max": 3014,
+          "avg": 3012,
+          "median": 3011
+        },
+        "20": {
+          "min": 4021,
+          "max": 4049,
+          "avg": 4033,
+          "median": 4029
+        }
+      },
+      "fps": null
+    }
+  },
+  "improvements": [
+    {
+      "name": "렌더링 시간",
+      "improvement": 13.238703986057699
+    },
+    {
+      "name": "Long Tasks 감소",
+      "improvement": 11.764705882352946
+    },
+    {
+      "name": "Total Blocking Time 감소",
+      "improvement": -11.230425055928407
+    },
+    {
+      "name": "메모리 사용량 감소",
+      "improvement": 0.8630213552939473
+    },
+    {
+      "name": "1페이지까지 렌더링",
+      "improvement": -0.049900199600798396
+    },
+    {
+      "name": "5페이지까지 렌더링",
+      "improvement": 17.626450624042036
+    },
+    {
+      "name": "10페이지까지 렌더링",
+      "improvement": 15.06720556443275
+    },
+    {
+      "name": "20페이지까지 렌더링",
+      "improvement": 11.814868804664718
+    }
+  ],
+  "summary": {
+    "totalImprovements": 6,
+    "avgImprovement": 7.3868288701643605,
+    "totalMetrics": 8
+  }
+}

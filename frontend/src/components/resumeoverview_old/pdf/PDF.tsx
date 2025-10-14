@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import CommentForm from "../../comment_old/CommentForm";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
-
 import { GlobalWorkerOptions, getDocument, type PDFPageProxy, type PDFDocumentProxy, RenderTask } from "pdfjs-dist";
 
 
@@ -42,6 +41,8 @@ const PDF: React.FC<PDFProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const renderTaskRef = useRef<RenderTask | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [rendered, setRendered] = useState(false);
+  const [viewportWH, setViewportWH] = useState<{ w: number; h: number } | null>(null);
 
   const [selectedArea, setSelectedArea] = useState<{
     x: number;
@@ -62,6 +63,22 @@ const PDF: React.FC<PDFProps> = ({
     null
   );
 
+  // 페이지 크기 미리 계산 (placeholder 높이 확보) - Queue와 동일
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const page = await pdf.getPage(pageNumber);
+        if (cancelled) return;
+        const viewport = page.getViewport({ scale: 2, rotation: 0 });
+        setViewportWH({ w: viewport.width, h: viewport.height });
+      } catch {}
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [pdf, pageNumber]);
+
   // IntersectionObserver로 뷰포트 감지
   useEffect(() => {
     const container = containerRef.current;
@@ -75,8 +92,8 @@ const PDF: React.FC<PDFProps> = ({
       },
       {
         root: null, // viewport 기준
-        rootMargin: '200px', // 뷰포트 200px 전에 미리 로드
-        threshold: 0.01, // 1%만 보여도 감지
+        rootMargin: '1200px 0px', // 뷰포트 600px 전에 미리 로드 (Queue 버전과 동일)
+        threshold: 0, // Queue와 동일
       }
     );
 
@@ -134,6 +151,8 @@ const PDF: React.FC<PDFProps> = ({
           const t3 = performance.now();
     
           if (cancelled) return;
+    
+          setRendered(true);  // 렌더링 완료 표시
     
           // 메트릭 수집
           const metrics = {
@@ -252,17 +271,32 @@ const PDF: React.FC<PDFProps> = ({
     }
   };
 
+  // placeholder 스타일 (Queue와 동일)
+  const placeholderStyle: React.CSSProperties = viewportWH
+    ? {
+        width: "100%",
+        height: viewportWH.h,
+        background: "#f3f4f6",
+      }
+    : { width: "100%", aspectRatio: "1/1.414", background: "#f3f4f6" };
+
   return (
     <div
       ref={containerRef}
-      style={{ position: "relative", marginBottom: 20, minHeight: 800 }}
+      style={{ position: "relative", marginBottom: 20 }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      {/* 캔버스 표시 */}
-      <canvas ref={canvasRef} style={{ display: "block" }} />
-      {/* 캔버스 표시 */}
+      {/* Canvas는 항상 렌더링, 렌더 완료 전에는 placeholder 표시 */}
+      <canvas 
+        ref={canvasRef} 
+        style={{ 
+          display: rendered ? "block" : "none",
+          width: "100%"
+        }} 
+      />
+      {!rendered && <div style={placeholderStyle} />}
 
 
       {/* 선택 영역 표시 */}

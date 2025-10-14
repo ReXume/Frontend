@@ -1,0 +1,410 @@
+{
+  "timestamp": "2025-10-14T15:41:53.103Z",
+  "config": {
+    "baseUrl": "http://localhost:3000/feedback/4",
+    "versions": [
+      {
+        "name": "PDF (일반)",
+        "query": "version=pdf",
+        "key": "pdf"
+      },
+      {
+        "name": "Queue (우선순위 큐)",
+        "query": "version=queue",
+        "key": "queue"
+      }
+    ],
+    "runs": 1,
+    "cpuThrottle": 4,
+    "headless": true
+  },
+  "results": {
+    "gradual": {
+      "pdf": [
+        {
+          "success": true,
+          "totalTime": 22007.700000047684,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            31,
+            32,
+            33,
+            47,
+            48,
+            49,
+            63,
+            64,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            128,
+            129,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 112.94666666666666,
+          "longTasks": 5,
+          "totalBlockingTime": 858,
+          "frameDrops": 8,
+          "avgInteractionTime": 0.44999998807907104,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1
+            },
+            {
+              "step": 1,
+              "renderedPages": 4
+            },
+            {
+              "step": 2,
+              "renderedPages": 7
+            },
+            {
+              "step": 3,
+              "renderedPages": 10
+            },
+            {
+              "step": 4,
+              "renderedPages": 14
+            },
+            {
+              "step": 5,
+              "renderedPages": 17
+            },
+            {
+              "step": 6,
+              "renderedPages": 20
+            },
+            {
+              "step": 7,
+              "renderedPages": 23
+            },
+            {
+              "step": 8,
+              "renderedPages": 26
+            },
+            {
+              "step": 9,
+              "renderedPages": 30
+            },
+            {
+              "step": 10,
+              "renderedPages": 30
+            }
+          ],
+          "jsHeapUsedSize": 17361772,
+          "efficiency": 1.3631592578931464
+        }
+      ],
+      "queue": [
+        {
+          "success": true,
+          "totalTime": 22007.899999976158,
+          "renderedPages": 30,
+          "renderSequence": [
+            1,
+            16,
+            15,
+            17,
+            32,
+            31,
+            33,
+            47,
+            48,
+            49,
+            64,
+            63,
+            65,
+            66,
+            80,
+            81,
+            82,
+            96,
+            97,
+            98,
+            112,
+            113,
+            114,
+            129,
+            128,
+            130,
+            144,
+            145,
+            146,
+            147
+          ],
+          "avgTimePerPage": 90.42333333333335,
+          "longTasks": 5,
+          "totalBlockingTime": 781,
+          "frameDrops": 9,
+          "avgInteractionTime": 0.3499999940395355,
+          "events": [
+            {
+              "step": 0,
+              "renderedPages": 1
+            },
+            {
+              "step": 1,
+              "renderedPages": 4
+            },
+            {
+              "step": 2,
+              "renderedPages": 7
+            },
+            {
+              "step": 3,
+              "renderedPages": 10
+            },
+            {
+              "step": 4,
+              "renderedPages": 14
+            },
+            {
+              "step": 5,
+              "renderedPages": 17
+            },
+            {
+              "step": 6,
+              "renderedPages": 20
+            },
+            {
+              "step": 7,
+              "renderedPages": 23
+            },
+            {
+              "step": 8,
+              "renderedPages": 26
+            },
+            {
+              "step": 9,
+              "renderedPages": 30
+            },
+            {
+              "step": 10,
+              "renderedPages": 30
+            }
+          ],
+          "jsHeapUsedSize": 17537784,
+          "efficiency": 1.363146869989072
+        }
+      ]
+    },
+    "jump": {
+      "pdf": [
+        {
+          "success": true,
+          "totalTime": 24005.80000001192,
+          "renderedPages": 15,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            107,
+            108,
+            1
+          ],
+          "avgTimePerPage": 87.61999999999999,
+          "longTasks": 5,
+          "totalBlockingTime": 808,
+          "frameDrops": 7,
+          "avgInteractionTime": 0.14999999850988388,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3001.300000011921
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.399999976158
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.600000023842
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.300000011921
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.899999976158
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.600000023842
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.599999964237
+            }
+          ],
+          "avgNewPagesPerJump": 1.75,
+          "jsHeapUsedSize": 16452260,
+          "efficiency": 0.62484899482594
+        }
+      ],
+      "queue": [
+        {
+          "success": true,
+          "totalTime": 24008,
+          "renderedPages": 14,
+          "renderSequence": [
+            1,
+            30,
+            31,
+            75,
+            76,
+            120,
+            121,
+            147,
+            45,
+            46,
+            47,
+            48,
+            108,
+            107
+          ],
+          "avgTimePerPage": 98.22142857142856,
+          "longTasks": 4,
+          "totalBlockingTime": 858,
+          "frameDrops": 6,
+          "avgInteractionTime": 0.1875,
+          "jumpMetrics": [
+            {
+              "jump": 1,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3002.300000011921
+            },
+            {
+              "jump": 2,
+              "position": 0.2,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.199999988079
+            },
+            {
+              "jump": 3,
+              "position": 0.5,
+              "newPagesRendered": 2,
+              "timeToRender": 3001
+            },
+            {
+              "jump": 4,
+              "position": 0.8,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.5
+            },
+            {
+              "jump": 5,
+              "position": 1,
+              "newPagesRendered": 1,
+              "timeToRender": 3000.400000035763
+            },
+            {
+              "jump": 6,
+              "position": 0.3,
+              "newPagesRendered": 4,
+              "timeToRender": 3000.699999988079
+            },
+            {
+              "jump": 7,
+              "position": 0.7,
+              "newPagesRendered": 2,
+              "timeToRender": 3000.800000011921
+            },
+            {
+              "jump": 8,
+              "position": 0,
+              "newPagesRendered": 0,
+              "timeToRender": 3000.699999988079
+            }
+          ],
+          "avgNewPagesPerJump": 1.625,
+          "jsHeapUsedSize": 16567672,
+          "efficiency": 0.583138953682106
+        }
+      ]
+    }
+  },
+  "improvements": [
+    {
+      "name": "점진적 스크롤 - 효율성",
+      "value": -0.0009087642549898634,
+      "better": false
+    },
+    {
+      "name": "점진적 스크롤 - 페이지 수",
+      "value": 0,
+      "better": false
+    },
+    {
+      "name": "점진적 스크롤 - 프레임 드롭 감소",
+      "value": -12.5,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 효율성",
+      "value": -6.675219371274322,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 페이지 수",
+      "value": -6.666666666666667,
+      "better": false
+    },
+    {
+      "name": "점프 스크롤 - 점프당 새 페이지",
+      "value": -7.142857142857142,
+      "better": false
+    }
+  ],
+  "summary": {
+    "totalImprovements": 0,
+    "avgImprovement": -5.497608657508853
+  }
+}

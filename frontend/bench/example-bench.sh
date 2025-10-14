@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Web Vitals 벤치마크 예제 스크립트
+# 벤치마크 예제 스크립트
 # 사용법: ./bench/example-bench.sh
 
 echo "🚀 Web Vitals 벤치마크 예제"
@@ -37,6 +37,22 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
       --url1 "http://localhost:3000" --name1 "Home" \
       --url2 "http://localhost:3000/feedback/4" --name2 "Feedback" \
       --runs 2
+fi
+
+echo ""
+echo "========================================"
+echo ""
+
+# 예제 3: PDF 렌더링 성능 측정 (옵션)
+read -p "PDF 렌더링 성능을 측정하시겠습니까? (y/N): " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo "📊 예제 3: PDF 렌더링 성능 측정"
+    echo "--------------------------------------"
+    npm run bench:render -- \
+      --url "http://localhost:3000/feedback/4?version=queue" \
+      --runs 2 \
+      --cpu 4
 fi
 
 echo ""
