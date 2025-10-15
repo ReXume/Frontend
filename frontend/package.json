@@ -9,17 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "bench:webvitals": "node bench/bench-webvitals.js",
-    "bench:lighthouse": "node bench/bench-lighthouse.js",
-    "bench:full": "node bench/bench.js",
-    "bench:render": "node bench/bench-render.js",
-    "bench:render:compare": "node bench/bench-render.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback/4?version=queue' --name2 'Queue Version' --runs 3",
-    "bench:queue": "node bench/bench-queue-comparison.js",
-    "bench:queue:fast": "node bench/bench-queue-comparison.js --preset fast",
-    "bench:queue:realistic": "node bench/bench-queue-comparison.js --preset realistic --runs 5",
-    "bench:queue:intensive": "node bench/bench-queue-comparison.js --preset intensive --runs 3",
-    "bench:compare": "node bench/bench-webvitals.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback-basic/4' --name2 'Basic Version' --url3 'http://localhost:3000/feedback/4?version=queue' --name3 'Queue Version' --runs 3 --scroll true",
-    "bench:compare:realistic": "node bench/bench-webvitals.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback-basic/4' --name2 'Basic Version' --url3 'http://localhost:3000/feedback/4?version=queue' --name3 'Queue Version' --preset realistic --runs 3",
-    "bench:compare:fast": "node bench/bench-webvitals.js --url1 'http://localhost:3000/feedback/4?version=pdf' --name1 'PDF Version' --url2 'http://localhost:3000/feedback-basic/4' --name2 'Basic Version' --url3 'http://localhost:3000/feedback/4?version=queue' --name3 'Queue Version' --preset fast --runs 1"
+    "bench:scenario": "node bench/pdf-advanced-benchmark.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
