@@ -1,0 +1,1177 @@
+{
+  "timestamp": "2025-10-16T05:07:43.425Z",
+  "config": {
+    "headless": true,
+    "devices": [
+      {
+        "key": "low",
+        "name": "저사양 기기",
+        "cpuThrottle": 6,
+        "description": "오래된 스마트폰, 저가형 노트북 (6x CPU throttle)",
+        "emoji": "🐌"
+      },
+      {
+        "key": "mid",
+        "name": "중사양 기기",
+        "cpuThrottle": 3,
+        "description": "일반 노트북, 중급 스마트폰 (3x CPU throttle)",
+        "emoji": "🚗"
+      },
+      {
+        "key": "high",
+        "name": "고사양 기기",
+        "cpuThrottle": 1,
+        "description": "최신 노트북, 플래그십 스마트폰 (throttle 없음)",
+        "emoji": "🚀"
+      }
+    ],
+    "behavior": {
+      "key": "realistic",
+      "name": "현실적 사용자 패턴",
+      "description": "bench-pdfjs-longtasks.js의 realistic 패턴과 동일"
+    }
+  },
+  "totalTests": 6,
+  "results": [
+    {
+      "testName": "PDF-🐌저사양 기기-🎯현실적 사용자 패턴",
+      "version": "PDF",
+      "device": "저사양 기기",
+      "deviceEmoji": "🐌",
+      "cpuThrottle": 6,
+      "behavior": "현실적 사용자 패턴",
+      "behaviorEmoji": "🎯",
+      "detectedVersion": "현재 버전: 📄 일반 PDF (IntersectionObserver)",
+      "url": "http://localhost:3000/feedback/4?version=pdf",
+      "duration": 36446.10000000009,
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 6.1,
+          "renderMs": 128.1,
+          "paintMs": 11.9,
+          "totalMs": 146.1,
+          "timestamp": 12532.600000000093
+        },
+        {
+          "page": 2,
+          "getPageMs": 3.2,
+          "renderMs": 20.2,
+          "paintMs": 23.2,
+          "totalMs": 46.6,
+          "timestamp": 15307.300000000047
+        },
+        {
+          "page": 3,
+          "getPageMs": 2.7,
+          "renderMs": 116.8,
+          "paintMs": 14.7,
+          "totalMs": 134.2,
+          "timestamp": 17048
+        },
+        {
+          "page": 4,
+          "getPageMs": 2.6,
+          "renderMs": 16.4,
+          "paintMs": 13.4,
+          "totalMs": 32.4,
+          "timestamp": 18640.40000000014
+        },
+        {
+          "page": 5,
+          "getPageMs": 2.5,
+          "renderMs": 69.3,
+          "paintMs": 8.5,
+          "totalMs": 80.3,
+          "timestamp": 20845.500000000233
+        },
+        {
+          "page": 6,
+          "getPageMs": 4,
+          "renderMs": 63.9,
+          "paintMs": 5.2,
+          "totalMs": 73.1,
+          "timestamp": 22526.59999999986
+        },
+        {
+          "page": 7,
+          "getPageMs": 3,
+          "renderMs": 96.1,
+          "paintMs": 7.6,
+          "totalMs": 106.7,
+          "timestamp": 24246.09999999986
+        },
+        {
+          "page": 8,
+          "getPageMs": 2,
+          "renderMs": 21.9,
+          "paintMs": 17,
+          "totalMs": 40.9,
+          "timestamp": 26380.800000000047
+        },
+        {
+          "page": 9,
+          "getPageMs": 4.5,
+          "renderMs": 44.6,
+          "paintMs": 11.9,
+          "totalMs": 61,
+          "timestamp": 28060.90000000014
+        },
+        {
+          "page": 10,
+          "getPageMs": 2.7,
+          "renderMs": 45.3,
+          "paintMs": 5.8,
+          "totalMs": 53.8,
+          "timestamp": 29725.800000000047
+        },
+        {
+          "page": 11,
+          "getPageMs": 2.4,
+          "renderMs": 41.3,
+          "paintMs": 8,
+          "totalMs": 51.7,
+          "timestamp": 31887.09999999986
+        },
+        {
+          "page": 12,
+          "getPageMs": 2.8,
+          "renderMs": 98.8,
+          "paintMs": 10.8,
+          "totalMs": 112.4,
+          "timestamp": 33608.59999999986
+        },
+        {
+          "page": 13,
+          "getPageMs": 2.3,
+          "renderMs": 60.5,
+          "paintMs": 8,
+          "totalMs": 70.8,
+          "timestamp": 35252.80000000005
+        },
+        {
+          "page": 14,
+          "getPageMs": 2.6,
+          "renderMs": 34.2,
+          "paintMs": 13.1,
+          "totalMs": 49.9,
+          "timestamp": 37412.09999999986
+        },
+        {
+          "page": 15,
+          "getPageMs": 3.2,
+          "renderMs": 46.2,
+          "paintMs": 6.3,
+          "totalMs": 55.7,
+          "timestamp": 39075.80000000005
+        },
+        {
+          "page": 16,
+          "getPageMs": 2.4,
+          "renderMs": 37.5,
+          "paintMs": 8.5,
+          "totalMs": 48.4,
+          "timestamp": 40733.69999999995
+        },
+        {
+          "page": 17,
+          "getPageMs": 2.9,
+          "renderMs": 11.7,
+          "paintMs": 16.2,
+          "totalMs": 30.8,
+          "timestamp": 42874.50000000023
+        },
+        {
+          "page": 18,
+          "getPageMs": 2.4,
+          "renderMs": 58.3,
+          "paintMs": 10.3,
+          "totalMs": 71,
+          "timestamp": 44574.90000000014
+        },
+        {
+          "page": 19,
+          "getPageMs": 3.4,
+          "renderMs": 88.4,
+          "paintMs": 12.8,
+          "totalMs": 104.6,
+          "timestamp": 46284.09999999986
+        },
+        {
+          "page": 20,
+          "getPageMs": 3.8,
+          "renderMs": 50.7,
+          "paintMs": 8,
+          "totalMs": 62.5,
+          "timestamp": 48423.19999999995
+        },
+        {
+          "page": 21,
+          "getPageMs": 3.2,
+          "renderMs": 42.5,
+          "paintMs": 8.6,
+          "totalMs": 54.3,
+          "timestamp": 50082.40000000014
+        }
+      ],
+      "renderEventsCount": 21,
+      "renderEfficiency": 0.58,
+      "sendWithPromiseCalls": 328,
+      "longTasks": 29,
+      "avgLongTaskDuration": 356.7241379310345,
+      "totalBlockingTime": 8895,
+      "scrollEvents": 66,
+      "timestamp": "2025-10-16T05:03:31.190Z"
+    },
+    {
+      "testName": "PDF-🚗중사양 기기-🎯현실적 사용자 패턴",
+      "version": "PDF",
+      "device": "중사양 기기",
+      "deviceEmoji": "🚗",
+      "cpuThrottle": 3,
+      "behavior": "현실적 사용자 패턴",
+      "behaviorEmoji": "🎯",
+      "detectedVersion": "현재 버전: 📄 일반 PDF (IntersectionObserver)",
+      "url": "http://localhost:3000/feedback/4?version=pdf",
+      "duration": 36073.5,
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 1.6,
+          "renderMs": 92.9,
+          "paintMs": 9.4,
+          "totalMs": 103.9,
+          "timestamp": 10278.19999999972
+        },
+        {
+          "page": 2,
+          "getPageMs": 1.5,
+          "renderMs": 13.1,
+          "paintMs": 11.1,
+          "totalMs": 25.7,
+          "timestamp": 13068.799999999814
+        },
+        {
+          "page": 3,
+          "getPageMs": 1.2,
+          "renderMs": 120.4,
+          "paintMs": 10.8,
+          "totalMs": 132.4,
+          "timestamp": 14827.899999999907
+        },
+        {
+          "page": 4,
+          "getPageMs": 1.5,
+          "renderMs": 13.1,
+          "paintMs": 10.2,
+          "totalMs": 24.8,
+          "timestamp": 16377.299999999814
+        },
+        {
+          "page": 5,
+          "getPageMs": 1.3,
+          "renderMs": 20.4,
+          "paintMs": 14,
+          "totalMs": 35.7,
+          "timestamp": 18540.399999999907
+        },
+        {
+          "page": 6,
+          "getPageMs": 1.5,
+          "renderMs": 30.3,
+          "paintMs": 6.8,
+          "totalMs": 38.6,
+          "timestamp": 20195
+        },
+        {
+          "page": 7,
+          "getPageMs": 1.6,
+          "renderMs": 44.2,
+          "paintMs": 7.9,
+          "totalMs": 53.7,
+          "timestamp": 21864
+        },
+        {
+          "page": 8,
+          "getPageMs": 1.1,
+          "renderMs": 15,
+          "paintMs": 8.9,
+          "totalMs": 25,
+          "timestamp": 23993.19999999972
+        },
+        {
+          "page": 9,
+          "getPageMs": 1.2,
+          "renderMs": 16.5,
+          "paintMs": 10.5,
+          "totalMs": 28.2,
+          "timestamp": 25648.899999999907
+        },
+        {
+          "page": 10,
+          "getPageMs": 1.1,
+          "renderMs": 12.6,
+          "paintMs": 9,
+          "totalMs": 22.7,
+          "timestamp": 27294.899999999907
+        },
+        {
+          "page": 11,
+          "getPageMs": 1.1,
+          "renderMs": 22.6,
+          "paintMs": 6.9,
+          "totalMs": 30.6,
+          "timestamp": 29455.19999999972
+        },
+        {
+          "page": 12,
+          "getPageMs": 2,
+          "renderMs": 38.1,
+          "paintMs": 5,
+          "totalMs": 45.1,
+          "timestamp": 31122.69999999972
+        },
+        {
+          "page": 13,
+          "getPageMs": 1.5,
+          "renderMs": 45.7,
+          "paintMs": 4.9,
+          "totalMs": 52.1,
+          "timestamp": 32786
+        },
+        {
+          "page": 14,
+          "getPageMs": 1.5,
+          "renderMs": 9.5,
+          "paintMs": 12.5,
+          "totalMs": 23.5,
+          "timestamp": 34911.299999999814
+        },
+        {
+          "page": 15,
+          "getPageMs": 1.5,
+          "renderMs": 22.6,
+          "paintMs": 12.2,
+          "totalMs": 36.3,
+          "timestamp": 36577.39999999991
+        },
+        {
+          "page": 16,
+          "getPageMs": 1.7,
+          "renderMs": 18.6,
+          "paintMs": 9.2,
+          "totalMs": 29.5,
+          "timestamp": 38223.5
+        },
+        {
+          "page": 17,
+          "getPageMs": 1.7,
+          "renderMs": 14.8,
+          "paintMs": 8,
+          "totalMs": 24.5,
+          "timestamp": 40369.89999999991
+        },
+        {
+          "page": 18,
+          "getPageMs": 1.4,
+          "renderMs": 23,
+          "paintMs": 15,
+          "totalMs": 39.4,
+          "timestamp": 42037.09999999963
+        },
+        {
+          "page": 19,
+          "getPageMs": 1.6,
+          "renderMs": 47.6,
+          "paintMs": 6.4,
+          "totalMs": 55.6,
+          "timestamp": 43705.09999999963
+        },
+        {
+          "page": 20,
+          "getPageMs": 1.9,
+          "renderMs": 15.3,
+          "paintMs": 9.7,
+          "totalMs": 26.9,
+          "timestamp": 45836.799999999814
+        },
+        {
+          "page": 21,
+          "getPageMs": 1.6,
+          "renderMs": 20,
+          "paintMs": 11.9,
+          "totalMs": 33.5,
+          "timestamp": 47496.09999999963
+        }
+      ],
+      "renderEventsCount": 21,
+      "renderEfficiency": 0.58,
+      "sendWithPromiseCalls": 368,
+      "longTasks": 28,
+      "avgLongTaskDuration": 305.89285714285717,
+      "totalBlockingTime": 7165,
+      "scrollEvents": 66,
+      "timestamp": "2025-10-16T05:04:22.141Z"
+    },
+    {
+      "testName": "PDF-🚀고사양 기기-🎯현실적 사용자 패턴",
+      "version": "PDF",
+      "device": "고사양 기기",
+      "deviceEmoji": "🚀",
+      "cpuThrottle": 1,
+      "behavior": "현실적 사용자 패턴",
+      "behaviorEmoji": "🎯",
+      "detectedVersion": "현재 버전: 📄 일반 PDF (IntersectionObserver)",
+      "url": "http://localhost:3000/feedback/4?version=pdf",
+      "duration": 36137.10000000009,
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 0.7,
+          "renderMs": 88.4,
+          "paintMs": 11.1,
+          "totalMs": 100.2,
+          "timestamp": 3615.899999999907
+        },
+        {
+          "page": 2,
+          "getPageMs": 0.8,
+          "renderMs": 17.6,
+          "paintMs": 16.5,
+          "totalMs": 34.9,
+          "timestamp": 6541.899999999907
+        },
+        {
+          "page": 3,
+          "getPageMs": 0.8,
+          "renderMs": 98.6,
+          "paintMs": 12.5,
+          "totalMs": 111.9,
+          "timestamp": 8274.100000000093
+        },
+        {
+          "page": 4,
+          "getPageMs": 0.7,
+          "renderMs": 11.2,
+          "paintMs": 14.6,
+          "totalMs": 26.5,
+          "timestamp": 9849.100000000093
+        },
+        {
+          "page": 5,
+          "getPageMs": 0.7,
+          "renderMs": 15.8,
+          "paintMs": 10.8,
+          "totalMs": 27.3,
+          "timestamp": 12007.399999999907
+        },
+        {
+          "page": 6,
+          "getPageMs": 0.9,
+          "renderMs": 20.2,
+          "paintMs": 7.1,
+          "totalMs": 28.2,
+          "timestamp": 13665.799999999814
+        },
+        {
+          "page": 7,
+          "getPageMs": 0.6,
+          "renderMs": 19.8,
+          "paintMs": 10.3,
+          "totalMs": 30.7,
+          "timestamp": 15324.100000000093
+        },
+        {
+          "page": 8,
+          "getPageMs": 0.6,
+          "renderMs": 9.3,
+          "paintMs": 13.6,
+          "totalMs": 23.5,
+          "timestamp": 17474.200000000186
+        },
+        {
+          "page": 9,
+          "getPageMs": 0.5,
+          "renderMs": 11.8,
+          "paintMs": 11.7,
+          "totalMs": 24,
+          "timestamp": 19131.700000000186
+        },
+        {
+          "page": 10,
+          "getPageMs": 0.4,
+          "renderMs": 15.2,
+          "paintMs": 11.1,
+          "totalMs": 26.7,
+          "timestamp": 20790.899999999907
+        },
+        {
+          "page": 11,
+          "getPageMs": 0.5,
+          "renderMs": 14.3,
+          "paintMs": 13.8,
+          "totalMs": 28.6,
+          "timestamp": 22949.200000000186
+        },
+        {
+          "page": 12,
+          "getPageMs": 0.8,
+          "renderMs": 21,
+          "paintMs": 7.4,
+          "totalMs": 29.2,
+          "timestamp": 24607.399999999907
+        },
+        {
+          "page": 13,
+          "getPageMs": 0.5,
+          "renderMs": 12.2,
+          "paintMs": 11.2,
+          "totalMs": 23.9,
+          "timestamp": 26257.5
+        },
+        {
+          "page": 14,
+          "getPageMs": 0.5,
+          "renderMs": 6.4,
+          "paintMs": 15.5,
+          "totalMs": 22.4,
+          "timestamp": 28415.799999999814
+        },
+        {
+          "page": 15,
+          "getPageMs": 0.7,
+          "renderMs": 14.8,
+          "paintMs": 10.2,
+          "totalMs": 25.7,
+          "timestamp": 30073.700000000186
+        },
+        {
+          "page": 16,
+          "getPageMs": 0.9,
+          "renderMs": 15.1,
+          "paintMs": 12.1,
+          "totalMs": 28.1,
+          "timestamp": 31732.399999999907
+        },
+        {
+          "page": 17,
+          "getPageMs": 1.4,
+          "renderMs": 12.8,
+          "paintMs": 13.3,
+          "totalMs": 27.5,
+          "timestamp": 33890.799999999814
+        },
+        {
+          "page": 18,
+          "getPageMs": 1.1,
+          "renderMs": 22.6,
+          "paintMs": 13.2,
+          "totalMs": 36.9,
+          "timestamp": 35557.60000000009
+        },
+        {
+          "page": 19,
+          "getPageMs": 1.2,
+          "renderMs": 41.2,
+          "paintMs": 15.4,
+          "totalMs": 57.8,
+          "timestamp": 37232.60000000009
+        },
+        {
+          "page": 20,
+          "getPageMs": 1.1,
+          "renderMs": 13.8,
+          "paintMs": 13,
+          "totalMs": 27.9,
+          "timestamp": 39357.60000000009
+        },
+        {
+          "page": 21,
+          "getPageMs": 0.6,
+          "renderMs": 12,
+          "paintMs": 9.6,
+          "totalMs": 22.2,
+          "timestamp": 41007.60000000009
+        }
+      ],
+      "renderEventsCount": 21,
+      "renderEfficiency": 0.58,
+      "sendWithPromiseCalls": 354,
+      "longTasks": 20,
+      "avgLongTaskDuration": 128.2,
+      "totalBlockingTime": 1564,
+      "scrollEvents": 66,
+      "timestamp": "2025-10-16T05:05:06.683Z"
+    },
+    {
+      "testName": "Queue-🐌저사양 기기-🎯현실적 사용자 패턴",
+      "version": "Queue",
+      "device": "저사양 기기",
+      "deviceEmoji": "🐌",
+      "cpuThrottle": 6,
+      "behavior": "현실적 사용자 패턴",
+      "behaviorEmoji": "🎯",
+      "detectedVersion": "현재 버전: ⚡ PDF Queue (RenderScheduler)",
+      "url": "http://localhost:3000/feedback/4?version=queue",
+      "duration": 36462.40000000037,
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 0,
+          "renderMs": 1295.1,
+          "paintMs": 785,
+          "totalMs": 2080.1,
+          "timestamp": 19349.700000000186
+        },
+        {
+          "page": 2,
+          "getPageMs": 0,
+          "renderMs": 21,
+          "paintMs": 19.8,
+          "totalMs": 40.8,
+          "timestamp": 22903.900000000373
+        },
+        {
+          "page": 3,
+          "getPageMs": 0,
+          "renderMs": 141,
+          "paintMs": 6,
+          "totalMs": 147,
+          "timestamp": 24675.100000000093
+        },
+        {
+          "page": 4,
+          "getPageMs": 0,
+          "renderMs": 15.8,
+          "paintMs": 14.9,
+          "totalMs": 30.7,
+          "timestamp": 26252.400000000373
+        },
+        {
+          "page": 5,
+          "getPageMs": 0,
+          "renderMs": 69.5,
+          "paintMs": 8.3,
+          "totalMs": 77.8,
+          "timestamp": 28452.600000000093
+        },
+        {
+          "page": 6,
+          "getPageMs": 0,
+          "renderMs": 68,
+          "paintMs": 8.4,
+          "totalMs": 76.4,
+          "timestamp": 30133.30000000028
+        },
+        {
+          "page": 7,
+          "getPageMs": 0,
+          "renderMs": 95.2,
+          "paintMs": 8.4,
+          "totalMs": 103.6,
+          "timestamp": 31840.900000000373
+        },
+        {
+          "page": 8,
+          "getPageMs": 0.1,
+          "renderMs": 44.7,
+          "paintMs": 7.9,
+          "totalMs": 52.7,
+          "timestamp": 33982.5
+        },
+        {
+          "page": 9,
+          "getPageMs": 0.5,
+          "renderMs": 55.1,
+          "paintMs": 14.4,
+          "totalMs": 70,
+          "timestamp": 35656.60000000009
+        },
+        {
+          "page": 10,
+          "getPageMs": 0,
+          "renderMs": 48.1,
+          "paintMs": 8.2,
+          "totalMs": 56.3,
+          "timestamp": 37318.10000000009
+        },
+        {
+          "page": 11,
+          "getPageMs": 0,
+          "renderMs": 45.9,
+          "paintMs": 10.3,
+          "totalMs": 56.2,
+          "timestamp": 39478.30000000028
+        },
+        {
+          "page": 12,
+          "getPageMs": 0,
+          "renderMs": 91.6,
+          "paintMs": 6.5,
+          "totalMs": 98.1,
+          "timestamp": 41182.700000000186
+        },
+        {
+          "page": 13,
+          "getPageMs": 0,
+          "renderMs": 96.5,
+          "paintMs": 6.1,
+          "totalMs": 102.6,
+          "timestamp": 42884.90000000037
+        },
+        {
+          "page": 14,
+          "getPageMs": 0,
+          "renderMs": 18.3,
+          "paintMs": 13.8,
+          "totalMs": 32.1,
+          "timestamp": 45013
+        },
+        {
+          "page": 15,
+          "getPageMs": 0,
+          "renderMs": 46.8,
+          "paintMs": 10.2,
+          "totalMs": 57,
+          "timestamp": 46692.200000000186
+        },
+        {
+          "page": 16,
+          "getPageMs": 0,
+          "renderMs": 18.5,
+          "paintMs": 20.6,
+          "totalMs": 39.1,
+          "timestamp": 48335.700000000186
+        },
+        {
+          "page": 17,
+          "getPageMs": 0.1,
+          "renderMs": 41.1,
+          "paintMs": 2.9,
+          "totalMs": 44.1,
+          "timestamp": 50500.200000000186
+        },
+        {
+          "page": 18,
+          "getPageMs": 0,
+          "renderMs": 49.8,
+          "paintMs": 20.7,
+          "totalMs": 70.5,
+          "timestamp": 52183.90000000037
+        },
+        {
+          "page": 19,
+          "getPageMs": 0,
+          "renderMs": 116.5,
+          "paintMs": 10.5,
+          "totalMs": 127,
+          "timestamp": 53916.60000000009
+        },
+        {
+          "page": 20,
+          "getPageMs": 0,
+          "renderMs": 23.3,
+          "paintMs": 17.5,
+          "totalMs": 40.8,
+          "timestamp": 56038.700000000186
+        },
+        {
+          "page": 21,
+          "getPageMs": 0,
+          "renderMs": 46.4,
+          "paintMs": 10.7,
+          "totalMs": 57.1,
+          "timestamp": 57716.10000000009
+        }
+      ],
+      "renderEventsCount": 21,
+      "renderEfficiency": 0.58,
+      "sendWithPromiseCalls": 370,
+      "longTasks": 37,
+      "avgLongTaskDuration": 474.1621621621622,
+      "totalBlockingTime": 15694,
+      "scrollEvents": 66,
+      "timestamp": "2025-10-16T05:06:07.766Z"
+    },
+    {
+      "testName": "Queue-🚗중사양 기기-🎯현실적 사용자 패턴",
+      "version": "Queue",
+      "device": "중사양 기기",
+      "deviceEmoji": "🚗",
+      "cpuThrottle": 3,
+      "behavior": "현실적 사용자 패턴",
+      "behaviorEmoji": "🎯",
+      "detectedVersion": "현재 버전: ⚡ PDF Queue (RenderScheduler)",
+      "url": "http://localhost:3000/feedback/4?version=queue",
+      "duration": 36046.200000000186,
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 0,
+          "renderMs": 624,
+          "paintMs": 389.5,
+          "totalMs": 1013.5,
+          "timestamp": 9288.69999999972
+        },
+        {
+          "page": 2,
+          "getPageMs": 0,
+          "renderMs": 14.8,
+          "paintMs": 12.6,
+          "totalMs": 27.4,
+          "timestamp": 12946.299999999814
+        },
+        {
+          "page": 3,
+          "getPageMs": 0,
+          "renderMs": 101.3,
+          "paintMs": 8.8,
+          "totalMs": 110.1,
+          "timestamp": 14679.799999999814
+        },
+        {
+          "page": 4,
+          "getPageMs": 0,
+          "renderMs": 9.1,
+          "paintMs": 13.2,
+          "totalMs": 22.3,
+          "timestamp": 16247.099999999627
+        },
+        {
+          "page": 5,
+          "getPageMs": 0,
+          "renderMs": 40.1,
+          "paintMs": 4.5,
+          "totalMs": 44.6,
+          "timestamp": 18421
+        },
+        {
+          "page": 6,
+          "getPageMs": 0.1,
+          "renderMs": 32.8,
+          "paintMs": 7.6,
+          "totalMs": 40.5,
+          "timestamp": 20071.299999999814
+        },
+        {
+          "page": 7,
+          "getPageMs": 0,
+          "renderMs": 42.3,
+          "paintMs": 7.8,
+          "totalMs": 50.1,
+          "timestamp": 21732.399999999907
+        },
+        {
+          "page": 8,
+          "getPageMs": 0.3,
+          "renderMs": 19.2,
+          "paintMs": 7.8,
+          "totalMs": 27.3,
+          "timestamp": 23863.5
+        },
+        {
+          "page": 9,
+          "getPageMs": 0,
+          "renderMs": 18.2,
+          "paintMs": 12.2,
+          "totalMs": 30.4,
+          "timestamp": 25520.599999999627
+        },
+        {
+          "page": 10,
+          "getPageMs": 0,
+          "renderMs": 15.4,
+          "paintMs": 10.3,
+          "totalMs": 25.7,
+          "timestamp": 27166.899999999907
+        },
+        {
+          "page": 11,
+          "getPageMs": 0,
+          "renderMs": 20.2,
+          "paintMs": 7.6,
+          "totalMs": 27.8,
+          "timestamp": 29321.099999999627
+        },
+        {
+          "page": 12,
+          "getPageMs": 0,
+          "renderMs": 39.2,
+          "paintMs": 4.2,
+          "totalMs": 43.4,
+          "timestamp": 30987.5
+        },
+        {
+          "page": 13,
+          "getPageMs": 0,
+          "renderMs": 39.2,
+          "paintMs": 11.2,
+          "totalMs": 50.4,
+          "timestamp": 32646.399999999907
+        },
+        {
+          "page": 14,
+          "getPageMs": 0,
+          "renderMs": 29.4,
+          "paintMs": 11.6,
+          "totalMs": 41,
+          "timestamp": 34787.799999999814
+        },
+        {
+          "page": 15,
+          "getPageMs": 0,
+          "renderMs": 15.8,
+          "paintMs": 10.3,
+          "totalMs": 26.1,
+          "timestamp": 36425.39999999991
+        },
+        {
+          "page": 16,
+          "getPageMs": 0,
+          "renderMs": 13.5,
+          "paintMs": 10.2,
+          "totalMs": 23.7,
+          "timestamp": 38074.89999999991
+        },
+        {
+          "page": 17,
+          "getPageMs": 0,
+          "renderMs": 21.8,
+          "paintMs": 7.8,
+          "totalMs": 29.6,
+          "timestamp": 40233.69999999972
+        },
+        {
+          "page": 18,
+          "getPageMs": 0.1,
+          "renderMs": 18.6,
+          "paintMs": 16.1,
+          "totalMs": 34.8,
+          "timestamp": 41890.09999999963
+        },
+        {
+          "page": 19,
+          "getPageMs": 0,
+          "renderMs": 53.9,
+          "paintMs": 11.5,
+          "totalMs": 65.4,
+          "timestamp": 43571.5
+        },
+        {
+          "page": 20,
+          "getPageMs": 0.2,
+          "renderMs": 10.7,
+          "paintMs": 10,
+          "totalMs": 20.9,
+          "timestamp": 45679.59999999963
+        },
+        {
+          "page": 21,
+          "getPageMs": 0,
+          "renderMs": 6.2,
+          "paintMs": 12.8,
+          "totalMs": 19,
+          "timestamp": 47329.5
+        }
+      ],
+      "renderEventsCount": 21,
+      "renderEfficiency": 0.58,
+      "sendWithPromiseCalls": 374,
+      "longTasks": 34,
+      "avgLongTaskDuration": 255.52941176470588,
+      "totalBlockingTime": 6988,
+      "scrollEvents": 66,
+      "timestamp": "2025-10-16T05:06:58.461Z"
+    },
+    {
+      "testName": "Queue-🚀고사양 기기-🎯현실적 사용자 패턴",
+      "version": "Queue",
+      "device": "고사양 기기",
+      "deviceEmoji": "🚀",
+      "cpuThrottle": 1,
+      "behavior": "현실적 사용자 패턴",
+      "behaviorEmoji": "🎯",
+      "detectedVersion": "현재 버전: ⚡ PDF Queue (RenderScheduler)",
+      "url": "http://localhost:3000/feedback/4?version=queue",
+      "duration": 36132.5,
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 0.1,
+          "renderMs": 82.7,
+          "paintMs": 12.3,
+          "totalMs": 95.1,
+          "timestamp": 3529.600000000093
+        },
+        {
+          "page": 2,
+          "getPageMs": 0,
+          "renderMs": 12.1,
+          "paintMs": 16.8,
+          "totalMs": 28.9,
+          "timestamp": 6089
+        },
+        {
+          "page": 3,
+          "getPageMs": 0,
+          "renderMs": 93.8,
+          "paintMs": 11.8,
+          "totalMs": 105.6,
+          "timestamp": 7821.300000000279
+        },
+        {
+          "page": 4,
+          "getPageMs": 0,
+          "renderMs": 11,
+          "paintMs": 14.3,
+          "totalMs": 25.3,
+          "timestamp": 9396.400000000373
+        },
+        {
+          "page": 5,
+          "getPageMs": 0,
+          "renderMs": 12.9,
+          "paintMs": 11.7,
+          "totalMs": 24.6,
+          "timestamp": 11554.80000000028
+        },
+        {
+          "page": 6,
+          "getPageMs": 0,
+          "renderMs": 14.3,
+          "paintMs": 11.4,
+          "totalMs": 25.7,
+          "timestamp": 13213.100000000093
+        },
+        {
+          "page": 7,
+          "getPageMs": 0,
+          "renderMs": 27.5,
+          "paintMs": 10.2,
+          "totalMs": 37.7,
+          "timestamp": 14879.700000000186
+        },
+        {
+          "page": 8,
+          "getPageMs": 0,
+          "renderMs": 14.6,
+          "paintMs": 13.3,
+          "totalMs": 27.9,
+          "timestamp": 17029.700000000186
+        },
+        {
+          "page": 9,
+          "getPageMs": 0.1,
+          "renderMs": 9.9,
+          "paintMs": 12.6,
+          "totalMs": 22.6,
+          "timestamp": 18680.700000000186
+        },
+        {
+          "page": 10,
+          "getPageMs": 0,
+          "renderMs": 10.8,
+          "paintMs": 12.2,
+          "totalMs": 23,
+          "timestamp": 20338.200000000186
+        },
+        {
+          "page": 11,
+          "getPageMs": 0,
+          "renderMs": 21.2,
+          "paintMs": 10.2,
+          "totalMs": 31.4,
+          "timestamp": 22504.600000000093
+        },
+        {
+          "page": 12,
+          "getPageMs": 0,
+          "renderMs": 15.7,
+          "paintMs": 9.4,
+          "totalMs": 25.1,
+          "timestamp": 24154.700000000186
+        },
+        {
+          "page": 13,
+          "getPageMs": 0.1,
+          "renderMs": 28.8,
+          "paintMs": 7.6,
+          "totalMs": 36.5,
+          "timestamp": 25821.400000000373
+        },
+        {
+          "page": 14,
+          "getPageMs": 0,
+          "renderMs": 10.1,
+          "paintMs": 10.3,
+          "totalMs": 20.4,
+          "timestamp": 27963.100000000093
+        },
+        {
+          "page": 15,
+          "getPageMs": 0,
+          "renderMs": 16.6,
+          "paintMs": 7.7,
+          "totalMs": 24.3,
+          "timestamp": 29621.400000000373
+        },
+        {
+          "page": 16,
+          "getPageMs": 0,
+          "renderMs": 12.4,
+          "paintMs": 13.7,
+          "totalMs": 26.1,
+          "timestamp": 31280.100000000093
+        },
+        {
+          "page": 17,
+          "getPageMs": 0,
+          "renderMs": 12.2,
+          "paintMs": 12.8,
+          "totalMs": 25,
+          "timestamp": 33438
+        },
+        {
+          "page": 18,
+          "getPageMs": 0.1,
+          "renderMs": 15.5,
+          "paintMs": 13.4,
+          "totalMs": 29,
+          "timestamp": 35096.40000000037
+        },
+        {
+          "page": 19,
+          "getPageMs": 0,
+          "renderMs": 27.9,
+          "paintMs": 11.9,
+          "totalMs": 39.8,
+          "timestamp": 36763.200000000186
+        },
+        {
+          "page": 20,
+          "getPageMs": 0,
+          "renderMs": 9.7,
+          "paintMs": 14.1,
+          "totalMs": 23.8,
+          "timestamp": 38904.80000000028
+        },
+        {
+          "page": 21,
+          "getPageMs": 0,
+          "renderMs": 13.4,
+          "paintMs": 12.2,
+          "totalMs": 25.6,
+          "timestamp": 40563.10000000009
+        }
+      ],
+      "renderEventsCount": 21,
+      "renderEfficiency": 0.58,
+      "sendWithPromiseCalls": 354,
+      "longTasks": 24,
+      "avgLongTaskDuration": 112,
+      "totalBlockingTime": 1488,
+      "scrollEvents": 66,
+      "timestamp": "2025-10-16T05:07:42.416Z"
+    }
+  ]
+}
