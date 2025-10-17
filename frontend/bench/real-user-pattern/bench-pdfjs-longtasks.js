@@ -380,11 +380,11 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
   
   console.log(`   ✅ 측정 완료`);
   console.log(`      - 감지된 버전: ${versionInfo.versionText}`);
+  console.log(`      - 렌더 이벤트: ${result.renderEvents.length}개`);
+  console.log(`      - 렌더링 효율: ${renderEfficiency} pages/sec`);
   console.log(`      - sendWithPromise 호출: ${result.sendWithPromiseCalls.length}회`);
   console.log(`      - LongTask: ${result.longTasks.length}개`);
   console.log(`      - 스크롤 이벤트: ${result.scrollEvents.length}회`);
-  console.log(`      - 렌더 이벤트: ${result.renderEvents.length}개`);
-  console.log(`      - 렌더링 효율: ${renderEfficiency} pages/sec`);
 
   // 렌더 이벤트가 부족한 경우 경고
   if (result.renderEvents.length === 0) {
@@ -859,12 +859,12 @@ function compareVersions(data1, data2) {
   Object.entries(averages).forEach(([version, avg]) => {
     console.log(`\n🔹 ${version} (n=${avg.count}${avg.excluded > 0 ? `, 제외: ${avg.excluded}` : ''})`);
     console.log('-'.repeat(80));
-    console.log(`   렌더링된 페이지:     평균 ${avg.renderEvents.avg.toFixed(1)}개 (${avg.renderEvents.min}~${avg.renderEvents.max})`);
-    console.log(`   렌더링 효율:        평균 ${avg.renderEfficiency.avg.toFixed(2)} pages/sec (${avg.renderEfficiency.min.toFixed(2)}~${avg.renderEfficiency.max.toFixed(2)})`);
-    console.log(`   sendWithPromise:     평균 ${avg.sendWithPromise.avg.toFixed(1)}회 (${avg.sendWithPromise.min}~${avg.sendWithPromise.max})`);
-    console.log(`   LongTask:           평균 ${avg.longTasks.avg.toFixed(1)}개 (${avg.longTasks.min}~${avg.longTasks.max})`);
-    console.log(`   Total Blocking Time: 평균 ${avg.totalBlockingTime.avg.toFixed(1)}ms (${avg.totalBlockingTime.min.toFixed(0)}~${avg.totalBlockingTime.max.toFixed(0)})`);
-    console.log(`   전체 시간:          평균 ${(avg.duration.avg/1000).toFixed(1)}s (${(avg.duration.min/1000).toFixed(1)}~${(avg.duration.max/1000).toFixed(1)})`);
+    console.log(`   렌더링된 페이지:      평균 ${avg.renderEvents.avg.toFixed(1)}개 (${avg.renderEvents.min}~${avg.renderEvents.max})`);
+    console.log(`   렌더링 효율:         평균 ${avg.renderEfficiency.avg.toFixed(2)} pages/sec (${avg.renderEfficiency.min.toFixed(2)}~${avg.renderEfficiency.max.toFixed(2)})`);
+    console.log(`   sendWithPromise 호출: 평균 ${avg.sendWithPromise.avg.toFixed(1)}회 (${avg.sendWithPromise.min}~${avg.sendWithPromise.max})`);
+    console.log(`   LongTask:            평균 ${avg.longTasks.avg.toFixed(1)}개 (${avg.longTasks.min}~${avg.longTasks.max})`);
+    console.log(`   Total Blocking Time:  평균 ${avg.totalBlockingTime.avg.toFixed(1)}ms (${avg.totalBlockingTime.min.toFixed(0)}~${avg.totalBlockingTime.max.toFixed(0)})`);
+    console.log(`   전체 시간:           평균 ${(avg.duration.avg/1000).toFixed(1)}s (${(avg.duration.min/1000).toFixed(1)}~${(avg.duration.max/1000).toFixed(1)})`);
   });
   
   // 버전 비교 (PDF vs Queue)
@@ -894,13 +894,13 @@ function compareVersions(data1, data2) {
       const sendImprovement = ((pdfAvg.sendWithPromise.avg - queueAvg.sendWithPromise.avg) / pdfAvg.sendWithPromise.avg * 100);
       const renderImprovement = ((queueAvg.renderEvents.avg - pdfAvg.renderEvents.avg) / pdfAvg.renderEvents.avg * 100);
       
-      console.log(`   렌더링된 페이지:  ${pdfAvg.renderEvents.avg.toFixed(1)}개 → ${queueAvg.renderEvents.avg.toFixed(1)}개  (${renderImprovement > 0 ? '✅' : '❌'} ${renderImprovement.toFixed(1)}%)`);
+      console.log(`   렌더링된 페이지:   ${pdfAvg.renderEvents.avg.toFixed(1)}개 → ${queueAvg.renderEvents.avg.toFixed(1)}개  (${renderImprovement > 0 ? '✅' : '❌'} ${renderImprovement.toFixed(1)}%)`);
       if (efficiencyImprovement !== null) {
-        console.log(`   렌더링 효율:      ${pdfAvg.renderEfficiency.avg.toFixed(2)} → ${queueAvg.renderEfficiency.avg.toFixed(2)} pages/sec  (${efficiencyImprovement > 0 ? '✅' : '❌'} ${efficiencyImprovement.toFixed(1)}%)`);
+        console.log(`   렌더링 효율:       ${pdfAvg.renderEfficiency.avg.toFixed(2)} → ${queueAvg.renderEfficiency.avg.toFixed(2)} pages/sec  (${efficiencyImprovement > 0 ? '✅' : '❌'} ${efficiencyImprovement.toFixed(1)}%)`);
       }
-      console.log(`   TBT:              ${pdfAvg.totalBlockingTime.avg.toFixed(1)}ms → ${queueAvg.totalBlockingTime.avg.toFixed(1)}ms  (${tbtImprovement > 0 ? '✅' : '❌'} ${tbtImprovement.toFixed(1)}%)`);
-      console.log(`   LongTask:         ${pdfAvg.longTasks.avg.toFixed(1)}개 → ${queueAvg.longTasks.avg.toFixed(1)}개  (${ltImprovement > 0 ? '✅' : '❌'} ${ltImprovement.toFixed(1)}%)`);
-      console.log(`   sendWithPromise:  ${pdfAvg.sendWithPromise.avg.toFixed(1)}회 → ${queueAvg.sendWithPromise.avg.toFixed(1)}회  (${sendImprovement > 0 ? '✅' : '❌'} ${sendImprovement.toFixed(1)}%)`);
+      console.log(`   sendPromise 호출:  ${pdfAvg.sendWithPromise.avg.toFixed(1)}회 → ${queueAvg.sendWithPromise.avg.toFixed(1)}회  (${sendImprovement > 0 ? '✅' : '❌'} ${sendImprovement.toFixed(1)}%)`);
+      console.log(`   TBT:               ${pdfAvg.totalBlockingTime.avg.toFixed(1)}ms → ${queueAvg.totalBlockingTime.avg.toFixed(1)}ms  (${tbtImprovement > 0 ? '✅' : '❌'} ${tbtImprovement.toFixed(1)}%)`);
+      console.log(`   LongTask:          ${pdfAvg.longTasks.avg.toFixed(1)}개 → ${queueAvg.longTasks.avg.toFixed(1)}개  (${ltImprovement > 0 ? '✅' : '❌'} ${ltImprovement.toFixed(1)}%)`);
     }
   });
   
@@ -1002,10 +1002,11 @@ function compareVersions(data1, data2) {
                    '실행'.padEnd(8) + 
                    '렌더페이지'.padEnd(12) + 
                    '효율(p/s)'.padEnd(12) + 
+                   'sendPromise'.padEnd(13) + 
                    'LongTask'.padEnd(12) + 
                    'TBT(ms)'.padEnd(12);
     console.log(header);
-    console.log('-'.repeat(80));
+    console.log('-'.repeat(84));
     
     // 버전별 데이터 출력
     Object.entries(averages).forEach(([version, avg]) => {
@@ -1013,13 +1014,14 @@ function compareVersions(data1, data2) {
       const countStr = `${avg.count}회`.padEnd(8);
       const renderStr = `${avg.renderEvents.avg.toFixed(1)}개`.padEnd(12);
       const efficiencyStr = `${avg.renderEfficiency.avg.toFixed(2)}`.padEnd(12);
+      const sendPromiseStr = `${avg.sendWithPromise.avg.toFixed(1)}회`.padEnd(13);
       const longTaskStr = `${avg.longTasks.avg.toFixed(1)}개`.padEnd(12);
       const tbtStr = `${avg.totalBlockingTime.avg.toFixed(0)}`.padEnd(12);
       
-      console.log(versionStr + countStr + renderStr + efficiencyStr + longTaskStr + tbtStr);
+      console.log(versionStr + countStr + renderStr + efficiencyStr + sendPromiseStr + longTaskStr + tbtStr);
     });
     
-    console.log('-'.repeat(80));
+    console.log('-'.repeat(84));
     
     // 제외된 항목 정보
     const totalExcluded = Object.values(averages).reduce((sum, avg) => sum + (avg.excluded || 0), 0);

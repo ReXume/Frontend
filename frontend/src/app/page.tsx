@@ -42,6 +42,13 @@ export default function Page() {
           >
             ⚡ 적응형 스케줄러 (Long Task 기반)
           </Link>
+
+          <Link
+            href="/compare-device-aware"
+            className="block w-full px-4 py-3 rounded-lg bg-gradient-to-r from-purple-100 to-pink-100 border-2 border-purple-400 shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            🎯 Device-Aware 스케줄러 (기기 감지 + IO 디바운스)
+          </Link>
         </div>
         <div className="mt-6 p-4 bg-blue-50 rounded-lg">
           <h2 className="text-sm font-semibold text-gray-900 mb-2">버전 차이점:</h2>
@@ -51,6 +58,7 @@ export default function Page() {
             <li>• <strong>Queue 버전:</strong> 렌더링 큐 관리, 우선순위 기반, Backpressure 기법</li>
             <li>• <strong>고정 K=5:</strong> 동시 렌더링 5개로 고정 (베이스라인)</li>
             <li>• <strong>적응형:</strong> Long Task 비율에 따라 K값 자동 조절 (1~6)</li>
+            <li>• <strong>Device-Aware:</strong> 기기 성능 자동 감지 + 티어별 최적화 + IO 디바운스 (저성능 기기 특화)</li>
           </ul>
         </div>
       </div>

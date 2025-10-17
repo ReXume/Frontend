@@ -1,0 +1,167 @@
+{
+  "benchmark": "device-aware-longtask",
+  "timestamp": "2025-10-17T19:13:48.663Z",
+  "settings": {
+    "cpuThrottle": 4,
+    "scrollSteps": 10,
+    "stepDelay": 500,
+    "realisticPattern": true
+  },
+  "result": {
+    "deviceTier": "unknown",
+    "config": null,
+    "duration": 36394.89999999851,
+    "scrollEvents": {
+      "count": 0,
+      "timeline": []
+    },
+    "renderCount": 9,
+    "avgRenderTimeMs": 66,
+    "renderMetrics": [
+      {
+        "page": 1,
+        "getPageMs": 2,
+        "renderMs": 99,
+        "paintMs": 5.7,
+        "totalMs": 106.7,
+        "timestamp": 1944
+      },
+      {
+        "page": 2,
+        "getPageMs": 2.4,
+        "renderMs": 19.5,
+        "paintMs": 12.5,
+        "totalMs": 34.4,
+        "timestamp": 6212.70000000298
+      },
+      {
+        "page": 4,
+        "getPageMs": 2,
+        "renderMs": 93.5,
+        "paintMs": 16.2,
+        "totalMs": 111.7,
+        "timestamp": 11247.20000000298
+      },
+      {
+        "page": 6,
+        "getPageMs": 1.7,
+        "renderMs": 54.4,
+        "paintMs": 9.3,
+        "totalMs": 65.4,
+        "timestamp": 16108.20000000298
+      },
+      {
+        "page": 7,
+        "getPageMs": 1.5,
+        "renderMs": 68.4,
+        "paintMs": 10.4,
+        "totalMs": 80.3,
+        "timestamp": 17793.90000000596
+      },
+      {
+        "page": 9,
+        "getPageMs": 1.4,
+        "renderMs": 42,
+        "paintMs": 7.8,
+        "totalMs": 51.2,
+        "timestamp": 21195.90000000596
+      },
+      {
+        "page": 10,
+        "getPageMs": 1.9,
+        "renderMs": 35.8,
+        "paintMs": 5.5,
+        "totalMs": 43.2,
+        "timestamp": 22841
+      },
+      {
+        "page": 12,
+        "getPageMs": 1.9,
+        "renderMs": 60.2,
+        "paintMs": 7.6,
+        "totalMs": 69.7,
+        "timestamp": 27776.20000000298
+      },
+      {
+        "page": 14,
+        "getPageMs": 1.4,
+        "renderMs": 21.7,
+        "paintMs": 8,
+        "totalMs": 31.1,
+        "timestamp": 32643
+      }
+    ],
+    "longTasks": {
+      "count": 5,
+      "totalBlockedMs": 1262,
+      "longtaskPct": 3.47,
+      "timeline": [
+        {
+          "startTime": 73.8,
+          "duration": 64
+        },
+        {
+          "startTime": 217.1,
+          "duration": 780
+        },
+        {
+          "startTime": 1386.4,
+          "duration": 89
+        },
+        {
+          "startTime": 1481.7,
+          "duration": 263
+        },
+        {
+          "startTime": 1761.4,
+          "duration": 66
+        }
+      ]
+    },
+    "workerMessages": {
+      "count": 471,
+      "timeline": [
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1153.7000000029802
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1280.9000000059605
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1281.8000000044703
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1282.4000000059605
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1284.4000000059605
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1290.6000000014901
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1291.5
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1295.1000000014901
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1297.1000000014901
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1298.4000000059605
+        }
+      ]
+    }
+  }
+}

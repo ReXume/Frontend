@@ -1,0 +1,193 @@
+{
+  "benchmark": "device-aware",
+  "timestamp": "2025-10-17T18:56:45.457Z",
+  "settings": {
+    "cpuThrottle": 1,
+    "scrollSteps": 10,
+    "stepDelay": 500,
+    "realisticPattern": true
+  },
+  "results": [
+    {
+      "cpuThrottle": 1,
+      "deviceTier": "unknown",
+      "config": null,
+      "duration": 12025.19999999553,
+      "scrollEvents": 31,
+      "renderCount": 1,
+      "avgRenderTimeMs": 102.5,
+      "renderMetrics": [
+        {
+          "page": 1,
+          "getPageMs": 0.5,
+          "renderMs": 91.5,
+          "paintMs": 10.5,
+          "totalMs": 102.5,
+          "timestamp": 1150.9000000059605
+        }
+      ],
+      "longTasks": {
+        "count": 2,
+        "totalBlockedMs": 275,
+        "longtaskPct": 2.29
+      },
+      "scrollEventTimeline": [
+        {
+          "count": 1,
+          "timestamp": 4909.70000000298,
+          "scrollY": 1
+        },
+        {
+          "count": 2,
+          "timestamp": 4917.20000000298,
+          "scrollY": 5
+        },
+        {
+          "count": 3,
+          "timestamp": 4925.9000000059605,
+          "scrollY": 6
+        },
+        {
+          "count": 4,
+          "timestamp": 5294.10000000149,
+          "scrollY": 11
+        },
+        {
+          "count": 5,
+          "timestamp": 5301.30000000447,
+          "scrollY": 12
+        },
+        {
+          "count": 6,
+          "timestamp": 5309,
+          "scrollY": 13
+        },
+        {
+          "count": 7,
+          "timestamp": 5876.70000000298,
+          "scrollY": 18
+        },
+        {
+          "count": 8,
+          "timestamp": 5883.80000000447,
+          "scrollY": 19
+        },
+        {
+          "count": 9,
+          "timestamp": 5892.60000000149,
+          "scrollY": 20
+        },
+        {
+          "count": 10,
+          "timestamp": 6409.10000000149,
+          "scrollY": 25
+        },
+        {
+          "count": 11,
+          "timestamp": 6416.5,
+          "scrollY": 26
+        },
+        {
+          "count": 12,
+          "timestamp": 6425.70000000298,
+          "scrollY": 27
+        },
+        {
+          "count": 13,
+          "timestamp": 6968.20000000298,
+          "scrollY": 32
+        },
+        {
+          "count": 14,
+          "timestamp": 6975.30000000447,
+          "scrollY": 33
+        },
+        {
+          "count": 15,
+          "timestamp": 6984.10000000149,
+          "scrollY": 34
+        },
+        {
+          "count": 16,
+          "timestamp": 8417.30000000447,
+          "scrollY": 39
+        },
+        {
+          "count": 17,
+          "timestamp": 8425.40000000596,
+          "scrollY": 40
+        },
+        {
+          "count": 18,
+          "timestamp": 8434.20000000298,
+          "scrollY": 41
+        },
+        {
+          "count": 19,
+          "timestamp": 8793.30000000447,
+          "scrollY": 46
+        },
+        {
+          "count": 20,
+          "timestamp": 8801,
+          "scrollY": 47
+        },
+        {
+          "count": 21,
+          "timestamp": 8809.20000000298,
+          "scrollY": 48
+        },
+        {
+          "count": 22,
+          "timestamp": 9267.10000000149,
+          "scrollY": 49
+        },
+        {
+          "count": 23,
+          "timestamp": 9275.10000000149,
+          "scrollY": 53
+        },
+        {
+          "count": 24,
+          "timestamp": 9284.30000000447,
+          "scrollY": 54
+        },
+        {
+          "count": 25,
+          "timestamp": 9292.40000000596,
+          "scrollY": 55
+        },
+        {
+          "count": 26,
+          "timestamp": 9867.60000000149,
+          "scrollY": 60
+        },
+        {
+          "count": 27,
+          "timestamp": 9876.70000000298,
+          "scrollY": 61
+        },
+        {
+          "count": 28,
+          "timestamp": 9884.60000000149,
+          "scrollY": 62
+        },
+        {
+          "count": 29,
+          "timestamp": 10283.90000000596,
+          "scrollY": 67
+        },
+        {
+          "count": 30,
+          "timestamp": 10292.60000000149,
+          "scrollY": 68
+        },
+        {
+          "count": 31,
+          "timestamp": 10301,
+          "scrollY": 69
+        }
+      ]
+    }
+  ]
+}

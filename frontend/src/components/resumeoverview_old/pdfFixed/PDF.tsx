@@ -67,6 +67,10 @@ const PDF: React.FC<PDFProps> = ({
     if (!hostRef.current) return;
 
     const el = hostRef.current;
+    
+    // 화면 높이의 2배를 미리 로드 (반응형)
+    const preloadDistance = typeof window !== 'undefined' ? window.innerHeight * 0.25 : 2000;
+    
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -181,7 +185,7 @@ const PDF: React.FC<PDFProps> = ({
       {
         root: null,
         threshold: 0,
-        rootMargin: "1200px 0px", // 근처 ±600px 사전 프리페치
+        rootMargin: `${preloadDistance}px 0px`, // 화면 높이의 2배만큼 미리 로드
       }
     );
 

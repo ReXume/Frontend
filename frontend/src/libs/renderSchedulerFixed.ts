@@ -6,7 +6,7 @@ export type RenderJob = {
 };
 
 class RenderScheduler {
-  private K = 5; // 고정 동시성
+  private K = 1; // 고정 동시성
   private inFlight = 0;
   private queue: RenderJob[] = [];
   private running = new Map<string, RenderJob>();

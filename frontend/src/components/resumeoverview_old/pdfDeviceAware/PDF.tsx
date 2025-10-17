@@ -1,0 +1,401 @@
+"use client";
+
+import React, { useState, useRef, useEffect } from "react";
+import CommentForm from "../../comment_old/CommentForm";
+import { FeedbackPoint } from "@/types/FeedbackPointType";
+import { GlobalWorkerOptions, getDocument, type PDFPageProxy, type PDFDocumentProxy, RenderTask } from "pdfjs-dist";
+import { renderSchedulerDeviceAware } from "@/libs/renderSchedulerDeviceAware";
+
+interface PDFProps {
+  pdf: PDFDocumentProxy;
+  pageNumber: number;
+  feedback: FeedbackPoint[];
+  addFeedbackPoint: (point: {
+    pageNumber: number;
+    x1: number;
+    x2: number;
+    y1: number;
+    y2: number;
+    content: string;
+  }) => void;
+  feedbackPoints: FeedbackPoint[];
+  hoveredCommentId: number | null;
+  setHoveredCommentId: (id: number | null) => void;
+  setClickedCommentId: (id: number | null) => void;
+}
+
+const PDF: React.FC<PDFProps> = ({
+  pdf,
+  pageNumber,
+  addFeedbackPoint,
+  feedbackPoints,
+  hoveredCommentId,
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const renderTaskRef = useRef<RenderTask | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [rendered, setRendered] = useState(false);
+  const [viewportWH, setViewportWH] = useState<{ w: number; h: number } | null>(null);
+
+  const [selectedArea, setSelectedArea] = useState<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  } | null>(null);
+  const [isSelecting, setIsSelecting] = useState(false);
+  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
+  const [addingFeedback, setAddingFeedback] = useState<{
+    x1: number;
+    x2: number;
+    y1: number;
+    y2: number;
+    pageNumber: number;
+  } | null>(null);
+  const [editingFeedback] = useState<FeedbackPoint | null>(null);
+
+  // 페이지 크기 미리 계산 (placeholder 높이 확보)
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const page = await pdf.getPage(pageNumber);
+        if (cancelled) return;
+        const viewport = page.getViewport({ scale: 2, rotation: 0 });
+        setViewportWH({ w: viewport.width, h: viewport.height });
+      } catch {}
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [pdf, pageNumber]);
+
+  // IntersectionObserver로 뷰포트 감지 + Device-Aware 디바운스 적용
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Device-Aware 스케줄러에서 viewport margin 가져오기
+    const viewportMarginVh = renderSchedulerDeviceAware.getViewportMarginVh();
+    const preloadDistance = typeof window !== 'undefined' 
+      ? (window.innerHeight * viewportMarginVh / 100)
+      : 500;
+
+    console.log(`[Device-Aware PDF] viewport margin: ${viewportMarginVh}vh (${preloadDistance.toFixed(0)}px)`);
+
+    // IO 콜백 핸들러 (디바운스 적용)
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      renderSchedulerDeviceAware.debounceIOCallback(() => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      {
+        root: null,
+        rootMargin: `${preloadDistance}px 0px`,
+        threshold: 0,
+      }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+      // 컴포넌트 언마운트 시 대기 중인 디바운스 콜백 실행
+      renderSchedulerDeviceAware.flushIOCallback();
+    };
+  }, []);
+
+  // 뷰포트에 보일 때만 스케줄러에 렌더 작업 등록
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let cancelled = false;
+    const jobId = `page-${pageNumber}`;
+
+    // 뷰포트와의 거리 기반 우선순위 계산
+    const calculatePriority = () => {
+      const container = containerRef.current;
+      if (!container) return 1000;
+
+      const rect = container.getBoundingClientRect();
+      const viewportCenter = window.innerHeight / 2;
+      const elementCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(elementCenter - viewportCenter);
+
+      return distance;
+    };
+
+    const renderJob = {
+      id: jobId,
+      priority: calculatePriority(),
+      run: async () => {
+        if (cancelled) return;
+
+        const maxRetries = 3;
+        let retries = 0;
+
+        const attempt = async (): Promise<void> => {
+          try {
+            const pageLabel = `p${pageNumber}`;
+            const t0 = performance.now();
+            console.log(`[Device-Aware] PDF 렌더 시작 (${pageLabel})`);
+
+            // 1) 페이지 얻기
+            const page = await pdf.getPage(pageNumber);
+            const t1 = performance.now();
+
+            // 2) 뷰포트/캔버스 준비
+            const viewport = page.getViewport({ scale: 2, rotation: 0 });
+            const canvas = canvasRef.current;
+            if (!canvas) return;
+
+            const ctx = canvas.getContext("2d");
+            if (!ctx) throw new Error("Canvas Context 생성 실패");
+
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            // 3) 기존 렌더 취소
+            if (renderTaskRef.current) {
+              renderTaskRef.current.cancel();
+            }
+
+            // 4) 렌더
+            const renderTask = page.render({ canvasContext: ctx, viewport });
+            renderTaskRef.current = renderTask;
+            await renderTask.promise;
+            const t2 = performance.now();
+
+            // 5) 실제 페인트 커밋까지 대기
+            await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
+            const t3 = performance.now();
+
+            if (cancelled) return;
+
+            setRendered(true);
+
+            // 메트릭 수집
+            const metrics = {
+              page: pageNumber,
+              getPageMs: parseFloat((t1 - t0).toFixed(1)),
+              renderMs: parseFloat((t2 - t1).toFixed(1)),
+              paintMs: parseFloat((t3 - t2).toFixed(1)),
+              totalMs: parseFloat((t3 - t0).toFixed(1)),
+            };
+
+            console.log(
+              `[Device-Aware] PDF 렌더 완료 (${pageLabel}) ` +
+              `getPage: ${metrics.getPageMs}ms, ` +
+              `render: ${metrics.renderMs}ms, ` +
+              `paint: ${metrics.paintMs}ms, ` +
+              `total: ${metrics.totalMs}ms`
+            );
+
+            // 첫 페이지 렌더링 성능으로 티어 재평가
+            if (pageNumber === 1) {
+              renderSchedulerDeviceAware.measureInitialRenderPerformance(metrics.totalMs);
+            }
+
+            // 벤치마크 메트릭 수집기에 전달
+            if (typeof window !== 'undefined' && (window as any).pdfRenderMetricsCollector) {
+              (window as any).pdfRenderMetricsCollector.add(metrics);
+            }
+
+          } catch (err: any) {
+            if (cancelled) return;
+            if (err?.name === "RenderingCancelledException") return;
+
+            console.error(`[Device-Aware] PDF 렌더 에러 (페이지 ${pageNumber}):`, err);
+
+            if (retries < maxRetries) {
+              retries += 1;
+              const backoff = 500 * retries;
+              console.log(`[Device-Aware] 재시도 ${retries}/${maxRetries} (대기 ${backoff}ms)`);
+              await new Promise((r) => setTimeout(r, backoff));
+              if (!cancelled) {
+                return attempt();
+              }
+            } else {
+              console.error(`[Device-Aware] 최종 실패 (페이지 ${pageNumber}): 최대 재시도 초과`);
+            }
+          }
+        };
+
+        return attempt();
+      },
+      cancel: () => {
+        cancelled = true;
+        if (renderTaskRef.current) {
+          renderTaskRef.current.cancel();
+          renderTaskRef.current = null;
+        }
+      }
+    };
+
+    // 스케줄러에 작업 등록
+    renderSchedulerDeviceAware.enqueue(renderJob);
+
+    return () => {
+      cancelled = true;
+      renderSchedulerDeviceAware.cancel(jobId);
+      if (renderTaskRef.current) {
+        renderTaskRef.current.cancel();
+        renderTaskRef.current = null;
+      }
+    };
+  }, [pdf, pageNumber, isVisible]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setStartPos({ x, y });
+    setSelectedArea({ x, y, width: 0, height: 0 });
+    setIsSelecting(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isSelecting || !selectedArea) return;
+    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+    const currentX = e.clientX - rect.left;
+    const currentY = e.clientY - rect.top;
+    setSelectedArea({
+      x: Math.min(startPos.x, currentX),
+      y: Math.min(startPos.y, currentY),
+      width: Math.abs(currentX - startPos.x),
+      height: Math.abs(currentY - startPos.y),
+    });
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    setIsSelecting(false);
+    if (selectedArea) {
+      const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+      const percentX1 = (selectedArea.x / rect.width) * 100;
+      const percentX2 =
+        ((selectedArea.x + selectedArea.width) / rect.width) * 100;
+      const percentY1 = (selectedArea.y / rect.height) * 100;
+      const percentY2 =
+        ((selectedArea.y + selectedArea.height) / rect.height) * 100;
+      setAddingFeedback({
+        x1: percentX1,
+        x2: percentX2,
+        y1: percentY1,
+        y2: percentY2,
+        pageNumber,
+      });
+    }
+  };
+
+  const handleAddSubmit = (comment: string) => {
+    if (addingFeedback) {
+      addFeedbackPoint({
+        pageNumber: addingFeedback.pageNumber,
+        x1: addingFeedback.x1,
+        x2: addingFeedback.x2,
+        y1: addingFeedback.y1,
+        y2: addingFeedback.y2,
+        content: comment,
+      });
+      setAddingFeedback(null);
+    }
+  };
+
+  // placeholder 스타일
+  const placeholderStyle: React.CSSProperties = viewportWH
+    ? {
+        width: "100%",
+        height: viewportWH.h,
+        background: "#f3f4f6",
+      }
+    : { width: "100%", aspectRatio: "1/1.414", background: "#f3f4f6" };
+
+  return (
+    <div
+      ref={containerRef}
+      style={{ position: "relative", marginBottom: 20 }}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      {/* Canvas는 항상 렌더링, 렌더 완료 전에는 placeholder 표시 */}
+      <canvas 
+        ref={canvasRef} 
+        style={{ 
+          display: rendered ? "block" : "none",
+          width: "100%"
+        }} 
+      />
+      {!rendered && <div style={placeholderStyle} />}
+
+      {/* 선택 영역 표시 */}
+      {selectedArea && (
+        <div
+          style={{
+            position: "absolute",
+            left: selectedArea.x,
+            top: selectedArea.y,
+            width: selectedArea.width,
+            height: selectedArea.height,
+            border: "2px dashed blue",
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      {feedbackPoints
+        .filter((item) => item.pageNumber === pageNumber)
+        .map((item) => {
+          const fp: FeedbackPoint = item as FeedbackPoint;
+          const left = fp.x1 ?? fp.x1 ?? 0;
+          const top = fp.y1 ?? fp.y1 ?? 0;
+          const width = (fp.x2 ?? left) - left || 10;
+          const height = (fp.y2 ?? top) - top || 10;
+          const key = fp.id ?? fp.id;
+          const isHovered = (fp.id ?? fp.id) === hoveredCommentId;
+          return (
+            <div
+              key={key}
+              style={{
+                position: "absolute",
+                left: `${left}%`,
+                top: `${top}%`,
+                width: `${width}%`,
+                height: `${height}%`,
+                border: isHovered ? "2px solid #3B82F6" : "2px solid #EF4444",
+                background: isHovered
+                  ? "rgba(59,130,246,0.3)"
+                  : "rgba(255,0,0,0.3)",
+                cursor: "pointer",
+              }}
+            />
+          );
+        })}
+
+      {addingFeedback && (
+        <CommentForm
+          position={{ x1: addingFeedback.x1, y1: addingFeedback.y1 }}
+          onSubmit={handleAddSubmit}
+        />
+      )}
+      {editingFeedback && (
+        <CommentForm
+          position={{
+            x1: editingFeedback.x1,
+            y1: editingFeedback.y1,
+          }}
+          initialComment={editingFeedback.content}
+        />
+      )}
+    </div>
+  );
+};
+
+export default PDF;
+

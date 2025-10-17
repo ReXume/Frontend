@@ -1,0 +1,200 @@
+{
+  "benchmark": "device-aware-longtask",
+  "timestamp": "2025-10-17T19:26:12.853Z",
+  "settings": {
+    "cpuThrottle": 4,
+    "scrollSteps": 10,
+    "stepDelay": 500,
+    "realisticPattern": true
+  },
+  "result": {
+    "deviceTier": "unknown",
+    "config": null,
+    "duration": 36403.5,
+    "scrollEvents": {
+      "count": 0,
+      "timeline": []
+    },
+    "renderCount": 13,
+    "avgRenderTimeMs": 53.9,
+    "renderMetrics": [
+      {
+        "page": 1,
+        "getPageMs": 2.2,
+        "renderMs": 97.6,
+        "paintMs": 5,
+        "totalMs": 104.8,
+        "timestamp": 1914.5
+      },
+      {
+        "page": 2,
+        "getPageMs": 1.7,
+        "renderMs": 21.3,
+        "paintMs": 9.3,
+        "totalMs": 32.3,
+        "timestamp": 6222.29999999702
+      },
+      {
+        "page": 4,
+        "getPageMs": 1.9,
+        "renderMs": 74.8,
+        "paintMs": 16.9,
+        "totalMs": 93.6,
+        "timestamp": 11237.89999999851
+      },
+      {
+        "page": 6,
+        "getPageMs": 1.7,
+        "renderMs": 51.6,
+        "paintMs": 9.9,
+        "totalMs": 63.2,
+        "timestamp": 16114.89999999851
+      },
+      {
+        "page": 7,
+        "getPageMs": 1.2,
+        "renderMs": 85.5,
+        "paintMs": 7,
+        "totalMs": 93.7,
+        "timestamp": 17812.89999999851
+      },
+      {
+        "page": 8,
+        "getPageMs": 1.6,
+        "renderMs": 23.8,
+        "paintMs": 11.8,
+        "totalMs": 37.2,
+        "timestamp": 19447.79999999702
+      },
+      {
+        "page": 9,
+        "getPageMs": 1.8,
+        "renderMs": 37.9,
+        "paintMs": 3.7,
+        "totalMs": 43.4,
+        "timestamp": 19599.79999999702
+      },
+      {
+        "page": 10,
+        "getPageMs": 1.5,
+        "renderMs": 20.9,
+        "paintMs": 14.3,
+        "totalMs": 36.7,
+        "timestamp": 21198.79999999702
+      },
+      {
+        "page": 11,
+        "getPageMs": 1.2,
+        "renderMs": 34.8,
+        "paintMs": 4.8,
+        "totalMs": 40.8,
+        "timestamp": 22855
+      },
+      {
+        "page": 12,
+        "getPageMs": 2.1,
+        "renderMs": 53.2,
+        "paintMs": 8.6,
+        "totalMs": 63.9,
+        "timestamp": 24530.79999999702
+      },
+      {
+        "page": 14,
+        "getPageMs": 2,
+        "renderMs": 11.8,
+        "paintMs": 9.3,
+        "totalMs": 23.1,
+        "timestamp": 29397
+      },
+      {
+        "page": 15,
+        "getPageMs": 1.4,
+        "renderMs": 17.4,
+        "paintMs": 13.6,
+        "totalMs": 32.4,
+        "timestamp": 31059.29999999702
+      },
+      {
+        "page": 16,
+        "getPageMs": 1.5,
+        "renderMs": 21.4,
+        "paintMs": 13.2,
+        "totalMs": 36.1,
+        "timestamp": 32717.19999999553
+      }
+    ],
+    "longTasks": {
+      "count": 5,
+      "totalBlockedMs": 1234,
+      "longtaskPct": 3.39,
+      "timeline": [
+        {
+          "startTime": 73.7,
+          "duration": 62
+        },
+        {
+          "startTime": 216.6,
+          "duration": 780
+        },
+        {
+          "startTime": 1378.5,
+          "duration": 86
+        },
+        {
+          "startTime": 1470.8,
+          "duration": 249
+        },
+        {
+          "startTime": 1744.8,
+          "duration": 57
+        }
+      ]
+    },
+    "workerMessages": {
+      "count": 494,
+      "timeline": [
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1148.3999999985099
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1270.3999999985099
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1271.1999999955297
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1272.0999999940395
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1274.3999999985099
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1281.3999999985099
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1282.6999999955297
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1285.7999999970198
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1287.1999999955297
+        },
+        {
+          "type": "worker_postMessage",
+          "timestamp": 1288.5
+        }
+      ]
+    }
+  },
+  "cpuThrottle": 4
+}
