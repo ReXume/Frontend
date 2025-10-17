@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "bench:webvitals": "node bench/bench-webvitals.js",
-    "bench:scenario": "node bench/pdf-advanced-benchmark.js"
+    "bench:scenario": "node bench/pdf-advanced-benchmark.js",
+    "bench:longtask": "node bench/bench-pdfjs-longtasks.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

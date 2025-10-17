@@ -18,6 +18,18 @@ const PDFViewerQueue = dynamic(() => import("./pdfQueue/PDFViewer"), {
   loading: () => <div>PDF 로딩 중... (Queue 버전)</div>,
 });
 
+// 고정 K=5 버전
+const PDFViewerFixed = dynamic(() => import("./pdfFixed/PDFViewer"), {
+  ssr: false,
+  loading: () => <div>PDF 로딩 중... (고정 K=5)</div>,
+});
+
+// 적응형 버전
+const PDFViewerAdaptive = dynamic(() => import("./pdfAdaptive/PDFViewer"), {
+  ssr: false,
+  loading: () => <div>PDF 로딩 중... (적응형)</div>,
+});
+
 type ResumePageProps = {
   pageNumber: number;
   feedbackPoints: FeedbackPoint[];
@@ -96,13 +108,44 @@ function ResumePage({
   }, [ResumeUrl, version]);
 
   // 버전에 따라 사용할 PDFViewer 선택
-  const PDFViewer = version === 'queue' ? PDFViewerQueue : PDFViewerStandard;
+  const PDFViewer = 
+    version === 'queue' ? PDFViewerQueue :
+    version === 'fixed' ? PDFViewerFixed :
+    version === 'adaptive' ? PDFViewerAdaptive :
+    PDFViewerStandard;
+
+  // 버전별 표시 정보
+  const versionInfo: Record<string, { label: string; color: string; description: string }> = {
+    pdf: { 
+      label: '📄 일반 PDF (IntersectionObserver)', 
+      color: 'bg-blue-100',
+      description: '뷰포트에 보이면 즉시 렌더링'
+    },
+    queue: { 
+      label: '⚡ PDF Queue (RenderScheduler)', 
+      color: 'bg-green-100',
+      description: '렌더링 큐 관리, 우선순위 기반'
+    },
+    fixed: { 
+      label: '🔒 고정 K=5 스케줄러', 
+      color: 'bg-gray-100',
+      description: '동시 렌더링 5개 고정'
+    },
+    adaptive: { 
+      label: '⚡ 적응형 스케줄러', 
+      color: 'bg-emerald-100',
+      description: 'Long Task 기반 자동 조절 (1~6)'
+    },
+  };
+
+  const currentVersion = versionInfo[version] || versionInfo.pdf;
 
   return (
     <div className="relative mb-8">
       {/* 현재 사용 중인 버전 표시 */}
-      <div className="mb-2 px-4 py-2 bg-blue-100 rounded-md text-sm text-gray-700 font-medium">
-        현재 버전: {version === 'queue' ? '⚡ PDF Queue (RenderScheduler)' : '📄 일반 PDF (IntersectionObserver)'}
+      <div className={`mb-2 px-4 py-2 ${currentVersion.color} rounded-md text-sm text-gray-700 font-medium`}>
+        <div>현재 버전: {currentVersion.label}</div>
+        <div className="text-xs text-gray-600 mt-1">{currentVersion.description}</div>
       </div>
       <div
         ref={pageRef}

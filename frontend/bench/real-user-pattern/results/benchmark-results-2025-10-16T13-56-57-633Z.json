@@ -1,0 +1,1184 @@
+{
+  "lastUpdated": "2025-10-16T13:56:57.633Z",
+  "totalMeasurements": 2,
+  "measurements": [
+    {
+      "version": "PDF-1x",
+      "detectedVersion": "현재 버전: 📄 일반 PDF (IntersectionObserver)뷰포트에 보이면 즉시 렌더링",
+      "url": "http://localhost:3000/feedback/4?version=pdf",
+      "hasCollector": true,
+      "duration": 36172.5,
+      "sendWithPromiseCalls": [
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 636.7000000029802,
+          "stackTrace": "    at new PDFFetchStreamReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10089:5) |     at PDFFetchStream.getFullReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10050:31) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2107:46)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 638,
+          "stackTrace": "    at new PDFFetchStreamReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10089:5) |     at PDFFetchStream.getFullReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10050:31) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2107:46)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 643.5,
+          "stackTrace": "    at new PDFFetchStreamRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10171:5) |     at PDFFetchStream.getRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10057:20) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2164:47)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 645.1000000014901,
+          "stackTrace": "    at new PDFFetchStreamRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10171:5) |     at PDFFetchStream.getRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10057:20) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2164:47)"
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 209.5,
+          "duration": 148,
+          "timestamp": 366.70000000298023
+        }
+      ],
+      "scrollEvents": [
+        {
+          "timestamp": 3513.5,
+          "scrollTop": 300,
+          "eventNumber": 1
+        },
+        {
+          "timestamp": 3564.39999999851,
+          "scrollTop": 600,
+          "eventNumber": 2
+        },
+        {
+          "timestamp": 3615.60000000149,
+          "scrollTop": 800,
+          "eventNumber": 3
+        },
+        {
+          "timestamp": 5169.39999999851,
+          "scrollTop": 1100,
+          "eventNumber": 4
+        },
+        {
+          "timestamp": 5220.60000000149,
+          "scrollTop": 1400,
+          "eventNumber": 5
+        },
+        {
+          "timestamp": 5272.29999999702,
+          "scrollTop": 1600,
+          "eventNumber": 6
+        },
+        {
+          "timestamp": 6826.60000000149,
+          "scrollTop": 1900,
+          "eventNumber": 7
+        },
+        {
+          "timestamp": 6878.5,
+          "scrollTop": 2200,
+          "eventNumber": 8
+        },
+        {
+          "timestamp": 6929.60000000149,
+          "scrollTop": 2400,
+          "eventNumber": 9
+        },
+        {
+          "timestamp": 8484,
+          "scrollTop": 2250,
+          "eventNumber": 10
+        },
+        {
+          "timestamp": 8985.60000000149,
+          "scrollTop": 2550,
+          "eventNumber": 11
+        },
+        {
+          "timestamp": 9037.20000000298,
+          "scrollTop": 2850,
+          "eventNumber": 12
+        },
+        {
+          "timestamp": 9088.10000000149,
+          "scrollTop": 3050,
+          "eventNumber": 13
+        },
+        {
+          "timestamp": 10641,
+          "scrollTop": 3350,
+          "eventNumber": 14
+        },
+        {
+          "timestamp": 10692.29999999702,
+          "scrollTop": 3650,
+          "eventNumber": 15
+        },
+        {
+          "timestamp": 10742.89999999851,
+          "scrollTop": 3850,
+          "eventNumber": 16
+        },
+        {
+          "timestamp": 12295.79999999702,
+          "scrollTop": 4150,
+          "eventNumber": 17
+        },
+        {
+          "timestamp": 12347,
+          "scrollTop": 4450,
+          "eventNumber": 18
+        },
+        {
+          "timestamp": 12399,
+          "scrollTop": 4650,
+          "eventNumber": 19
+        },
+        {
+          "timestamp": 13951.39999999851,
+          "scrollTop": 4500,
+          "eventNumber": 20
+        },
+        {
+          "timestamp": 14454.70000000298,
+          "scrollTop": 4800,
+          "eventNumber": 21
+        },
+        {
+          "timestamp": 14506.70000000298,
+          "scrollTop": 5100,
+          "eventNumber": 22
+        },
+        {
+          "timestamp": 14566.29999999702,
+          "scrollTop": 5300,
+          "eventNumber": 23
+        },
+        {
+          "timestamp": 16112.39999999851,
+          "scrollTop": 5600,
+          "eventNumber": 24
+        },
+        {
+          "timestamp": 16164.5,
+          "scrollTop": 5900,
+          "eventNumber": 25
+        },
+        {
+          "timestamp": 16216.39999999851,
+          "scrollTop": 6100,
+          "eventNumber": 26
+        },
+        {
+          "timestamp": 17772.60000000149,
+          "scrollTop": 6400,
+          "eventNumber": 27
+        },
+        {
+          "timestamp": 17825.79999999702,
+          "scrollTop": 6700,
+          "eventNumber": 28
+        },
+        {
+          "timestamp": 17876.10000000149,
+          "scrollTop": 6900,
+          "eventNumber": 29
+        },
+        {
+          "timestamp": 19429.20000000298,
+          "scrollTop": 6750,
+          "eventNumber": 30
+        },
+        {
+          "timestamp": 19932.20000000298,
+          "scrollTop": 7050,
+          "eventNumber": 31
+        },
+        {
+          "timestamp": 19983.89999999851,
+          "scrollTop": 7350,
+          "eventNumber": 32
+        },
+        {
+          "timestamp": 20034.39999999851,
+          "scrollTop": 7550,
+          "eventNumber": 33
+        },
+        {
+          "timestamp": 21588.60000000149,
+          "scrollTop": 7850,
+          "eventNumber": 34
+        },
+        {
+          "timestamp": 21640.70000000298,
+          "scrollTop": 8150,
+          "eventNumber": 35
+        },
+        {
+          "timestamp": 21691.5,
+          "scrollTop": 8350,
+          "eventNumber": 36
+        },
+        {
+          "timestamp": 23247.20000000298,
+          "scrollTop": 8650,
+          "eventNumber": 37
+        },
+        {
+          "timestamp": 23299.60000000149,
+          "scrollTop": 8950,
+          "eventNumber": 38
+        },
+        {
+          "timestamp": 23349.70000000298,
+          "scrollTop": 9150,
+          "eventNumber": 39
+        },
+        {
+          "timestamp": 24903.39999999851,
+          "scrollTop": 9000,
+          "eventNumber": 40
+        },
+        {
+          "timestamp": 25405.20000000298,
+          "scrollTop": 9300,
+          "eventNumber": 41
+        },
+        {
+          "timestamp": 25456.89999999851,
+          "scrollTop": 9600,
+          "eventNumber": 42
+        },
+        {
+          "timestamp": 25508.10000000149,
+          "scrollTop": 9800,
+          "eventNumber": 43
+        },
+        {
+          "timestamp": 27064,
+          "scrollTop": 10100,
+          "eventNumber": 44
+        },
+        {
+          "timestamp": 27115.39999999851,
+          "scrollTop": 10400,
+          "eventNumber": 45
+        },
+        {
+          "timestamp": 27174.79999999702,
+          "scrollTop": 10600,
+          "eventNumber": 46
+        },
+        {
+          "timestamp": 28724.20000000298,
+          "scrollTop": 10900,
+          "eventNumber": 47
+        },
+        {
+          "timestamp": 28777,
+          "scrollTop": 11200,
+          "eventNumber": 48
+        },
+        {
+          "timestamp": 28828.60000000149,
+          "scrollTop": 11400,
+          "eventNumber": 49
+        },
+        {
+          "timestamp": 30383.89999999851,
+          "scrollTop": 11250,
+          "eventNumber": 50
+        },
+        {
+          "timestamp": 30886.29999999702,
+          "scrollTop": 11550,
+          "eventNumber": 51
+        },
+        {
+          "timestamp": 30938.70000000298,
+          "scrollTop": 11850,
+          "eventNumber": 52
+        },
+        {
+          "timestamp": 30990.70000000298,
+          "scrollTop": 12050,
+          "eventNumber": 53
+        },
+        {
+          "timestamp": 32545.29999999702,
+          "scrollTop": 12350,
+          "eventNumber": 54
+        },
+        {
+          "timestamp": 32597.79999999702,
+          "scrollTop": 12650,
+          "eventNumber": 55
+        },
+        {
+          "timestamp": 32649.79999999702,
+          "scrollTop": 12850,
+          "eventNumber": 56
+        },
+        {
+          "timestamp": 34204.29999999702,
+          "scrollTop": 13150,
+          "eventNumber": 57
+        },
+        {
+          "timestamp": 34257,
+          "scrollTop": 13450,
+          "eventNumber": 58
+        },
+        {
+          "timestamp": 34308.10000000149,
+          "scrollTop": 13650,
+          "eventNumber": 59
+        },
+        {
+          "timestamp": 35863.89999999851,
+          "scrollTop": 13500,
+          "eventNumber": 60
+        },
+        {
+          "timestamp": 36365.5,
+          "scrollTop": 13800,
+          "eventNumber": 61
+        },
+        {
+          "timestamp": 36417.89999999851,
+          "scrollTop": 14100,
+          "eventNumber": 62
+        },
+        {
+          "timestamp": 36469.10000000149,
+          "scrollTop": 14300,
+          "eventNumber": 63
+        },
+        {
+          "timestamp": 38023.5,
+          "scrollTop": 14600,
+          "eventNumber": 64
+        },
+        {
+          "timestamp": 38076.60000000149,
+          "scrollTop": 14900,
+          "eventNumber": 65
+        },
+        {
+          "timestamp": 38127.39999999851,
+          "scrollTop": 15000,
+          "eventNumber": 66
+        }
+      ],
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 0.7,
+          "renderMs": 91.2,
+          "paintMs": 11.3,
+          "totalMs": 103.2,
+          "timestamp": 949.2999999970198
+        },
+        {
+          "page": 2,
+          "getPageMs": 0.8,
+          "renderMs": 15.7,
+          "paintMs": 15.9,
+          "totalMs": 32.4,
+          "timestamp": 3599.10000000149
+        },
+        {
+          "page": 3,
+          "getPageMs": 0.7,
+          "renderMs": 89.7,
+          "paintMs": 11.5,
+          "totalMs": 101.9,
+          "timestamp": 5323.89999999851
+        },
+        {
+          "page": 4,
+          "getPageMs": 1.3,
+          "renderMs": 10.6,
+          "paintMs": 14.4,
+          "totalMs": 26.3,
+          "timestamp": 6907.39999999851
+        },
+        {
+          "page": 5,
+          "getPageMs": 0.6,
+          "renderMs": 16.1,
+          "paintMs": 10.2,
+          "totalMs": 26.9,
+          "timestamp": 9065.70000000298
+        },
+        {
+          "page": 6,
+          "getPageMs": 1.3,
+          "renderMs": 17.4,
+          "paintMs": 9.9,
+          "totalMs": 28.6,
+          "timestamp": 10723.89999999851
+        },
+        {
+          "page": 7,
+          "getPageMs": 0.9,
+          "renderMs": 27.2,
+          "paintMs": 5.5,
+          "totalMs": 33.6,
+          "timestamp": 12382.79999999702
+        },
+        {
+          "page": 8,
+          "getPageMs": 1.1,
+          "renderMs": 7.8,
+          "paintMs": 14.3,
+          "totalMs": 23.2,
+          "timestamp": 14533.20000000298
+        },
+        {
+          "page": 9,
+          "getPageMs": 1.1,
+          "renderMs": 12.9,
+          "paintMs": 9.4,
+          "totalMs": 23.4,
+          "timestamp": 16191.60000000149
+        },
+        {
+          "page": 10,
+          "getPageMs": 1.4,
+          "renderMs": 16.5,
+          "paintMs": 10.6,
+          "totalMs": 28.5,
+          "timestamp": 17858.20000000298
+        },
+        {
+          "page": 11,
+          "getPageMs": 1.2,
+          "renderMs": 17.5,
+          "paintMs": 11.1,
+          "totalMs": 29.8,
+          "timestamp": 20016.5
+        },
+        {
+          "page": 12,
+          "getPageMs": 1,
+          "renderMs": 18.4,
+          "paintMs": 12.1,
+          "totalMs": 31.5,
+          "timestamp": 21674.79999999702
+        },
+        {
+          "page": 13,
+          "getPageMs": 1,
+          "renderMs": 16,
+          "paintMs": 13.3,
+          "totalMs": 30.3,
+          "timestamp": 23333.20000000298
+        },
+        {
+          "page": 14,
+          "getPageMs": 1.2,
+          "renderMs": 7.1,
+          "paintMs": 14.2,
+          "totalMs": 22.5,
+          "timestamp": 25483.20000000298
+        },
+        {
+          "page": 15,
+          "getPageMs": 1.5,
+          "renderMs": 9.9,
+          "paintMs": 10.3,
+          "totalMs": 21.7,
+          "timestamp": 27141.60000000149
+        },
+        {
+          "page": 16,
+          "getPageMs": 1.2,
+          "renderMs": 16.2,
+          "paintMs": 11.9,
+          "totalMs": 29.3,
+          "timestamp": 28809.89999999851
+        },
+        {
+          "page": 17,
+          "getPageMs": 1.4,
+          "renderMs": 11.4,
+          "paintMs": 11.4,
+          "totalMs": 24.2,
+          "timestamp": 30966.60000000149
+        },
+        {
+          "page": 18,
+          "getPageMs": 1.1,
+          "renderMs": 16.1,
+          "paintMs": 14.7,
+          "totalMs": 31.9,
+          "timestamp": 32633.10000000149
+        },
+        {
+          "page": 19,
+          "getPageMs": 1.3,
+          "renderMs": 35.2,
+          "paintMs": 11.8,
+          "totalMs": 48.3,
+          "timestamp": 34308.29999999702
+        },
+        {
+          "page": 20,
+          "getPageMs": 1.2,
+          "renderMs": 12.8,
+          "paintMs": 14.7,
+          "totalMs": 28.7,
+          "timestamp": 36449.79999999702
+        },
+        {
+          "page": 21,
+          "getPageMs": 1.6,
+          "renderMs": 14.5,
+          "paintMs": 11.3,
+          "totalMs": 27.4,
+          "timestamp": 38108.20000000298
+        }
+      ],
+      "renderEfficiency": 0.58,
+      "timestamp": "2025-10-16T13:56:57.633Z",
+      "config": {
+        "cpuThrottle": 1,
+        "scrollSteps": 10,
+        "stepDelay": 500,
+        "headless": true,
+        "realisticPattern": true
+      }
+    },
+    {
+      "version": "Queue-1x",
+      "detectedVersion": "익명",
+      "url": "http://localhost:3000/feedback/4?version=queue",
+      "hasCollector": true,
+      "duration": 36196.5,
+      "sendWithPromiseCalls": [
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 749.3999999985099,
+          "stackTrace": "    at new PDFFetchStreamReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10089:5) |     at PDFFetchStream.getFullReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10050:31) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2107:46)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 750.6999999955297,
+          "stackTrace": "    at new PDFFetchStreamReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10089:5) |     at PDFFetchStream.getFullReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10050:31) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2107:46)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 753.8999999985099,
+          "stackTrace": "    at new PDFFetchStreamRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10171:5) |     at PDFFetchStream.getRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10057:20) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2164:47)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 755.6999999955297,
+          "stackTrace": "    at new PDFFetchStreamRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10171:5) |     at PDFFetchStream.getRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10057:20) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2164:47)"
+        },
+        {
+          "type": "fetch",
+          "url": "http://localhost:3000/sample4.pdf",
+          "timestamp": 756.3999999985099,
+          "stackTrace": "    at new PDFFetchStreamRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10171:5) |     at PDFFetchStream.getRangeReader (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:10057:20) |     at eval (webpack-internal:///(app-pages-browser)/./node_modules/pdfjs-dist/build/pdf.js:2164:47)"
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 222.19999999552965,
+          "duration": 146,
+          "timestamp": 377.5
+        }
+      ],
+      "scrollEvents": [
+        {
+          "timestamp": 3513.5999999940395,
+          "scrollTop": 300,
+          "eventNumber": 1
+        },
+        {
+          "timestamp": 3565.2999999970198,
+          "scrollTop": 600,
+          "eventNumber": 2
+        },
+        {
+          "timestamp": 3616.2999999970198,
+          "scrollTop": 800,
+          "eventNumber": 3
+        },
+        {
+          "timestamp": 5171.89999999851,
+          "scrollTop": 1100,
+          "eventNumber": 4
+        },
+        {
+          "timestamp": 5224,
+          "scrollTop": 1400,
+          "eventNumber": 5
+        },
+        {
+          "timestamp": 5276.79999999702,
+          "scrollTop": 1600,
+          "eventNumber": 6
+        },
+        {
+          "timestamp": 6838.0999999940395,
+          "scrollTop": 1900,
+          "eventNumber": 7
+        },
+        {
+          "timestamp": 6890.5999999940395,
+          "scrollTop": 2200,
+          "eventNumber": 8
+        },
+        {
+          "timestamp": 6948.39999999851,
+          "scrollTop": 2400,
+          "eventNumber": 9
+        },
+        {
+          "timestamp": 8498.19999999553,
+          "scrollTop": 2250,
+          "eventNumber": 10
+        },
+        {
+          "timestamp": 9001.29999999702,
+          "scrollTop": 2550,
+          "eventNumber": 11
+        },
+        {
+          "timestamp": 9053.19999999553,
+          "scrollTop": 2850,
+          "eventNumber": 12
+        },
+        {
+          "timestamp": 9105,
+          "scrollTop": 3050,
+          "eventNumber": 13
+        },
+        {
+          "timestamp": 10659.79999999702,
+          "scrollTop": 3350,
+          "eventNumber": 14
+        },
+        {
+          "timestamp": 10712.09999999404,
+          "scrollTop": 3650,
+          "eventNumber": 15
+        },
+        {
+          "timestamp": 10765.09999999404,
+          "scrollTop": 3850,
+          "eventNumber": 16
+        },
+        {
+          "timestamp": 12318.89999999851,
+          "scrollTop": 4150,
+          "eventNumber": 17
+        },
+        {
+          "timestamp": 12371.19999999553,
+          "scrollTop": 4450,
+          "eventNumber": 18
+        },
+        {
+          "timestamp": 12425.39999999851,
+          "scrollTop": 4650,
+          "eventNumber": 19
+        },
+        {
+          "timestamp": 13979.79999999702,
+          "scrollTop": 4500,
+          "eventNumber": 20
+        },
+        {
+          "timestamp": 14482.79999999702,
+          "scrollTop": 4800,
+          "eventNumber": 21
+        },
+        {
+          "timestamp": 14535.59999999404,
+          "scrollTop": 5100,
+          "eventNumber": 22
+        },
+        {
+          "timestamp": 14586.79999999702,
+          "scrollTop": 5300,
+          "eventNumber": 23
+        },
+        {
+          "timestamp": 16142.79999999702,
+          "scrollTop": 5600,
+          "eventNumber": 24
+        },
+        {
+          "timestamp": 16195.09999999404,
+          "scrollTop": 5900,
+          "eventNumber": 25
+        },
+        {
+          "timestamp": 16246.5,
+          "scrollTop": 6100,
+          "eventNumber": 26
+        },
+        {
+          "timestamp": 17802.19999999553,
+          "scrollTop": 6400,
+          "eventNumber": 27
+        },
+        {
+          "timestamp": 17854.29999999702,
+          "scrollTop": 6700,
+          "eventNumber": 28
+        },
+        {
+          "timestamp": 17906.19999999553,
+          "scrollTop": 6900,
+          "eventNumber": 29
+        },
+        {
+          "timestamp": 19459.69999999553,
+          "scrollTop": 6750,
+          "eventNumber": 30
+        },
+        {
+          "timestamp": 19960.69999999553,
+          "scrollTop": 7050,
+          "eventNumber": 31
+        },
+        {
+          "timestamp": 20011.29999999702,
+          "scrollTop": 7350,
+          "eventNumber": 32
+        },
+        {
+          "timestamp": 20062.69999999553,
+          "scrollTop": 7550,
+          "eventNumber": 33
+        },
+        {
+          "timestamp": 21618.19999999553,
+          "scrollTop": 7850,
+          "eventNumber": 34
+        },
+        {
+          "timestamp": 21670.09999999404,
+          "scrollTop": 8150,
+          "eventNumber": 35
+        },
+        {
+          "timestamp": 21723.39999999851,
+          "scrollTop": 8350,
+          "eventNumber": 36
+        },
+        {
+          "timestamp": 23276.39999999851,
+          "scrollTop": 8650,
+          "eventNumber": 37
+        },
+        {
+          "timestamp": 23329,
+          "scrollTop": 8950,
+          "eventNumber": 38
+        },
+        {
+          "timestamp": 23381,
+          "scrollTop": 9150,
+          "eventNumber": 39
+        },
+        {
+          "timestamp": 24933.29999999702,
+          "scrollTop": 9000,
+          "eventNumber": 40
+        },
+        {
+          "timestamp": 25434,
+          "scrollTop": 9300,
+          "eventNumber": 41
+        },
+        {
+          "timestamp": 25486.79999999702,
+          "scrollTop": 9600,
+          "eventNumber": 42
+        },
+        {
+          "timestamp": 25538.09999999404,
+          "scrollTop": 9800,
+          "eventNumber": 43
+        },
+        {
+          "timestamp": 27094.09999999404,
+          "scrollTop": 10100,
+          "eventNumber": 44
+        },
+        {
+          "timestamp": 27145.29999999702,
+          "scrollTop": 10400,
+          "eventNumber": 45
+        },
+        {
+          "timestamp": 27196.5,
+          "scrollTop": 10600,
+          "eventNumber": 46
+        },
+        {
+          "timestamp": 28751.5,
+          "scrollTop": 10900,
+          "eventNumber": 47
+        },
+        {
+          "timestamp": 28804.09999999404,
+          "scrollTop": 11200,
+          "eventNumber": 48
+        },
+        {
+          "timestamp": 28856.09999999404,
+          "scrollTop": 11400,
+          "eventNumber": 49
+        },
+        {
+          "timestamp": 30408.5,
+          "scrollTop": 11250,
+          "eventNumber": 50
+        },
+        {
+          "timestamp": 30909.29999999702,
+          "scrollTop": 11550,
+          "eventNumber": 51
+        },
+        {
+          "timestamp": 30962.29999999702,
+          "scrollTop": 11850,
+          "eventNumber": 52
+        },
+        {
+          "timestamp": 31014.5,
+          "scrollTop": 12050,
+          "eventNumber": 53
+        },
+        {
+          "timestamp": 32569.69999999553,
+          "scrollTop": 12350,
+          "eventNumber": 54
+        },
+        {
+          "timestamp": 32622.09999999404,
+          "scrollTop": 12650,
+          "eventNumber": 55
+        },
+        {
+          "timestamp": 32673.69999999553,
+          "scrollTop": 12850,
+          "eventNumber": 56
+        },
+        {
+          "timestamp": 34228.69999999553,
+          "scrollTop": 13150,
+          "eventNumber": 57
+        },
+        {
+          "timestamp": 34280.89999999851,
+          "scrollTop": 13450,
+          "eventNumber": 58
+        },
+        {
+          "timestamp": 34332,
+          "scrollTop": 13650,
+          "eventNumber": 59
+        },
+        {
+          "timestamp": 35886.89999999851,
+          "scrollTop": 13500,
+          "eventNumber": 60
+        },
+        {
+          "timestamp": 36389.89999999851,
+          "scrollTop": 13800,
+          "eventNumber": 61
+        },
+        {
+          "timestamp": 36442.39999999851,
+          "scrollTop": 14100,
+          "eventNumber": 62
+        },
+        {
+          "timestamp": 36492.79999999702,
+          "scrollTop": 14300,
+          "eventNumber": 63
+        },
+        {
+          "timestamp": 38047.5,
+          "scrollTop": 14600,
+          "eventNumber": 64
+        },
+        {
+          "timestamp": 38099.09999999404,
+          "scrollTop": 14900,
+          "eventNumber": 65
+        },
+        {
+          "timestamp": 38151.69999999553,
+          "scrollTop": 15000,
+          "eventNumber": 66
+        }
+      ],
+      "renderEvents": [
+        {
+          "page": 1,
+          "getPageMs": 0.1,
+          "renderMs": 89.3,
+          "paintMs": 7,
+          "totalMs": 96.4,
+          "timestamp": 1040.0999999940395
+        },
+        {
+          "page": 2,
+          "getPageMs": 0,
+          "renderMs": 17.2,
+          "paintMs": 15.3,
+          "totalMs": 32.5,
+          "timestamp": 3598.5
+        },
+        {
+          "page": 3,
+          "getPageMs": 0,
+          "renderMs": 103.6,
+          "paintMs": 10.8,
+          "totalMs": 114.4,
+          "timestamp": 5340.0999999940395
+        },
+        {
+          "page": 4,
+          "getPageMs": 0,
+          "renderMs": 9.6,
+          "paintMs": 13.3,
+          "totalMs": 22.9,
+          "timestamp": 6915.29999999702
+        },
+        {
+          "page": 5,
+          "getPageMs": 0,
+          "renderMs": 17.9,
+          "paintMs": 9,
+          "totalMs": 26.9,
+          "timestamp": 9082
+        },
+        {
+          "page": 6,
+          "getPageMs": 0,
+          "renderMs": 20.7,
+          "paintMs": 13.7,
+          "totalMs": 34.4,
+          "timestamp": 10748.39999999851
+        },
+        {
+          "page": 7,
+          "getPageMs": 0,
+          "renderMs": 27.8,
+          "paintMs": 14,
+          "totalMs": 41.8,
+          "timestamp": 12415.19999999553
+        },
+        {
+          "page": 8,
+          "getPageMs": 0,
+          "renderMs": 14.7,
+          "paintMs": 13.7,
+          "totalMs": 28.4,
+          "timestamp": 14565.09999999404
+        },
+        {
+          "page": 9,
+          "getPageMs": 0,
+          "renderMs": 14.2,
+          "paintMs": 14.7,
+          "totalMs": 28.9,
+          "timestamp": 16225.69999999553
+        },
+        {
+          "page": 10,
+          "getPageMs": 0.1,
+          "renderMs": 14.2,
+          "paintMs": 13.3,
+          "totalMs": 27.6,
+          "timestamp": 17883.89999999851
+        },
+        {
+          "page": 11,
+          "getPageMs": 0,
+          "renderMs": 14.1,
+          "paintMs": 14.1,
+          "totalMs": 28.2,
+          "timestamp": 20040.19999999553
+        },
+        {
+          "page": 12,
+          "getPageMs": 0,
+          "renderMs": 24.5,
+          "paintMs": 12.1,
+          "totalMs": 36.6,
+          "timestamp": 21708.19999999553
+        },
+        {
+          "page": 13,
+          "getPageMs": 0,
+          "renderMs": 14.8,
+          "paintMs": 11,
+          "totalMs": 25.8,
+          "timestamp": 23357
+        },
+        {
+          "page": 14,
+          "getPageMs": 0,
+          "renderMs": 11.9,
+          "paintMs": 14.7,
+          "totalMs": 26.6,
+          "timestamp": 25515.19999999553
+        },
+        {
+          "page": 15,
+          "getPageMs": 0,
+          "renderMs": 15.8,
+          "paintMs": 10.4,
+          "totalMs": 26.2,
+          "timestamp": 27173.59999999404
+        },
+        {
+          "page": 16,
+          "getPageMs": 0,
+          "renderMs": 14,
+          "paintMs": 12.3,
+          "totalMs": 26.3,
+          "timestamp": 28832.29999999702
+        },
+        {
+          "page": 17,
+          "getPageMs": 0,
+          "renderMs": 16.3,
+          "paintMs": 11.7,
+          "totalMs": 28,
+          "timestamp": 30992.5
+        },
+        {
+          "page": 18,
+          "getPageMs": 0,
+          "renderMs": 26.2,
+          "paintMs": 14.5,
+          "totalMs": 40.7,
+          "timestamp": 32665.19999999553
+        },
+        {
+          "page": 19,
+          "getPageMs": 0.1,
+          "renderMs": 31.8,
+          "paintMs": 8.6,
+          "totalMs": 40.5,
+          "timestamp": 34323.59999999404
+        },
+        {
+          "page": 20,
+          "getPageMs": 0,
+          "renderMs": 16.2,
+          "paintMs": 14,
+          "totalMs": 30.2,
+          "timestamp": 36473.59999999404
+        },
+        {
+          "page": 21,
+          "getPageMs": 0,
+          "renderMs": 11.3,
+          "paintMs": 11.9,
+          "totalMs": 23.2,
+          "timestamp": 38124.29999999702
+        }
+      ],
+      "renderEfficiency": 0.58,
+      "timestamp": "2025-10-16T13:56:57.633Z",
+      "config": {
+        "cpuThrottle": 1,
+        "scrollSteps": 10,
+        "stepDelay": 500,
+        "headless": true,
+        "realisticPattern": true
+      }
+    }
+  ],
+  "averages": {
+    "PDF-1x": {
+      "count": 1,
+      "excluded": 0,
+      "sendWithPromise": {
+        "avg": 4,
+        "min": 4,
+        "max": 4
+      },
+      "longTasks": {
+        "avg": 1,
+        "min": 1,
+        "max": 1
+      },
+      "totalBlockingTime": {
+        "avg": 98,
+        "min": 98,
+        "max": 98
+      },
+      "renderEvents": {
+        "avg": 21,
+        "min": 21,
+        "max": 21
+      },
+      "renderEfficiency": {
+        "avg": 0.58,
+        "min": 0.58,
+        "max": 0.58
+      },
+      "duration": {
+        "avg": 36172.5,
+        "min": 36172.5,
+        "max": 36172.5
+      }
+    },
+    "Queue-1x": {
+      "count": 1,
+      "excluded": 0,
+      "sendWithPromise": {
+        "avg": 5,
+        "min": 5,
+        "max": 5
+      },
+      "longTasks": {
+        "avg": 1,
+        "min": 1,
+        "max": 1
+      },
+      "totalBlockingTime": {
+        "avg": 96,
+        "min": 96,
+        "max": 96
+      },
+      "renderEvents": {
+        "avg": 21,
+        "min": 21,
+        "max": 21
+      },
+      "renderEfficiency": {
+        "avg": 0.58,
+        "min": 0.58,
+        "max": 0.58
+      },
+      "duration": {
+        "avg": 36196.5,
+        "min": 36196.5,
+        "max": 36196.5
+      }
+    }
+  }
+}

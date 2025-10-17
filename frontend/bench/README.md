@@ -1,507 +1,328 @@
-# 📊 PDF.js 벤치마크
+# PDF 렌더링 성능 벤치마크
 
-## 🎯 벤치마크 종류
+PDF 렌더링 성능을 측정하고 비교하기 위한 벤치마크 도구 모음입니다.
 
-### 1. 📈 LongTask 벤치마크 (기본)
-PDF.js의 sendWithPromise 호출과 LongTask를 추적하는 기본 벤치마크
+## 📁 테스트 구조
 
-### 2. 🔥 기기별 성능 벤치마크 (NEW!)
-저사양/중사양/고사양 기기에서 현실적 사용자 패턴(스크롤 → 읽기 → 반복)으로 성능 비교
+```
+bench/
+├── web-vitals/           # 1. 웹 바이탈 테스트
+├── rendering-scenarios/  # 2. 다양한 렌더링 상황 테스트
+├── real-user-pattern/    # 3. 실사용자 패턴 테스트
+└── README.md            # 이 파일
+```
 
 ---
 
-## 🚀 사용법
+## 1️⃣ 웹 바이탈 테스트 (`web-vitals/`)
 
-### 📈 LongTask 벤치마크
+### 목적
+Google의 Core Web Vitals 지표를 측정하여 전반적인 웹 성능을 평가합니다.
 
-#### 단일 측정
+### 측정 지표
+- **FCP** (First Contentful Paint): 첫 콘텐츠 렌더링 시간
+- **LCP** (Largest Contentful Paint): 최대 콘텐츠 렌더링 시간
+- **CLS** (Cumulative Layout Shift): 레이아웃 이동 점수
+- **INP** (Interaction to Next Paint): 인터랙션 응답성
+- **TTFB** (Time to First Byte): 첫 바이트까지의 시간
+- **TTI** (Time to Interactive): 인터랙티브 가능 시간
+- **TBT** (Total Blocking Time): 총 차단 시간
+
+### 비교 버전
+1. **Basic** - `http://localhost:3000/feedback-basic/4` (기본 버전)
+2. **PDF** - `http://localhost:3000/feedback/4?version=pdf` (PDF 버전)
+3. **Queue** - `http://localhost:3000/feedback/4?version=queue` (우선순위 큐 버전)
+
+### 실행 방법
 
 ```bash
-npm run bench:longtask -- \
-  --url1 "http://localhost:3000/feedback/4?version=pdf" --name1 "PDF-기본" \
-  --url2 "http://localhost:3000/feedback/4?version=queue" --name2 "Queue-기본" \
+# 기본 실행 (3회, realistic 프리셋)
+cd web-vitals
+./run-test.sh
+
+# 실행 횟수 지정 (5회)
+./run-test.sh 5
+
+# 프리셋 변경 (intensive: 저사양 환경 시뮬레이션)
+./run-test.sh 5 intensive
+
+# 직접 실행 (세부 옵션 조정)
+node bench-webvitals.js \
+  --url1 "http://localhost:3000/feedback-basic/4" --name1 "Basic" \
+  --url2 "http://localhost:3000/feedback/4?version=pdf" --name2 "PDF" \
+  --url3 "http://localhost:3000/feedback/4?version=queue" --name3 "Queue" \
+  --runs 3 \
+  --preset realistic
+```
+
+### 프리셋 옵션
+- **fast**: 빠른 측정 (2초 대기)
+- **realistic**: 실제 환경 시뮬레이션 (7초 대기, 스크롤, CPU 2x)
+- **intensive**: 저사양 환경 (10초 대기, 스크롤, CPU 4x)
+
+### 결과 파일
+- `./results/webvitals-[timestamp].json`
+
+---
+
+## 2️⃣ 렌더링 시나리오 테스트 (`rendering-scenarios/`)
+
+### 목적
+다양한 스크롤 속도 시나리오에서 렌더링 효율성을 비교합니다.
+
+### 측정 시나리오
+1. **점진적 스크롤** (2초 대기)
+   - 일반적인 사용자 패턴
+   - 천천히 문서를 읽는 상황
+   
+2. **빠른 스크롤** (500ms 대기)
+   - 빠르게 훑어보는 패턴
+   - 원하는 내용을 찾는 상황
+   
+3. **매우 빠른 스크롤** (200ms 대기)
+   - 극한 상황 테스트
+   - 우선순위 큐의 효과가 극대화되는 상황
+
+### 측정 지표
+- 렌더링 효율 (pages/sec)
+- 렌더링된 페이지 수
+- 페이지당 평균 렌더링 시간
+- 프레임 드롭 수
+- 초기 뷰포트 페이지 완료 시간 ⭐
+- 인터랙션 응답 시간
+- Long Tasks 수 & Total Blocking Time
+
+### 비교 버전
+1. **PDF** - `http://localhost:3000/feedback/4?version=pdf`
+2. **Queue** - `http://localhost:3000/feedback/4?version=queue`
+
+### 실행 방법
+
+```bash
+# 기본 실행 (5회)
+cd rendering-scenarios
+./run-test.sh
+
+# 실행 횟수 지정 (10회)
+./run-test.sh 10
+
+# 직접 실행
+node pdf-advanced-benchmark.js 5
+```
+
+### 결과 파일
+- `./results/advanced-comparison-[timestamp].json`
+
+---
+
+## 3️⃣ 실사용자 패턴 테스트 (`real-user-pattern/`)
+
+### 목적
+실제 사용자의 문서 읽기 패턴을 시뮬레이션하여 성능을 측정합니다.
+
+### 시뮬레이션 패턴
+1. 빠르게 스크롤하여 내용 훑어보기
+2. 관심 있는 부분에서 정지하여 읽기 (1.5초)
+3. 이전 내용 확인을 위해 위로 스크롤하기
+4. 반복
+
+### 측정 지표
+- 렌더 이벤트 수
+- 렌더링 효율 (pages/sec)
+- sendWithPromise 호출 수
+- Long Tasks 발생 빈도
+- Total Blocking Time
+- 이벤트 타임라인 분석
+- 상관관계 분석 (스크롤 → 렌더링 → LongTask)
+
+### 비교 버전
+1. **PDF** - `http://localhost:3000/feedback/4?version=pdf`
+2. **Queue** - `http://localhost:3000/feedback/4?version=queue`
+
+### 실행 방법
+
+```bash
+# 기본 실행 (3회, CPU 4x 고정)
+cd real-user-pattern
+./run-test.sh
+
+# 실행 횟수 지정 (5회)
+./run-test.sh 5
+
+# CPU 스로틀링 비교 (4x vs 1x, 각 3회씩) ⭐
+./run-compare-cpu.sh 3
+
+# 직접 실행 (1회만)
+node bench-pdfjs-longtasks.js \
+  --url1 "http://localhost:3000/feedback/4?version=pdf" --name1 "PDF" \
+  --url2 "http://localhost:3000/feedback/4?version=queue" --name2 "Queue" \
+  --cpu 4 \
   --realistic true
 ```
 
-#### 반복 실행 (권장)
+### CPU 스로틀링 비교
+
+`run-compare-cpu.sh` 스크립트를 사용하면 저사양(4x)과 일반(1x) 환경을 동시에 테스트하고 4가지 버전을 한 번에 비교할 수 있습니다:
+- **PDF-4x** vs **Queue-4x** (저사양 환경)
+- **PDF-1x** vs **Queue-1x** (일반 환경)
+
+### 결과 파일
+- `./results/benchmark-results-[timestamp].json`
+
+---
+
+## 📊 결과 해석
+
+### 1. 웹 바이탈 기준
+
+| 지표 | Good ✅ | Needs Improvement ⚠️ | Poor ❌ |
+|------|---------|----------------------|---------|
+| FCP  | < 1.8s  | 1.8s ~ 3.0s          | > 3.0s  |
+| LCP  | < 2.5s  | 2.5s ~ 4.0s          | > 4.0s  |
+| CLS  | < 0.1   | 0.1 ~ 0.25           | > 0.25  |
+| INP  | < 200ms | 200ms ~ 500ms        | > 500ms |
+| TTFB | < 800ms | -                    | > 800ms |
+| TTI  | < 3.8s  | 3.8s ~ 7.3s          | > 7.3s  |
+| TBT  | < 200ms | 200ms ~ 600ms        | > 600ms |
+
+### 2. 렌더링 효율
+
+- **렌더링 효율** (pages/sec): 높을수록 좋음
+- **프레임 드롭**: 적을수록 좋음
+- **뷰포트 완료 시간**: 짧을수록 좋음 (⭐ 핵심 지표)
+
+### 3. 응답성
+
+- **Long Tasks**: 50ms 이상 걸리는 작업
+- **Total Blocking Time**: Long Tasks의 50ms 초과 부분 합계
+- 적을수록 사용자 인터랙션이 부드러움
+
+---
+
+## 🚀 빠른 시작
+
+### 사전 준비
+
+1. Next.js 개발 서버 실행
+```bash
+cd ../
+npm run dev
+```
+
+2. 필수 패키지 설치
+```bash
+npm install puppeteer web-vitals
+```
+
+### 전체 테스트 한번에 실행 (권장)
 
 ```bash
-cd frontend/bench
+# 기본 모드 (각 3회)
+./run-all-tests.sh
 
-# 10회 반복 (빠름 - 약 15-20분)
-./run-10-tests.sh
+# 빠른 테스트 (각 1회)
+./run-all-tests.sh quick
 
-# 25회 반복 (정확 - 약 35-50분)
-./run-25-tests.sh
-
-# 100회 반복 (장시간 - 약 2.5-3.5시간)
-./run-100-tests.sh
+# 전체 테스트 (각 5회)
+./run-all-tests.sh full
 ```
 
----
-
-### 🔥 기기별 성능 벤치마크 (NEW!)
-
-> 🎯 **행동 패턴 고정**: bench-pdfjs-longtasks.js의 realistic 패턴과 동일
-> - 스크롤 쭉 내리기 (300px씩, 50ms 간격)
-> - 1.5초 멈춰서 읽기
-> - 3번마다 위로 150px 스크롤 (다시 보기)
-> - 반복
-
-#### 데모 (처음 사용자용)
+### 개별 테스트 실행
 
 ```bash
-cd frontend/bench
-
-# 초고속 데모 - 결과 형식 확인용 (2회, ~3분)
-./demo-device-behavior.sh
-```
-
-#### 빠른 시작
-
-```bash
-cd frontend/bench
-
-# 빠른 테스트 (2 기기 × 2 버전 = 4회, ~7분)
-./run-device-behavior-test.sh quick
-
-# 전체 테스트 (3 기기 × 2 버전 = 6회, ~10분)
-./run-device-behavior-test.sh full
-```
-
-#### 세부 옵션
-
-```bash
-# 저사양 기기만 테스트
-./run-device-behavior-test.sh low-device
-
-# 중사양 기기만 테스트
-./run-device-behavior-test.sh mid-device
-
-# 고사양 기기만 테스트
-./run-device-behavior-test.sh high-device
-```
-
-#### 직접 실행 (커스터마이징)
-
-```bash
-# 특정 기기만 선택
-cd frontend
-node bench/bench-device-behavior.js \
-  --url1 "http://localhost:3000/feedback/4?version=pdf" --name1 "PDF" \
-  --url2 "http://localhost:3000/feedback/4?version=queue" --name2 "Queue" \
-  --devices "low,high"
-
-# 단일 URL 테스트
-cd frontend
-node bench/bench-device-behavior.js \
-  --url "http://localhost:3000/feedback/4?version=pdf" \
-  --devices "low"
-```
-
-#### 지원되는 기기 프로필
-
-| 기기 | CPU Throttle | 설명 |
-|------|-------------|------|
-| 🐌 `low` | 6x | 오래된 스마트폰, 저가형 노트북 |
-| 🚗 `mid` | 3x | 일반 노트북, 중급 스마트폰 |
-| 🚀 `high` | 1x | 최신 노트북, 플래그십 스마트폰 |
-
----
-
-## 📊 결과 파일
-
-### LongTask 벤치마크
-**하나의 파일에 모든 결과 누적:**
-- `bench/bench_out/benchmark-results.json`
-
-#### 파일 구조
-
-```json
-{
-  "lastUpdated": "2025-10-15T...",
-  "totalMeasurements": 75,
-  "measurements": [
-    { "version": "PDF-기본", "sendWithPromiseCalls": [...], ... },
-    { "version": "Queue-기본", "sendWithPromiseCalls": [...], ... },
-    ...
-  ],
-  "averages": {
-    "PDF-기본": {
-      "count": 25,
-      "sendWithPromise": { "avg": 28.5, "min": 24, "max": 33 },
-      "longTasks": { "avg": 18.2, "min": 15, "max": 22 },
-      "totalBlockingTime": { "avg": 756.9, ... },
-      ...
-    },
-    "Queue-기본": { ... }
-  }
-}
-```
-
-### 기기별 성능 벤치마크
-**타임스탬프별 파일 생성:**
-- `bench/bench_out/device-behavior-YYYY-MM-DDTHH-mm-ss-sssZ.json`
-
-#### 파일 구조
-
-```json
-{
-  "timestamp": "2025-10-16T...",
-  "config": {
-    "devices": [
-      { "key": "low", "name": "저사양 기기", "cpuThrottle": 6, ... },
-      { "key": "high", "name": "고사양 기기", "cpuThrottle": 1, ... }
-    ],
-    "behavior": {
-      "key": "realistic",
-      "name": "현실적 사용자 패턴",
-      "description": "bench-pdfjs-longtasks.js의 realistic 패턴과 동일"
-    }
-  },
-  "totalTests": 4,
-  "results": [
-    {
-      "testName": "PDF-🐌저사양 기기-🎯현실적 사용자 패턴",
-      "version": "PDF",
-      "device": "저사양 기기",
-      "behavior": "현실적 사용자 패턴",
-      "renderEfficiency": 0.65,
-      "totalBlockingTime": 1234.5,
-      "longTasks": 25,
-      ...
-    }
-  ]
-}
-```
-
----
-
-## 📈 출력 예시
-
-### LongTask 벤치마크 - 시나리오별 평균
-
-```
-================================================================================
-📊 시나리오별 평균 (전체 누적 데이터)
-================================================================================
-
-🔹 PDF-기본 (n=25)
-────────────────────────────────────────────────────────────────────────────
-   렌더링된 페이지:     평균 25.3개 (22~28)
-   렌더링 효율:        평균 0.82 pages/sec (0.75~0.91)
-   sendWithPromise:     평균 28.5회 (24~33)
-   LongTask:           평균 18.2개 (15~22)
-   Total Blocking Time: 평균 756.9ms (623~988)
-   전체 시간:          평균 31.4s (28.3~35.7)
-
-🔹 Queue-기본 (n=24, 제외: 1)
-────────────────────────────────────────────────────────────────────────────
-   렌더링된 페이지:     평균 32.8개 (29~36)  ← 30% 더 많이!
-   렌더링 효율:        평균 1.12 pages/sec (1.05~1.23)  ← 36% 빠름!
-   sendWithPromise:     평균 19.7회 (16~24)
-   LongTask:           평균 9.5개 (7~12)
-   Total Blocking Time: 평균 312.3ms (245~412)
-   전체 시간:          평균 29.2s (26.1~32.8)
-
-
-================================================================================
-🔍 버전 비교 (평균)
-================================================================================
-
-📊 기본
-────────────────────────────────────────────────────────────────────────────
-   렌더링 페이지:    25.3개 → 32.8개         (✅ 29.6%)
-   렌더링 효율:      0.82 → 1.12 pages/sec  (✅ 36.6%)
-   TBT:              756.9ms → 312.3ms      (✅ 58.7%)
-   LongTask:         18.2개 → 9.5개         (✅ 48.2%)
-   sendWithPromise:  28.5회 → 19.7회        (✅ 30.9%)
-```
-
----
-
-### 기기별 성능 벤치마크 - 종합 분석
-
-```
-====================================================================================================
-📊 종합 분석 결과 (현실적 사용자 패턴)
-====================================================================================================
-
-🔹 기기별 성능 비교
-────────────────────────────────────────────────────────────────────────────────────────────────
-
-🐌 저사양 기기 (n=2):
-   평균 렌더링 효율: 0.68 pages/sec
-   평균 TBT: 1523.5ms
-   평균 LongTask: 29.5개
-   평균 소요 시간: 44.2s
-
-🚗 중사양 기기 (n=2):
-   평균 렌더링 효율: 0.98 pages/sec
-   평균 TBT: 856.8ms
-   평균 LongTask: 19.0개
-   평균 소요 시간: 36.7s
-
-🚀 고사양 기기 (n=2):
-   평균 렌더링 효율: 1.42 pages/sec
-   평균 TBT: 423.1ms
-   평균 LongTask: 10.5개
-   평균 소요 시간: 29.3s
-
-
-🔹 버전별 성능 비교
-────────────────────────────────────────────────────────────────────────────────────────────────
-
-PDF (n=3):
-   평균 렌더링 효율: 0.87 pages/sec
-   평균 TBT: 1245.3ms
-   평균 LongTask: 24.8개
-   평균 sendWithPromise: 32.7회
-
-Queue (n=3):
-   평균 렌더링 효율: 1.23 pages/sec
-   평균 TBT: 624.5ms
-   평균 LongTask: 12.3개
-   평균 sendWithPromise: 19.8회
-
-
-🔹 Best & Worst 기기 (Total Blocking Time 기준)
-────────────────────────────────────────────────────────────────────────────────────────────────
-
-✅ Best 3:
-   1. 🚀고사양 기기 [Queue]
-      TBT: 256ms, LongTask: 6개, 효율: 1.68 pages/sec
-   2. 🚀고사양 기기 [PDF]
-      TBT: 590ms, LongTask: 15개, 효율: 1.16 pages/sec
-   3. 🚗중사양 기기 [Queue]
-      TBT: 678ms, LongTask: 14개, 효율: 1.15 pages/sec
-
-❌ Worst 3:
-   1. 🐌저사양 기기 [PDF]
-      TBT: 1978ms, LongTask: 42개, 효율: 0.52 pages/sec
-   2. 🐌저사양 기기 [Queue]
-      TBT: 1069ms, LongTask: 17개, 효율: 0.84 pages/sec
-   3. 🚗중사양 기기 [PDF]
-      TBT: 1035ms, LongTask: 24개, 효율: 0.81 pages/sec
-
-
-====================================================================================================
-🔍 버전 간 비교 (기기별)
-====================================================================================================
-
-🐌 저사양 기기 (현실적 패턴)
-────────────────────────────────────────────────────────────────────────────────────────────────
-메트릭                          PDF                 Queue               개선율
-────────────────────────────────────────────────────────────────────────────────────────────────
-렌더링 효율                     0.52 p/s            0.84 p/s            ✅ 61.5%
-Total Blocking Time             1978ms              1069ms              ✅ -46.0%
-LongTask 수                     42개                17개                ✅ -59.5%
-sendWithPromise 호출            38회                22회                ✅ -42.1%
-소요 시간                       52134ms             38256ms             ✅ -26.6%
-
-🚗 중사양 기기 (현실적 패턴)
-────────────────────────────────────────────────────────────────────────────────────────────────
-메트릭                          PDF                 Queue               개선율
-────────────────────────────────────────────────────────────────────────────────────────────────
-렌더링 효율                     0.81 p/s            1.15 p/s            ✅ 42.0%
-Total Blocking Time             1035ms              678ms               ✅ -34.5%
-LongTask 수                     24개                14개                ✅ -41.7%
-sendWithPromise 호출            31회                19회                ✅ -38.7%
-소요 시간                       38567ms             32456ms             ✅ -15.8%
-
-🚀 고사양 기기 (현실적 패턴)
-────────────────────────────────────────────────────────────────────────────────────────────────
-메트릭                          PDF                 Queue               개선율
-────────────────────────────────────────────────────────────────────────────────────────────────
-렌더링 효율                     1.16 p/s            1.68 p/s            ✅ 44.8%
-Total Blocking Time             590ms               256ms               ✅ -56.6%
-LongTask 수                     15개                6개                 ✅ -60.0%
-sendWithPromise 호출            29회                18회                ✅ -37.9%
-소요 시간                       28456ms             24789ms             ✅ -12.9%
-```
-
----
-
-## ⚙️ 옵션
-
-| 옵션 | 설명 | 기본값 |
-|------|------|--------|
-| `--realistic` | 현실적 사용자 패턴 (스크롤→읽기) | false |
-| `--cpu` | CPU throttling | 4 |
-| `--delay` | 단계별 대기 (ms) | 500 |
-| `--steps` | 스크롤 단계 | 10 |
-| `--headless` | Headless 모드 | true |
-
----
-
-## 💡 3가지 시나리오 차이점
-
-### 1. 기본 환경 (중저사양 PC, 현실적 패턴)
-
-**설정:** `--realistic true --cpu 4`
-
-**동작:**
-- 🖥️ CPU 4배 느림 (중저사양 PC 시뮬레이션)
-- 📜 스크롤 쭉 내림 (300px씩 빠르게)
-- 📖 1.5초 멈춰서 읽기
-- 🔄 반복
-
-**목적:** 일반 사용자 환경 (가장 많은 사용자)
-
----
-
-### 2. 고사양 환경 (최신 PC, 현실적 패턴)
-
-**설정:** `--realistic true --cpu 1`
-
-**동작:**
-- 🖥️ CPU 제약 없음 (고사양 PC)
-- 📜 스크롤 쭉 내림 (300px씩 빠르게)
-- 📖 1.5초 멈춰서 읽기
-- 🔄 반복
-
-**목적:** 최신 PC에서도 Queue가 효과 있는지 확인
-
-**차이점:** CPU만 다름! (4배 vs 제약없음)
-
----
-
-### 3. 천천히 읽기 (꼼꼼히 읽는 패턴)
-
-**설정:** `--delay 2000 --steps 8`
-
-**동작:**
-- 🖥️ CPU 4배 느림
-- 📜 8단계로 나눠서 스크롤
-- ⏱️ 각 단계마다 2초 대기 (천천히)
-
-**목적:** 사용자가 꼼꼼히 읽을 때의 성능
-
-**차이점:** 스크롤 패턴이 다름! (현실적 패턴 vs 일정한 간격)
-
----
-
-## 📊 비교표
-
-| 시나리오 | CPU | 스크롤 방식 | 읽기 시간 | 시뮬레이션 환경 |
-|---------|-----|------------|-----------|----------------|
-| **기본** | 4배 | 쭉 내리고 읽기 반복 | 1.5초 | 대부분 사용자 |
-| **고사양** | **1배** | 쭉 내리고 읽기 반복 | 1.5초 | 최신 PC |
-| **느림** | 4배 | **일정한 간격** | **2초** | 꼼꼼히 읽기 |
-
----
-
-## 🎯 왜 3가지를 측정하나?
-
-### 기본 환경
-→ **대부분의 사용자**가 이런 환경
-→ 가장 중요한 시나리오!
-
-### 고사양 환경  
-→ **빠른 PC에서도 Queue가 효과있나?** 확인
-→ CPU가 빠르면 차이가 줄어들 수 있음
-
-### 천천히 읽기
-→ **안정적인 환경**에서의 성능
-→ 충분한 시간이 있을 때도 Queue가 나은지 확인
-
----
-
-## 💡 예상 결과
-
-**TBT 개선율 예상:**
-- 기본 환경: ~60% (가장 큰 차이)
-- 고사양: ~50% (차이 약간 줄어듦)
-- 느림: ~35% (차이 더 줄어듦)
-
-→ **느린 환경일수록 Queue의 효과가 크다!**
-
----
-
-## 🔄 결과 관리
-
-### LongTask 벤치마크 초기화
-
-```bash
-rm bench/bench_out/benchmark-results.json
-```
-
-새로 측정을 시작하고 싶을 때 사용하세요.
-
-### 기기별 성능 벤치마크 파일 정리
-
-```bash
-# 오래된 결과 파일 삭제
-rm bench/bench_out/device-behavior-*.json
-
-# 최신 파일만 유지 (최근 3개)
-ls -t bench/bench_out/device-behavior-*.json | tail -n +4 | xargs rm
+# 1. 웹 바이탈 테스트
+cd web-vitals
+./run-test.sh 3 realistic
+
+# 2. 렌더링 시나리오 테스트
+cd ../rendering-scenarios
+./run-test.sh 5
+
+# 3. 실사용자 패턴 테스트
+cd ../real-user-pattern
+./run-test.sh 3
 ```
 
 ---
 
 ## 💡 팁
 
-### 어떤 벤치마크를 사용해야 하나요?
+### 정확한 측정을 위한 권장사항
 
-#### LongTask 벤치마크 (`bench-pdfjs-longtasks.js`) 사용 시점:
-- ✅ **많은 반복 측정이 필요할 때** (통계적 신뢰도)
-- ✅ **하나의 특정 시나리오를 깊게 분석**할 때
-- ✅ **장기간 누적 데이터를 수집**할 때
-- ✅ **CI/CD 파이프라인에 통합**할 때
+1. **백그라운드 프로세스 최소화**
+   - 불필요한 애플리케이션 종료
+   - 브라우저 탭 정리
 
-#### 기기별 성능 벤치마크 (`bench-device-behavior.js`) 사용 시점:
-- ✅ **저사양/중사양/고사양 기기 차이를 명확히** 파악하고 싶을 때
-- ✅ **현실적 사용자 패턴에서의 성능 차이**를 분석할 때
-- ✅ **최적화 전후 기기별 비교**를 확인할 때
-- ✅ **기기 스펙에 따른 개선율**을 측정할 때
-- ✅ **발표 자료용 기기별 성능 데이터**가 필요할 때
+2. **여러 번 실행하여 평균값 사용**
+   - 최소 3회 이상 실행 권장
+   - 이상치(outlier)는 제외
 
-### 추천 워크플로우
+3. **동일한 환경에서 비교**
+   - 같은 CPU throttle 설정
+   - 같은 네트워크 환경
+   - 같은 시간대 (서버 부하 고려)
+
+4. **결과 파일 백업**
+   - 각 테스트 결과는 타임스탬프와 함께 저장됨
+   - 중요한 결과는 별도 백업 권장
+
+---
+
+## 📈 지속적인 성능 모니터링
+
+### 자동화 예제
 
 ```bash
-# 1단계: 빠른 확인 (기기별 성능 차이)
-./run-device-behavior-test.sh quick
-# → 저사양/고사양 기기에서 PDF vs Queue 성능 차이 빠르게 파악 (4회, ~7분)
+#!/bin/bash
+# 매일 정해진 시간에 성능 테스트 실행 (cron 예제)
 
-# 2단계: 특정 기기 집중 분석
-node bench/bench-device-behavior.js \
-  --url1 "..." --url2 "..." \
-  --devices "low"
-# → 저사양 기기만 집중 분석 (2회, ~3분)
+DATE=$(date +%Y-%m-%d)
+LOG_DIR="./logs/${DATE}"
+mkdir -p ${LOG_DIR}
 
-# 3단계: 통계적 검증 (LongTask 반복 측정)
-./run-25-tests.sh
-# → 같은 조건에서 25회 반복으로 신뢰도 높은 평균 계산
+# 웹 바이탈
+cd web-vitals
+./run-test.sh 3 realistic > ${LOG_DIR}/web-vitals.log 2>&1
+
+# 렌더링 시나리오
+cd ../rendering-scenarios
+./run-test.sh 5 > ${LOG_DIR}/rendering.log 2>&1
+
+# 실사용자 패턴
+cd ../real-user-pattern
+./run-test.sh 3 > ${LOG_DIR}/real-user.log 2>&1
 ```
 
-### 성능 최적화 팁
+---
 
-기기별 벤치마크 사용 시:
+## 🔧 문제 해결
 
-1. **Headless 모드 사용** (기본값)
-   - GUI 없이 실행되어 더 빠름
-   - 백그라운드 실행 가능
+### Puppeteer 관련
 
-2. **필요한 기기만 선택**
-   ```bash
-   # 전체 테스트 (6회) 대신
-   # 핵심 기기만 테스트 (4회)
-   ./run-device-behavior-test.sh quick
-   
-   # 또는 특정 기기만
-   ./run-device-behavior-test.sh low-device  # 2회만
-   ```
+**문제**: Chromium 다운로드 실패
+```bash
+# 해결
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=false npm install puppeteer
+```
 
-3. **병렬 실행하지 마세요**
-   - CPU throttling이 정확하지 않을 수 있음
-   - 순차 실행 권장
+**문제**: "Cannot find module 'puppeteer'"
+```bash
+# 해결
+npm install puppeteer
+```
 
-4. **안정적인 환경에서 실행**
-   - 다른 앱 최소화
-   - 백그라운드 작업 중지
-   
-5. **bench-pdfjs-longtasks.js와 동일한 패턴**
-   - 두 벤치마크는 같은 현실적 패턴 사용
-   - 결과 비교 및 교차 검증 가능
+### 측정 관련
 
+**문제**: 렌더 이벤트가 0개
+- 원인: pdfRenderMetricsCollector가 제대로 작동하지 않음
+- 해결: 페이지가 올바르게 로드되었는지 확인
+
+**문제**: web-vitals 값이 모두 N/A
+- 원인: web-vitals 라이브러리 로드 실패 또는 대기 시간 부족
+- 해결: `--wait` 시간을 늘리거나 `--scroll true` 옵션 추가
+
+---
+
+## 📝 라이선스
+
+이 벤치마크 도구는 프로젝트 내부에서 성능 측정 목적으로 사용됩니다.

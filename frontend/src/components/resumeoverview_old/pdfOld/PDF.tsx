@@ -62,10 +62,14 @@ const PDF: React.FC<PDFProps> = ({
 
   useEffect(() => {
     let cancelled = false;
-    const startTime = Date.now(); // 타이머 시작
 
     const loadPage = async () => {
+      const t0 = performance.now();
+      console.log(`PDF 렌더링 시작 (페이지 ${pageNumber}): 0.00초`);
+      
       const page = await pdf.getPage(pageNumber);
+      const t1 = performance.now();
+      
       const viewport = page.getViewport({ scale: 2, rotation: 0 });
       const canvas = canvasRef.current!;
       const context = canvas.getContext("2d")!;
@@ -84,12 +88,33 @@ const PDF: React.FC<PDFProps> = ({
 
       try {
         await renderTaskRef.current.promise;
+        const t2 = performance.now();
+        
         if (cancelled) return;
         
-        // 렌더링 완료 시 타이머 출력
-        const endTime = Date.now();
-        const elapsedTime = (endTime - startTime) / 1000; // 초 단위로 변환
-        console.log(`PDF 렌더링 완료 (페이지 ${pageNumber}): ${elapsedTime.toFixed(2)}초`);
+        // 페인트 커밋까지 대기
+        await new Promise<void>((r) =>
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => r())
+          )
+        );
+        const t3 = performance.now();
+        
+        // 메트릭 수집
+        const metrics = {
+          page: pageNumber,
+          getPageMs: parseFloat((t1 - t0).toFixed(1)),
+          renderMs: parseFloat((t2 - t1).toFixed(1)),
+          paintMs: parseFloat((t3 - t2).toFixed(1)),
+          totalMs: parseFloat((t3 - t0).toFixed(1)),
+        };
+        
+        console.log(`PDF 렌더링 완료 (페이지 ${pageNumber}): ${(metrics.totalMs / 1000).toFixed(2)}초`);
+        
+        // 벤치마크 메트릭 수집기에 전달
+        if (typeof window !== 'undefined' && (window as any).pdfRenderMetricsCollector) {
+          (window as any).pdfRenderMetricsCollector.add(metrics);
+        }
       } catch (err: unknown) {
         if (err instanceof Error && err.name !== "RenderingCancelledException") {
           console.error("PDF 렌더링 에러:", err);
@@ -98,7 +123,6 @@ const PDF: React.FC<PDFProps> = ({
     };
 
     loadPage();
-    console.log(`PDF 렌더링 시작 (페이지 ${pageNumber}): 0.00초`);
 
     return () => {
       cancelled = true;
