@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-10-20T17:54:23.978Z",
+  "config": {
+    "cpuThrottle": 1,
+    "scrollSteps": 3,
+    "stepDelay": 2000,
+    "headless": true,
+    "reactTrackingLevel": "full"
+  },
+  "results": []
+}

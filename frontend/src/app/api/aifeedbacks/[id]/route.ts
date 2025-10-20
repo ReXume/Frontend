@@ -15,8 +15,10 @@ export async function POST(
     {
       id: 1,
       content: "섹션 제목은 일관된 스타일로 통일하는 것이 좋습니다.",
-      xCoordinate: 120,
-      yCoordinate: 240,
+      x1: 20,
+      x2: 40,
+      y1: 30,
+      y2: 45,
       pageNumber: 1,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),

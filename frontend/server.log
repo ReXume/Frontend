@@ -1,0 +1,11 @@
+
+> frontend@0.1.0 start
+> next start
+
+   ▲ Next.js 15.5.2
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.45.209:3000
+
+ ✓ Starting...
+ ✓ Ready in 367ms
+[Feedback API] 총 200개의 피드백 생성 (페이지 1-100, 각 페이지당 2개)

@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, forwardRef, useCallback, useImperativeHandle } from "react";
 import CommentForm from "../../comment_old/CommentForm";
 import { FeedbackPoint } from "@/types/FeedbackPointType";
 import {
   type PDFDocumentProxy,
   RenderTask,
 } from "pdfjs-dist";
-import { renderSchedulerFixed } from "@/libs/renderSchedulerFixed";
 
 interface PDFProps {
   pdf: PDFDocumentProxy;
@@ -27,14 +26,13 @@ interface PDFProps {
   setClickedCommentId: (id: number | null) => void;
 }
 
-const PDF: React.FC<PDFProps> = ({
+const PDF = forwardRef<HTMLDivElement, PDFProps>(({
   pdf,
   pageNumber,
   addFeedbackPoint,
   feedbackPoints,
   hoveredCommentId,
-}) => {
-  const hostRef = useRef<HTMLDivElement>(null);
+}, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const renderTaskRef = useRef<RenderTask | null>(null);
   const renderedRef = useRef(false);
@@ -43,8 +41,6 @@ const PDF: React.FC<PDFProps> = ({
   const [viewportWH, setViewportWH] = useState<{ w: number; h: number } | null>(
     null
   );
-
-  const jobId = `page-${pageNumber}`;
 
   // 페이지 크기 미리 계산 (placeholder 높이 확보)
   useEffect(() => {
@@ -62,144 +58,78 @@ const PDF: React.FC<PDFProps> = ({
     };
   }, [pdf, pageNumber]);
 
-  // IntersectionObserver + RenderScheduler = Backpressure 핵심
-  useEffect(() => {
-    if (!hostRef.current) return;
+  // 외부에서 렌더링 트리거할 수 있는 함수
+  const renderPage = useCallback(async () => {
+    if (renderedRef.current || !canvasRef.current) return;
 
-    const el = hostRef.current;
-    
-    // 화면 높이의 2배를 미리 로드 (반응형)
-    const preloadDistance = typeof window !== 'undefined' ? window.innerHeight * 0.25 : 2000;
-    
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        console.log(`[고정K=5] Page ${pageNumber} intersection:`, entry.isIntersecting);
-        
-        if (entry.isIntersecting) {
-          // 이미 렌더링되었으면 스킵
-          if (renderedRef.current) {
-            console.log(`[고정K=5] Page ${pageNumber} already rendered`);
-            return;
-          }
-
-          // 뷰포트 근접 페이지 우선 렌더
-          const rect = el.getBoundingClientRect();
-          const center = rect.top + rect.height / 2;
-          const priority = Math.abs(center - window.innerHeight / 2);
-
-          console.log(`[고정K=5] Enqueuing page ${pageNumber} with priority ${priority}`);
-          
-          renderSchedulerFixed.enqueue({
-            id: jobId,
-            priority,
-            run: async () => {
-              if (renderedRef.current) return;
-
-              console.log(`[고정K=5] Starting render for page ${pageNumber}`);
-              
-              // 성능 측정 시작
-              const t0 = performance.now();
-              
-              const page = await pdf.getPage(pageNumber);
-              const t1 = performance.now();
-              
-              const viewport = page.getViewport({ scale: 2, rotation: 0 });
-              const canvas = canvasRef.current;
-              if (!canvas) {
-                console.error(`[고정K=5] Canvas not found for page ${pageNumber}`);
-                return;
-              }
-              
-              const ctx = canvas.getContext("2d");
-              if (!ctx) {
-                console.error(`[고정K=5] Context not found for page ${pageNumber}`);
-                return;
-              }
-
-              canvas.width = viewport.width;
-              canvas.height = viewport.height;
-
-              // 기존 렌더 취소
-              if (renderTaskRef.current) {
-                try {
-                  renderTaskRef.current.cancel();
-                } catch {}
-              }
-
-              const task = page.render({ canvasContext: ctx, viewport });
-              renderTaskRef.current = task;
-
-              try {
-                await task.promise;
-                const t2 = performance.now();
-                
-                await new Promise<void>((r) =>
-                  requestAnimationFrame(() =>
-                    requestAnimationFrame(() => r())
-                  )
-                );
-                const t3 = performance.now();
-                
-                renderedRef.current = true;
-                setRendered(true);
-                
-                // 메트릭 수집
-                const metrics = {
-                  page: pageNumber,
-                  getPageMs: parseFloat((t1 - t0).toFixed(1)),
-                  renderMs: parseFloat((t2 - t1).toFixed(1)),
-                  paintMs: parseFloat((t3 - t2).toFixed(1)),
-                  totalMs: parseFloat((t3 - t0).toFixed(1)),
-                  schedulerType: 'fixed-k5',
-                };
-                
-                console.log(`[고정K=5] Page ${pageNumber} rendered - getPage: ${metrics.getPageMs}ms, render: ${metrics.renderMs}ms, paint: ${metrics.paintMs}ms, total: ${metrics.totalMs}ms`);
-                
-                // 벤치마크 메트릭 수집기에 전달
-                if (typeof window !== 'undefined' && (window as any).pdfRenderMetricsCollector) {
-                  (window as any).pdfRenderMetricsCollector.add(metrics);
-                }
-              } catch (e: any) {
-                if (e?.name === "RenderingCancelledException") {
-                  console.log(`[고정K=5] Page ${pageNumber} rendering cancelled`);
-                } else {
-                  console.error(`[고정K=5] page ${pageNumber} render error`, e);
-                }
-              }
-            },
-            cancel: () => {
-              if (renderTaskRef.current) {
-                try {
-                  renderTaskRef.current.cancel();
-                } catch {}
-              }
-            },
-          });
-        } else {
-          // 화면에서 멀어지면 취소
-          console.log(`[고정K=5] Page ${pageNumber} out of view, cancelling`);
-          renderSchedulerFixed.cancel(jobId);
-        }
-      },
-      {
-        root: null,
-        threshold: 0,
-        rootMargin: `${preloadDistance}px 0px`, // 화면 높이의 2배만큼 미리 로드
+    try {
+      console.log(`Starting direct render for page ${pageNumber}`);
+      
+      // 성능 측정 시작
+      const t0 = performance.now();
+      
+      const page = await pdf.getPage(pageNumber);
+      const t1 = performance.now();
+      
+      const viewport = page.getViewport({ scale: 2, rotation: 0 });
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+      
+      if (!ctx) {
+        console.error(`Context not found for page ${pageNumber}`);
+        return;
       }
-    );
 
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-      renderSchedulerFixed.cancel(jobId);
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+
+      // 기존 렌더 취소
       if (renderTaskRef.current) {
         try {
           renderTaskRef.current.cancel();
         } catch {}
       }
-    };
-  }, [pdf, pageNumber, jobId]);
+
+      const task = page.render({ canvasContext: ctx, viewport });
+      renderTaskRef.current = task;
+
+      await task.promise;
+      const t2 = performance.now();
+      
+      await new Promise<void>((r) =>
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => r())
+        )
+      );
+      const t3 = performance.now();
+      
+      renderedRef.current = true;
+      setRendered(true);
+      
+      // 메트릭 수집
+      const metrics = {
+        page: pageNumber,
+        getPageMs: parseFloat((t1 - t0).toFixed(1)),
+        renderMs: parseFloat((t2 - t1).toFixed(1)),
+        paintMs: parseFloat((t3 - t2).toFixed(1)),
+        totalMs: parseFloat((t3 - t0).toFixed(1)),
+      };
+      
+      console.log(`Page ${pageNumber} rendered successfully - getPage: ${metrics.getPageMs}ms, render: ${metrics.renderMs}ms, paint: ${metrics.paintMs}ms, total: ${metrics.totalMs}ms`);
+      
+      // 벤치마크 메트릭 수집기에 전달
+      if (typeof window !== 'undefined' && (window as any).pdfRenderMetricsCollector) {
+        (window as any).pdfRenderMetricsCollector.add(metrics);
+      }
+    } catch (e: any) {
+      if (e?.name === "RenderingCancelledException") {
+        console.log(`Page ${pageNumber} rendering cancelled`);
+      } else {
+        console.error(`page ${pageNumber} render error`, e);
+      }
+    }
+  }, [pdf, pageNumber]);
+
 
   // 드래그 선택 / 코멘트 로직
   const [selectedArea, setSelectedArea] = useState<{
@@ -243,19 +173,22 @@ const PDF: React.FC<PDFProps> = ({
 
   const handleMouseUp = () => {
     setIsSelecting(false);
-    if (selectedArea && hostRef.current) {
-      const rect = hostRef.current.getBoundingClientRect();
-      const px = (selectedArea.x / rect.width) * 100;
-      const px2 = ((selectedArea.x + selectedArea.width) / rect.width) * 100;
-      const py = (selectedArea.y / rect.height) * 100;
-      const py2 = ((selectedArea.y + selectedArea.height) / rect.height) * 100;
-      setAddingFeedback({
-        x1: px,
-        x2: px2,
-        y1: py,
-        y2: py2,
-        pageNumber,
-      });
+    if (selectedArea && ref && typeof ref !== 'function') {
+      const element = ref.current;
+      if (element && 'getBoundingClientRect' in element) {
+        const rect = (element as HTMLDivElement).getBoundingClientRect();
+        const px = (selectedArea.x / rect.width) * 100;
+        const px2 = ((selectedArea.x + selectedArea.width) / rect.width) * 100;
+        const py = (selectedArea.y / rect.height) * 100;
+        const py2 = ((selectedArea.y + selectedArea.height) / rect.height) * 100;
+        setAddingFeedback({
+          x1: px,
+          x2: px2,
+          y1: py,
+          y2: py2,
+          pageNumber,
+        });
+      }
     }
   };
 
@@ -284,7 +217,22 @@ const PDF: React.FC<PDFProps> = ({
 
   return (
     <div
-      ref={hostRef}
+      ref={(element) => {
+        // forwardRef의 ref 설정
+        if (typeof ref === 'function') {
+          ref(element);
+        } else if (ref) {
+          (ref as React.MutableRefObject<HTMLDivElement | null>).current = element;
+        }
+        
+        // 함수 바로 연결
+        if (element) {
+          (element as any).renderPage = renderPage;
+          (element as any).rendered = () => renderedRef.current;
+          console.log(`Page ${pageNumber}: renderPage function attached immediately`);
+        }
+      }}
+      data-page-number={pageNumber}
       style={{ position: "relative", marginBottom: 20 }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -298,7 +246,7 @@ const PDF: React.FC<PDFProps> = ({
           width: "100%",
         }} 
       />
-      {!rendered && <div style={placeholderStyle} />}
+      {!rendered && <div className="pdf-placeholder" style={placeholderStyle} />}
 
       {/* 드래그 선택 영역 */}
       {selectedArea && (
@@ -363,7 +311,8 @@ const PDF: React.FC<PDFProps> = ({
       )}
     </div>
   );
-};
+});
+
+PDF.displayName = 'PDF';
 
 export default PDF;
-

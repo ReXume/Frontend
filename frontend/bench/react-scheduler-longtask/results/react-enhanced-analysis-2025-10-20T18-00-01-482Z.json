@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-10-20T18:00:01.483Z",
+  "config": {
+    "cpuThrottle": 4,
+    "scrollSteps": 6,
+    "stepDelay": 1200,
+    "headless": true,
+    "scrollRange": 0.3
+  },
+  "results": []
+}

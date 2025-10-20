@@ -18,17 +18,25 @@ const PDFViewerQueue = dynamic(() => import("./pdfQueue/PDFViewer"), {
   loading: () => <div>PDF 로딩 중... (Queue 버전)</div>,
 });
 
-// 고정 K=5 버전
-const PDFViewerFixed = dynamic(() => import("./pdfFixed/PDFViewer"), {
+// PDF Simple 버전 (단순 IntersectionObserver)
+const PDFViewerSimple = dynamic(() => import("./pdfSimple/PDFViewer"), {
   ssr: false,
-  loading: () => <div>PDF 로딩 중... (고정 K=5)</div>,
+  loading: () => <div>PDF 로딩 중... (Simple 버전)</div>,
 });
 
-// 적응형 버전
-const PDFViewerAdaptive = dynamic(() => import("./pdfAdaptive/PDFViewer"), {
+// PDF rAF 버전 (requestAnimationFrame)
+const PDFViewerRAF = dynamic(() => import("./pdfRAF/PDFViewer"), {
   ssr: false,
-  loading: () => <div>PDF 로딩 중... (적응형)</div>,
+  loading: () => <div>PDF 로딩 중... (rAF 버전)</div>,
 });
+
+// PDF Lazy 버전 (지연된 getPage 호출)
+const PDFViewerLazy = dynamic(() => import("./pdfLazy/PDFViewer"), {
+  ssr: false,
+  loading: () => <div>PDF 로딩 중... (Lazy 버전)</div>,
+});
+
+
 
 type ResumePageProps = {
   pageNumber: number;
@@ -110,8 +118,9 @@ function ResumePage({
   // 버전에 따라 사용할 PDFViewer 선택
   const PDFViewer = 
     version === 'queue' ? PDFViewerQueue :
-    version === 'fixed' ? PDFViewerFixed :
-    version === 'adaptive' ? PDFViewerAdaptive :
+    version === 'simple' ? PDFViewerSimple :
+    version === 'raf' ? PDFViewerRAF :
+    version === 'lazy' ? PDFViewerLazy :
     PDFViewerStandard;
 
   // 버전별 표시 정보
@@ -120,6 +129,11 @@ function ResumePage({
       label: '📄 일반 PDF (IntersectionObserver)', 
       color: 'bg-blue-100',
       description: '뷰포트에 보이면 즉시 렌더링'
+    },
+    simple: { 
+      label: '🎯 PDF Simple (단순 IntersectionObserver)', 
+      color: 'bg-purple-100',
+      description: '스케줄러 없이 단순한 지연 로딩'
     },
     queue: { 
       label: '⚡ PDF Queue (RenderScheduler)', 
@@ -135,6 +149,16 @@ function ResumePage({
       label: '⚡ 적응형 스케줄러', 
       color: 'bg-emerald-100',
       description: 'Long Task 기반 자동 조절 (1~6)'
+    },
+    raf: { 
+      label: '🎬 PDF rAF (requestAnimationFrame)', 
+      color: 'bg-orange-100',
+      description: 'requestAnimationFrame을 사용한 렌더링 최적화'
+    },
+    lazy: { 
+      label: '🐌 PDF Lazy (지연된 getPage)', 
+      color: 'bg-yellow-100',
+      description: '페이지 크기 미리 계산 제거, 관찰 후에만 getPage() 호출'
     },
   };
 
