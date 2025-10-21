@@ -1,0 +1,245 @@
+{
+  "lastUpdated": "2025-10-20T23:21:51.108Z",
+  "totalMeasurements": 1,
+  "measurements": [
+    {
+      "version": "Test",
+      "detectedVersion": "GU",
+      "url": "http://localhost:3000/feedback/4?version=raf-windowing",
+      "hasCollector": true,
+      "duration": 1606.3999999910593,
+      "sendWithPromiseCalls": [],
+      "longTasks": [],
+      "scrollEvents": [],
+      "renderEvents": [],
+      "fpsMeasurements": [
+        {
+          "fps": 114,
+          "timestamp": 1026.9000000059605,
+          "elapsed": 0.9412999999970197,
+          "frameCount": 114
+        },
+        {
+          "fps": 120,
+          "timestamp": 2035.7000000029802,
+          "elapsed": 1.9500999999940396,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 3043.6000000089407,
+          "elapsed": 2.958,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 4051.800000011921,
+          "elapsed": 3.9662000000029805,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 5060.100000008941,
+          "elapsed": 4.9745,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 6069.100000008941,
+          "elapsed": 5.9835,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 7076.9000000059605,
+          "elapsed": 6.99129999999702,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 8076.9000000059605,
+          "elapsed": 7.99129999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 9076.90000000596,
+          "elapsed": 8.99129999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 10085.60000000894,
+          "elapsed": 10,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 11086.40000000596,
+          "elapsed": 11.00079999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 12093,
+          "elapsed": 12.00739999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 13093.40000000596,
+          "elapsed": 13.00779999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 14093.40000000596,
+          "elapsed": 14.00779999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 15093.70000000298,
+          "elapsed": 15.00809999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 16101.70000000298,
+          "elapsed": 16.01609999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 17101.70000000298,
+          "elapsed": 17.01609999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 18102,
+          "elapsed": 18.01639999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 19110,
+          "elapsed": 19.024399999991058,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 20110,
+          "elapsed": 20.024399999991058,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 21110.5,
+          "elapsed": 21.02489999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 22119.30000001192,
+          "elapsed": 22.03370000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 23126.30000001192,
+          "elapsed": 23.040700000002982,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 24126.90000000596,
+          "elapsed": 24.04129999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 25135,
+          "elapsed": 25.04939999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 26144.70000000298,
+          "elapsed": 26.05909999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 27152,
+          "elapsed": 27.06639999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 28160,
+          "elapsed": 28.07439999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 29160,
+          "elapsed": 29.07439999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 30168.60000000894,
+          "elapsed": 30.083,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 31169.20000000298,
+          "elapsed": 31.08359999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 32176.5,
+          "elapsed": 32.09089999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 33176.70000000298,
+          "elapsed": 33.09109999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 34177.20000000298,
+          "elapsed": 34.09159999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 35185.30000001192,
+          "elapsed": 35.09970000000298,
+          "frameCount": 121
+        }
+      ],
+      "fpsStats": {
+        "avg": 120,
+        "min": 114,
+        "max": 120,
+        "count": 35
+      },
+      "renderEfficiency": 0,
+      "timestamp": "2025-10-20T23:21:51.108Z",
+      "config": {
+        "cpuThrottle": 4,
+        "scrollSteps": 10,
+        "stepDelay": 500,
+        "headless": true,
+        "realisticPattern": true
+      }
+    }
+  ],
+  "averages": {}
+}

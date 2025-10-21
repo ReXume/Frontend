@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-10-21T01:13:19.946Z",
+  "version": "RAF-Windowing-Visual",
+  "url": "http://localhost:3000/feedback/4?version=raf-windowing",
+  "config": {
+    "cpuThrottle": 4,
+    "testDuration": 30000,
+    "headless": false
+  },
+  "result": {
+    "success": false,
+    "error": "Attempted to use detached Frame '4BF12115EA27F4FCEA622D545CF4C444'.",
+    "scrollEvents": [],
+    "renderEvents": [],
+    "fpsMeasurements": [],
+    "longTasks": [],
+    "maxScroll": 0,
+    "finalScrollPosition": 0
+  },
+  "versionInfo": {
+    "versionText": "Unknown",
+    "hasCollector": false,
+    "url": "http://localhost:3000/feedback/4?version=raf-windowing"
+  }
+}

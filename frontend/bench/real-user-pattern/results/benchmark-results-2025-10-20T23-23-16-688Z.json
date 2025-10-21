@@ -1,0 +1,462 @@
+{
+  "lastUpdated": "2025-10-20T23:23:16.689Z",
+  "totalMeasurements": 1,
+  "measurements": [
+    {
+      "version": "Test",
+      "detectedVersion": "GU",
+      "url": "http://localhost:3000/feedback/4?version=raf-windowing",
+      "hasCollector": true,
+      "duration": 3311,
+      "sendWithPromiseCalls": [],
+      "longTasks": [],
+      "scrollEvents": [
+        {
+          "timestamp": 63627.20000000298,
+          "scrollTop": 300,
+          "eventNumber": 1
+        },
+        {
+          "timestamp": 63678.59999999404,
+          "scrollTop": 600,
+          "eventNumber": 2
+        },
+        {
+          "timestamp": 63728.20000000298,
+          "scrollTop": 800,
+          "eventNumber": 3
+        },
+        {
+          "timestamp": 65285.5,
+          "scrollTop": 1100,
+          "eventNumber": 4
+        },
+        {
+          "timestamp": 65335.39999999106,
+          "scrollTop": 1400,
+          "eventNumber": 5
+        },
+        {
+          "timestamp": 65385.70000000298,
+          "scrollTop": 1462,
+          "eventNumber": 6
+        }
+      ],
+      "renderEvents": [],
+      "fpsMeasurements": [
+        {
+          "fps": 115,
+          "timestamp": 1028.7000000029802,
+          "elapsed": 0.9447000000029803,
+          "frameCount": 115
+        },
+        {
+          "fps": 120,
+          "timestamp": 2035.7000000029802,
+          "elapsed": 1.9517000000029803,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 3037.2000000029802,
+          "elapsed": 2.95320000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 4044.7999999970198,
+          "elapsed": 3.9607999999970196,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 5045.399999991059,
+          "elapsed": 4.961399999991059,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 6052.20000000298,
+          "elapsed": 5.96820000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 7052.79999999702,
+          "elapsed": 6.96879999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 8060.0999999940395,
+          "elapsed": 7.976099999994039,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 9061.09999999404,
+          "elapsed": 8.97709999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 10069.09999999404,
+          "elapsed": 9.98509999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 11069.20000000298,
+          "elapsed": 10.98520000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 12069.29999999702,
+          "elapsed": 11.98529999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 13069.5,
+          "elapsed": 12.9855,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 14069.79999999702,
+          "elapsed": 13.98579999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 15077.59999999404,
+          "elapsed": 14.99359999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 16085.5,
+          "elapsed": 16.0015,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 17085.5,
+          "elapsed": 17.0015,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 18085.5,
+          "elapsed": 18.0015,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 19085.59999999404,
+          "elapsed": 19.00159999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 20086.70000000298,
+          "elapsed": 20.00270000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 21094.09999999404,
+          "elapsed": 21.01009999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 22094.59999999404,
+          "elapsed": 22.01059999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 23102.09999999404,
+          "elapsed": 23.01809999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 24102.39999999106,
+          "elapsed": 24.018399999991058,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 25109.70000000298,
+          "elapsed": 25.02570000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 26110.70000000298,
+          "elapsed": 26.02670000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 27110.79999999702,
+          "elapsed": 27.02679999999702,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 28111.09999999404,
+          "elapsed": 28.02709999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 29119.20000000298,
+          "elapsed": 29.03520000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 30126.29999999702,
+          "elapsed": 30.04229999999702,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 31127.89999999106,
+          "elapsed": 31.04389999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 32127.89999999106,
+          "elapsed": 32.04389999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 33135.89999999106,
+          "elapsed": 33.05189999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 34136.39999999106,
+          "elapsed": 34.05239999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 35145.39999999106,
+          "elapsed": 35.06139999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 36152.20000000298,
+          "elapsed": 36.06820000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 37160.29999999702,
+          "elapsed": 37.07629999999702,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 38168.70000000298,
+          "elapsed": 38.08470000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 39169.5,
+          "elapsed": 39.0855,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 40177.5,
+          "elapsed": 40.0935,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 41178.09999999404,
+          "elapsed": 41.09409999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 42186,
+          "elapsed": 42.102,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 43194,
+          "elapsed": 43.11,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 44202.29999999702,
+          "elapsed": 44.11829999999702,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 45202.59999999404,
+          "elapsed": 45.11859999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 46202.70000000298,
+          "elapsed": 46.11870000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 47210.5,
+          "elapsed": 47.1265,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 48211.09999999404,
+          "elapsed": 48.12709999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 49218.39999999106,
+          "elapsed": 49.13439999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 50219.59999999404,
+          "elapsed": 50.13559999999404,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 51227.29999999702,
+          "elapsed": 51.14329999999702,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 52236.29999999702,
+          "elapsed": 52.15229999999702,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 53236.5,
+          "elapsed": 53.1525,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 54243.39999999106,
+          "elapsed": 54.15939999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 55244.70000000298,
+          "elapsed": 55.16070000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 56252.5,
+          "elapsed": 56.1685,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 57252.59999999404,
+          "elapsed": 57.168599999994036,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 58252.70000000298,
+          "elapsed": 58.16870000000298,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 59260.89999999106,
+          "elapsed": 59.17689999999106,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 60260.89999999106,
+          "elapsed": 60.17689999999106,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 61268.20000000298,
+          "elapsed": 61.18420000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 62269,
+          "elapsed": 62.185,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 63269.5,
+          "elapsed": 63.1855,
+          "frameCount": 120
+        },
+        {
+          "fps": 120,
+          "timestamp": 64277.59999999404,
+          "elapsed": 64.19359999999403,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 65285.5,
+          "elapsed": 65.2015,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 66286,
+          "elapsed": 66.202,
+          "frameCount": 120
+        }
+      ],
+      "fpsStats": {
+        "avg": 120,
+        "min": 115,
+        "max": 120,
+        "count": 66
+      },
+      "renderEfficiency": 0,
+      "timestamp": "2025-10-20T23:23:16.689Z",
+      "config": {
+        "cpuThrottle": 4,
+        "scrollSteps": 10,
+        "stepDelay": 500,
+        "headless": true,
+        "realisticPattern": true
+      }
+    }
+  ],
+  "averages": {}
+}

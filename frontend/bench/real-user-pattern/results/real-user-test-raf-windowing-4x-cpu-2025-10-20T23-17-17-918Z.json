@@ -1,0 +1,57 @@
+{
+  "version": "raf-windowing-4x-cpu-throttle",
+  "detectedVersion": "현재 버전: 🧩 PDF Incremental Mount rAF한 프레임당 3개씩 점진적으로 DOM 마운트하는 rAF 버전",
+  "url": "http://localhost:3000/feedback/4?version=raf-windowing",
+  "testType": "real-user-pattern",
+  "throttling": {
+    "cpu": 4,
+    "network": "none"
+  },
+  "pageLoadTime": 709,
+  "firstContentfulPaint": 124,
+  "largestContentfulPaint": 124,
+  "duration": 1007.3999999910593,
+  "sendWithPromiseCalls": [],
+  "longTasks": [
+    {
+      "startTime": 41.099999994039536,
+      "duration": 51,
+      "timestamp": 99.19999998807907
+    }
+  ],
+  "scrollEvents": [],
+  "networkRequests": [],
+  "fpsMeasurements": [
+    {
+      "fps": 114,
+      "timestamp": 1029.3999999910593,
+      "elapsed": 0.9872999999970198,
+      "frameCount": 114
+    },
+    {
+      "fps": 120,
+      "timestamp": 2037.199999988079,
+      "elapsed": 1.9950999999940395,
+      "frameCount": 121
+    },
+    {
+      "fps": 120,
+      "timestamp": 3038.199999988079,
+      "elapsed": 2.9960999999940396,
+      "frameCount": 120
+    }
+  ],
+  "fpsStats": {
+    "avg": 118,
+    "min": 114,
+    "max": 120,
+    "count": 3
+  },
+  "networkStats": {
+    "totalRequests": 0,
+    "avgDuration": 0,
+    "maxDuration": 0,
+    "errors": 0
+  },
+  "timestamp": "2025-10-20T23:17:17.917Z"
+}

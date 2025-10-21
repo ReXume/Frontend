@@ -77,7 +77,7 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
   // 콘솔 로그 포워딩
   page.on('console', (msg) => {
     const text = msg.text();
-    if (text.includes('[PDFTrace]') || text.includes('[LongTask]')) {
+    if (text.includes('[PDFTrace]') || text.includes('[LongTask]') || text.includes('[FPS]') || text.includes('[Scroll]')) {
       console.log(`   ${text}`);
     }
   });
@@ -89,8 +89,46 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
       longTasks: [],
       scrollEvents: [],
       renderEvents: [],
+      fpsMeasurements: [],
       startTime: null,
     };
+
+    // FPS 측정 설정
+    let frameCount = 0;
+    let lastTime = performance.now();
+    let fpsStartTime = null;
+
+    function measureFPS() {
+      frameCount++;
+      const currentTime = performance.now();
+      
+      if (fpsStartTime === null) {
+        fpsStartTime = currentTime;
+      }
+      
+      // 1초마다 FPS 계산
+      if (currentTime - lastTime >= 1000) {
+        const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+        const elapsed = (currentTime - fpsStartTime) / 1000;
+        
+        window.__pdfJsMetrics.fpsMeasurements.push({
+          fps: fps,
+          timestamp: currentTime,
+          elapsed: elapsed,
+          frameCount: frameCount
+        });
+        
+        console.log(`[FPS] ${fps} FPS @ ${elapsed.toFixed(1)}s (frames: ${frameCount})`);
+        
+        frameCount = 0;
+        lastTime = currentTime;
+      }
+      
+      requestAnimationFrame(measureFPS);
+    }
+    
+    // FPS 측정 시작
+    requestAnimationFrame(measureFPS);
 
     // LongTask Observer
     if (window.PerformanceObserver) {
@@ -204,7 +242,38 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
   });
 
   console.log('   페이지 로드 완료, 초기화 대기...');
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise(resolve => setTimeout(resolve, 3000)); // 3초 대기
+
+  // PDF 로딩 완료까지 대기
+  console.log('   PDF 콘텐츠 로딩 대기 중...');
+  try {
+    await page.waitForFunction(() => {
+      const bodyHeight = document.body.scrollHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      const maxHeight = Math.max(bodyHeight, docHeight);
+      
+      // 높이가 뷰포트보다 충분히 크거나, "PDF 로딩 중" 텍스트가 사라졌는지 확인
+      const loadingText = document.querySelector('div:has-text("PDF 로딩 중")') || 
+                         Array.from(document.querySelectorAll('div')).find(div => div.textContent.includes('PDF 로딩 중'));
+      
+      return maxHeight > viewportHeight + 500 || !loadingText || document.querySelector('canvas, iframe[src*="pdf"]');
+    }, { timeout: 60000 }); // 60초로 증가
+    
+    console.log('   PDF 로딩 완료 확인됨');
+  } catch (error) {
+    console.warn('   PDF 로딩 타임아웃, 계속 진행합니다...');
+    
+    // 최소한의 콘텐츠라도 있는지 확인하고 강제로 스크롤 가능하게 만들기
+    await page.evaluate(() => {
+      // 페이지 높이가 부족한 경우 body에 padding 추가
+      const currentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+      if (currentHeight < window.innerHeight + 1000) {
+        document.body.style.paddingBottom = '2000px';
+        console.log('[Scroll] body에 2000px padding 추가하여 스크롤 가능하게 만듦');
+      }
+    });
+  }
 
   // 버전 확인 및 렌더 메트릭 수집기 확인
   const versionInfo = await page.evaluate(() => {
@@ -238,19 +307,68 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
 
   // 스크롤 시뮬레이션 (타임아웃: 5분)
   const result = await page.evaluate(async (scrollSteps, stepDelay, realisticPattern) => {
-    const scrollContainer = Array.from(document.querySelectorAll('div'))
+    let scrollContainer = Array.from(document.querySelectorAll('div'))
       .find(div => {
         const style = window.getComputedStyle(div);
         return style.overflowY === 'auto' && div.scrollHeight > div.clientHeight;
       });
     
+    // div 요소에서 찾지 못한 경우 body나 documentElement에서 스크롤 가능한지 확인
+    if (!scrollContainer) {
+      console.log(`[Scroll] div 검색 실패, body/documentElement 확인 중...`);
+      console.log(`[Scroll] body.scrollHeight: ${document.body.scrollHeight}, window.innerHeight: ${window.innerHeight}`);
+      console.log(`[Scroll] documentElement.scrollHeight: ${document.documentElement.scrollHeight}`);
+      
+      if (document.body.scrollHeight > window.innerHeight) {
+        scrollContainer = document.body;
+        console.log('[Scroll] body 요소를 스크롤 컨테이너로 사용');
+      } else if (document.documentElement.scrollHeight > window.innerHeight) {
+        scrollContainer = document.documentElement;
+        console.log('[Scroll] documentElement를 스크롤 컨테이너로 사용');
+      } else {
+        // 강제로 body를 사용하고 더 긴 컨텐츠가 로드될 때까지 기다림
+        console.log('[Scroll] 강제로 body를 스크롤 컨테이너로 사용 (콘텐츠 로딩 대기)');
+        scrollContainer = document.body;
+      }
+    }
+    
     if (!scrollContainer) {
       console.error('[Scroll] 스크롤 컨테이너를 찾을 수 없습니다');
+      console.error('[Scroll] Available elements:');
+      Array.from(document.querySelectorAll('div')).slice(0, 10).forEach((div, i) => {
+        const style = window.getComputedStyle(div);
+        console.error(`  [${i}] overflowY: ${style.overflowY}, scrollHeight: ${div.scrollHeight}, clientHeight: ${div.clientHeight}`);
+      });
       return { success: false, error: 'No scroll container found' };
     }
 
-    const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-    console.log(`[Scroll] 컨테이너 발견: ${scrollContainer.scrollHeight}px (max scroll: ${maxScroll}px)`);
+    // 스크롤 컨테이너가 body나 documentElement인지 확인
+    const isBodyOrDocument = scrollContainer === document.body || scrollContainer === document.documentElement;
+    
+    // 스크롤 크기 및 위치 계산
+    let maxScroll, currentScrollTop, setScrollTop, getScrollTop;
+    
+    if (isBodyOrDocument) {
+      maxScroll = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+      getScrollTop = () => window.pageYOffset || document.documentElement.scrollTop;
+      setScrollTop = (pos) => window.scrollTo(0, pos);
+    } else {
+      maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+      getScrollTop = () => scrollContainer.scrollTop;
+      setScrollTop = (pos) => scrollContainer.scrollTop = pos;
+    }
+    
+    console.log(`[Scroll] 컨테이너 발견: ${isBodyOrDocument ? 'body/documentElement' : scrollContainer.tagName}`);
+    console.log(`[Scroll] scrollHeight: ${isBodyOrDocument ? Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) : scrollContainer.scrollHeight}px`);
+    console.log(`[Scroll] clientHeight/innerHeight: ${isBodyOrDocument ? window.innerHeight : scrollContainer.clientHeight}px`);
+    console.log(`[Scroll] max scroll: ${maxScroll}px`);
+    
+    if (maxScroll <= 0) {
+      console.warn('[Scroll] maxScroll이 0이거나 음수입니다. 콘텐츠가 아직 로드되지 않았을 수 있습니다.');
+      // 최소한의 스크롤을 시도해보기
+      maxScroll = 500;
+      console.log('[Scroll] 임시로 maxScroll을 500px로 설정합니다.');
+    }
 
     // 스크롤 이벤트 리스너
     let scrollEventCount = 0;
@@ -259,11 +377,16 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
       scrollEventCount++;
       window.__pdfJsMetrics.scrollEvents.push({
         timestamp: timestamp,
-        scrollTop: scrollContainer.scrollTop,
+        scrollTop: getScrollTop(),
         eventNumber: scrollEventCount,
       });
     };
-    scrollContainer.addEventListener('scroll', scrollListener, { passive: true });
+    
+    if (isBodyOrDocument) {
+      window.addEventListener('scroll', scrollListener, { passive: true });
+    } else {
+      scrollContainer.addEventListener('scroll', scrollListener, { passive: true });
+    }
 
     if (realisticPattern) {
       // 현실적 사용자 패턴: 스크롤 쭉 내리고 → 읽기 → 반복
@@ -294,7 +417,7 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
         while (currentScroll < targetScroll) {
           currentScroll += scrollChunkSize;
           if (currentScroll > targetScroll) currentScroll = targetScroll;
-          scrollContainer.scrollTop = currentScroll;
+          setScrollTop(currentScroll);
           await new Promise(r => setTimeout(r, scrollSpeed));
         }
         
@@ -318,7 +441,7 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
         if (chunkCount % 3 === 0 && currentScroll > 200) {
           console.log(`[Scroll] ⬆️  위로 조금 스크롤 (다시 보기)`);
           currentScroll -= 150;
-          scrollContainer.scrollTop = currentScroll;
+          setScrollTop(currentScroll);
           await new Promise(r => setTimeout(r, 500));
         }
       }
@@ -332,7 +455,7 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
         const beforeRenders = window.__pdfJsMetrics.renderEvents.length;
         
         const scrollPosition = (maxScroll / scrollSteps) * i;
-        scrollContainer.scrollTop = scrollPosition;
+        setScrollTop(scrollPosition);
         
         console.log(`[Scroll] Step ${i}/${scrollSteps}: ${scrollPosition.toFixed(0)}px`);
         
@@ -351,7 +474,11 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
       }
     }
 
-    scrollContainer.removeEventListener('scroll', scrollListener);
+    if (isBodyOrDocument) {
+      window.removeEventListener('scroll', scrollListener);
+    } else {
+      scrollContainer.removeEventListener('scroll', scrollListener);
+    }
 
     const endTime = performance.now();
     const startTime = window.__pdfJsMetrics.startTime || 0;
@@ -363,6 +490,7 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
       longTasks: window.__pdfJsMetrics.longTasks,
       scrollEvents: window.__pdfJsMetrics.scrollEvents,
       renderEvents: window.__pdfJsMetrics.renderEvents,
+      fpsMeasurements: window.__pdfJsMetrics.fpsMeasurements,
     };
   }, scrollSteps, stepDelay, realisticPattern);
 
@@ -378,6 +506,14 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
     ? (result.renderEvents.length / (result.duration / 1000)).toFixed(2)
     : 0;
   
+  // FPS 통계 계산
+  const fpsStats = result.fpsMeasurements.length > 0 ? {
+    avg: Math.round(result.fpsMeasurements.reduce((sum, m) => sum + m.fps, 0) / result.fpsMeasurements.length),
+    min: Math.min(...result.fpsMeasurements.map(m => m.fps)),
+    max: Math.max(...result.fpsMeasurements.map(m => m.fps)),
+    count: result.fpsMeasurements.length
+  } : { avg: 0, min: 0, max: 0, count: 0 };
+  
   console.log(`   ✅ 측정 완료`);
   console.log(`      - 감지된 버전: ${versionInfo.versionText}`);
   console.log(`      - 렌더 이벤트: ${result.renderEvents.length}개`);
@@ -385,6 +521,7 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
   console.log(`      - sendWithPromise 호출: ${result.sendWithPromiseCalls.length}회`);
   console.log(`      - LongTask: ${result.longTasks.length}개`);
   console.log(`      - 스크롤 이벤트: ${result.scrollEvents.length}회`);
+  console.log(`      - FPS: 평균 ${fpsStats.avg} (최소 ${fpsStats.min}, 최대 ${fpsStats.max}, 측정 ${fpsStats.count}회)`);
 
   // 렌더 이벤트가 부족한 경우 경고
   if (result.renderEvents.length === 0) {
@@ -403,6 +540,8 @@ async function measurePDFJsWithLongTasks(testUrl, versionName) {
     longTasks: result.longTasks,
     scrollEvents: result.scrollEvents,
     renderEvents: result.renderEvents,
+    fpsMeasurements: result.fpsMeasurements,
+    fpsStats: fpsStats,
     renderEfficiency: parseFloat(renderEfficiency),
     timestamp: new Date().toISOString(),
   };
@@ -539,6 +678,26 @@ function analyzeTimeline(data) {
   console.log(`Scroll → sendWithPromise (100ms 이내): ${scrollsFollowedBySendWithPromise}/${data.scrollEvents.length} (${(scrollsFollowedBySendWithPromise/data.scrollEvents.length*100).toFixed(1)}%)`);
   console.log(`Scroll → LongTask (500ms 이내): ${scrollsFollowedByLongTask}/${data.scrollEvents.length} (${(scrollsFollowedByLongTask/data.scrollEvents.length*100).toFixed(1)}%)`);
 
+  // FPS 상세 정보
+  console.log('\n🎯 FPS 상세 정보:');
+  console.log('-'.repeat(80));
+  if (data.fpsStats && data.fpsStats.count > 0) {
+    console.log(`평균 FPS: ${data.fpsStats.avg}`);
+    console.log(`최소 FPS: ${data.fpsStats.min}`);
+    console.log(`최대 FPS: ${data.fpsStats.max}`);
+    console.log(`측정 횟수: ${data.fpsStats.count}회`);
+    
+    // FPS 이력 표시 (처음 10개)
+    if (data.fpsMeasurements && data.fpsMeasurements.length > 0) {
+      console.log('\nFPS 이력 (처음 10개):');
+      data.fpsMeasurements.slice(0, 10).forEach((measurement, idx) => {
+        console.log(`  ${idx + 1}. ${measurement.fps} FPS @ ${measurement.elapsed.toFixed(1)}s`);
+      });
+    }
+  } else {
+    console.log('FPS 측정 없음');
+  }
+
   // LongTask 상세 정보
   console.log('\n⏱️  LongTask 상세 (duration > 50ms):');
   console.log('-'.repeat(80));
@@ -622,6 +781,20 @@ function compareVersions(data1, data2) {
       val2: data2.duration,
       unit: 'ms',
       lessIsBetter: true,
+    },
+    {
+      name: '평균 FPS',
+      val1: data1.fpsStats ? data1.fpsStats.avg : 0,
+      val2: data2.fpsStats ? data2.fpsStats.avg : 0,
+      unit: ' FPS',
+      lessIsBetter: false,
+    },
+    {
+      name: '최소 FPS',
+      val1: data1.fpsStats ? data1.fpsStats.min : 0,
+      val2: data2.fpsStats ? data2.fpsStats.min : 0,
+      unit: ' FPS',
+      lessIsBetter: false,
     },
   ];
 

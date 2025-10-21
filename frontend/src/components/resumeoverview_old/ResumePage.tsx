@@ -30,6 +30,12 @@ const PDFViewerRAF = dynamic(() => import("./pdfRAF/PDFViewer"), {
   loading: () => <div>PDF 로딩 중... (rAF 버전)</div>,
 });
 
+// PDF rAF 윈도잉 버전 (requestAnimationFrame + 윈도잉)
+const PDFViewerRAFWindowing = dynamic(() => import("./pdfRAFWindowing/PDFViewer"), {
+  ssr: false,
+  loading: () => <div>PDF 로딩 중... (rAF 윈도잉 버전)</div>,
+});
+
 // PDF Lazy 버전 (지연된 getPage 호출)
 const PDFViewerLazy = dynamic(() => import("./pdfLazy/PDFViewer"), {
   ssr: false,
@@ -120,6 +126,7 @@ function ResumePage({
     version === 'queue' ? PDFViewerQueue :
     version === 'simple' ? PDFViewerSimple :
     version === 'raf' ? PDFViewerRAF :
+    version === 'raf-windowing' ? PDFViewerRAFWindowing :
     version === 'lazy' ? PDFViewerLazy :
     PDFViewerStandard;
 
@@ -154,6 +161,11 @@ function ResumePage({
       label: '🎬 PDF rAF (requestAnimationFrame)', 
       color: 'bg-orange-100',
       description: 'requestAnimationFrame을 사용한 렌더링 최적화'
+    },
+    'raf-windowing': { 
+      label: '🧩 PDF Incremental Mount rAF', 
+      color: 'bg-indigo-100',
+      description: '한 프레임당 3개씩 점진적으로 DOM 마운트하는 rAF 버전'
     },
     lazy: { 
       label: '🐌 PDF Lazy (지연된 getPage)', 

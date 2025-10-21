@@ -1,0 +1,65 @@
+{
+  "lastUpdated": "2025-10-20T23:20:30.683Z",
+  "totalMeasurements": 1,
+  "measurements": [
+    {
+      "version": "Test",
+      "detectedVersion": "GU",
+      "url": "http://localhost:3000/feedback/4?version=raf-windowing",
+      "hasCollector": true,
+      "duration": 3.5999999940395355,
+      "sendWithPromiseCalls": [],
+      "longTasks": [],
+      "scrollEvents": [],
+      "renderEvents": [],
+      "fpsMeasurements": [
+        {
+          "fps": 114,
+          "timestamp": 1034.7999999970198,
+          "elapsed": 0.9937999999970197,
+          "frameCount": 115
+        },
+        {
+          "fps": 120,
+          "timestamp": 2043.2000000029802,
+          "elapsed": 2.00220000000298,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 3051.4000000059605,
+          "elapsed": 3.0104000000059603,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 4059.0999999940395,
+          "elapsed": 4.01809999999404,
+          "frameCount": 121
+        },
+        {
+          "fps": 120,
+          "timestamp": 5059.4000000059605,
+          "elapsed": 5.01840000000596,
+          "frameCount": 120
+        }
+      ],
+      "fpsStats": {
+        "avg": 119,
+        "min": 114,
+        "max": 120,
+        "count": 5
+      },
+      "renderEfficiency": 0,
+      "timestamp": "2025-10-20T23:20:30.683Z",
+      "config": {
+        "cpuThrottle": 4,
+        "scrollSteps": 10,
+        "stepDelay": 500,
+        "headless": false,
+        "realisticPattern": true
+      }
+    }
+  ],
+  "averages": {}
+}

@@ -39,6 +39,12 @@ export default function Page() {
             🎬 PDF rAF 버전 (requestAnimationFrame)
           </Link>
           <Link
+            href="/feedback/4?version=raf-windowing"
+            className="block w-full px-4 py-3 rounded-lg bg-indigo-50 border-2 border-indigo-200 shadow hover:shadow-md transition text-center text-gray-900"
+          >
+            🧩 PDF Incremental Mount rAF
+          </Link>
+          <Link
             href="/feedback/4?version=lazy"
             className="block w-full px-4 py-3 rounded-lg bg-yellow-50 border-2 border-yellow-200 shadow hover:shadow-md transition text-center text-gray-900"
           >
@@ -60,6 +66,7 @@ export default function Page() {
             <li>• <strong>Simple 버전:</strong> 스케줄러 없이 단순한 IntersectionObserver만 사용</li>
             <li>• <strong>Queue 버전:</strong> 렌더링 큐 관리, 우선순위 기반, Backpressure 기법</li>
             <li>• <strong>rAF 버전:</strong> requestAnimationFrame을 사용한 렌더링 최적화</li>
+            <li>• <strong>Incremental Mount rAF:</strong> 한 프레임당 3개씩 점진적으로 DOM 마운트하는 rAF 버전</li>
             <li>• <strong>Lazy 버전:</strong> 페이지 크기 미리 계산 제거, 관찰 후에만 getPage() 호출</li>
           </ul>
         </div>

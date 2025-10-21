@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-10-21T01:16:20.079Z",
+  "version": "RAF-Windowing-Visual",
+  "url": "http://localhost:3000/feedback/4?version=raf-windowing",
+  "config": {
+    "cpuThrottle": 4,
+    "testDuration": 30000,
+    "headless": false
+  },
+  "result": {
+    "success": false,
+    "error": "Page not ready",
+    "scrollEvents": [],
+    "renderEvents": [],
+    "fpsMeasurements": [],
+    "longTasks": [],
+    "maxScroll": 0,
+    "finalScrollPosition": 0
+  },
+  "versionInfo": {
+    "versionText": "Unknown",
+    "hasCollector": false,
+    "url": "http://localhost:3000/feedback/4?version=raf-windowing"
+  }
+}
