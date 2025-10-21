@@ -62,6 +62,27 @@ const PDFViewer = ({
   const [numPages, setNumPages] = useState(0);
   const [err, setErr] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // 성능 추적을 위한 useEffect 훅
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).__reactPerformanceTracker) {
+      const startTime = (window as any).__reactPerformanceTracker.renderStart('PDFViewerSimple');
+      return () => (window as any).__reactPerformanceTracker.renderEnd('PDFViewerSimple', startTime);
+    }
+  });
+
+  // setState 호출 추적
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).setStateTracker) {
+      (window as any).setStateTracker.trackStateChange('PDFViewerSimple', 'pdf-updated', performance.now(), performance.now() + 1);
+    }
+  }, [pdf]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).setStateTracker) {
+      (window as any).setStateTracker.trackStateChange('PDFViewerSimple', 'numPages-updated', performance.now(), performance.now() + 1);
+    }
+  }, [numPages]);
   
   // 각 페이지별 요소 관리
   const pageElements = useRef<Map<number, PDFElement>>(new Map());
@@ -105,9 +126,22 @@ const PDFViewer = ({
         if (cancelled) return;
         
         console.log(`PDF 문서 로딩 완료: ${loaded.numPages}페이지`);
-        setPdf(loaded);
-        setNumPages(loaded.numPages);
-        setLoading(false);
+        
+        // 커밋 추적 - PDF 로드 완료
+        if (typeof window !== 'undefined' && (window as any).commitTracker) {
+          const commitStartTime = performance.now();
+          setPdf(loaded);
+          setNumPages(loaded.numPages);
+          setLoading(false);
+          const commitEndTime = performance.now();
+          (window as any).commitTracker.trackCommit('pdf-loaded', commitStartTime, commitEndTime, {
+            numPages: loaded.numPages
+          });
+        } else {
+          setPdf(loaded);
+          setNumPages(loaded.numPages);
+          setLoading(false);
+        }
         
       } catch (e: any) {
         if (cancelled) return;
@@ -182,6 +216,23 @@ const PDFViewer = ({
     };
   }, [pdf, numPages]);
 
+  // DOM 초기화 커밋 추적 (Simple 버전에서는 모든 페이지가 한번에 렌더링됨)
+  useEffect(() => {
+    if (pdf && numPages > 0) {
+      // 모든 페이지가 한번에 렌더링되는 시점 추적
+      if (typeof window !== 'undefined' && (window as any).commitTracker) {
+        const commitStartTime = performance.now();
+        // setTimeout으로 DOM 업데이트가 완료된 후 측정
+        setTimeout(() => {
+          const commitEndTime = performance.now();
+          (window as any).commitTracker.trackCommit('dom-initialization', commitStartTime, commitEndTime, {
+            totalPages: numPages,
+            type: 'all-pages-at-once'
+          });
+        }, 100);
+      }
+    }
+  }, [pdf, numPages]);
 
   if (err) return <div>{err}</div>;
   if (!pdf) return <div>PDF 로딩 중...</div>;
@@ -204,6 +255,18 @@ const PDFViewer = ({
               if (el) {
                 // 바로 observer에 등록하고 요소 저장
                 pageElements.current.set(pageNumber, el as PDFElement);
+                
+                // Simple 버전에서 각 페이지 DOM 추가 시 커밋 추적
+                if (typeof window !== 'undefined' && (window as any).commitTracker) {
+                  const commitStartTime = performance.now();
+                  setTimeout(() => {
+                    const commitEndTime = performance.now();
+                    (window as any).commitTracker.trackCommit('page-dom-added', commitStartTime, commitEndTime, {
+                      pageNumber,
+                      type: 'simple-initial-render'
+                    });
+                  }, 50);
+                }
                 
                 // 함수가 설정될 때까지 잠시 기다린 후 observer 등록
                 const checkAndObserve = () => {

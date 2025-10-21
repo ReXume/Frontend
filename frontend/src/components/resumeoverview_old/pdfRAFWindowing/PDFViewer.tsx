@@ -42,7 +42,7 @@ class RenderScheduler {
   private q: { id: string; priority: number; run: () => Promise<void> }[] = [];
   private enqueued = new Set<string>();
 
-  constructor(K = 4) {
+  constructor(K = 7) {
     this.K = K;
   }
   setConcurrency(k: number) {
@@ -88,6 +88,33 @@ const PDFViewer = ({
 
   // 🧩 1️⃣ Incremental Mount - 점진적 마운트를 위한 상태
   const [visiblePages, setVisiblePages] = useState<number[]>([]);
+
+  // 성능 추적을 위한 useEffect 훅
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).__reactPerformanceTracker) {
+      const startTime = (window as any).__reactPerformanceTracker.renderStart('PDFViewerRAFWindowing');
+      return () => (window as any).__reactPerformanceTracker.renderEnd('PDFViewerRAFWindowing', startTime);
+    }
+  });
+
+  // setState 호출 추적
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).setStateTracker) {
+      (window as any).setStateTracker.trackStateChange('PDFViewerRAFWindowing', 'pdf-updated', performance.now(), performance.now() + 1);
+    }
+  }, [pdf]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).setStateTracker) {
+      (window as any).setStateTracker.trackStateChange('PDFViewerRAFWindowing', 'numPages-updated', performance.now(), performance.now() + 1);
+    }
+  }, [numPages]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).setStateTracker) {
+      (window as any).setStateTracker.trackStateChange('PDFViewerRAFWindowing', 'visiblePages-updated', performance.now(), performance.now() + 1);
+    }
+  }, [visiblePages]);
   const mountingRef = useRef({ isRunning: false, currentIndex: 1 });
 
   // 페이지 DOM 보관
@@ -119,8 +146,20 @@ const PDFViewer = ({
         });
         const loaded = await task.promise;
         if (cancelled) return;
-        setPdf(loaded);
-        setNumPages(loaded.numPages);
+        
+        // 커밋 추적 - PDF 로드 완료
+        if (typeof window !== 'undefined' && (window as any).commitTracker) {
+          const commitStartTime = performance.now();
+          setPdf(loaded);
+          setNumPages(loaded.numPages);
+          const commitEndTime = performance.now();
+          (window as any).commitTracker.trackCommit('pdf-loaded', commitStartTime, commitEndTime, {
+            numPages: loaded.numPages
+          });
+        } else {
+          setPdf(loaded);
+          setNumPages(loaded.numPages);
+        }
       } catch (e: any) {
         if (!cancelled) setErr(e?.message ?? "PDF 로딩 실패");
       } finally {
@@ -142,7 +181,7 @@ const PDFViewer = ({
 
     let rafId: number;
     let currentStartIndex = 1;
-    const batchSize = 3; // 한 프레임당 3개씩 추가
+    const batchSize = 7; // 한 프레임당 3개씩 추가
 
     const mountNextBatch = (startIndex?: number) => {
       // 파라미터로 받은 인덱스가 있으면 사용, 없으면 현재 인덱스 사용
@@ -156,19 +195,45 @@ const PDFViewer = ({
 
       console.log(`🔄 Batch 시작: workingIndex=${workingIndex}, 추가할 페이지들=[${pagesToAdd.join(', ')}]`);
 
-      setVisiblePages((prev) => {
-        const next = [...prev];
+      // 커밋 추적 시작
+      if (typeof window !== 'undefined' && (window as any).commitTracker) {
+        const commitStartTime = performance.now();
         
-        // 새로 추가될 페이지만 처리
-        pagesToAdd.forEach(pageNumber => {
-          if (!next.includes(pageNumber)) {
-            next.push(pageNumber);
-            console.log(`🧩 페이지 ${pageNumber} 마운트됨 (${next.length}/${numPages})`);
-          }
+        setVisiblePages((prev) => {
+          const next = [...prev];
+          
+          // 새로 추가될 페이지만 처리
+          pagesToAdd.forEach(pageNumber => {
+            if (!next.includes(pageNumber)) {
+              next.push(pageNumber);
+              console.log(`🧩 페이지 ${pageNumber} 마운트됨 (${next.length}/${numPages})`);
+            }
+          });
+          
+          // 커밋 추적 완료
+          const commitEndTime = performance.now();
+          (window as any).commitTracker.trackCommit('visiblePages-update', commitStartTime, commitEndTime, {
+            pagesAdded: pagesToAdd,
+            totalPages: next.length
+          });
+          
+          return next;
         });
-        
-        return next;
-      });
+      } else {
+        setVisiblePages((prev) => {
+          const next = [...prev];
+          
+          // 새로 추가될 페이지만 처리
+          pagesToAdd.forEach(pageNumber => {
+            if (!next.includes(pageNumber)) {
+              next.push(pageNumber);
+              console.log(`🧩 페이지 ${pageNumber} 마운트됨 (${next.length}/${numPages})`);
+            }
+          });
+          
+          return next;
+        });
+      }
 
       // 다음 배치를 위한 인덱스 계산
       const nextStartIndex = workingIndex + batchSize;
@@ -305,6 +370,19 @@ const PDFViewer = ({
       const cast = el as PDFElement;
       cast.dataset.pageNumber = String(pageNumber);
       pageElements.current.set(pageNumber, cast);
+      
+      // RAF Windowing 버전에서 각 페이지 DOM 마운트 시 커밋 추적
+      if (typeof window !== 'undefined' && (window as any).commitTracker) {
+        const commitStartTime = performance.now();
+        setTimeout(() => {
+          const commitEndTime = performance.now();
+          (window as any).commitTracker.trackCommit('page-dom-mounted', commitStartTime, commitEndTime, {
+            pageNumber,
+            type: 'raf-incremental-mount',
+            visiblePagesCount: visiblePages.length
+          });
+        }, 50);
+      }
       
       // 마운트된 페이지만 관찰 시작
       if (visiblePages.includes(pageNumber)) {
