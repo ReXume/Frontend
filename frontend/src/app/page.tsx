@@ -31,12 +31,6 @@ export default function Page() {
           >
             🧩 PDF Incremental Mount rAF
           </Link>
-          <Link
-            href="/feedback/4?version=lazy"
-            className="block w-full px-4 py-3 rounded-lg bg-yellow-50 border-2 border-yellow-200 shadow hover:shadow-md transition text-center text-gray-900"
-          >
-            🐌 PDF Lazy 버전 (지연된 getPage)
-          </Link>
           <div className="my-4 border-t border-gray-300"></div>
         </div>
         <div className="mt-6 p-4 bg-blue-50 rounded-lg">
@@ -46,7 +40,6 @@ export default function Page() {
             <li>• <strong>Simple 버전:</strong> 스케줄러 없이 단순한 IntersectionObserver만 사용</li>
             <li>• <strong>rAF 버전:</strong> requestAnimationFrame을 사용한 렌더링 최적화</li>
             <li>• <strong>Incremental Mount rAF:</strong> 한 프레임당 3개씩 점진적으로 DOM 마운트하는 rAF 버전</li>
-            <li>• <strong>Lazy 버전:</strong> 페이지 크기 미리 계산 제거, 관찰 후에만 getPage() 호출</li>
           </ul>
         </div>
       </div>
