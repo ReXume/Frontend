@@ -1,0 +1,1549 @@
+{
+  "timestamp": "2025-10-21T12:48:03.849Z",
+  "settings": {
+    "cpuThrottle": 4,
+    "runsPerUrl": 5,
+    "headless": true
+  },
+  "results": [
+    {
+      "config": {
+        "url": "http://localhost:3000/feedback/4?version=simple",
+        "name": "Simple (IntersectionObserver)",
+        "shortName": "simple"
+      },
+      "results": [
+        {
+          "startTime": 24.400000005960464,
+          "navigationStart": 24.5,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 30
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 248.2999999821186,
+              "timestamp": 249.40000000596046
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 142.90000000596046,
+              "duration": 118.40000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 101.73000000596046
+            },
+            {
+              "timestamp": 240.90000000596046,
+              "duration": 86.30000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 69.63000001192093
+            },
+            {
+              "timestamp": 310.90000000596046,
+              "duration": 40.80000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 24.130000011920927
+            },
+            {
+              "timestamp": 477.69999998807907,
+              "duration": 128.7999999821186,
+              "expectedDuration": 16.67,
+              "dropAmount": 112.1299999821186
+            },
+            {
+              "timestamp": 845.0999999940395,
+              "duration": 143.69999998807907,
+              "expectedDuration": 16.67,
+              "dropAmount": 127.02999998807907
+            },
+            {
+              "timestamp": 887.0999999940395,
+              "duration": 33.099999994039536,
+              "expectedDuration": 16.67,
+              "dropAmount": 16.429999994039534
+            },
+            {
+              "timestamp": 1009.6999999880791,
+              "duration": 122.59999999403954,
+              "expectedDuration": 16.67,
+              "dropAmount": 105.92999999403953
+            },
+            {
+              "timestamp": 7361.299999982119,
+              "duration": 22.099999994039536,
+              "expectedDuration": 16.67,
+              "dropAmount": 5.429999994039534
+            },
+            {
+              "timestamp": 7944.4000000059605,
+              "duration": 24.80000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 8.130000011920927
+            },
+            {
+              "timestamp": 8378,
+              "duration": 22.200000017881393,
+              "expectedDuration": 16.67,
+              "dropAmount": 5.530000017881392
+            },
+            {
+              "timestamp": 8877.09999999404,
+              "duration": 24,
+              "expectedDuration": 16.67,
+              "dropAmount": 7.329999999999998
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 38,
+              "duration": 104,
+              "timestamp": 154.59999999403954
+            },
+            {
+              "startTime": 155.69999998807907,
+              "duration": 85,
+              "timestamp": 249.40000000596046
+            },
+            {
+              "startTime": 359.09999999403954,
+              "duration": 118,
+              "timestamp": 495.69999998807907
+            },
+            {
+              "startTime": 705,
+              "duration": 139,
+              "timestamp": 854
+            },
+            {
+              "startTime": 890.6999999880791,
+              "duration": 118,
+              "timestamp": 1018.6999999880791
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5846.299999982119,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 13054.40000000596,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 188,
+              "duration": 0,
+              "timestamp": 256.59999999403954
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 188,
+              "duration": 0,
+              "timestamp": 256.59999999403954
+            }
+          ],
+          "version": "simple",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14931.899999976158,
+          "longTaskStats": {
+            "count": 5,
+            "totalDuration": 564,
+            "averageDuration": 112.8,
+            "maxDuration": 139
+          },
+          "frameStats": {
+            "totalDrops": 11,
+            "totalDropTime": 583.430000011921,
+            "averageDropTime": 53.03909091017464,
+            "maxDropTime": 127.02999998807907
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 124.1499999910593,
+            "maxDuration": 248.2999999821186
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4477,
+          "runNumber": 1,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=simple",
+            "name": "Simple (IntersectionObserver)",
+            "shortName": "simple"
+          },
+          "timestamp": "2025-10-21T12:45:24.585Z"
+        },
+        {
+          "startTime": 24.30000001192093,
+          "navigationStart": 24.30000001192093,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 30
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 243.90000000596046,
+              "timestamp": 245.7000000178814
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 140.80000001192093,
+              "duration": 116.40000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 99.73000000596046
+            },
+            {
+              "timestamp": 237.10000002384186,
+              "duration": 84.90000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 68.23000000596046
+            },
+            {
+              "timestamp": 303.80000001192093,
+              "duration": 39.19999998807907,
+              "expectedDuration": 16.67,
+              "dropAmount": 22.52999998807907
+            },
+            {
+              "timestamp": 481.80000001192093,
+              "duration": 132.59999999403954,
+              "expectedDuration": 16.67,
+              "dropAmount": 115.92999999403953
+            },
+            {
+              "timestamp": 830.3000000119209,
+              "duration": 142.69999998807907,
+              "expectedDuration": 16.67,
+              "dropAmount": 126.02999998807907
+            },
+            {
+              "timestamp": 873.5,
+              "duration": 33.599999994039536,
+              "expectedDuration": 16.67,
+              "dropAmount": 16.929999994039534
+            },
+            {
+              "timestamp": 995.2000000178814,
+              "duration": 121.7000000178814,
+              "expectedDuration": 16.67,
+              "dropAmount": 105.03000001788139
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 38.20000001788139,
+              "duration": 101,
+              "timestamp": 152.2000000178814
+            },
+            {
+              "startTime": 153.7000000178814,
+              "duration": 83,
+              "timestamp": 245.60000002384186
+            },
+            {
+              "startTime": 364.30000001192093,
+              "duration": 117,
+              "timestamp": 483.30000001192093
+            },
+            {
+              "startTime": 689.3000000119209,
+              "duration": 141,
+              "timestamp": 839.5
+            },
+            {
+              "startTime": 880.4000000059605,
+              "duration": 114,
+              "timestamp": 1004.2000000178814
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5954.700000017881,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 13162,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 251.80000001192093
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 251.80000001192093
+            }
+          ],
+          "version": "simple",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 15040.40000000596,
+          "longTaskStats": {
+            "count": 5,
+            "totalDuration": 556,
+            "averageDuration": 111.2,
+            "maxDuration": 141
+          },
+          "frameStats": {
+            "totalDrops": 7,
+            "totalDropTime": 554.4099999940395,
+            "averageDropTime": 79.20142857057706,
+            "maxDropTime": 126.02999998807907
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 121.95000000298023,
+            "maxDuration": 243.90000000596046
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4584,
+          "runNumber": 2,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=simple",
+            "name": "Simple (IntersectionObserver)",
+            "shortName": "simple"
+          },
+          "timestamp": "2025-10-21T12:45:42.314Z"
+        },
+        {
+          "startTime": 26.299999982118607,
+          "navigationStart": 26.299999982118607,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 31.5
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 243.39999997615814,
+              "timestamp": 244.39999997615814
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 142.69999998807907,
+              "duration": 116.40000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 99.73000000596046
+            },
+            {
+              "timestamp": 236.69999998807907,
+              "duration": 84,
+              "expectedDuration": 16.67,
+              "dropAmount": 67.33
+            },
+            {
+              "timestamp": 298.69999998807907,
+              "duration": 42.099999994039536,
+              "expectedDuration": 16.67,
+              "dropAmount": 25.429999994039534
+            },
+            {
+              "timestamp": 470.7999999821186,
+              "duration": 121.2999999821186,
+              "expectedDuration": 16.67,
+              "dropAmount": 104.6299999821186
+            },
+            {
+              "timestamp": 835.5,
+              "duration": 146.30000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 129.6300000119209
+            },
+            {
+              "timestamp": 913.0999999940395,
+              "duration": 67.5,
+              "expectedDuration": 16.67,
+              "dropAmount": 50.83
+            },
+            {
+              "timestamp": 1004.0999999940395,
+              "duration": 91,
+              "expectedDuration": 16.67,
+              "dropAmount": 74.33
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 38.39999997615814,
+              "duration": 102,
+              "timestamp": 152.69999998807907
+            },
+            {
+              "startTime": 154.2999999821186,
+              "duration": 82,
+              "timestamp": 244.39999997615814
+            },
+            {
+              "startTime": 351.59999999403954,
+              "duration": 118,
+              "timestamp": 475.2999999821186
+            },
+            {
+              "startTime": 695.3999999761581,
+              "duration": 139,
+              "timestamp": 845.3999999761581
+            },
+            {
+              "startTime": 850.2999999821186,
+              "duration": 56,
+              "timestamp": 999
+            },
+            {
+              "startTime": 919,
+              "duration": 80,
+              "timestamp": 999
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5846.699999988079,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 13063.299999982119,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 250.39999997615814
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 250.39999997615814
+            }
+          ],
+          "version": "simple",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14934.09999999404,
+          "longTaskStats": {
+            "count": 6,
+            "totalDuration": 577,
+            "averageDuration": 96.16666666666667,
+            "maxDuration": 139
+          },
+          "frameStats": {
+            "totalDrops": 7,
+            "totalDropTime": 551.9099999940395,
+            "averageDropTime": 78.84428571343422,
+            "maxDropTime": 129.6300000119209
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 121.69999998807907,
+            "maxDuration": 243.39999997615814
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4483,
+          "runNumber": 3,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=simple",
+            "name": "Simple (IntersectionObserver)",
+            "shortName": "simple"
+          },
+          "timestamp": "2025-10-21T12:45:59.936Z"
+        },
+        {
+          "startTime": 25.30000001192093,
+          "navigationStart": 25.30000001192093,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 31.200000017881393
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 244.30000001192093,
+              "timestamp": 244.90000000596046
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 141.7000000178814,
+              "duration": 116.30000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 99.63000001192093
+            },
+            {
+              "timestamp": 237.2000000178814,
+              "duration": 83.5,
+              "expectedDuration": 16.67,
+              "dropAmount": 66.83
+            },
+            {
+              "timestamp": 307.60000002384186,
+              "duration": 45.30000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 28.630000011920927
+            },
+            {
+              "timestamp": 469.40000000596046,
+              "duration": 126.09999999403954,
+              "expectedDuration": 16.67,
+              "dropAmount": 109.42999999403953
+            },
+            {
+              "timestamp": 829.2000000178814,
+              "duration": 146,
+              "expectedDuration": 16.67,
+              "dropAmount": 129.32999999999998
+            },
+            {
+              "timestamp": 876.6000000238419,
+              "duration": 38.80000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 22.130000011920927
+            },
+            {
+              "timestamp": 976.8000000119209,
+              "duration": 100.19999998807907,
+              "expectedDuration": 16.67,
+              "dropAmount": 83.52999998807907
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 40.10000002384186,
+              "duration": 101,
+              "timestamp": 153.10000002384186
+            },
+            {
+              "startTime": 154,
+              "duration": 83,
+              "timestamp": 244.90000000596046
+            },
+            {
+              "startTime": 352.80000001192093,
+              "duration": 115,
+              "timestamp": 486.5
+            },
+            {
+              "startTime": 686.7000000178814,
+              "duration": 142,
+              "timestamp": 837.8000000119209
+            },
+            {
+              "startTime": 881,
+              "duration": 89,
+              "timestamp": 979.9000000059605
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5809.300000011921,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 13032.90000000596,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 188,
+              "duration": 0,
+              "timestamp": 251.40000000596046
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 188,
+              "duration": 0,
+              "timestamp": 251.40000000596046
+            }
+          ],
+          "version": "simple",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14901.09999999404,
+          "longTaskStats": {
+            "count": 5,
+            "totalDuration": 530,
+            "averageDuration": 106,
+            "maxDuration": 142
+          },
+          "frameStats": {
+            "totalDrops": 7,
+            "totalDropTime": 539.5100000178813,
+            "averageDropTime": 77.07285714541162,
+            "maxDropTime": 129.32999999999998
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 122.15000000596046,
+            "maxDuration": 244.30000001192093
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4447,
+          "runNumber": 4,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=simple",
+            "name": "Simple (IntersectionObserver)",
+            "shortName": "simple"
+          },
+          "timestamp": "2025-10-21T12:46:17.517Z"
+        },
+        {
+          "startTime": 30.80000001192093,
+          "navigationStart": 30.80000001192093,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 36.5
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 250.10000002384186,
+              "timestamp": 251
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 145.80000001192093,
+              "duration": 114.90000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 98.23000000596046
+            },
+            {
+              "timestamp": 243.40000000596046,
+              "duration": 86.59999999403954,
+              "expectedDuration": 16.67,
+              "dropAmount": 69.92999999403953
+            },
+            {
+              "timestamp": 307.40000000596046,
+              "duration": 44.099999994039536,
+              "expectedDuration": 16.67,
+              "dropAmount": 27.429999994039534
+            },
+            {
+              "timestamp": 491.10000002384186,
+              "duration": 137.7000000178814,
+              "expectedDuration": 16.67,
+              "dropAmount": 121.03000001788139
+            },
+            {
+              "timestamp": 837.3000000119209,
+              "duration": 143.09999999403954,
+              "expectedDuration": 16.67,
+              "dropAmount": 126.42999999403953
+            },
+            {
+              "timestamp": 891.3000000119209,
+              "duration": 44.69999998807907,
+              "expectedDuration": 16.67,
+              "dropAmount": 28.02999998807907
+            },
+            {
+              "timestamp": 1000.3000000119209,
+              "duration": 109,
+              "expectedDuration": 16.67,
+              "dropAmount": 92.33
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 45.30000001192093,
+              "duration": 99,
+              "timestamp": 156.80000001192093
+            },
+            {
+              "startTime": 158.2000000178814,
+              "duration": 85,
+              "timestamp": 251
+            },
+            {
+              "startTime": 367.40000000596046,
+              "duration": 123,
+              "timestamp": 495.10000002384186
+            },
+            {
+              "startTime": 696.1000000238419,
+              "duration": 141,
+              "timestamp": 846.2000000178814
+            },
+            {
+              "startTime": 898.7000000178814,
+              "duration": 100,
+              "timestamp": 1008.8000000119209
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5837.300000011921,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 13061.200000017881,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 192,
+              "duration": 0,
+              "timestamp": 257.7000000178814
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 192,
+              "duration": 0,
+              "timestamp": 257.7000000178814
+            }
+          ],
+          "version": "simple",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14929,
+          "longTaskStats": {
+            "count": 5,
+            "totalDuration": 548,
+            "averageDuration": 109.6,
+            "maxDuration": 141
+          },
+          "frameStats": {
+            "totalDrops": 7,
+            "totalDropTime": 563.4099999940395,
+            "averageDropTime": 80.48714285629136,
+            "maxDropTime": 126.42999999403953
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 125.05000001192093,
+            "maxDuration": 250.10000002384186
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4474,
+          "runNumber": 5,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=simple",
+            "name": "Simple (IntersectionObserver)",
+            "shortName": "simple"
+          },
+          "timestamp": "2025-10-21T12:46:35.091Z"
+        }
+      ]
+    },
+    {
+      "config": {
+        "url": "http://localhost:3000/feedback/4?version=raf",
+        "name": "RAF (requestAnimationFrame)",
+        "shortName": "raf"
+      },
+      "results": [
+        {
+          "startTime": 29,
+          "navigationStart": 29,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 35.5
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 248.90000000596046,
+              "timestamp": 249.7000000178814
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 146.80000001192093,
+              "duration": 117.5,
+              "expectedDuration": 16.67,
+              "dropAmount": 100.83
+            },
+            {
+              "timestamp": 241.7000000178814,
+              "duration": 83.2000000178814,
+              "expectedDuration": 16.67,
+              "dropAmount": 66.53000001788139
+            },
+            {
+              "timestamp": 307.7000000178814,
+              "duration": 39.10000002384186,
+              "expectedDuration": 16.67,
+              "dropAmount": 22.430000023841856
+            },
+            {
+              "timestamp": 484.80000001192093,
+              "duration": 132.90000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 116.23000000596046
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 43.599999994039536,
+              "duration": 102,
+              "timestamp": 157.90000000596046
+            },
+            {
+              "startTime": 159.5,
+              "duration": 82,
+              "timestamp": 249.7000000178814
+            },
+            {
+              "startTime": 365.5,
+              "duration": 118,
+              "timestamp": 487.40000000596046
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5551,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 12774.300000011921,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 196,
+              "duration": 0,
+              "timestamp": 256.30000001192093
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 196,
+              "duration": 0,
+              "timestamp": 256.30000001192093
+            }
+          ],
+          "version": "raf",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14642.59999999404,
+          "longTaskStats": {
+            "count": 3,
+            "totalDuration": 302,
+            "averageDuration": 100.66666666666667,
+            "maxDuration": 118
+          },
+          "frameStats": {
+            "totalDrops": 4,
+            "totalDropTime": 306.0200000476837,
+            "averageDropTime": 76.50500001192093,
+            "maxDropTime": 116.23000000596046
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 124.45000000298023,
+            "maxDuration": 248.90000000596046
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4186,
+          "runNumber": 1,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=raf",
+            "name": "RAF (requestAnimationFrame)",
+            "shortName": "raf"
+          },
+          "timestamp": "2025-10-21T12:46:52.416Z"
+        },
+        {
+          "startTime": 24.400000005960464,
+          "navigationStart": 24.400000005960464,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 30
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 246.7000000178814,
+              "timestamp": 247.80000001192093
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 144,
+              "duration": 118.7999999821186,
+              "expectedDuration": 16.67,
+              "dropAmount": 102.1299999821186
+            },
+            {
+              "timestamp": 239.80000001192093,
+              "duration": 84.2000000178814,
+              "expectedDuration": 16.67,
+              "dropAmount": 67.53000001788139
+            },
+            {
+              "timestamp": 305.40000000596046,
+              "duration": 39.69999998807907,
+              "expectedDuration": 16.67,
+              "dropAmount": 23.02999998807907
+            },
+            {
+              "timestamp": 475.5,
+              "duration": 121,
+              "expectedDuration": 16.67,
+              "dropAmount": 104.33
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 39.400000005960464,
+              "duration": 103,
+              "timestamp": 154.90000000596046
+            },
+            {
+              "startTime": 156.80000001192093,
+              "duration": 83,
+              "timestamp": 247.80000001192093
+            },
+            {
+              "startTime": 357.30000001192093,
+              "duration": 118,
+              "timestamp": 480.40000000596046
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5572.9000000059605,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 12788.300000011921,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 192,
+              "duration": 0,
+              "timestamp": 254.09999999403954
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 192,
+              "duration": 0,
+              "timestamp": 254.09999999403954
+            }
+          ],
+          "version": "raf",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14662.09999999404,
+          "longTaskStats": {
+            "count": 3,
+            "totalDuration": 304,
+            "averageDuration": 101.33333333333333,
+            "maxDuration": 118
+          },
+          "frameStats": {
+            "totalDrops": 4,
+            "totalDropTime": 297.01999998807906,
+            "averageDropTime": 74.25499999701977,
+            "maxDropTime": 104.33
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 123.3500000089407,
+            "maxDuration": 246.7000000178814
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4209,
+          "runNumber": 2,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=raf",
+            "name": "RAF (requestAnimationFrame)",
+            "shortName": "raf"
+          },
+          "timestamp": "2025-10-21T12:47:09.730Z"
+        },
+        {
+          "startTime": 24.200000017881393,
+          "navigationStart": 24.200000017881393,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 30.700000017881393
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 241,
+              "timestamp": 241.7000000178814
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 137.59999999403954,
+              "duration": 112.59999999403954,
+              "expectedDuration": 16.67,
+              "dropAmount": 95.92999999403953
+            },
+            {
+              "timestamp": 233.80000001192093,
+              "duration": 85,
+              "expectedDuration": 16.67,
+              "dropAmount": 68.33
+            },
+            {
+              "timestamp": 299,
+              "duration": 39.29999998211861,
+              "expectedDuration": 16.67,
+              "dropAmount": 22.629999982118605
+            },
+            {
+              "timestamp": 474.2000000178814,
+              "duration": 131.60000002384186,
+              "expectedDuration": 16.67,
+              "dropAmount": 114.93000002384186
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 38.5,
+              "duration": 98,
+              "timestamp": 148.2000000178814
+            },
+            {
+              "startTime": 150.59999999403954,
+              "duration": 83,
+              "timestamp": 241.7000000178814
+            },
+            {
+              "startTime": 355.5,
+              "duration": 118,
+              "timestamp": 477.5
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5538.9000000059605,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 12756.5,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 248
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 248
+            }
+          ],
+          "version": "raf",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14630.299999982119,
+          "longTaskStats": {
+            "count": 3,
+            "totalDuration": 299,
+            "averageDuration": 99.66666666666667,
+            "maxDuration": 118
+          },
+          "frameStats": {
+            "totalDrops": 4,
+            "totalDropTime": 301.82,
+            "averageDropTime": 75.455,
+            "maxDropTime": 114.93000002384186
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 120.5,
+            "maxDuration": 241
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4177,
+          "runNumber": 3,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=raf",
+            "name": "RAF (requestAnimationFrame)",
+            "shortName": "raf"
+          },
+          "timestamp": "2025-10-21T12:47:27.039Z"
+        },
+        {
+          "startTime": 25.200000017881393,
+          "navigationStart": 25.200000017881393,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 30.700000017881393
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 242.80000001192093,
+              "timestamp": 243.5
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 140.30000001192093,
+              "duration": 115,
+              "expectedDuration": 16.67,
+              "dropAmount": 98.33
+            },
+            {
+              "timestamp": 236.5,
+              "duration": 84.7999999821186,
+              "expectedDuration": 16.67,
+              "dropAmount": 68.1299999821186
+            },
+            {
+              "timestamp": 299.60000002384186,
+              "duration": 43,
+              "expectedDuration": 16.67,
+              "dropAmount": 26.33
+            },
+            {
+              "timestamp": 463.5,
+              "duration": 129,
+              "expectedDuration": 16.67,
+              "dropAmount": 112.33
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 39.60000002384186,
+              "duration": 99,
+              "timestamp": 151.60000002384186
+            },
+            {
+              "startTime": 152.5,
+              "duration": 83,
+              "timestamp": 243.5
+            },
+            {
+              "startTime": 344.80000001192093,
+              "duration": 118,
+              "timestamp": 480.5
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5546.700000017881,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 12770.200000017881,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 251.2000000178814
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 184,
+              "duration": 0,
+              "timestamp": 251.2000000178814
+            }
+          ],
+          "version": "raf",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14639.59999999404,
+          "longTaskStats": {
+            "count": 3,
+            "totalDuration": 300,
+            "averageDuration": 100,
+            "maxDuration": 118
+          },
+          "frameStats": {
+            "totalDrops": 4,
+            "totalDropTime": 305.1199999821186,
+            "averageDropTime": 76.27999999552965,
+            "maxDropTime": 112.33
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 121.40000000596046,
+            "maxDuration": 242.80000001192093
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4184,
+          "runNumber": 4,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=raf",
+            "name": "RAF (requestAnimationFrame)",
+            "shortName": "raf"
+          },
+          "timestamp": "2025-10-21T12:47:44.393Z"
+        },
+        {
+          "startTime": 30.900000005960464,
+          "navigationStart": 30.900000005960464,
+          "commits": [
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 0,
+              "timestamp": 36.69999998807907
+            },
+            {
+              "type": "navigation",
+              "startTime": 0,
+              "duration": 246.69999998807907,
+              "timestamp": 247.59999999403954
+            }
+          ],
+          "setStates": [],
+          "frameDrops": [
+            {
+              "timestamp": 143.90000000596046,
+              "duration": 112.90000000596046,
+              "expectedDuration": 16.67,
+              "dropAmount": 96.23000000596046
+            },
+            {
+              "timestamp": 240,
+              "duration": 84.30000001192093,
+              "expectedDuration": 16.67,
+              "dropAmount": 67.63000001192093
+            },
+            {
+              "timestamp": 307.19999998807907,
+              "duration": 41,
+              "expectedDuration": 16.67,
+              "dropAmount": 24.33
+            },
+            {
+              "timestamp": 474.7999999821186,
+              "duration": 119.2999999821186,
+              "expectedDuration": 16.67,
+              "dropAmount": 102.6299999821186
+            }
+          ],
+          "longTasks": [
+            {
+              "startTime": 44.5,
+              "duration": 98,
+              "timestamp": 155.69999998807907
+            },
+            {
+              "startTime": 157.19999998807907,
+              "duration": 82,
+              "timestamp": 247.59999999403954
+            },
+            {
+              "startTime": 357.59999999403954,
+              "duration": 117,
+              "timestamp": 479.59999999403954
+            }
+          ],
+          "scrollEvents": [
+            {
+              "timestamp": 5671.299999982119,
+              "scrollY": 117
+            },
+            {
+              "timestamp": 12888.09999999404,
+              "scrollY": 0
+            }
+          ],
+          "renderEvents": [
+            {
+              "name": "first-paint",
+              "startTime": 192,
+              "duration": 0,
+              "timestamp": 254.40000000596046
+            },
+            {
+              "name": "first-contentful-paint",
+              "startTime": 192,
+              "duration": 0,
+              "timestamp": 254.40000000596046
+            }
+          ],
+          "version": "raf",
+          "reactUpdates": [],
+          "domMutations": [],
+          "totalDuration": 14757.199999988079,
+          "longTaskStats": {
+            "count": 3,
+            "totalDuration": 297,
+            "averageDuration": 99,
+            "maxDuration": 117
+          },
+          "frameStats": {
+            "totalDrops": 4,
+            "totalDropTime": 290.82,
+            "averageDropTime": 72.705,
+            "maxDropTime": 102.6299999821186
+          },
+          "setStateStats": {
+            "totalCalls": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "commitStats": {
+            "totalCommits": 2,
+            "averageDuration": 123.34999999403954,
+            "maxDuration": 246.69999998807907
+          },
+          "reactStats": {
+            "totalUpdates": 0,
+            "averageDuration": 0,
+            "maxDuration": 0
+          },
+          "domStats": {
+            "totalMutations": 0,
+            "canvasAdditions": 0
+          },
+          "scrollEventsCount": 2,
+          "renderEventsCount": 2,
+          "loadTime": 4307,
+          "runNumber": 5,
+          "config": {
+            "url": "http://localhost:3000/feedback/4?version=raf",
+            "name": "RAF (requestAnimationFrame)",
+            "shortName": "raf"
+          },
+          "timestamp": "2025-10-21T12:48:01.846Z"
+        }
+      ]
+    }
+  ],
+  "comparison": {
+    "simple": {
+      "config": {
+        "url": "http://localhost:3000/feedback/4?version=simple",
+        "name": "Simple (IntersectionObserver)",
+        "shortName": "simple"
+      },
+      "averageLoadTime": 4493,
+      "averageTotalDuration": 14947.29999999404,
+      "averageLongTasks": 5.2,
+      "averageLongTaskDuration": 555,
+      "averageFrameDrops": 7.8,
+      "averageFrameDropTime": 558.5340000023841,
+      "averageSetStateCalls": 0,
+      "averageSetStateDuration": 0,
+      "averageReactUpdates": 0,
+      "averageReactUpdateDuration": 0,
+      "averageCommits": 2,
+      "averageCanvasAdditions": 0,
+      "runCount": 5
+    },
+    "raf": {
+      "config": {
+        "url": "http://localhost:3000/feedback/4?version=raf",
+        "name": "RAF (requestAnimationFrame)",
+        "shortName": "raf"
+      },
+      "averageLoadTime": 4212.6,
+      "averageTotalDuration": 14666.359999990464,
+      "averageLongTasks": 3,
+      "averageLongTaskDuration": 300.4,
+      "averageFrameDrops": 4,
+      "averageFrameDropTime": 300.1600000035763,
+      "averageSetStateCalls": 0,
+      "averageSetStateDuration": 0,
+      "averageReactUpdates": 0,
+      "averageReactUpdateDuration": 0,
+      "averageCommits": 2,
+      "averageCanvasAdditions": 0,
+      "runCount": 5
+    }
+  }
+}
