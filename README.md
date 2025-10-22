@@ -64,6 +64,36 @@ npm run bench:scenario
 
 벤치마크 결과는 `bench/results/` 디렉토리에 저장됩니다.
 
+## 성능 측정 결과
+
+이 프로젝트의 주목적은 PDF를 확인하는 것인데, 페이지에서 PDF 렌더링 시점은 Lighthouse에서 제공하지 않기 때문에 따로 측정을 시도하였습니다.
+
+### PDF 첫 페이지 렌더링 시간 (ms)
+
+| 버전 | 평균 |
+| --- | --- |
+| **Basic (개선 전)** | 1042ms |
+| **Simple (IntersectionObserver)** | 1262ms |
+| **RAF (requestAnimationFrame)** | 952ms |
+
+전체적으로 IntersectionObserver를 적용한 버전이 기존 버전보다도 PDF 첫 페이지 렌더링 시간이 늦었습니다. IntersectionObserver를 적용했기 때문에 IntersectionObserver가 **상태 업데이트를 자주 발생**시킴이 추가적인 병목으로 발생한 것으로 판단됩니다.
+
+### Total Blocking Time (TBT, ms)
+
+| 버전 | 평균 |
+| --- | --- |
+| **Basic (개선 전)** | 323ms |
+| **Simple (IntersectionObserver)** | 196ms |
+| **RAF (requestAnimationFrame)** | 135ms |
+
+TBT도 IntersectionObserver를 적용한 버전이 기존 버전보다도 TBT가 긴 것이 IntersectionObserver로 인한 추가 병목이 발생했고, 그것이 사용자에게 영향을 줄 정도는 아니었지만 문제를 발생시켰다고 판단할 수 있었습니다.
+
+### 결론
+
+- `IntersectionObserver`만으로는 통신 폭주와 setState 병목을 해결할 수 없었습니다.
+- **rAF Batch**를 적용하면서 초기 렌더링 부하와 커밋 병목이 모두 해결되었습니다.
+- **PDF 첫 페이지 렌더링 시간 9% 개선, TBT 58% 개선**
+
 ## 기술 스택
 
 - **Framework**: Next.js 15.5
