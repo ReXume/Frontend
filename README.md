@@ -86,7 +86,6 @@ npm run bench:scenario
 | **Simple (IntersectionObserver)** | 196ms |
 | **RAF (requestAnimationFrame)** | 135ms |
 
-TBT도 IntersectionObserver를 적용한 버전이 기존 버전보다도 TBT가 긴 것이 IntersectionObserver로 인한 추가 병목이 발생했고, 그것이 사용자에게 영향을 줄 정도는 아니었지만 문제를 발생시켰다고 판단할 수 있었습니다.
 
 ### 결론
 
